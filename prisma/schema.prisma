@@ -1,0 +1,393 @@
+// Dominican Kwéyòl–English Dictionary — foundation schema (Phase 2)
+// Local demo: SQLite. Production: switch provider to postgresql and DATABASE_URL.
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+enum ReviewStatus {
+  DRAFT
+  NEEDS_REVIEW
+  LINGUIST_REVIEWED
+  COMMUNITY_REVIEWED
+  APPROVED
+  REJECTED
+  ARCHIVED
+}
+
+enum UserRole {
+  OWNER
+  ADMINISTRATOR
+  EDITOR
+  LANGUAGE_REVIEWER
+  AUDIO_REVIEWER
+  IMAGE_EDITOR
+  CONTRIBUTOR
+}
+
+enum Audience {
+  ADULT
+  CHILD
+  BOTH
+}
+
+enum MediaStatus {
+  MISSING
+  PLACEHOLDER
+  CONFIRMED
+}
+
+enum DifficultyLevel {
+  BEGINNER
+  ELEMENTARY
+  INTERMEDIATE
+  ADVANCED
+}
+
+enum ChildAgeBand {
+  EARLY_4_6
+  GROWING_7_9
+  CONFIDENT_10_12
+}
+
+enum FormalityLevel {
+  INFORMAL
+  NEUTRAL
+  FORMAL
+}
+
+enum SubmissionType {
+  NEW_WORD
+  CORRECTION
+  AUDIO
+  EXAMPLE
+  CULTURAL_NOTE
+  ALTERNATIVE_SPELLING
+}
+
+enum SubmissionStatus {
+  PENDING
+  IN_REVIEW
+  ACCEPTED
+  REJECTED
+}
+
+model User {
+  id           String     @id @default(cuid())
+  email        String     @unique
+  name         String?
+  role         UserRole   @default(CONTRIBUTOR)
+  passwordHash String?
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+
+  entriesEdited     DictionaryEntry[] @relation("EntryEditor")
+  auditEvents       AuditEvent[]
+  submissions       CommunitySubmission[]
+  reviewedSubmissions CommunitySubmission[] @relation("SubmissionReviewer")
+}
+
+/// Shared lexical base shared by adult and child presentations.
+model DictionaryEntry {
+  id                 String           @id @default(cuid())
+  slug               String           @unique
+  kweyolWord         String
+  englishTranslation String
+  alternativeEnglish String?
+  partOfSpeech       String?
+  pronunciationGuide String?
+  simpleDefinition   String?
+  detailedDefinition String?
+  grammaticalNotes   String?
+  usageNotes         String?
+  culturalNotes      String?
+  pluralForm         String?
+  verbForms          String?
+  alternativeSpelling String?
+  formalityLevel     FormalityLevel   @default(NEUTRAL)
+  ageSuitability     String?
+  difficulty         DifficultyLevel  @default(BEGINNER)
+  audience           Audience         @default(BOTH)
+  topicCategory      String?
+  sourceOrContributor String?
+  reviewStatus       ReviewStatus     @default(DRAFT)
+  regionalWarning    String?
+  isFeatured         Boolean          @default(false)
+  isWordOfDayEligible Boolean         @default(true)
+  dateAdded          DateTime         @default(now())
+  dateLastReviewed   DateTime?
+  createdAt          DateTime         @default(now())
+  updatedAt          DateTime         @updatedAt
+
+  editorId String?
+  editor   User?   @relation("EntryEditor", fields: [editorId], references: [id])
+
+  examples          ExampleSentence[]
+  synonyms          WordRelation[]    @relation("WordFrom")
+  relatedFrom       WordRelation[]    @relation("WordTo")
+  adultPresentation AdultPresentation?
+  childPresentation ChildPresentation?
+  audioFiles        AudioAsset[]
+  imageAssets       ImageAsset[]
+  categories        EntryCategory[]
+  favourites        Favourite[]
+  changeHistory     ChangeHistory[]
+
+  @@index([kweyolWord])
+  @@index([englishTranslation])
+  @@index([reviewStatus])
+  @@index([partOfSpeech])
+  @@index([difficulty])
+}
+
+model AdultPresentation {
+  id                   String          @id @default(cuid())
+  entryId              String          @unique
+  entry                DictionaryEntry @relation(fields: [entryId], references: [id], onDelete: Cascade)
+  displayDefinition    String?
+  learningNotes        String?
+  showInPublicDictionary Boolean       @default(true)
+  createdAt            DateTime        @default(now())
+  updatedAt            DateTime        @updatedAt
+}
+
+model ChildPresentation {
+  id                String          @id @default(cuid())
+  entryId           String          @unique
+  entry             DictionaryEntry @relation(fields: [entryId], references: [id], onDelete: Cascade)
+  simpleMeaning     String
+  shortExampleKweyol String?
+  shortExampleEnglish String?
+  funFact           String?
+  culturalFact      String?
+  ageBand           ChildAgeBand    @default(EARLY_4_6)
+  childCategoryKey  String?
+  showInChildrenDictionary Boolean  @default(true)
+  createdAt         DateTime        @default(now())
+  updatedAt         DateTime        @updatedAt
+
+  @@index([ageBand])
+  @@index([childCategoryKey])
+}
+
+model ExampleSentence {
+  id              String          @id @default(cuid())
+  entryId         String
+  entry           DictionaryEntry @relation(fields: [entryId], references: [id], onDelete: Cascade)
+  kweyolText      String
+  englishText     String
+  isPrimary       Boolean         @default(false)
+  audience        Audience        @default(ADULT)
+  sortOrder       Int             @default(0)
+  createdAt       DateTime        @default(now())
+
+  @@index([entryId])
+}
+
+model WordRelation {
+  id           String          @id @default(cuid())
+  fromEntryId  String
+  toEntryId    String
+  relationType String
+  fromEntry    DictionaryEntry @relation("WordFrom", fields: [fromEntryId], references: [id], onDelete: Cascade)
+  toEntry      DictionaryEntry @relation("WordTo", fields: [toEntryId], references: [id], onDelete: Cascade)
+
+  @@unique([fromEntryId, toEntryId, relationType])
+}
+
+model Category {
+  id          String   @id @default(cuid())
+  key         String   @unique
+  nameEn      String
+  nameKweyol  String?
+  description String?
+  audience    Audience @default(BOTH)
+  sortOrder   Int      @default(0)
+  imagePath   String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  entries EntryCategory[]
+}
+
+model EntryCategory {
+  entryId    String
+  categoryId String
+  entry      DictionaryEntry @relation(fields: [entryId], references: [id], onDelete: Cascade)
+  category   Category        @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+
+  @@id([entryId, categoryId])
+}
+
+model AudioAsset {
+  id           String          @id @default(cuid())
+  entryId      String
+  entry        DictionaryEntry @relation(fields: [entryId], references: [id], onDelete: Cascade)
+  fileName     String
+  filePath     String
+  status       MediaStatus     @default(MISSING)
+  isVerifiedNative Boolean     @default(false)
+  transcript   String?
+  audience     Audience        @default(BOTH)
+  createdAt    DateTime        @default(now())
+  updatedAt    DateTime        @updatedAt
+
+  @@index([entryId])
+  @@index([status])
+}
+
+model ImageAsset {
+  id           String          @id @default(cuid())
+  entryId      String?
+  entry        DictionaryEntry? @relation(fields: [entryId], references: [id], onDelete: SetNull)
+  categoryKey  String?
+  fileName     String
+  filePath     String
+  altText      String
+  status       MediaStatus     @default(PLACEHOLDER)
+  aspectRatio  String          @default("1:1")
+  generationBrief String?
+  audience     Audience        @default(CHILD)
+  createdAt    DateTime        @default(now())
+  updatedAt    DateTime        @updatedAt
+
+  @@index([entryId])
+  @@index([status])
+}
+
+model GrammarLesson {
+  id              String   @id @default(cuid())
+  slug            String   @unique
+  title           String
+  shortExplanation String
+  examplesJson    String
+  commonMistakes  String?
+  practiceActivity String?
+  pronunciationSupport String?
+  sortOrder       Int      @default(0)
+  reviewStatus    ReviewStatus @default(DRAFT)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model Quiz {
+  id           String       @id @default(cuid())
+  slug         String       @unique
+  title        String
+  description  String?
+  audience     Audience     @default(ADULT)
+  difficulty   DifficultyLevel @default(BEGINNER)
+  reviewStatus ReviewStatus @default(DRAFT)
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+
+  questions QuizQuestion[]
+}
+
+model QuizQuestion {
+  id            String @id @default(cuid())
+  quizId        String
+  quiz          Quiz   @relation(fields: [quizId], references: [id], onDelete: Cascade)
+  prompt        String
+  questionType  String
+  explanation   String?
+  sortOrder     Int    @default(0)
+
+  answers QuizAnswer[]
+}
+
+/// Quiz answers are never exposed on informational pages.
+model QuizAnswer {
+  id         String       @id @default(cuid())
+  questionId String
+  question   QuizQuestion @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  answerText String
+  isCorrect  Boolean      @default(false)
+  sortOrder  Int          @default(0)
+}
+
+model ChildActivity {
+  id           String        @id @default(cuid())
+  slug         String        @unique
+  title        String
+  description  String?
+  activityType String
+  ageBand      ChildAgeBand  @default(EARLY_4_6)
+  categoryKey  String?
+  configJson   String?
+  reviewStatus ReviewStatus  @default(DRAFT)
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+}
+
+model Favourite {
+  id        String          @id @default(cuid())
+  entryId   String
+  entry     DictionaryEntry @relation(fields: [entryId], references: [id], onDelete: Cascade)
+  /// Local-device key when no account; optional user later.
+  clientKey String
+  createdAt DateTime        @default(now())
+
+  @@unique([entryId, clientKey])
+}
+
+model CommunitySubmission {
+  id           String           @id @default(cuid())
+  type         SubmissionType
+  status       SubmissionStatus @default(PENDING)
+  payloadJson  String
+  submitterNote String?
+  submitterEmail String?
+  reviewerId   String?
+  reviewer     User?            @relation("SubmissionReviewer", fields: [reviewerId], references: [id])
+  contributorId String?
+  contributor  User?            @relation(fields: [contributorId], references: [id])
+  createdAt    DateTime         @default(now())
+  updatedAt    DateTime         @updatedAt
+}
+
+model ChangeHistory {
+  id        String           @id @default(cuid())
+  entryId   String?
+  entry     DictionaryEntry? @relation(fields: [entryId], references: [id], onDelete: SetNull)
+  entityType String
+  entityId  String
+  action    String
+  beforeJson String?
+  afterJson String?
+  actorId   String?
+  createdAt DateTime         @default(now())
+
+  @@index([entityType, entityId])
+}
+
+model AuditEvent {
+  id        String   @id @default(cuid())
+  actorId   String?
+  actor     User?    @relation(fields: [actorId], references: [id], onDelete: SetNull)
+  action    String
+  detailJson String?
+  createdAt DateTime @default(now())
+}
+
+model EditorialNote {
+  id        String   @id @default(cuid())
+  key       String   @unique
+  title     String
+  body      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Source {
+  id          String   @id @default(cuid())
+  name        String
+  description String?
+  url         String?
+  createdAt   DateTime @default(now())
+}
