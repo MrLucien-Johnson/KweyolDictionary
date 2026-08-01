@@ -1,13 +1,28 @@
+import Link from "next/link";
 import { ExperienceChooser } from "@/components/home/ExperienceChooser";
 import { HomeSearch } from "@/components/home/HomeSearch";
 import { ButtonLink } from "@/components/ui/ButtonLink";
+import { WordCard } from "@/components/dictionary/WordCard";
 import {
   LANGUAGE_VARIATION_NOTE,
   MISSION_STATEMENT,
   PROJECT_NAME,
 } from "@/lib/content/editorial";
+import {
+  getFeaturedEntries,
+  getRecentEntries,
+  getWordOfTheDay,
+  getPublicCategories,
+} from "@/lib/dictionary/queries";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const [wordOfDay, featured, recent, categories] = await Promise.all([
+    getWordOfTheDay(),
+    getFeaturedEntries(3),
+    getRecentEntries(6),
+    getPublicCategories(),
+  ]);
+
   return (
     <>
       <section className="home-hero" aria-labelledby="home-brand">
@@ -28,31 +43,56 @@ export default function HomePage() {
         <ExperienceChooser />
       </div>
 
-      <section
-        className="home-section"
-        aria-labelledby="featured-learning-title"
-      >
-        <h2 id="featured-learning-title" className="section-title">
-          Start with sound, culture and daily words
+      <section className="home-section" aria-labelledby="wotd-title">
+        <h2 id="wotd-title" className="section-title">
+          Word of the Day
         </h2>
-        <p className="section-lead">
-          Foundation pages are in place. Dictionary search, children’s
-          illustrations and full lesson content land in the next phases.
-        </p>
+        {wordOfDay ? (
+          <div className="wotd">
+            <WordCard
+              slug={wordOfDay.slug}
+              kweyolWord={wordOfDay.kweyolWord}
+              englishTranslation={wordOfDay.englishTranslation}
+              partOfSpeech={wordOfDay.partOfSpeech}
+              pronunciationGuide={wordOfDay.pronunciationGuide}
+            />
+          </div>
+        ) : (
+          <p className="section-lead">
+            A daily approved word will appear here once eligible entries are
+            published.
+          </p>
+        )}
+      </section>
+
+      <section className="home-section" aria-labelledby="featured-cats-title">
+        <h2 id="featured-cats-title" className="section-title">
+          Featured categories
+        </h2>
+        <div className="chip-row">
+          {categories.slice(0, 10).map((category) => (
+            <Link
+              key={category.id}
+              href={`/dictionary?category=${category.key}`}
+              className="chip-link"
+            >
+              {category.nameEn}
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className="home-section" aria-labelledby="featured-learning-title">
+        <h2 id="featured-learning-title" className="section-title">
+          Pronunciation, culture and featured words
+        </h2>
+        <p className="section-lead">{LANGUAGE_VARIATION_NOTE}</p>
         <div className="feature-grid">
-          <article className="feature-block">
-            <h3>Word of the Day</h3>
-            <p>
-              A daily Dominican Kwéyòl word will appear here once approved
-              entries are published.
-            </p>
-            <span className="status-chip">Coming in Phase 3</span>
-          </article>
           <article className="feature-block">
             <h3>Pronunciation learning</h3>
             <p>
-              Learn the alphabet, common letter combinations and listening
-              practice for Dominica’s Kwéyòl sounds.
+              Explore the alphabet, greetings and sentence patterns in the
+              learning section.
             </p>
             <div style={{ marginTop: "1rem" }}>
               <ButtonLink href="/learn" variant="soft">
@@ -60,17 +100,42 @@ export default function HomePage() {
               </ButtonLink>
             </div>
           </article>
-          <article className="feature-block">
-            <h3>Cultural feature</h3>
-            <p>{LANGUAGE_VARIATION_NOTE}</p>
-          </article>
+          {featured.map((entry) => (
+            <WordCard
+              key={entry.id}
+              slug={entry.slug}
+              kweyolWord={entry.kweyolWord}
+              englishTranslation={entry.englishTranslation}
+              partOfSpeech={entry.partOfSpeech}
+              pronunciationGuide={entry.pronunciationGuide}
+            />
+          ))}
         </div>
       </section>
 
-      <section
-        className="home-section"
-        aria-labelledby="contribute-title"
-      >
+      <section className="home-section" aria-labelledby="recent-title">
+        <h2 id="recent-title" className="section-title">
+          Recently added words
+        </h2>
+        {recent.length ? (
+          <div className="word-grid">
+            {recent.map((entry) => (
+              <WordCard
+                key={entry.id}
+                slug={entry.slug}
+                kweyolWord={entry.kweyolWord}
+                englishTranslation={entry.englishTranslation}
+                partOfSpeech={entry.partOfSpeech}
+                pronunciationGuide={entry.pronunciationGuide}
+              />
+            ))}
+          </div>
+        ) : (
+          <p className="section-lead">No approved recent entries yet.</p>
+        )}
+      </section>
+
+      <section className="home-section" aria-labelledby="contribute-title">
         <h2 id="contribute-title" className="section-title">
           Help grow the dictionary
         </h2>

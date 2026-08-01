@@ -1,27 +1,87 @@
 import type { Metadata } from "next";
-import { ButtonLink } from "@/components/ui/ButtonLink";
+import Link from "next/link";
+import { listChildActivities, listChildCategories } from "@/lib/children/queries";
+import { ChildProgressPanel } from "@/components/children/ChildProgressPanel";
 
 export const metadata: Metadata = {
   title: "Children’s Dictionary",
   description:
-    "A child-friendly Dominican Kwéyòl learning dictionary with illustrations and audio.",
+    "A child-friendly Dominican Kwéyòl learning dictionary with pictures and activities.",
 };
 
-export default function ChildrenDictionaryPage() {
+export default async function ChildrenHomePage() {
+  const [categories, activities] = await Promise.all([
+    listChildCategories(),
+    listChildActivities(),
+  ]);
+
   return (
-    <div className="placeholder-page">
-      <h1>Children’s Dictionary</h1>
-      <p>
-        Illustrated categories, listen buttons and age-banded word cards are
-        planned for Phase 5. No personal information is required for children
-        to explore.
-      </p>
-      <span className="status-chip">Phase 2 foundation · Phase 5 next</span>
-      <div style={{ marginTop: "1.5rem" }}>
-        <ButtonLink href="/" variant="soft">
-          Back to home
-        </ButtonLink>
-      </div>
+    <div className="children-page">
+      <header className="children-hero">
+        <h1>Children’s Kwéyòl Dictionary</h1>
+        <p>
+          Colourful words, listen buttons and gentle games for ages 4–12. No
+          account needed.
+        </p>
+        <div className="children-hero__actions">
+          <Link href="/children/words" className="btn btn--secondary btn--lg">
+            Browse picture words
+          </Link>
+          <Link href="/children/activities" className="btn btn--primary btn--lg">
+            Play activities
+          </Link>
+        </div>
+      </header>
+
+      <ChildProgressPanel />
+
+      <section className="learn-section">
+        <h2 className="section-title">Choose a category</h2>
+        <p className="section-lead">
+          Big picture categories make it easy to explore Dominica’s Kwéyòl.
+        </p>
+        <div className="child-category-grid">
+          {categories.map((category) => (
+            <Link
+              key={category.key}
+              href={`/children/categories/${category.key}`}
+              className="child-category-card"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={category.imagePath}
+                alt=""
+                width={120}
+                height={120}
+              />
+              <span className="child-category-card__title">{category.nameEn}</span>
+              <span className="child-category-card__count">
+                {category.count} {category.count === 1 ? "word" : "words"}
+              </span>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className="learn-section">
+        <h2 className="section-title">Try an activity</h2>
+        <div className="feature-grid">
+          {activities.slice(0, 3).map((activity) => (
+            <article key={activity.id} className="feature-block">
+              <h3>{activity.title}</h3>
+              <p>{activity.description}</p>
+              <div style={{ marginTop: "1rem" }}>
+                <Link
+                  href={`/children/activities/${activity.slug}`}
+                  className="btn btn--soft btn--md"
+                >
+                  Play
+                </Link>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }

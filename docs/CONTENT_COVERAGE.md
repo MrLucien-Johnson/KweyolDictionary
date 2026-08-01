@@ -1,26 +1,44 @@
 # Content coverage report
 
-Generated after Phase 2 seed. Demonstration vocabulary is **not** approved.
+Generated: 2026-08-01T12:18:10.677Z
 
-| Metric | Count | Notes |
-|--------|------:|-------|
-| Total dictionary entries | 2 | Seed demos only |
-| Approved entries | 0 | Public dictionary empty by design |
-| Draft entries | 2 | `bonjou-demo`, `dlo-demo` |
-| Needs review | 0 | |
-| Words with audio | 0 | |
-| Words without audio | 2 | |
-| Words with images | 0 | |
-| Children’s words without images | 2 | Child presentations exist; media missing |
-| Entries without examples | 0 | Both demos have one example |
-| Entries without cultural notes | 2 | |
-| Duplicate candidates | 0 | |
-| Categories seeded | 52 | Adult + child keys |
-| Categories with little/no content | 52 | No approved links yet |
+| Metric | Count |
+|--------|------:|
+| Total entries | 15 |
+| Approved entries | 14 |
+| Draft entries | 1 |
+| Words with audio | 0 |
+| Words without audio | 15 |
+| Words with images | 14 |
+| Children’s words without confirmed images | 14 |
+| Entries without examples | 0 |
+| Entries without cultural notes | 12 |
+| Duplicate candidates | 0 |
+| Categories with little or no content | 43 |
 
-## Refresh later
+## Duplicate candidates
 
-```bash
-npm run db:seed
-# Phase 9 will add an automated coverage report command
-```
+_None_
+
+## Thin categories (sample)
+
+- cooking
+- clothing
+- days-and-months
+- time
+- body
+- health
+- emotions
+- school
+- work
+- travel
+- transport
+- nature
+- plants
+- farming
+- fishing
+- construction
+- religion-and-spirituality
+- music
+- dance
+- festivals

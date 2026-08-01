@@ -46,8 +46,14 @@ npm run typecheck
 npm run test
 npm run test:e2e
 npm run db:validate
+npm run db:seed
+npm run content:report
 npm run validate
 ```
+
+## Admin (local)
+
+Set `ADMIN_EMAIL`, `ADMIN_PASSWORD` and `ADMIN_SESSION_SECRET` in `.env`, then visit `/admin/login`.
 
 ## Image naming convention
 
