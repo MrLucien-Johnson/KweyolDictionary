@@ -1,0 +1,1441 @@
+{
+  "generatedAt": "2026-08-02T18:26:12.405Z",
+  "language": "Dominican Kwéyòl",
+  "entries": [
+    {
+      "id": "bonjou",
+      "slug": "bonjou",
+      "kweyolWord": "bonjou",
+      "englishTranslation": "good morning",
+      "alternativeEnglish": null,
+      "partOfSpeech": "interjection",
+      "pronunciationGuide": "bon-zhoo",
+      "simpleDefinition": "A greeting used in the morning.",
+      "detailedDefinition": "A common daytime greeting used to wish someone a good morning.",
+      "culturalNotes": "Greetings are an important part of everyday courtesy in Dominica. Usage can vary by community and time of day.",
+      "grammaticalNotes": null,
+      "usageNotes": null,
+      "topicCategory": "greetings",
+      "difficulty": "BEGINNER",
+      "reviewStatus": "APPROVED",
+      "alternativeSpelling": null,
+      "pluralForm": null,
+      "isFeatured": true,
+      "isWordOfDayEligible": true,
+      "audience": "BOTH",
+      "dateAdded": "2026-08-01T00:00:00.000Z",
+      "examples": [
+        {
+          "id": "bonjou-ex-1",
+          "kweyolText": "Bonjou, kouman ou yé?",
+          "englishText": "Good morning, how are you?",
+          "isPrimary": true,
+          "audience": "ADULT"
+        }
+      ],
+      "audioFiles": [],
+      "imageAssets": [
+        {
+          "id": "bonjou-img",
+          "filePath": "/images/placeholders/family.svg",
+          "fileName": "family-bonjou-kid-seed.webp",
+          "altText": "Placeholder illustration for bonjou",
+          "status": "PLACEHOLDER"
+        }
+      ],
+      "adultPresentation": {
+        "displayDefinition": "A common daytime greeting used to wish someone a good morning.",
+        "learningNotes": null,
+        "showInPublicDictionary": true
+      },
+      "childPresentation": {
+        "simpleMeaning": "We say this to say hello in the morning.",
+        "shortExampleKweyol": "Bonjou!",
+        "shortExampleEnglish": "Good morning!",
+        "funFact": null,
+        "culturalFact": null,
+        "ageBand": "EARLY_4_6",
+        "childCategoryKey": "family",
+        "showInChildrenDictionary": true
+      },
+      "categories": [
+        "greetings"
+      ],
+      "relatedSlugs": []
+    },
+    {
+      "id": "bonswa",
+      "slug": "bonswa",
+      "kweyolWord": "bonswa",
+      "englishTranslation": "good evening",
+      "alternativeEnglish": "good night (greeting)",
+      "partOfSpeech": "interjection",
+      "pronunciationGuide": "bon-swa",
+      "simpleDefinition": "A greeting used later in the day or evening.",
+      "detailedDefinition": "Used to greet someone in the evening.",
+      "culturalNotes": null,
+      "grammaticalNotes": null,
+      "usageNotes": null,
+      "topicCategory": "greetings",
+      "difficulty": "BEGINNER",
+      "reviewStatus": "APPROVED",
+      "alternativeSpelling": null,
+      "pluralForm": null,
+      "isFeatured": true,
+      "isWordOfDayEligible": true,
+      "audience": "BOTH",
+      "dateAdded": "2026-08-01T00:00:00.000Z",
+      "examples": [
+        {
+          "id": "bonswa-ex-1",
+          "kweyolText": "Bonswa, tout moun.",
+          "englishText": "Good evening, everyone.",
+          "isPrimary": true,
+          "audience": "ADULT"
+        }
+      ],
+      "audioFiles": [],
+      "imageAssets": [
+        {
+          "id": "bonswa-img",
+          "filePath": "/images/placeholders/family.svg",
+          "fileName": "family-bonswa-kid-seed.webp",
+          "altText": "Placeholder illustration for bonswa",
+          "status": "PLACEHOLDER"
+        }
+      ],
+      "adultPresentation": {
+        "displayDefinition": "Used to greet someone in the evening.",
+        "learningNotes": null,
+        "showInPublicDictionary": true
+      },
+      "childPresentation": {
+        "simpleMeaning": "Hello in the evening.",
+        "shortExampleKweyol": "Bonswa!",
+        "shortExampleEnglish": "Good evening!",
+        "funFact": null,
+        "culturalFact": null,
+        "ageBand": "EARLY_4_6",
+        "childCategoryKey": "family",
+        "showInChildrenDictionary": true
+      },
+      "categories": [
+        "greetings"
+      ],
+      "relatedSlugs": []
+    },
+    {
+      "id": "mesi",
+      "slug": "mesi",
+      "kweyolWord": "mèsi",
+      "englishTranslation": "thank you",
+      "alternativeEnglish": null,
+      "partOfSpeech": "interjection",
+      "pronunciationGuide": "meh-see",
+      "simpleDefinition": "Used to thank someone.",
+      "detailedDefinition": "An expression of thanks.",
+      "culturalNotes": null,
+      "grammaticalNotes": null,
+      "usageNotes": null,
+      "topicCategory": "everyday-conversation",
+      "difficulty": "BEGINNER",
+      "reviewStatus": "APPROVED",
+      "alternativeSpelling": "mesi",
+      "pluralForm": null,
+      "isFeatured": false,
+      "isWordOfDayEligible": true,
+      "audience": "BOTH",
+      "dateAdded": "2026-08-01T00:00:00.000Z",
+      "examples": [
+        {
+          "id": "mesi-ex-1",
+          "kweyolText": "Mèsi anpil.",
+          "englishText": "Thank you very much.",
+          "isPrimary": true,
+          "audience": "ADULT"
+        }
+      ],
+      "audioFiles": [],
+      "imageAssets": [
+        {
+          "id": "mesi-img",
+          "filePath": "/images/placeholders/feelings.svg",
+          "fileName": "feelings-mesi-kid-seed.webp",
+          "altText": "Placeholder illustration for mèsi",
+          "status": "PLACEHOLDER"
+        }
+      ],
+      "adultPresentation": {
+        "displayDefinition": "An expression of thanks.",
+        "learningNotes": null,
+        "showInPublicDictionary": true
+      },
+      "childPresentation": {
+        "simpleMeaning": "Say this when someone helps you.",
+        "shortExampleKweyol": "Mèsi!",
+        "shortExampleEnglish": "Thank you!",
+        "funFact": null,
+        "culturalFact": null,
+        "ageBand": "EARLY_4_6",
+        "childCategoryKey": "feelings",
+        "showInChildrenDictionary": true
+      },
+      "categories": [
+        "everyday-conversation"
+      ],
+      "relatedSlugs": []
+    },
+    {
+      "id": "dlo",
+      "slug": "dlo",
+      "kweyolWord": "dlo",
+      "englishTranslation": "water",
+      "alternativeEnglish": null,
+      "partOfSpeech": "noun",
+      "pronunciationGuide": "dlo",
+      "simpleDefinition": "Water to drink or use.",
+      "detailedDefinition": "Fresh water; drinking water or water in nature.",
+      "culturalNotes": "Dominica is known as the Nature Island, with many rivers and waterfalls. Talk about water often connects to local geography.",
+      "grammaticalNotes": null,
+      "usageNotes": null,
+      "topicCategory": "food-and-drink",
+      "difficulty": "BEGINNER",
+      "reviewStatus": "APPROVED",
+      "alternativeSpelling": null,
+      "pluralForm": null,
+      "isFeatured": true,
+      "isWordOfDayEligible": true,
+      "audience": "BOTH",
+      "dateAdded": "2026-08-01T00:00:00.000Z",
+      "examples": [
+        {
+          "id": "dlo-ex-1",
+          "kweyolText": "Ban mwen dlo, souplé.",
+          "englishText": "Give me water, please.",
+          "isPrimary": true,
+          "audience": "ADULT"
+        }
+      ],
+      "audioFiles": [],
+      "imageAssets": [
+        {
+          "id": "dlo-img",
+          "filePath": "/images/placeholders/food.svg",
+          "fileName": "food-dlo-kid-seed.webp",
+          "altText": "Placeholder illustration for dlo",
+          "status": "PLACEHOLDER"
+        }
+      ],
+      "adultPresentation": {
+        "displayDefinition": "Fresh water; drinking water or water in nature.",
+        "learningNotes": null,
+        "showInPublicDictionary": true
+      },
+      "childPresentation": {
+        "simpleMeaning": "Water we drink.",
+        "shortExampleKweyol": "Mwen vlé dlo.",
+        "shortExampleEnglish": "I want water.",
+        "funFact": "Dominica has many rivers and waterfalls.",
+        "culturalFact": null,
+        "ageBand": "EARLY_4_6",
+        "childCategoryKey": "food",
+        "showInChildrenDictionary": true
+      },
+      "categories": [
+        "food-and-drink"
+      ],
+      "relatedSlugs": []
+    },
+    {
+      "id": "manje",
+      "slug": "manje",
+      "kweyolWord": "manjé",
+      "englishTranslation": "food",
+      "alternativeEnglish": "to eat",
+      "partOfSpeech": "noun",
+      "pronunciationGuide": "man-zhay",
+      "simpleDefinition": "Food; also used for the idea of eating.",
+      "detailedDefinition": "Can refer to food itself or, in related uses, the act of eating depending on context.",
+      "culturalNotes": null,
+      "grammaticalNotes": "Learners should check context for noun vs verb-like uses.",
+      "usageNotes": null,
+      "topicCategory": "food-and-drink",
+      "difficulty": "BEGINNER",
+      "reviewStatus": "APPROVED",
+      "alternativeSpelling": null,
+      "pluralForm": null,
+      "isFeatured": false,
+      "isWordOfDayEligible": true,
+      "audience": "BOTH",
+      "dateAdded": "2026-08-01T00:00:00.000Z",
+      "examples": [
+        {
+          "id": "manje-ex-1",
+          "kweyolText": "Manjé-a bon.",
+          "englishText": "The food is good.",
+          "isPrimary": true,
+          "audience": "ADULT"
+        }
+      ],
+      "audioFiles": [],
+      "imageAssets": [
+        {
+          "id": "manje-img",
+          "filePath": "/images/placeholders/food.svg",
+          "fileName": "food-manje-kid-seed.webp",
+          "altText": "Placeholder illustration for manjé",
+          "status": "PLACEHOLDER"
+        }
+      ],
+      "adultPresentation": {
+        "displayDefinition": "Can refer to food itself or, in related uses, the act of eating depending on context.",
+        "learningNotes": null,
+        "showInPublicDictionary": true
+      },
+      "childPresentation": {
+        "simpleMeaning": "Things we eat.",
+        "shortExampleKweyol": "Manjé!",
+        "shortExampleEnglish": "Food!",
+        "funFact": null,
+        "culturalFact": null,
+        "ageBand": "EARLY_4_6",
+        "childCategoryKey": "food",
+        "showInChildrenDictionary": true
+      },
+      "categories": [
+        "food-and-drink"
+      ],
+      "relatedSlugs": []
+    },
+    {
+      "id": "kay",
+      "slug": "kay",
+      "kweyolWord": "kay",
+      "englishTranslation": "house",
+      "alternativeEnglish": "home",
+      "partOfSpeech": "noun",
+      "pronunciationGuide": "kai",
+      "simpleDefinition": "A house or home.",
+      "detailedDefinition": "A dwelling; someone’s house or home.",
+      "culturalNotes": null,
+      "grammaticalNotes": null,
+      "usageNotes": null,
+      "topicCategory": "home",
+      "difficulty": "BEGINNER",
+      "reviewStatus": "APPROVED",
+      "alternativeSpelling": null,
+      "pluralForm": null,
+      "isFeatured": false,
+      "isWordOfDayEligible": true,
+      "audience": "BOTH",
+      "dateAdded": "2026-08-01T00:00:00.000Z",
+      "examples": [
+        {
+          "id": "kay-ex-1",
+          "kweyolText": "Kay mwen bèl.",
+          "englishText": "My house is beautiful.",
+          "isPrimary": true,
+          "audience": "ADULT"
+        }
+      ],
+      "audioFiles": [],
+      "imageAssets": [
+        {
+          "id": "kay-img",
+          "filePath": "/images/placeholders/home.svg",
+          "fileName": "home-kay-kid-seed.webp",
+          "altText": "Placeholder illustration for kay",
+          "status": "PLACEHOLDER"
+        }
+      ],
+      "adultPresentation": {
+        "displayDefinition": "A dwelling; someone’s house or home.",
+        "learningNotes": null,
+        "showInPublicDictionary": true
+      },
+      "childPresentation": {
+        "simpleMeaning": "The place where we live.",
+        "shortExampleKweyol": "Sa sé kay mwen.",
+        "shortExampleEnglish": "That is my house.",
+        "funFact": null,
+        "culturalFact": null,
+        "ageBand": "EARLY_4_6",
+        "childCategoryKey": "home",
+        "showInChildrenDictionary": true
+      },
+      "categories": [
+        "home"
+      ],
+      "relatedSlugs": []
+    },
+    {
+      "id": "maman",
+      "slug": "maman",
+      "kweyolWord": "maman",
+      "englishTranslation": "mother",
+      "alternativeEnglish": "mum, mom",
+      "partOfSpeech": "noun",
+      "pronunciationGuide": "ma-man",
+      "simpleDefinition": "Mother.",
+      "detailedDefinition": "A word for mother.",
+      "culturalNotes": null,
+      "grammaticalNotes": null,
+      "usageNotes": null,
+      "topicCategory": "family",
+      "difficulty": "BEGINNER",
+      "reviewStatus": "APPROVED",
+      "alternativeSpelling": null,
+      "pluralForm": null,
+      "isFeatured": false,
+      "isWordOfDayEligible": true,
+      "audience": "BOTH",
+      "dateAdded": "2026-08-01T00:00:00.000Z",
+      "examples": [
+        {
+          "id": "maman-ex-1",
+          "kweyolText": "Maman mwen ka travay.",
+          "englishText": "My mother is working.",
+          "isPrimary": true,
+          "audience": "ADULT"
+        }
+      ],
+      "audioFiles": [],
+      "imageAssets": [
+        {
+          "id": "maman-img",
+          "filePath": "/images/placeholders/family.svg",
+          "fileName": "family-maman-kid-seed.webp",
+          "altText": "Placeholder illustration for maman",
+          "status": "PLACEHOLDER"
+        }
+      ],
+      "adultPresentation": {
+        "displayDefinition": "A word for mother.",
+        "learningNotes": null,
+        "showInPublicDictionary": true
+      },
+      "childPresentation": {
+        "simpleMeaning": "Your mum.",
+        "shortExampleKweyol": "Maman!",
+        "shortExampleEnglish": "Mum!",
+        "funFact": null,
+        "culturalFact": null,
+        "ageBand": "EARLY_4_6",
+        "childCategoryKey": "family",
+        "showInChildrenDictionary": true
+      },
+      "categories": [
+        "family"
+      ],
+      "relatedSlugs": []
+    },
+    {
+      "id": "papa",
+      "slug": "papa",
+      "kweyolWord": "papa",
+      "englishTranslation": "father",
+      "alternativeEnglish": "dad",
+      "partOfSpeech": "noun",
+      "pronunciationGuide": "pa-pa",
+      "simpleDefinition": "Father.",
+      "detailedDefinition": "A word for father.",
+      "culturalNotes": null,
+      "grammaticalNotes": null,
+      "usageNotes": null,
+      "topicCategory": "family",
+      "difficulty": "BEGINNER",
+      "reviewStatus": "APPROVED",
+      "alternativeSpelling": null,
+      "pluralForm": null,
+      "isFeatured": false,
+      "isWordOfDayEligible": true,
+      "audience": "BOTH",
+      "dateAdded": "2026-08-01T00:00:00.000Z",
+      "examples": [
+        {
+          "id": "papa-ex-1",
+          "kweyolText": "Papa ka vini.",
+          "englishText": "Dad is coming.",
+          "isPrimary": true,
+          "audience": "ADULT"
+        }
+      ],
+      "audioFiles": [],
+      "imageAssets": [
+        {
+          "id": "papa-img",
+          "filePath": "/images/placeholders/family.svg",
+          "fileName": "family-papa-kid-seed.webp",
+          "altText": "Placeholder illustration for papa",
+          "status": "PLACEHOLDER"
+        }
+      ],
+      "adultPresentation": {
+        "displayDefinition": "A word for father.",
+        "learningNotes": null,
+        "showInPublicDictionary": true
+      },
+      "childPresentation": {
+        "simpleMeaning": "Your dad.",
+        "shortExampleKweyol": "Papa!",
+        "shortExampleEnglish": "Dad!",
+        "funFact": null,
+        "culturalFact": null,
+        "ageBand": "EARLY_4_6",
+        "childCategoryKey": "family",
+        "showInChildrenDictionary": true
+      },
+      "categories": [
+        "family"
+      ],
+      "relatedSlugs": []
+    },
+    {
+      "id": "wouj",
+      "slug": "wouj",
+      "kweyolWord": "wouj",
+      "englishTranslation": "red",
+      "alternativeEnglish": null,
+      "partOfSpeech": "adjective",
+      "pronunciationGuide": "wooj",
+      "simpleDefinition": "The colour red.",
+      "detailedDefinition": "Describes something red in colour.",
+      "culturalNotes": null,
+      "grammaticalNotes": null,
+      "usageNotes": null,
+      "topicCategory": "colours",
+      "difficulty": "BEGINNER",
+      "reviewStatus": "APPROVED",
+      "alternativeSpelling": null,
+      "pluralForm": null,
+      "isFeatured": true,
+      "isWordOfDayEligible": true,
+      "audience": "BOTH",
+      "dateAdded": "2026-08-01T00:00:00.000Z",
+      "examples": [
+        {
+          "id": "wouj-ex-1",
+          "kweyolText": "Flè-a wouj.",
+          "englishText": "The flower is red.",
+          "isPrimary": true,
+          "audience": "ADULT"
+        }
+      ],
+      "audioFiles": [],
+      "imageAssets": [
+        {
+          "id": "wouj-img",
+          "filePath": "/images/placeholders/colours.svg",
+          "fileName": "colours-wouj-kid-seed.webp",
+          "altText": "Placeholder illustration for wouj",
+          "status": "PLACEHOLDER"
+        }
+      ],
+      "adultPresentation": {
+        "displayDefinition": "Describes something red in colour.",
+        "learningNotes": null,
+        "showInPublicDictionary": true
+      },
+      "childPresentation": {
+        "simpleMeaning": "The colour red.",
+        "shortExampleKweyol": "Sé wouj.",
+        "shortExampleEnglish": "It is red.",
+        "funFact": null,
+        "culturalFact": null,
+        "ageBand": "EARLY_4_6",
+        "childCategoryKey": "colours",
+        "showInChildrenDictionary": true
+      },
+      "categories": [
+        "colours"
+      ],
+      "relatedSlugs": []
+    },
+    {
+      "id": "ble",
+      "slug": "ble",
+      "kweyolWord": "blé",
+      "englishTranslation": "blue",
+      "alternativeEnglish": null,
+      "partOfSpeech": "adjective",
+      "pronunciationGuide": "blay",
+      "simpleDefinition": "The colour blue.",
+      "detailedDefinition": "Describes something blue in colour.",
+      "culturalNotes": null,
+      "grammaticalNotes": null,
+      "usageNotes": null,
+      "topicCategory": "colours",
+      "difficulty": "BEGINNER",
+      "reviewStatus": "APPROVED",
+      "alternativeSpelling": null,
+      "pluralForm": null,
+      "isFeatured": false,
+      "isWordOfDayEligible": true,
+      "audience": "BOTH",
+      "dateAdded": "2026-08-01T00:00:00.000Z",
+      "examples": [
+        {
+          "id": "ble-ex-1",
+          "kweyolText": "Syèl-la blé.",
+          "englishText": "The sky is blue.",
+          "isPrimary": true,
+          "audience": "ADULT"
+        }
+      ],
+      "audioFiles": [],
+      "imageAssets": [
+        {
+          "id": "ble-img",
+          "filePath": "/images/placeholders/colours.svg",
+          "fileName": "colours-ble-kid-seed.webp",
+          "altText": "Placeholder illustration for blé",
+          "status": "PLACEHOLDER"
+        }
+      ],
+      "adultPresentation": {
+        "displayDefinition": "Describes something blue in colour.",
+        "learningNotes": null,
+        "showInPublicDictionary": true
+      },
+      "childPresentation": {
+        "simpleMeaning": "The colour blue.",
+        "shortExampleKweyol": "Sé blé.",
+        "shortExampleEnglish": "It is blue.",
+        "funFact": null,
+        "culturalFact": null,
+        "ageBand": "EARLY_4_6",
+        "childCategoryKey": "colours",
+        "showInChildrenDictionary": true
+      },
+      "categories": [
+        "colours"
+      ],
+      "relatedSlugs": []
+    },
+    {
+      "id": "yon",
+      "slug": "yon",
+      "kweyolWord": "yon",
+      "englishTranslation": "one",
+      "alternativeEnglish": null,
+      "partOfSpeech": "numeral",
+      "pronunciationGuide": "yon",
+      "simpleDefinition": "The number one.",
+      "detailedDefinition": "Cardinal number one.",
+      "culturalNotes": null,
+      "grammaticalNotes": null,
+      "usageNotes": null,
+      "topicCategory": "numbers",
+      "difficulty": "BEGINNER",
+      "reviewStatus": "APPROVED",
+      "alternativeSpelling": null,
+      "pluralForm": null,
+      "isFeatured": false,
+      "isWordOfDayEligible": true,
+      "audience": "BOTH",
+      "dateAdded": "2026-08-01T00:00:00.000Z",
+      "examples": [
+        {
+          "id": "yon-ex-1",
+          "kweyolText": "Yon mango.",
+          "englishText": "One mango.",
+          "isPrimary": true,
+          "audience": "ADULT"
+        }
+      ],
+      "audioFiles": [],
+      "imageAssets": [
+        {
+          "id": "yon-img",
+          "filePath": "/images/placeholders/numbers.svg",
+          "fileName": "numbers-yon-kid-seed.webp",
+          "altText": "Placeholder illustration for yon",
+          "status": "PLACEHOLDER"
+        }
+      ],
+      "adultPresentation": {
+        "displayDefinition": "Cardinal number one.",
+        "learningNotes": null,
+        "showInPublicDictionary": true
+      },
+      "childPresentation": {
+        "simpleMeaning": "The number 1.",
+        "shortExampleKweyol": "Yon!",
+        "shortExampleEnglish": "One!",
+        "funFact": null,
+        "culturalFact": null,
+        "ageBand": "EARLY_4_6",
+        "childCategoryKey": "numbers",
+        "showInChildrenDictionary": true
+      },
+      "categories": [
+        "numbers"
+      ],
+      "relatedSlugs": []
+    },
+    {
+      "id": "de",
+      "slug": "de",
+      "kweyolWord": "dé",
+      "englishTranslation": "two",
+      "alternativeEnglish": null,
+      "partOfSpeech": "numeral",
+      "pronunciationGuide": "day",
+      "simpleDefinition": "The number two.",
+      "detailedDefinition": "Cardinal number two.",
+      "culturalNotes": null,
+      "grammaticalNotes": null,
+      "usageNotes": null,
+      "topicCategory": "numbers",
+      "difficulty": "BEGINNER",
+      "reviewStatus": "APPROVED",
+      "alternativeSpelling": null,
+      "pluralForm": null,
+      "isFeatured": false,
+      "isWordOfDayEligible": true,
+      "audience": "BOTH",
+      "dateAdded": "2026-08-01T00:00:00.000Z",
+      "examples": [
+        {
+          "id": "de-ex-1",
+          "kweyolText": "Dé zanmi.",
+          "englishText": "Two friends.",
+          "isPrimary": true,
+          "audience": "ADULT"
+        }
+      ],
+      "audioFiles": [],
+      "imageAssets": [
+        {
+          "id": "de-img",
+          "filePath": "/images/placeholders/numbers.svg",
+          "fileName": "numbers-de-kid-seed.webp",
+          "altText": "Placeholder illustration for dé",
+          "status": "PLACEHOLDER"
+        }
+      ],
+      "adultPresentation": {
+        "displayDefinition": "Cardinal number two.",
+        "learningNotes": null,
+        "showInPublicDictionary": true
+      },
+      "childPresentation": {
+        "simpleMeaning": "The number 2.",
+        "shortExampleKweyol": "Dé!",
+        "shortExampleEnglish": "Two!",
+        "funFact": null,
+        "culturalFact": null,
+        "ageBand": "EARLY_4_6",
+        "childCategoryKey": "numbers",
+        "showInChildrenDictionary": true
+      },
+      "categories": [
+        "numbers"
+      ],
+      "relatedSlugs": []
+    },
+    {
+      "id": "pwason",
+      "slug": "pwason",
+      "kweyolWord": "pwason",
+      "englishTranslation": "fish",
+      "alternativeEnglish": null,
+      "partOfSpeech": "noun",
+      "pronunciationGuide": "pwa-son",
+      "simpleDefinition": "A fish; also fish as food.",
+      "detailedDefinition": "Fish as an animal or as food, depending on context.",
+      "culturalNotes": "Fishing and seafood are part of coastal Dominican life and meals.",
+      "grammaticalNotes": null,
+      "usageNotes": null,
+      "topicCategory": "animals",
+      "difficulty": "BEGINNER",
+      "reviewStatus": "APPROVED",
+      "alternativeSpelling": null,
+      "pluralForm": null,
+      "isFeatured": false,
+      "isWordOfDayEligible": true,
+      "audience": "BOTH",
+      "dateAdded": "2026-08-01T00:00:00.000Z",
+      "examples": [
+        {
+          "id": "pwason-ex-1",
+          "kweyolText": "Nou ka manjé pwason.",
+          "englishText": "We are eating fish.",
+          "isPrimary": true,
+          "audience": "ADULT"
+        }
+      ],
+      "audioFiles": [],
+      "imageAssets": [
+        {
+          "id": "pwason-img",
+          "filePath": "/images/placeholders/sea-life.svg",
+          "fileName": "sea-life-pwason-kid-seed.webp",
+          "altText": "Placeholder illustration for pwason",
+          "status": "PLACEHOLDER"
+        }
+      ],
+      "adultPresentation": {
+        "displayDefinition": "Fish as an animal or as food, depending on context.",
+        "learningNotes": null,
+        "showInPublicDictionary": true
+      },
+      "childPresentation": {
+        "simpleMeaning": "A fish that swims in the sea or river.",
+        "shortExampleKweyol": "Gadé pwason-an!",
+        "shortExampleEnglish": "Look at the fish!",
+        "funFact": "Many families in Dominica enjoy fresh fish.",
+        "culturalFact": null,
+        "ageBand": "GROWING_7_9",
+        "childCategoryKey": "sea-life",
+        "showInChildrenDictionary": true
+      },
+      "categories": [
+        "animals"
+      ],
+      "relatedSlugs": []
+    },
+    {
+      "id": "lapli",
+      "slug": "lapli",
+      "kweyolWord": "lapli",
+      "englishTranslation": "rain",
+      "alternativeEnglish": null,
+      "partOfSpeech": "noun",
+      "pronunciationGuide": "la-plee",
+      "simpleDefinition": "Rain.",
+      "detailedDefinition": "Rainfall; wet weather.",
+      "culturalNotes": null,
+      "grammaticalNotes": null,
+      "usageNotes": null,
+      "topicCategory": "weather",
+      "difficulty": "BEGINNER",
+      "reviewStatus": "APPROVED",
+      "alternativeSpelling": null,
+      "pluralForm": null,
+      "isFeatured": false,
+      "isWordOfDayEligible": true,
+      "audience": "BOTH",
+      "dateAdded": "2026-08-01T00:00:00.000Z",
+      "examples": [
+        {
+          "id": "lapli-ex-1",
+          "kweyolText": "Lapli ka tonbé.",
+          "englishText": "Rain is falling.",
+          "isPrimary": true,
+          "audience": "ADULT"
+        }
+      ],
+      "audioFiles": [],
+      "imageAssets": [
+        {
+          "id": "lapli-img",
+          "filePath": "/images/placeholders/weather.svg",
+          "fileName": "weather-lapli-kid-seed.webp",
+          "altText": "Placeholder illustration for lapli",
+          "status": "PLACEHOLDER"
+        }
+      ],
+      "adultPresentation": {
+        "displayDefinition": "Rainfall; wet weather.",
+        "learningNotes": null,
+        "showInPublicDictionary": true
+      },
+      "childPresentation": {
+        "simpleMeaning": "Water that falls from the sky.",
+        "shortExampleKweyol": "Lapli!",
+        "shortExampleEnglish": "Rain!",
+        "funFact": null,
+        "culturalFact": null,
+        "ageBand": "EARLY_4_6",
+        "childCategoryKey": "weather",
+        "showInChildrenDictionary": true
+      },
+      "categories": [
+        "weather"
+      ],
+      "relatedSlugs": []
+    }
+  ],
+  "adultCategories": [
+    {
+      "key": "greetings",
+      "nameEn": "Greetings",
+      "audience": "BOTH"
+    },
+    {
+      "key": "family",
+      "nameEn": "Family",
+      "audience": "BOTH"
+    },
+    {
+      "key": "food-and-drink",
+      "nameEn": "Food and drink",
+      "audience": "BOTH"
+    },
+    {
+      "key": "cooking",
+      "nameEn": "Cooking",
+      "audience": "ADULT"
+    },
+    {
+      "key": "home",
+      "nameEn": "Home",
+      "audience": "BOTH"
+    },
+    {
+      "key": "clothing",
+      "nameEn": "Clothing",
+      "audience": "BOTH"
+    },
+    {
+      "key": "colours",
+      "nameEn": "Colours",
+      "audience": "BOTH"
+    },
+    {
+      "key": "numbers",
+      "nameEn": "Numbers",
+      "audience": "BOTH"
+    },
+    {
+      "key": "days-and-months",
+      "nameEn": "Days and months",
+      "audience": "ADULT"
+    },
+    {
+      "key": "time",
+      "nameEn": "Time",
+      "audience": "ADULT"
+    },
+    {
+      "key": "weather",
+      "nameEn": "Weather",
+      "audience": "BOTH"
+    },
+    {
+      "key": "body",
+      "nameEn": "Body",
+      "audience": "BOTH"
+    },
+    {
+      "key": "health",
+      "nameEn": "Health",
+      "audience": "ADULT"
+    },
+    {
+      "key": "emotions",
+      "nameEn": "Emotions",
+      "audience": "BOTH"
+    },
+    {
+      "key": "school",
+      "nameEn": "School",
+      "audience": "BOTH"
+    },
+    {
+      "key": "work",
+      "nameEn": "Work",
+      "audience": "ADULT"
+    },
+    {
+      "key": "travel",
+      "nameEn": "Travel",
+      "audience": "ADULT"
+    },
+    {
+      "key": "transport",
+      "nameEn": "Transport",
+      "audience": "BOTH"
+    },
+    {
+      "key": "nature",
+      "nameEn": "Nature",
+      "audience": "BOTH"
+    },
+    {
+      "key": "animals",
+      "nameEn": "Animals",
+      "audience": "BOTH"
+    },
+    {
+      "key": "plants",
+      "nameEn": "Plants",
+      "audience": "ADULT"
+    },
+    {
+      "key": "farming",
+      "nameEn": "Farming",
+      "audience": "ADULT"
+    },
+    {
+      "key": "fishing",
+      "nameEn": "Fishing",
+      "audience": "ADULT"
+    },
+    {
+      "key": "construction",
+      "nameEn": "Construction",
+      "audience": "ADULT"
+    },
+    {
+      "key": "religion-and-spirituality",
+      "nameEn": "Religion and spirituality",
+      "audience": "ADULT"
+    },
+    {
+      "key": "music",
+      "nameEn": "Music",
+      "audience": "BOTH"
+    },
+    {
+      "key": "dance",
+      "nameEn": "Dance",
+      "audience": "ADULT"
+    },
+    {
+      "key": "festivals",
+      "nameEn": "Festivals",
+      "audience": "ADULT"
+    },
+    {
+      "key": "dominican-culture",
+      "nameEn": "Dominican culture",
+      "audience": "BOTH"
+    },
+    {
+      "key": "history",
+      "nameEn": "History",
+      "audience": "ADULT"
+    },
+    {
+      "key": "traditional-sayings",
+      "nameEn": "Traditional sayings",
+      "audience": "ADULT"
+    },
+    {
+      "key": "proverbs",
+      "nameEn": "Proverbs",
+      "audience": "ADULT"
+    },
+    {
+      "key": "expressions",
+      "nameEn": "Expressions",
+      "audience": "ADULT"
+    },
+    {
+      "key": "verbs",
+      "nameEn": "Verbs",
+      "audience": "ADULT"
+    },
+    {
+      "key": "adjectives",
+      "nameEn": "Adjectives",
+      "audience": "ADULT"
+    },
+    {
+      "key": "nouns",
+      "nameEn": "Nouns",
+      "audience": "ADULT"
+    },
+    {
+      "key": "pronouns",
+      "nameEn": "Pronouns",
+      "audience": "ADULT"
+    },
+    {
+      "key": "prepositions",
+      "nameEn": "Prepositions",
+      "audience": "ADULT"
+    },
+    {
+      "key": "question-words",
+      "nameEn": "Question words",
+      "audience": "ADULT"
+    },
+    {
+      "key": "everyday-conversation",
+      "nameEn": "Everyday conversation",
+      "audience": "ADULT"
+    }
+  ],
+  "childCategories": [
+    {
+      "key": "animals",
+      "nameEn": "Animals",
+      "audience": "CHILD",
+      "count": 0,
+      "imagePath": "/images/placeholders/animals.svg"
+    },
+    {
+      "key": "colours",
+      "nameEn": "Colours",
+      "audience": "CHILD",
+      "count": 2,
+      "imagePath": "/images/placeholders/colours.svg"
+    },
+    {
+      "key": "numbers",
+      "nameEn": "Numbers",
+      "audience": "CHILD",
+      "count": 2,
+      "imagePath": "/images/placeholders/numbers.svg"
+    },
+    {
+      "key": "family",
+      "nameEn": "Family",
+      "audience": "CHILD",
+      "count": 4,
+      "imagePath": "/images/placeholders/family.svg"
+    },
+    {
+      "key": "food",
+      "nameEn": "Food",
+      "audience": "CHILD",
+      "count": 2,
+      "imagePath": "/images/placeholders/food.svg"
+    },
+    {
+      "key": "fruit",
+      "nameEn": "Fruit",
+      "audience": "CHILD",
+      "count": 0,
+      "imagePath": "/images/placeholders/fruit.svg"
+    },
+    {
+      "key": "vegetables",
+      "nameEn": "Vegetables",
+      "audience": "CHILD",
+      "count": 0,
+      "imagePath": "/images/placeholders/vegetables.svg"
+    },
+    {
+      "key": "body-parts",
+      "nameEn": "Body parts",
+      "audience": "CHILD",
+      "count": 0,
+      "imagePath": "/images/placeholders/body-parts.svg"
+    },
+    {
+      "key": "clothes",
+      "nameEn": "Clothes",
+      "audience": "CHILD",
+      "count": 0,
+      "imagePath": "/images/placeholders/clothes.svg"
+    },
+    {
+      "key": "school",
+      "nameEn": "School",
+      "audience": "CHILD",
+      "count": 0,
+      "imagePath": "/images/placeholders/school.svg"
+    },
+    {
+      "key": "toys",
+      "nameEn": "Toys",
+      "audience": "CHILD",
+      "count": 0,
+      "imagePath": "/images/placeholders/toys.svg"
+    },
+    {
+      "key": "home",
+      "nameEn": "Home",
+      "audience": "CHILD",
+      "count": 1,
+      "imagePath": "/images/placeholders/home.svg"
+    },
+    {
+      "key": "weather",
+      "nameEn": "Weather",
+      "audience": "CHILD",
+      "count": 1,
+      "imagePath": "/images/placeholders/weather.svg"
+    },
+    {
+      "key": "nature",
+      "nameEn": "Nature",
+      "audience": "CHILD",
+      "count": 0,
+      "imagePath": "/images/placeholders/nature.svg"
+    },
+    {
+      "key": "transport",
+      "nameEn": "Transport",
+      "audience": "CHILD",
+      "count": 0,
+      "imagePath": "/images/placeholders/transport.svg"
+    },
+    {
+      "key": "feelings",
+      "nameEn": "Feelings",
+      "audience": "CHILD",
+      "count": 1,
+      "imagePath": "/images/placeholders/feelings.svg"
+    },
+    {
+      "key": "actions",
+      "nameEn": "Actions",
+      "audience": "CHILD",
+      "count": 0,
+      "imagePath": "/images/placeholders/actions.svg"
+    },
+    {
+      "key": "music",
+      "nameEn": "Music",
+      "audience": "CHILD",
+      "count": 0,
+      "imagePath": "/images/placeholders/music.svg"
+    },
+    {
+      "key": "carnival",
+      "nameEn": "Carnival",
+      "audience": "CHILD",
+      "count": 0,
+      "imagePath": "/images/placeholders/carnival.svg"
+    },
+    {
+      "key": "dominica",
+      "nameEn": "Dominica",
+      "audience": "CHILD",
+      "count": 0,
+      "imagePath": "/images/placeholders/dominica.svg"
+    },
+    {
+      "key": "sea-life",
+      "nameEn": "Sea life",
+      "audience": "CHILD",
+      "count": 1,
+      "imagePath": "/images/placeholders/sea-life.svg"
+    },
+    {
+      "key": "farm-life",
+      "nameEn": "Farm life",
+      "audience": "CHILD",
+      "count": 0,
+      "imagePath": "/images/placeholders/farm-life.svg"
+    }
+  ],
+  "lessons": [
+    {
+      "slug": "alphabet-and-sounds",
+      "title": "Alphabet and sounds",
+      "shortExplanation": "Dominican Kwéyòl writing uses letters familiar from French-influenced Caribbean orthographies, with sounds that learners should practise carefully.",
+      "examplesJson": "[{\"kweyol\":\"a\",\"english\":\"as in 'papa'\"},{\"kweyol\":\"é\",\"english\":\"a brighter vowel sound, as often taught in 'mèsi'\"},{\"kweyol\":\"ou\",\"english\":\"like 'oo' in 'food'\"}]",
+      "commonMistakes": "Do not assume every letter sounds exactly like English or French in every word.",
+      "practiceActivity": "Say bonjou, mèsi and dlo slowly. Tap each syllable, then listen again if audio is available.",
+      "pronunciationSupport": "Use the pronunciation guides on word pages while listening practice is expanded.",
+      "sortOrder": 1,
+      "reviewStatus": "APPROVED",
+      "examples": [
+        {
+          "kweyol": "a",
+          "english": "as in 'papa'"
+        },
+        {
+          "kweyol": "é",
+          "english": "a brighter vowel sound, as often taught in 'mèsi'"
+        },
+        {
+          "kweyol": "ou",
+          "english": "like 'oo' in 'food'"
+        }
+      ]
+    },
+    {
+      "slug": "greetings",
+      "title": "Greetings",
+      "shortExplanation": "Start conversations with everyday greetings such as bonjou and bonswa.",
+      "examplesJson": "[{\"kweyol\":\"Bonjou\",\"english\":\"Good morning\"},{\"kweyol\":\"Bonswa\",\"english\":\"Good evening\"},{\"kweyol\":\"Mèsi\",\"english\":\"Thank you\"}]",
+      "commonMistakes": "Using a morning greeting late at night can sound odd; match the greeting to the time of day when you can.",
+      "practiceActivity": "Match each greeting to the best time of day, then say it aloud.",
+      "pronunciationSupport": "Practise with the Adult Dictionary audio controls when files are available.",
+      "sortOrder": 2,
+      "reviewStatus": "APPROVED",
+      "examples": [
+        {
+          "kweyol": "Bonjou",
+          "english": "Good morning"
+        },
+        {
+          "kweyol": "Bonswa",
+          "english": "Good evening"
+        },
+        {
+          "kweyol": "Mèsi",
+          "english": "Thank you"
+        }
+      ]
+    },
+    {
+      "slug": "sentence-order",
+      "title": "Sentence order",
+      "shortExplanation": "Many everyday Kwéyòl sentences follow a familiar subject–marker–verb–object pattern. Learn with short model sentences first.",
+      "examplesJson": "[{\"kweyol\":\"Mwen ka manjé.\",\"english\":\"I am eating.\"},{\"kweyol\":\"Papa ka vini.\",\"english\":\"Dad is coming.\"}]",
+      "commonMistakes": "Translating word-for-word from English can place markers in the wrong spot.",
+      "practiceActivity": "Reorder word tiles for two short sentences, then check the model answers in the practice quiz.",
+      "sortOrder": 3,
+      "reviewStatus": "APPROVED",
+      "examples": [
+        {
+          "kweyol": "Mwen ka manjé.",
+          "english": "I am eating."
+        },
+        {
+          "kweyol": "Papa ka vini.",
+          "english": "Dad is coming."
+        }
+      ]
+    },
+    {
+      "slug": "questions-and-negatives",
+      "title": "Questions and negatives",
+      "shortExplanation": "Questions and negatives often rely on question words and negation markers. Learn a few high-frequency patterns before longer sentences.",
+      "examplesJson": "[{\"kweyol\":\"Kouman ou yé?\",\"english\":\"How are you?\"},{\"kweyol\":\"Mwen pa konnèt.\",\"english\":\"I do not know.\"}]",
+      "commonMistakes": "Forgetting the negation marker when trying to say a negative sentence.",
+      "practiceActivity": "Turn two affirmative sentences into negatives using the patterns from this lesson.",
+      "sortOrder": 4,
+      "reviewStatus": "APPROVED",
+      "examples": [
+        {
+          "kweyol": "Kouman ou yé?",
+          "english": "How are you?"
+        },
+        {
+          "kweyol": "Mwen pa konnèt.",
+          "english": "I do not know."
+        }
+      ]
+    }
+  ],
+  "quizzes": [
+    {
+      "slug": "greetings-multiple-choice",
+      "title": "Greetings: multiple choice",
+      "description": "Choose the best English meaning for common greetings.",
+      "audience": "ADULT",
+      "difficulty": "BEGINNER",
+      "questions": [
+        {
+          "id": "greetings-multiple-choice-q1",
+          "prompt": "What does “bonjou” mean?",
+          "questionType": "multiple-choice",
+          "explanation": "Bonjou is a morning greeting meaning good morning.",
+          "answers": [
+            {
+              "id": "greetings-multiple-choice-q1-a1",
+              "answerText": "Good morning",
+              "isCorrect": true
+            },
+            {
+              "id": "greetings-multiple-choice-q1-a2",
+              "answerText": "Good night only",
+              "isCorrect": false
+            },
+            {
+              "id": "greetings-multiple-choice-q1-a3",
+              "answerText": "Thank you",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": "greetings-multiple-choice-q2",
+          "prompt": "What does “mèsi” mean?",
+          "questionType": "multiple-choice",
+          "explanation": "Mèsi means thank you.",
+          "answers": [
+            {
+              "id": "greetings-multiple-choice-q2-a1",
+              "answerText": "Please",
+              "isCorrect": false
+            },
+            {
+              "id": "greetings-multiple-choice-q2-a2",
+              "answerText": "Thank you",
+              "isCorrect": true
+            },
+            {
+              "id": "greetings-multiple-choice-q2-a3",
+              "answerText": "Water",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "colours-match",
+      "title": "Colours: match the meaning",
+      "description": "Match Kwéyòl colour words to English.",
+      "audience": "ADULT",
+      "difficulty": "BEGINNER",
+      "questions": [
+        {
+          "id": "colours-match-q1",
+          "prompt": "Which English word matches “wouj”?",
+          "questionType": "matching",
+          "explanation": "Wouj means red.",
+          "answers": [
+            {
+              "id": "colours-match-q1-a1",
+              "answerText": "Red",
+              "isCorrect": true
+            },
+            {
+              "id": "colours-match-q1-a2",
+              "answerText": "Blue",
+              "isCorrect": false
+            },
+            {
+              "id": "colours-match-q1-a3",
+              "answerText": "Green",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "childActivities": [
+    {
+      "slug": "tap-picture-colours",
+      "title": "Tap the colour",
+      "description": "Hear or read a colour word and choose the matching picture card.",
+      "activityType": "tap-picture",
+      "ageBand": "EARLY_4_6",
+      "categoryKey": "colours",
+      "configJson": "{\"prompts\":[{\"slug\":\"wouj\",\"label\":\"wouj\",\"meaning\":\"red\"},{\"slug\":\"ble\",\"label\":\"blé\",\"meaning\":\"blue\"}]}",
+      "reviewStatus": "APPROVED"
+    },
+    {
+      "slug": "match-family",
+      "title": "Match the family words",
+      "description": "Match Kwéyòl family words to simple English meanings.",
+      "activityType": "match-pairs",
+      "ageBand": "EARLY_4_6",
+      "categoryKey": "family",
+      "configJson": "{\"pairs\":[{\"kweyol\":\"maman\",\"english\":\"mother\"},{\"kweyol\":\"papa\",\"english\":\"father\"}]}",
+      "reviewStatus": "APPROVED"
+    },
+    {
+      "slug": "memory-food",
+      "title": "Food memory cards",
+      "description": "Find matching Kwéyòl and English food cards.",
+      "activityType": "memory",
+      "ageBand": "GROWING_7_9",
+      "categoryKey": "food",
+      "configJson": "{\"cards\":[{\"id\":\"dlo\",\"face\":\"dlo\",\"match\":\"water\"},{\"id\":\"manje\",\"face\":\"manjé\",\"match\":\"food\"}]}",
+      "reviewStatus": "APPROVED"
+    },
+    {
+      "slug": "spelling-yon",
+      "title": "Spell with letter tiles",
+      "description": "Build the word yon with letter tiles.",
+      "activityType": "spelling-tiles",
+      "ageBand": "CONFIDENT_10_12",
+      "categoryKey": "numbers",
+      "configJson": "{\"target\":\"yon\",\"tiles\":[\"y\",\"o\",\"n\",\"a\",\"e\"]}",
+      "reviewStatus": "APPROVED"
+    }
+  ]
+}
