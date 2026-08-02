@@ -63,8 +63,16 @@ Example: `animals-chat-kid-0042.webp`
 
 ## Audio naming convention
 
+Preferred static Pages path:
+
+`public/audio/{entry-slug}.mp3`
+
+Example: `public/audio/bonjou.mp3`
+
+Legacy/admin style:
+
 `{kweyol-slug}-{audienceTag}-{entryShortId}.mp3`
 
 Example: `bonjou-kid-0042.mp3`
 
-Do not label audio as verified native pronunciation unless it has been reviewed.
+Do not label audio as verified native pronunciation unless it has been reviewed. See `docs/AUDIO.md`.

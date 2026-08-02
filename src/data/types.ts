@@ -17,6 +17,7 @@ export type SeedEntry = {
   alternativeSpelling?: string;
   pluralForm?: string;
   example: { kweyolText: string; englishText: string };
+  relatedSlugs?: string[];
   child?: {
     simpleMeaning: string;
     shortExampleKweyol: string;
