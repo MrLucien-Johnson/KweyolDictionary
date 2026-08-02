@@ -65,4 +65,7 @@ yarn-error.log*
 /skills-lock.json
 /README.md.bak
 
+# temporary move during GitHub Pages static export
+/.pages-backup/
+
 /src/generated/prisma

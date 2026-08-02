@@ -1,77 +1,41 @@
-import { prisma } from "@/lib/db";
-import { CHILD_CATEGORY_DEFINITIONS } from "@/lib/constants/categories";
-import type { ChildAgeBand } from "@/generated/prisma/client";
+import {
+  getActivity,
+  getChildEntry,
+  listActivities,
+  listChildCategories,
+  listChildEntries,
+} from "@/lib/content/catalog";
 
-export async function listChildCategories() {
-  const counts = await prisma.childPresentation.groupBy({
-    by: ["childCategoryKey"],
-    where: {
-      showInChildrenDictionary: true,
-      entry: { reviewStatus: "APPROVED" },
-    },
-    _count: { _all: true },
-  });
-
-  return CHILD_CATEGORY_DEFINITIONS.map((category) => ({
-    ...category,
-    count:
-      counts.find((row) => row.childCategoryKey === category.key)?._count._all ??
-      0,
-    imagePath: `/images/placeholders/${category.key}.svg`,
-  }));
+export async function listChildCategoriesView() {
+  return listChildCategories();
 }
 
 export async function listChildWords(options?: {
   category?: string;
-  ageBand?: ChildAgeBand;
+  ageBand?: string;
 }) {
-  return prisma.dictionaryEntry.findMany({
-    where: {
-      reviewStatus: "APPROVED",
-      childPresentation: {
-        is: {
-          showInChildrenDictionary: true,
-          ...(options?.category
-            ? { childCategoryKey: options.category }
-            : {}),
-          ...(options?.ageBand ? { ageBand: options.ageBand } : {}),
-        },
-      },
-    },
-    include: {
-      childPresentation: true,
-      imageAssets: true,
-      audioFiles: true,
-    },
-    orderBy: { kweyolWord: "asc" },
-  });
+  return listChildEntries(options);
 }
 
 export async function getChildWord(slug: string) {
-  return prisma.dictionaryEntry.findFirst({
-    where: {
-      slug,
-      reviewStatus: "APPROVED",
-      childPresentation: { is: { showInChildrenDictionary: true } },
-    },
-    include: {
-      childPresentation: true,
-      imageAssets: true,
-      audioFiles: true,
-    },
-  });
+  return getChildEntry(slug) ?? null;
 }
 
 export async function listChildActivities(options?: {
   category?: string;
-  ageBand?: ChildAgeBand;
+  ageBand?: string;
 }) {
-  return prisma.childActivity.findMany({
-    where: {
-      reviewStatus: "APPROVED",
-      ...(options?.category ? { categoryKey: options.category } : {}),
-      ...(options?.ageBand ? { ageBand: options.ageBand } : {}),
-    },
-    orderBy: { title: "asc" },
-  });
+  return listActivities(options).map((activity, index) => ({
+    id: `${activity.slug}-${index}`,
+    ...activity,
+  }));
 }
+
+export async function getChildActivity(slug: string) {
+  const activity = getActivity(slug);
+  if (!activity) return null;
+  return { id: activity.slug, ...activity };
+}
+
+// Back-compat names
+export { listChildCategoriesView as listChildCategories };

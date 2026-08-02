@@ -2,20 +2,26 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ChildWordCard } from "@/components/children/ChildWordCard";
-import { CHILD_CATEGORY_DEFINITIONS } from "@/lib/constants/categories";
-import { listChildWords } from "@/lib/children/queries";
+import { listChildCategories, listChildWords } from "@/lib/children/queries";
 
 type Props = { params: Promise<{ key: string }> };
 
+export async function generateStaticParams() {
+  const categories = await listChildCategories();
+  return categories.map((category) => ({ key: category.key }));
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { key } = await params;
-  const category = CHILD_CATEGORY_DEFINITIONS.find((item) => item.key === key);
+  const categories = await listChildCategories();
+  const category = categories.find((item) => item.key === key);
   return { title: category ? `${category.nameEn} for children` : "Category" };
 }
 
 export default async function ChildCategoryPage({ params }: Props) {
   const { key } = await params;
-  const category = CHILD_CATEGORY_DEFINITIONS.find((item) => item.key === key);
+  const categories = await listChildCategories();
+  const category = categories.find((item) => item.key === key);
   if (!category) notFound();
   const words = await listChildWords({ category: key });
 

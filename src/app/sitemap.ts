@@ -1,8 +1,17 @@
 import type { MetadataRoute } from "next";
-import { prisma } from "@/lib/db";
+import {
+  getCatalog,
+  listChildEntries,
+  listEntries,
+  listLessons,
+} from "@/lib/content/catalog";
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const base = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+export const dynamic = "force-static";
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const base =
+    process.env.NEXT_PUBLIC_SITE_URL ??
+    "https://mrlucien-johnson.github.io/KweyolDictionary";
   const routes = [
     "",
     "/dictionary",
@@ -15,23 +24,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/about",
   ];
 
-  const [words, lessons, childWords] = await Promise.all([
-    prisma.dictionaryEntry.findMany({
-      where: { reviewStatus: "APPROVED" },
-      select: { slug: true, updatedAt: true },
-    }),
-    prisma.grammarLesson.findMany({
-      where: { reviewStatus: "APPROVED" },
-      select: { slug: true, updatedAt: true },
-    }),
-    prisma.dictionaryEntry.findMany({
-      where: {
-        reviewStatus: "APPROVED",
-        childPresentation: { is: { showInChildrenDictionary: true } },
-      },
-      select: { slug: true, updatedAt: true },
-    }),
-  ]);
+  const words = listEntries({});
+  const lessons = listLessons();
+  const childWords = listChildEntries();
+  const categories = getCatalog().childCategories;
 
   return [
     ...routes.map((route) => ({
@@ -42,19 +38,25 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })),
     ...words.map((word) => ({
       url: `${base}/dictionary/${word.slug}`,
-      lastModified: word.updatedAt,
+      lastModified: new Date(word.dateAdded),
       changeFrequency: "weekly" as const,
       priority: 0.8,
     })),
     ...childWords.map((word) => ({
       url: `${base}/children/words/${word.slug}`,
-      lastModified: word.updatedAt,
+      lastModified: new Date(word.dateAdded),
       changeFrequency: "weekly" as const,
       priority: 0.7,
     })),
+    ...categories.map((category) => ({
+      url: `${base}/children/categories/${category.key}`,
+      lastModified: new Date(),
+      changeFrequency: "weekly" as const,
+      priority: 0.6,
+    })),
     ...lessons.map((lesson) => ({
       url: `${base}/learn/${lesson.slug}`,
-      lastModified: lesson.updatedAt,
+      lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: 0.6,
     })),

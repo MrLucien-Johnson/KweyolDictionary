@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { AudioButton } from "@/components/dictionary/AudioButton";
 import { WordActions } from "@/components/dictionary/WordActions";
+import { listEntries } from "@/lib/content/catalog";
 import {
   getAdjacentEntries,
   getEntryBySlug,
@@ -12,24 +13,22 @@ type WordPageProps = {
   params: Promise<{ slug: string }>;
 };
 
+export async function generateStaticParams() {
+  return listEntries({}).map((entry) => ({ slug: entry.slug }));
+}
+
 export async function generateMetadata({
   params,
 }: WordPageProps): Promise<Metadata> {
   const { slug } = await params;
   const entry = await getEntryBySlug(slug);
-  if (!entry) {
-    return { title: "Word not found" };
-  }
+  if (!entry) return { title: "Word not found" };
   return {
     title: `${entry.kweyolWord} — ${entry.englishTranslation}`,
     description:
       entry.simpleDefinition ??
       `${entry.kweyolWord}: ${entry.englishTranslation} in Dominican Kwéyòl.`,
     alternates: { canonical: `/dictionary/${entry.slug}` },
-    openGraph: {
-      title: `${entry.kweyolWord} · Dominican Kwéyòl`,
-      description: entry.englishTranslation,
-    },
   };
 }
 
@@ -40,15 +39,6 @@ export default async function WordDetailPage({ params }: WordPageProps) {
 
   const { previous, next } = await getAdjacentEntries(entry.slug);
   const audio = entry.audioFiles.find((file) => file.status !== "MISSING");
-  const related = [
-    ...entry.synonyms.map((relation) => relation.toEntry),
-    ...entry.relatedFrom.map((relation) => relation.fromEntry),
-  ].filter(
-    (item, index, arr) =>
-      item.reviewStatus === "APPROVED" &&
-      arr.findIndex((candidate) => candidate.id === item.id) === index,
-  );
-
   const definition =
     entry.adultPresentation?.displayDefinition ||
     entry.detailedDefinition ||
@@ -110,40 +100,6 @@ export default async function WordDetailPage({ params }: WordPageProps) {
         <section className="word-detail__section">
           <h2>Cultural notes</h2>
           <p>{entry.culturalNotes}</p>
-        </section>
-      ) : null}
-
-      {entry.regionalWarning ? (
-        <section className="word-detail__section word-detail__warning">
-          <h2>Regional note</h2>
-          <p>{entry.regionalWarning}</p>
-        </section>
-      ) : null}
-
-      {(entry.pluralForm || entry.verbForms || entry.alternativeSpelling) && (
-        <section className="word-detail__section">
-          <h2>Forms</h2>
-          <ul className="plain-list">
-            {entry.pluralForm ? <li>Plural: {entry.pluralForm}</li> : null}
-            {entry.verbForms ? <li>Verb forms: {entry.verbForms}</li> : null}
-            {entry.alternativeSpelling ? (
-              <li>Alternative spelling: {entry.alternativeSpelling}</li>
-            ) : null}
-          </ul>
-        </section>
-      )}
-
-      {related.length ? (
-        <section className="word-detail__section">
-          <h2>Related words</h2>
-          <ul className="related-list">
-            {related.map((item) => (
-              <li key={item.id}>
-                <Link href={`/dictionary/${item.slug}`}>{item.kweyolWord}</Link>
-                <span> — {item.englishTranslation}</span>
-              </li>
-            ))}
-          </ul>
         </section>
       ) : null}
 

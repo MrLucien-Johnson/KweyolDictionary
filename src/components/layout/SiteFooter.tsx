@@ -21,6 +21,10 @@ export function SiteFooter() {
           <Link href="/about">About & language policy</Link>
         </nav>
         <p className="site-footer__policy">{DOMINICA_ONLY_POLICY}</p>
+        <p className="site-footer__policy">
+          Public learning site is optimised for GitHub Pages. Editorial admin
+          tools run in the local Node environment, not on the static host.
+        </p>
       </div>
     </footer>
   );

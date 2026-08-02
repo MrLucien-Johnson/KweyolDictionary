@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { listChildActivities } from "@/lib/children/queries";
-import { CHILD_AGE_BAND_LABELS } from "@/lib/constants/age-groups";
+import {
+  CHILD_AGE_BAND_LABELS,
+  type ChildAgeBandValue,
+} from "@/lib/constants/age-groups";
 
 export const metadata: Metadata = {
   title: "Children’s activities",
@@ -26,7 +29,10 @@ export default async function ChildActivitiesPage() {
             <h3>{activity.title}</h3>
             <p>{activity.description}</p>
             <p className="meta-pill">
-              {CHILD_AGE_BAND_LABELS[activity.ageBand].label}
+              {
+                CHILD_AGE_BAND_LABELS[activity.ageBand as ChildAgeBandValue]
+                  ?.label
+              }
             </p>
             <div style={{ marginTop: "1rem" }}>
               <Link

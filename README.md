@@ -2,37 +2,40 @@
 
 **Learn, preserve and celebrate the Kwéyòl language of Dominica.**
 
-A professional educational platform with:
+Public GitHub Pages site:
 
-1. **Adult Dictionary** — search, browse, word pages, grammar, flashcards and quizzes  
-2. **Children’s Dictionary** — illustrated categories, listen controls, activities and local rewards  
-3. **Admin area** — entry management, media reports, moderation, import/export  
+**https://mrlucien-johnson.github.io/KweyolDictionary/**
 
-Content is limited to **Dominica’s Kwéyòl** only. See [docs/LANGUAGE_POLICY.md](docs/LANGUAGE_POLICY.md).
-
-## Quick start
+## Quick start (local)
 
 ```bash
 cp .env.example .env
 npm ci
 npx prisma migrate deploy
 npm run db:seed
+npm run content:publish
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+## GitHub Pages
 
-Default local admin (change before sharing):
+```bash
+npm run build:pages
+npm run start:pages
+# http://localhost:3000/KweyolDictionary/
+```
 
-- URL: `/admin/login`
-- Email / password from `.env` (`ADMIN_EMAIL` / `ADMIN_PASSWORD`)
+Deployment is automated by `.github/workflows/deploy-github-pages.yml` on `main`.
+
+Set Pages source to **GitHub Actions** in repository settings.
+
+Details: [docs/GITHUB_PAGES.md](docs/GITHUB_PAGES.md) · Prompt: [docs/GITHUB_PAGES_PROMPT.md](docs/GITHUB_PAGES_PROMPT.md)
 
 ## Validation
 
 ```bash
 npm run validate
 npm run test:e2e
-npm run content:report
 ```
 
 ## Documentation
@@ -41,9 +44,10 @@ npm run content:report
 - [docs/EDITOR_GUIDE.md](docs/EDITOR_GUIDE.md)
 - [docs/LANGUAGE_POLICY.md](docs/LANGUAGE_POLICY.md)
 - [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md)
-- [docs/CONTENT_COVERAGE.md](docs/CONTENT_COVERAGE.md)
-- [docs/PHASES_3_TO_10.md](docs/PHASES_3_TO_10.md)
+- [docs/GITHUB_PAGES.md](docs/GITHUB_PAGES.md)
 
-## Important content rule
+## Notes
 
-Scaffolding vocabulary exists for product journeys and is open to community correction. Draft entries stay hidden from the public dictionary. Do not treat the seed set as a complete linguistic authority.
+- Dominica’s Kwéyòl only
+- Public Pages build is static (no runtime admin/API)
+- Local Node mode still includes admin tools for editors

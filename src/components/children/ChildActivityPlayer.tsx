@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { PublicImage } from "@/components/ui/PublicImage";
 import {
   awardStars,
   loadChildProgress,
@@ -79,8 +80,7 @@ export function ChildActivityPlayer({
                   else setMessage("Try again — you can do it!");
                 }}
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <PublicImage
                   src="/images/placeholders/colours.svg"
                   alt={prompt.meaning}
                   width={180}

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { scoreQuizLocally } from "@/lib/content/catalog";
 
 type Answer = { id: string; answerText: string };
 type Question = {
@@ -31,33 +32,22 @@ export function QuizPlayer({ slug, title, questions }: QuizPlayerProps) {
   const [choices, setChoices] = useState<Record<string, string>>({});
   const [result, setResult] = useState<ScorePayload | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [submitting, setSubmitting] = useState(false);
 
-  async function onSubmit(event: React.FormEvent) {
+  function onSubmit(event: React.FormEvent) {
     event.preventDefault();
-    setSubmitting(true);
     setError(null);
-    try {
-      const response = await fetch(`/api/quizzes/${slug}/score`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          answers: questions.map((question) => ({
-            questionId: question.id,
-            answerId: choices[question.id],
-          })),
-        }),
-      });
-      if (!response.ok) {
-        throw new Error("Could not score quiz");
-      }
-      const data = (await response.json()) as ScorePayload;
-      setResult(data);
-    } catch {
-      setError("Something went wrong while scoring. Please try again.");
-    } finally {
-      setSubmitting(false);
+    const scored = scoreQuizLocally(
+      slug,
+      questions.map((question) => ({
+        questionId: question.id,
+        answerId: choices[question.id],
+      })),
+    );
+    if (!scored) {
+      setError("Could not score this quiz.");
+      return;
     }
+    setResult(scored);
   }
 
   return (
@@ -120,8 +110,8 @@ export function QuizPlayer({ slug, title, questions }: QuizPlayerProps) {
           Score: {result.score} / {result.total}
         </p>
       ) : (
-        <button type="submit" className="btn btn--primary btn--lg" disabled={submitting}>
-          {submitting ? "Checking…" : "Check answers"}
+        <button type="submit" className="btn btn--primary btn--lg">
+          Check answers
         </button>
       )}
     </form>

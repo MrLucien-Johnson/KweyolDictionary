@@ -1,15 +1,21 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ChildActivityPlayer } from "@/components/children/ChildActivityPlayer";
-import { prisma } from "@/lib/db";
+import {
+  getChildActivity,
+  listChildActivities,
+} from "@/lib/children/queries";
 
 type Props = { params: Promise<{ slug: string }> };
 
+export async function generateStaticParams() {
+  const activities = await listChildActivities();
+  return activities.map((activity) => ({ slug: activity.slug }));
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const activity = await prisma.childActivity.findFirst({
-    where: { slug, reviewStatus: "APPROVED" },
-  });
+  const activity = await getChildActivity(slug);
   return {
     title: activity?.title ?? "Activity",
     robots: { index: false, follow: false },
@@ -18,9 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ChildActivityPage({ params }: Props) {
   const { slug } = await params;
-  const activity = await prisma.childActivity.findFirst({
-    where: { slug, reviewStatus: "APPROVED" },
-  });
+  const activity = await getChildActivity(slug);
   if (!activity) notFound();
 
   return (
@@ -29,7 +33,7 @@ export default async function ChildActivityPage({ params }: Props) {
         slug={activity.slug}
         title={activity.title}
         activityType={activity.activityType}
-        configJson={activity.configJson}
+        configJson={activity.configJson ?? null}
       />
     </div>
   );

@@ -1,52 +1,56 @@
 "use client";
 
-import { FormEvent, useState } from "react";
-
 type ContributeFormProps = {
   defaultEntry?: string;
   defaultType?: string;
+  issuesUrl: string;
 };
 
 export function ContributeForm({
   defaultEntry,
-  defaultType,
+  defaultType = "NEW_WORD",
+  issuesUrl,
 }: ContributeFormProps) {
-  const [message, setMessage] = useState<string | null>(null);
-  const [error, setError] = useState<string | null>(null);
-
-  async function onSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    setMessage(null);
-    setError(null);
-    const form = new FormData(event.currentTarget);
-    const response = await fetch("/api/submissions", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        type: form.get("type"),
-        submitterEmail: form.get("email") || undefined,
-        submitterNote: form.get("note"),
-        payload: {
-          entrySlug: form.get("entrySlug"),
-          kweyolWord: form.get("kweyolWord"),
-          englishTranslation: form.get("englishTranslation"),
-          details: form.get("details"),
-        },
-      }),
-    });
-    if (!response.ok) {
-      setError("Could not send your suggestion. Please try again.");
-      return;
-    }
-    setMessage("Thank you. Your suggestion was received and awaits moderation.");
-    event.currentTarget.reset();
+  function buildIssueUrl(form: HTMLFormElement) {
+    const data = new FormData(form);
+    const title = encodeURIComponent(
+      `[${String(data.get("type") ?? "NEW_WORD")}] ${String(data.get("kweyolWord") || data.get("entrySlug") || "suggestion")}`,
+    );
+    const body = encodeURIComponent(
+      [
+        `**Type:** ${String(data.get("type") ?? "")}`,
+        `**Entry slug:** ${String(data.get("entrySlug") ?? "")}`,
+        `**Kwéyòl word:** ${String(data.get("kweyolWord") ?? "")}`,
+        `**English:** ${String(data.get("englishTranslation") ?? "")}`,
+        "",
+        "## Details",
+        String(data.get("details") ?? ""),
+        "",
+        "## Note for editors",
+        String(data.get("note") ?? ""),
+        "",
+        "_Submitted from the static GitHub Pages site. Requires moderation before publication._",
+      ].join("\n"),
+    );
+    const separator = issuesUrl.includes("?") ? "&" : "?";
+    return `${issuesUrl}${separator}title=${title}&body=${body}`;
   }
 
   return (
-    <form className="admin-form" onSubmit={onSubmit}>
+    <form
+      className="admin-form"
+      onSubmit={(event) => {
+        event.preventDefault();
+        window.open(buildIssueUrl(event.currentTarget), "_blank", "noopener,noreferrer");
+      }}
+    >
+      <p className="section-lead">
+        On GitHub Pages, suggestions open a GitHub Issue for moderation. No
+        personal child data is collected.
+      </p>
       <label>
         Suggestion type
-        <select name="type" defaultValue={defaultType ?? "NEW_WORD"} required>
+        <select name="type" defaultValue={defaultType} required>
           <option value="NEW_WORD">New word</option>
           <option value="CORRECTION">Correction</option>
           <option value="AUDIO">Audio</option>
@@ -75,14 +79,8 @@ export function ContributeForm({
         Note for editors
         <textarea name="note" rows={3} />
       </label>
-      <label>
-        Your email (optional)
-        <input name="email" type="email" />
-      </label>
-      {error ? <p className="form-error">{error}</p> : null}
-      {message ? <p role="status">{message}</p> : null}
       <button type="submit" className="btn btn--primary btn--md">
-        Submit for review
+        Open GitHub suggestion
       </button>
     </form>
   );

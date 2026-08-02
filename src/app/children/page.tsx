@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { listChildActivities, listChildCategories } from "@/lib/children/queries";
 import { ChildProgressPanel } from "@/components/children/ChildProgressPanel";
+import { PublicImage } from "@/components/ui/PublicImage";
 
 export const metadata: Metadata = {
   title: "Children’s Dictionary",
@@ -47,8 +48,7 @@ export default async function ChildrenHomePage() {
               href={`/children/categories/${category.key}`}
               className="child-category-card"
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <PublicImage
                 src={category.imagePath}
                 alt=""
                 width={120}

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { AudioButton } from "@/components/dictionary/AudioButton";
+import { PublicImage } from "@/components/ui/PublicImage";
 import {
   loadChildProgress,
   markListened,
@@ -28,8 +29,7 @@ export function ChildWordCard({
   return (
     <article className="child-word-card">
       <Link href={`/children/words/${slug}`} className="child-word-card__media">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <PublicImage
           src={imageSrc ?? "/images/placeholders/default.svg"}
           alt={
             imageStatus === "CONFIRMED"

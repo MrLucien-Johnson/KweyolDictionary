@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { ContributeForm } from "@/components/contribute/ContributeForm";
+import { Suspense } from "react";
+import { ContributeFormClient } from "@/components/contribute/ContributeFormClient";
 import { LANGUAGE_VARIATION_NOTE } from "@/lib/content/editorial";
 
 export const metadata: Metadata = {
@@ -8,12 +9,11 @@ export const metadata: Metadata = {
     "Suggest Dominican Kwéyòl words, corrections, audio and cultural notes for review.",
 };
 
-type ContributePageProps = {
-  searchParams: Promise<{ entry?: string; type?: string }>;
-};
+export default function ContributePage() {
+  const issuesUrl =
+    process.env.NEXT_PUBLIC_CONTRIBUTE_ISSUES_URL ??
+    "https://github.com/MrLucien-Johnson/KweyolDictionary/issues/new";
 
-export default async function ContributePage({ searchParams }: ContributePageProps) {
-  const params = await searchParams;
   return (
     <div className="placeholder-page">
       <h1>Contribute</h1>
@@ -23,10 +23,9 @@ export default async function ContributePage({ searchParams }: ContributePagePro
         publication.
       </p>
       <p>{LANGUAGE_VARIATION_NOTE}</p>
-      <ContributeForm
-        defaultEntry={params.entry}
-        defaultType={params.type}
-      />
+      <Suspense fallback={<p className="loading-line">Loading form…</p>}>
+        <ContributeFormClient issuesUrl={issuesUrl} />
+      </Suspense>
     </div>
   );
 }

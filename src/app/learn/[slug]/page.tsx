@@ -1,33 +1,28 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { prisma } from "@/lib/db";
+import { getLesson, listLessons } from "@/lib/content/catalog";
 
 type LessonPageProps = {
   params: Promise<{ slug: string }>;
 };
 
+export async function generateStaticParams() {
+  return listLessons().map((lesson) => ({ slug: lesson.slug }));
+}
+
 export async function generateMetadata({
   params,
 }: LessonPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const lesson = await prisma.grammarLesson.findFirst({
-    where: { slug, reviewStatus: "APPROVED" },
-  });
+  const lesson = getLesson(slug);
   return { title: lesson?.title ?? "Lesson" };
 }
 
 export default async function GrammarLessonPage({ params }: LessonPageProps) {
   const { slug } = await params;
-  const lesson = await prisma.grammarLesson.findFirst({
-    where: { slug, reviewStatus: "APPROVED" },
-  });
+  const lesson = getLesson(slug);
   if (!lesson) notFound();
-
-  const examples = JSON.parse(lesson.examplesJson) as {
-    kweyol: string;
-    english: string;
-  }[];
 
   return (
     <article className="lesson-page">
@@ -39,7 +34,7 @@ export default async function GrammarLessonPage({ params }: LessonPageProps) {
       <section className="word-detail__section">
         <h2>Examples</h2>
         <ul className="example-list">
-          {examples.map((example) => (
+          {lesson.examples.map((example) => (
             <li key={`${example.kweyol}-${example.english}`}>
               <p className="example-list__kweyol">{example.kweyol}</p>
               <p className="example-list__english">{example.english}</p>
@@ -67,7 +62,10 @@ export default async function GrammarLessonPage({ params }: LessonPageProps) {
           <h2>Practice activity</h2>
           <p>{lesson.practiceActivity}</p>
           <div style={{ marginTop: "1rem" }}>
-            <Link href="/learn/quizzes/greetings-multiple-choice" className="btn btn--primary btn--md">
+            <Link
+              href="/learn/quizzes/greetings-multiple-choice"
+              className="btn btn--primary btn--md"
+            >
               Try a related quiz
             </Link>
           </div>

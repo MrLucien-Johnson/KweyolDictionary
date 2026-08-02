@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { prisma } from "@/lib/db";
+import { listLessons } from "@/lib/content/catalog";
 import { listPublicQuizzes } from "@/lib/learning/quizzes";
 
 export const metadata: Metadata = {
@@ -11,11 +11,8 @@ export const metadata: Metadata = {
 
 export default async function LearnPage() {
   const [lessons, quizzes] = await Promise.all([
-    prisma.grammarLesson.findMany({
-      where: { reviewStatus: "APPROVED" },
-      orderBy: { sortOrder: "asc" },
-    }),
-    listPublicQuizzes("ADULT"),
+    Promise.resolve(listLessons()),
+    listPublicQuizzes(),
   ]);
 
   return (
@@ -32,7 +29,7 @@ export default async function LearnPage() {
         <h2 className="section-title">Lessons</h2>
         <div className="feature-grid">
           {lessons.map((lesson) => (
-            <article key={lesson.id} className="feature-block">
+            <article key={lesson.slug} className="feature-block">
               <h3>{lesson.title}</h3>
               <p>{lesson.shortExplanation}</p>
               <div style={{ marginTop: "1rem" }}>

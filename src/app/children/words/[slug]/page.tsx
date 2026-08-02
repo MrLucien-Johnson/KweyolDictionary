@@ -2,10 +2,16 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ChildWordCard } from "@/components/children/ChildWordCard";
-import { getChildWord } from "@/lib/children/queries";
+import { getChildWord, listChildWords } from "@/lib/children/queries";
 import { CHILD_AGE_BAND_LABELS } from "@/lib/constants/age-groups";
+import type { ChildAgeBandValue } from "@/lib/constants/age-groups";
 
 type Props = { params: Promise<{ slug: string }> };
+
+export async function generateStaticParams() {
+  const words = await listChildWords();
+  return words.map((word) => ({ slug: word.slug }));
+}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
@@ -23,7 +29,8 @@ export default async function ChildWordPage({ params }: Props) {
 
   const image = word.imageAssets[0];
   const audio = word.audioFiles.find((file) => file.status !== "MISSING");
-  const age = CHILD_AGE_BAND_LABELS[word.childPresentation.ageBand];
+  const ageBand = word.childPresentation.ageBand as ChildAgeBandValue;
+  const age = CHILD_AGE_BAND_LABELS[ageBand];
 
   return (
     <div className="children-page">
@@ -50,9 +57,11 @@ export default async function ChildWordPage({ params }: Props) {
           <p>{word.childPresentation.funFact}</p>
         </section>
       ) : null}
-      <p className="meta-pill">
-        {age.label} · ages {age.ages}
-      </p>
+      {age ? (
+        <p className="meta-pill">
+          {age.label} · ages {age.ages}
+        </p>
+      ) : null}
       <div style={{ marginTop: "1.5rem" }}>
         <Link href="/children/words" className="btn btn--soft btn--md">
           Back to picture words

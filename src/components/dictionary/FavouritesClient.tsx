@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { listEntries } from "@/lib/content/catalog";
 import { getFavouriteSlugs } from "@/lib/favourites/storage";
 
 type FavouriteEntry = {
@@ -15,36 +16,13 @@ export function FavouritesClient() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    let cancelled = false;
-    const slugs = getFavouriteSlugs();
-
-    void (async () => {
-      if (!slugs.length) {
-        if (!cancelled) {
-          setEntries([]);
-          setLoading(false);
-        }
-        return;
-      }
-
-      try {
-        const response = await fetch(
-          `/api/dictionary/by-slugs?slugs=${encodeURIComponent(slugs.join(","))}`,
-        );
-        const data = (await response.json()) as { entries: FavouriteEntry[] };
-        if (!cancelled) {
-          setEntries(data.entries ?? []);
-        }
-      } finally {
-        if (!cancelled) {
-          setLoading(false);
-        }
-      }
-    })();
-
-    return () => {
-      cancelled = true;
-    };
+    const frame = requestAnimationFrame(() => {
+      const slugs = new Set(getFavouriteSlugs());
+      const matched = listEntries({}).filter((entry) => slugs.has(entry.slug));
+      setEntries(matched);
+      setLoading(false);
+    });
+    return () => cancelAnimationFrame(frame);
   }, []);
 
   if (loading) {

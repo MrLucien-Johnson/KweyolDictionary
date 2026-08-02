@@ -4,8 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "prisma generate && next build",
+    "build": "prisma generate && npm run content:publish && next build",
+    "build:pages": "npm run content:publish && node scripts/prepare-pages-build.mjs && node scripts/run-pages-build.mjs",
     "start": "next start",
+    "start:pages": "npx --yes serve out -l 3000",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "format": "prettier --write .",
@@ -19,8 +21,10 @@
     "db:seed": "tsx prisma/seed.ts",
     "db:validate": "prisma validate",
     "content:report": "tsx scripts/content-coverage.ts",
+    "content:publish": "tsx scripts/publish-static-content.ts",
     "postinstall": "prisma generate",
-    "validate": "prisma generate && npm run lint && npm run typecheck && npm run test && npm run db:validate && next build"
+    "validate": "prisma generate && npm run content:publish && npm run lint && npm run typecheck && npm run test && npm run db:validate && next build",
+    "validate:pages": "npm run validate && npm run build:pages"
   },
   "dependencies": {
     "@prisma/adapter-better-sqlite3": "^7.9.1",
