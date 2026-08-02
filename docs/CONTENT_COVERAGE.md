@@ -1,6 +1,6 @@
 # Content coverage report
 
-Generated: 2026-08-02T19:38:10.552Z
+Generated: 2026-08-02T19:43:14.590Z
 
 Source: published static catalog (GitHub Pages / public dictionary)
 
@@ -9,8 +9,10 @@ Source: published static catalog (GitHub Pages / public dictionary)
 | Total entries | 334 |
 | Approved entries | 334 |
 | Draft entries | 0 |
-| Words with audio | 0 |
-| Words without audio | 334 |
+| Words with audio | 334 |
+| Words with synthetic TTS audio | 334 |
+| Words with recorded (non-TTS) audio | 0 |
+| Words without audio | 0 |
 | Words with images (incl. placeholders) | 262 |
 | Children’s words without confirmed images | 262 |
 | Entries without examples | 0 |
@@ -25,7 +27,8 @@ Source: published static catalog (GitHub Pages / public dictionary)
 
 - Beginner product-density curriculum is approved for public learning journeys.
 - Entries remain open to Dominican community and linguist correction.
-- Audio and final illustrations are still outstanding for most words.
+- Synthetic TTS may be present as practice audio; it is not native Dominican Kwéyòl.
+- Confirmed native recordings and final illustrations remain outstanding.
 
 ## Duplicate headword candidates
 

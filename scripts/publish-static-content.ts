@@ -2,7 +2,7 @@
  * Build-time publisher: writes approved public content to JSON for static hosting.
  * Source of truth for GitHub Pages (no runtime database).
  */
-import { existsSync, mkdirSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import {
   SEED_CHILD_ACTIVITIES,
@@ -20,6 +20,25 @@ const outDir = path.join(process.cwd(), "src/data/published");
 mkdirSync(outDir, { recursive: true });
 
 const approved = SEED_ENTRIES.filter((entry) => entry.reviewStatus === "APPROVED");
+
+type TtsManifest = {
+  voice?: string;
+  disclaimer?: string;
+  files?: Record<string, unknown>;
+};
+
+function loadTtsManifest(): TtsManifest {
+  const manifestPath = path.join(process.cwd(), "public", "audio", "tts-manifest.json");
+  if (!existsSync(manifestPath)) return {};
+  try {
+    return JSON.parse(readFileSync(manifestPath, "utf8")) as TtsManifest;
+  } catch {
+    return {};
+  }
+}
+
+const ttsManifest = loadTtsManifest();
+const syntheticSlugs = new Set(Object.keys(ttsManifest.files ?? {}));
 
 const entries = approved.map((entry) => {
   const imagePath = entry.child
@@ -59,17 +78,25 @@ const entries = approved.map((entry) => {
     audioFiles: (() => {
       const relative = `/audio/${entry.slug}.mp3`;
       const absolute = path.join(process.cwd(), "public", "audio", `${entry.slug}.mp3`);
-      if (!existsSync(absolute)) return [] as {
-        id: string;
-        filePath: string;
-        status: "MISSING" | "PLACEHOLDER" | "CONFIRMED";
-      }[];
+      if (!existsSync(absolute)) {
+        return [] as {
+          id: string;
+          filePath: string;
+          status: "MISSING" | "PLACEHOLDER" | "CONFIRMED";
+          source: "SYNTHETIC_TTS" | "RECORDED" | "UNKNOWN";
+          voice: string | null;
+        }[];
+      }
+      const isSynthetic = syntheticSlugs.has(entry.slug);
       return [
         {
           id: `${entry.slug}-audio`,
           filePath: relative,
-          // Files dropped in public/audio stay PLACEHOLDER until a reviewer confirms native audio.
+          // Synthetic TTS and unverified recordings stay PLACEHOLDER.
+          // Only a human review should promote native audio to CONFIRMED later.
           status: "PLACEHOLDER" as const,
+          source: isSynthetic ? ("SYNTHETIC_TTS" as const) : ("RECORDED" as const),
+          voice: isSynthetic ? (ttsManifest.voice ?? null) : null,
         },
       ];
     })(),

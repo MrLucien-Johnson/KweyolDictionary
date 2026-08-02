@@ -11,6 +11,12 @@ function main() {
   const withAudio = entries.filter((entry) =>
     entry.audioFiles.some((file) => file.status !== "MISSING"),
   );
+  const withSyntheticAudio = entries.filter((entry) =>
+    entry.audioFiles.some((file) => file.source === "SYNTHETIC_TTS"),
+  );
+  const withRecordedAudio = entries.filter((entry) =>
+    entry.audioFiles.some((file) => file.source === "RECORDED"),
+  );
   const withImages = entries.filter((entry) => entry.imageAssets.length > 0);
   const childWithoutImages = entries.filter(
     (entry) =>
@@ -53,6 +59,8 @@ Source: published static catalog (GitHub Pages / public dictionary)
 | Approved entries | ${approved.length} |
 | Draft entries | ${drafts.length} |
 | Words with audio | ${withAudio.length} |
+| Words with synthetic TTS audio | ${withSyntheticAudio.length} |
+| Words with recorded (non-TTS) audio | ${withRecordedAudio.length} |
 | Words without audio | ${entries.length - withAudio.length} |
 | Words with images (incl. placeholders) | ${withImages.length} |
 | Children’s words without confirmed images | ${childWithoutImages.length} |
@@ -68,7 +76,8 @@ Source: published static catalog (GitHub Pages / public dictionary)
 
 - Beginner product-density curriculum is approved for public learning journeys.
 - Entries remain open to Dominican community and linguist correction.
-- Audio and final illustrations are still outstanding for most words.
+- Synthetic TTS may be present as practice audio; it is not native Dominican Kwéyòl.
+- Confirmed native recordings and final illustrations remain outstanding.
 
 ## Duplicate headword candidates
 

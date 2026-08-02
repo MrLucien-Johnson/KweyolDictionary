@@ -29,7 +29,13 @@ export type PublishedEntry = {
   audience: string;
   dateAdded: string;
   examples: PublishedExample[];
-  audioFiles: { id: string; filePath: string; status: string }[];
+  audioFiles: {
+    id: string;
+    filePath: string;
+    status: string;
+    source?: "SYNTHETIC_TTS" | "RECORDED" | "UNKNOWN";
+    voice?: string | null;
+  }[];
   imageAssets: {
     id: string;
     filePath: string | null;
