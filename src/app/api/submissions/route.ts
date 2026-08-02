@@ -2,6 +2,10 @@ import { NextResponse } from "next/server";
 import { communitySubmissionSchema } from "@/lib/validation/submission";
 import { prisma } from "@/lib/db";
 
+export async function GET() {
+  return NextResponse.json({ ok: true, mode: "node" });
+}
+
 export async function POST(request: Request) {
   const json = await request.json().catch(() => null);
   const parsed = communitySubmissionSchema.safeParse({

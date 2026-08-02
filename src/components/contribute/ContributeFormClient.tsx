@@ -10,6 +10,8 @@ export function ContributeFormClient({ issuesUrl }: { issuesUrl: string }) {
       issuesUrl={issuesUrl}
       defaultEntry={searchParams.get("entry") ?? undefined}
       defaultType={searchParams.get("type") ?? undefined}
+      defaultWord={searchParams.get("word") ?? undefined}
+      defaultEnglish={searchParams.get("english") ?? undefined}
     />
   );
 }

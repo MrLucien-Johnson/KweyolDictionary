@@ -1,0 +1,52 @@
+name: Native audio submission
+description: Propose Dominican Kwéyòl speech to replace synthetic practice audio
+title: "[AUDIO] "
+labels: ["audio", "needs-review"]
+body:
+  - type: input
+    id: entry_slug
+    attributes:
+      label: Entry slug
+      description: Dictionary slug, for example bonjou or li-read
+      placeholder: bonjou
+    validations:
+      required: true
+  - type: input
+    id: kweyol_word
+    attributes:
+      label: Kwéyòl word
+    validations:
+      required: true
+  - type: textarea
+    id: preverification
+    attributes:
+      label: Submitter pre-verification
+      value: |
+        - [ ] I speak Dominican Kwéyòl, or recorded a Dominican speaker with permission
+        - [ ] This is a human recording (not AI/TTS/browser speech)
+        - [ ] I listened and confirmed it matches the word
+        - [ ] I grant permission for review and possible publication
+        - [ ] I understand editors will re-check before it replaces practice TTS
+    validations:
+      required: true
+  - type: textarea
+    id: maintainer_review
+    attributes:
+      label: Maintainer meticulous review
+      value: |
+        - [ ] Listened end-to-end
+        - [ ] Matches intended headword/sense
+        - [ ] Sounds like natural Dominican Kwéyòl
+        - [ ] Clear enough quality
+        - [ ] Installed with accept-community-audio script
+        - [ ] content:publish run
+        - [ ] Still PLACEHOLDER until final confirmation
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Region, speaker context, or review notes
+  - type: markdown
+    attributes:
+      value: |
+        Attach the audio file to this issue. Do not mark synthetic audio as native.

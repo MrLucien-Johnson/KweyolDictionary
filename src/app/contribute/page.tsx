@@ -23,8 +23,9 @@ export default function ContributePage() {
       <h1>Contribute</h1>
       <p>
         Suggest new words, corrections, example sentences, cultural explanations
-        or alternative spellings. Every submission is moderated before
-        publication. Corrections help reduce incorrect public learning content.
+        or alternative spellings. For speech, use the verified-audio flow: your
+        browser pre-checks the recording, you must listen first, and editors
+        re-test meticulously before it can replace synthetic practice audio.
       </p>
       <ContentAccuracyNotice variant="panel" />
       <p>{LANGUAGE_VARIATION_NOTE}</p>

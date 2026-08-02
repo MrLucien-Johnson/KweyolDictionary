@@ -75,6 +75,12 @@ export function WordActions({
       <a className="btn btn--soft btn--md" href={`/contribute?entry=${slug}&type=CORRECTION`}>
         Report an error
       </a>
+      <a
+        className="btn btn--soft btn--md"
+        href={`/contribute?entry=${slug}&type=AUDIO&word=${encodeURIComponent(kweyolWord)}&english=${encodeURIComponent(englishTranslation)}`}
+      >
+        Contribute speech
+      </a>
       <button
         type="button"
         className="btn btn--soft btn--md"

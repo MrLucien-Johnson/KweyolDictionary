@@ -68,4 +68,7 @@ yarn-error.log*
 # temporary move during GitHub Pages static export
 /.pages-backup/
 
+# local community audio queue (never publish directly)
+/storage/
+
 /src/generated/prisma
