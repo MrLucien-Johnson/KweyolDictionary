@@ -1,6 +1,6 @@
 # Content coverage report
 
-Generated: 2026-08-02T19:09:05.452Z
+Generated: 2026-08-02T19:10:01.877Z
 
 Source: published static catalog (GitHub Pages / public dictionary)
 
