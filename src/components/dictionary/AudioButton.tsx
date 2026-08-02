@@ -7,6 +7,17 @@ type AudioButtonProps = {
   onPlay?: () => void;
 };
 
+function resolvePublicAssetPath(src: string) {
+  if (src.startsWith("http") || src.startsWith("blob:") || src.startsWith("data:")) {
+    return src;
+  }
+  const base = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+  if (!base || !src.startsWith("/") || src.startsWith(`${base}/`)) {
+    return src;
+  }
+  return `${base}${src}`;
+}
+
 export function AudioButton({
   src,
   label = "Listen",
@@ -27,12 +38,14 @@ export function AudioButton({
     );
   }
 
+  const resolvedSrc = resolvePublicAssetPath(src);
+
   return (
     <button
       type="button"
       className={`audio-btn ${large ? "audio-btn--large" : ""}`}
       onClick={() => {
-        const audio = new Audio(src);
+        const audio = new Audio(resolvedSrc);
         void audio.play().catch(() => {
           /* browser may block autoplay; user gesture already given */
         });
