@@ -64,6 +64,7 @@ export default async function WordDetailPage({ params }: WordPageProps) {
           ) : null}
         </div>
         <PronunciationAid
+          slug={entry.slug}
           kweyolWord={entry.kweyolWord}
           audioSrc={audio?.filePath}
           audioSource={

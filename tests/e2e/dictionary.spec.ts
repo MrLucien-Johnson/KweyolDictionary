@@ -28,3 +28,13 @@ test("children can open a category and word card", async ({ page }) => {
   await expect(page).toHaveURL(/\/children\/categories\/colours/);
   await expect(page.getByRole("link", { name: /wouj/i }).first()).toBeVisible();
 });
+
+test("verified speech contribute flow requires pre-checks", async ({ page }) => {
+  await page.goto("/contribute?type=AUDIO&entry=bonjou&word=bonjou&english=good%20morning");
+  await expect(
+    page.getByRole("heading", { name: /contribute verified speech/i }),
+  ).toBeVisible();
+  await expect(page.getByText(/pre-verification checklist/i)).toBeVisible();
+  await page.getByRole("button", { name: /download recording|submit for local review/i }).click();
+  await expect(page.getByText(/add a recording|choose an audio file|listen/i).first()).toBeVisible();
+});

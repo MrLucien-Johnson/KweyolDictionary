@@ -53,5 +53,6 @@ npm run test:e2e
 - Local Node mode still includes admin tools for editors
 - Beginner curriculum currently publishes **300+ provisional public entries** for product density; open to community correction
 - Public site includes an as-is **Content disclaimer** (`/disclaimer`) — learning aid, not certified curriculum
-- Practice audio for all entries is currently **synthetic TTS** (French neural approximation), clearly labelled — not native Dominican Kwéyòl; see [docs/AUDIO.md](docs/AUDIO.md)
+- Practice audio for all entries is currently **synthetic TTS** (French neural approximation), clearly labelled — not native Dominican Kwéyòl
+- Community speech uploads are pre-verified in the browser, then meticulously reviewed before replacing TTS — see [docs/AUDIO.md](docs/AUDIO.md) and [docs/AUDIO_REVIEW.md](docs/AUDIO_REVIEW.md)
 - See [docs/CONTENT_APPROVAL.md](docs/CONTENT_APPROVAL.md), [docs/CONTENT_EXPANSION.md](docs/CONTENT_EXPANSION.md) and [docs/CONTENT_COVERAGE.md](docs/CONTENT_COVERAGE.md)
