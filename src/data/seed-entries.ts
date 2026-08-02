@@ -1,399 +1,12 @@
 /**
- * Small demonstration / scaffolding vocabulary for local development.
- * Entries marked APPROVED are for product journeys and remain open to
- * community correction. They are not a complete linguistic authority.
- * DRAFT entries stay hidden from the public dictionary.
+ * Seed content for the Dominican Kwéyòl–English Dictionary.
+ * Dictionary entries come from the beginner product-density curriculum.
+ * Entries are APPROVED for public product use and remain open to community correction.
  */
-export type SeedEntry = {
-  slug: string;
-  kweyolWord: string;
-  englishTranslation: string;
-  alternativeEnglish?: string;
-  partOfSpeech: string;
-  pronunciationGuide: string;
-  simpleDefinition: string;
-  detailedDefinition: string;
-  culturalNotes?: string;
-  grammaticalNotes?: string;
-  usageNotes?: string;
-  topicCategory: string;
-  difficulty: "BEGINNER" | "ELEMENTARY" | "INTERMEDIATE" | "ADVANCED";
-  reviewStatus: "DRAFT" | "APPROVED" | "NEEDS_REVIEW";
-  isFeatured?: boolean;
-  alternativeSpelling?: string;
-  pluralForm?: string;
-  example: { kweyolText: string; englishText: string };
-  child?: {
-    simpleMeaning: string;
-    shortExampleKweyol: string;
-    shortExampleEnglish: string;
-    childCategoryKey: string;
-    ageBand: "EARLY_4_6" | "GROWING_7_9" | "CONFIDENT_10_12";
-    funFact?: string;
-  };
-};
+export type { SeedEntry } from "@/data/types";
+import { BEGINNER_CURRICULUM_ENTRIES } from "@/data/beginner-curriculum";
 
-export const SEED_ENTRIES: SeedEntry[] = [
-  {
-    slug: "bonjou",
-    kweyolWord: "bonjou",
-    englishTranslation: "good morning",
-    partOfSpeech: "interjection",
-    pronunciationGuide: "bon-zhoo",
-    simpleDefinition: "A greeting used in the morning.",
-    detailedDefinition:
-      "A common daytime greeting used to wish someone a good morning.",
-    culturalNotes:
-      "Greetings are an important part of everyday courtesy in Dominica. Usage can vary by community and time of day.",
-    topicCategory: "greetings",
-    difficulty: "BEGINNER",
-    reviewStatus: "APPROVED",
-    isFeatured: true,
-    example: {
-      kweyolText: "Bonjou, kouman ou yé?",
-      englishText: "Good morning, how are you?",
-    },
-    child: {
-      simpleMeaning: "We say this to say hello in the morning.",
-      shortExampleKweyol: "Bonjou!",
-      shortExampleEnglish: "Good morning!",
-      childCategoryKey: "family",
-      ageBand: "EARLY_4_6",
-    },
-  },
-  {
-    slug: "bonswa",
-    kweyolWord: "bonswa",
-    englishTranslation: "good evening",
-    alternativeEnglish: "good night (greeting)",
-    partOfSpeech: "interjection",
-    pronunciationGuide: "bon-swa",
-    simpleDefinition: "A greeting used later in the day or evening.",
-    detailedDefinition: "Used to greet someone in the evening.",
-    topicCategory: "greetings",
-    difficulty: "BEGINNER",
-    reviewStatus: "APPROVED",
-    isFeatured: true,
-    example: {
-      kweyolText: "Bonswa, tout moun.",
-      englishText: "Good evening, everyone.",
-    },
-    child: {
-      simpleMeaning: "Hello in the evening.",
-      shortExampleKweyol: "Bonswa!",
-      shortExampleEnglish: "Good evening!",
-      childCategoryKey: "family",
-      ageBand: "EARLY_4_6",
-    },
-  },
-  {
-    slug: "mesi",
-    kweyolWord: "mèsi",
-    englishTranslation: "thank you",
-    partOfSpeech: "interjection",
-    pronunciationGuide: "meh-see",
-    simpleDefinition: "Used to thank someone.",
-    detailedDefinition: "An expression of thanks.",
-    topicCategory: "everyday-conversation",
-    difficulty: "BEGINNER",
-    reviewStatus: "APPROVED",
-    alternativeSpelling: "mesi",
-    example: {
-      kweyolText: "Mèsi anpil.",
-      englishText: "Thank you very much.",
-    },
-    child: {
-      simpleMeaning: "Say this when someone helps you.",
-      shortExampleKweyol: "Mèsi!",
-      shortExampleEnglish: "Thank you!",
-      childCategoryKey: "feelings",
-      ageBand: "EARLY_4_6",
-    },
-  },
-  {
-    slug: "dlo",
-    kweyolWord: "dlo",
-    englishTranslation: "water",
-    partOfSpeech: "noun",
-    pronunciationGuide: "dlo",
-    simpleDefinition: "Water to drink or use.",
-    detailedDefinition: "Fresh water; drinking water or water in nature.",
-    culturalNotes:
-      "Dominica is known as the Nature Island, with many rivers and waterfalls. Talk about water often connects to local geography.",
-    topicCategory: "food-and-drink",
-    difficulty: "BEGINNER",
-    reviewStatus: "APPROVED",
-    isFeatured: true,
-    example: {
-      kweyolText: "Ban mwen dlo, souplé.",
-      englishText: "Give me water, please.",
-    },
-    child: {
-      simpleMeaning: "Water we drink.",
-      shortExampleKweyol: "Mwen vlé dlo.",
-      shortExampleEnglish: "I want water.",
-      childCategoryKey: "food",
-      ageBand: "EARLY_4_6",
-      funFact: "Dominica has many rivers and waterfalls.",
-    },
-  },
-  {
-    slug: "manje",
-    kweyolWord: "manjé",
-    englishTranslation: "food",
-    alternativeEnglish: "to eat",
-    partOfSpeech: "noun",
-    pronunciationGuide: "man-zhay",
-    simpleDefinition: "Food; also used for the idea of eating.",
-    detailedDefinition:
-      "Can refer to food itself or, in related uses, the act of eating depending on context.",
-    grammaticalNotes: "Learners should check context for noun vs verb-like uses.",
-    topicCategory: "food-and-drink",
-    difficulty: "BEGINNER",
-    reviewStatus: "APPROVED",
-    example: {
-      kweyolText: "Manjé-a bon.",
-      englishText: "The food is good.",
-    },
-    child: {
-      simpleMeaning: "Things we eat.",
-      shortExampleKweyol: "Manjé!",
-      shortExampleEnglish: "Food!",
-      childCategoryKey: "food",
-      ageBand: "EARLY_4_6",
-    },
-  },
-  {
-    slug: "kay",
-    kweyolWord: "kay",
-    englishTranslation: "house",
-    alternativeEnglish: "home",
-    partOfSpeech: "noun",
-    pronunciationGuide: "kai",
-    simpleDefinition: "A house or home.",
-    detailedDefinition: "A dwelling; someone’s house or home.",
-    topicCategory: "home",
-    difficulty: "BEGINNER",
-    reviewStatus: "APPROVED",
-    example: {
-      kweyolText: "Kay mwen bèl.",
-      englishText: "My house is beautiful.",
-    },
-    child: {
-      simpleMeaning: "The place where we live.",
-      shortExampleKweyol: "Sa sé kay mwen.",
-      shortExampleEnglish: "That is my house.",
-      childCategoryKey: "home",
-      ageBand: "EARLY_4_6",
-    },
-  },
-  {
-    slug: "maman",
-    kweyolWord: "maman",
-    englishTranslation: "mother",
-    alternativeEnglish: "mum, mom",
-    partOfSpeech: "noun",
-    pronunciationGuide: "ma-man",
-    simpleDefinition: "Mother.",
-    detailedDefinition: "A word for mother.",
-    topicCategory: "family",
-    difficulty: "BEGINNER",
-    reviewStatus: "APPROVED",
-    example: {
-      kweyolText: "Maman mwen ka travay.",
-      englishText: "My mother is working.",
-    },
-    child: {
-      simpleMeaning: "Your mum.",
-      shortExampleKweyol: "Maman!",
-      shortExampleEnglish: "Mum!",
-      childCategoryKey: "family",
-      ageBand: "EARLY_4_6",
-    },
-  },
-  {
-    slug: "papa",
-    kweyolWord: "papa",
-    englishTranslation: "father",
-    alternativeEnglish: "dad",
-    partOfSpeech: "noun",
-    pronunciationGuide: "pa-pa",
-    simpleDefinition: "Father.",
-    detailedDefinition: "A word for father.",
-    topicCategory: "family",
-    difficulty: "BEGINNER",
-    reviewStatus: "APPROVED",
-    example: {
-      kweyolText: "Papa ka vini.",
-      englishText: "Dad is coming.",
-    },
-    child: {
-      simpleMeaning: "Your dad.",
-      shortExampleKweyol: "Papa!",
-      shortExampleEnglish: "Dad!",
-      childCategoryKey: "family",
-      ageBand: "EARLY_4_6",
-    },
-  },
-  {
-    slug: "wouj",
-    kweyolWord: "wouj",
-    englishTranslation: "red",
-    partOfSpeech: "adjective",
-    pronunciationGuide: "wooj",
-    simpleDefinition: "The colour red.",
-    detailedDefinition: "Describes something red in colour.",
-    topicCategory: "colours",
-    difficulty: "BEGINNER",
-    reviewStatus: "APPROVED",
-    isFeatured: true,
-    example: {
-      kweyolText: "Flè-a wouj.",
-      englishText: "The flower is red.",
-    },
-    child: {
-      simpleMeaning: "The colour red.",
-      shortExampleKweyol: "Sé wouj.",
-      shortExampleEnglish: "It is red.",
-      childCategoryKey: "colours",
-      ageBand: "EARLY_4_6",
-    },
-  },
-  {
-    slug: "ble",
-    kweyolWord: "blé",
-    englishTranslation: "blue",
-    partOfSpeech: "adjective",
-    pronunciationGuide: "blay",
-    simpleDefinition: "The colour blue.",
-    detailedDefinition: "Describes something blue in colour.",
-    topicCategory: "colours",
-    difficulty: "BEGINNER",
-    reviewStatus: "APPROVED",
-    example: {
-      kweyolText: "Syèl-la blé.",
-      englishText: "The sky is blue.",
-    },
-    child: {
-      simpleMeaning: "The colour blue.",
-      shortExampleKweyol: "Sé blé.",
-      shortExampleEnglish: "It is blue.",
-      childCategoryKey: "colours",
-      ageBand: "EARLY_4_6",
-    },
-  },
-  {
-    slug: "yon",
-    kweyolWord: "yon",
-    englishTranslation: "one",
-    partOfSpeech: "numeral",
-    pronunciationGuide: "yon",
-    simpleDefinition: "The number one.",
-    detailedDefinition: "Cardinal number one.",
-    topicCategory: "numbers",
-    difficulty: "BEGINNER",
-    reviewStatus: "APPROVED",
-    example: {
-      kweyolText: "Yon mango.",
-      englishText: "One mango.",
-    },
-    child: {
-      simpleMeaning: "The number 1.",
-      shortExampleKweyol: "Yon!",
-      shortExampleEnglish: "One!",
-      childCategoryKey: "numbers",
-      ageBand: "EARLY_4_6",
-    },
-  },
-  {
-    slug: "de",
-    kweyolWord: "dé",
-    englishTranslation: "two",
-    partOfSpeech: "numeral",
-    pronunciationGuide: "day",
-    simpleDefinition: "The number two.",
-    detailedDefinition: "Cardinal number two.",
-    topicCategory: "numbers",
-    difficulty: "BEGINNER",
-    reviewStatus: "APPROVED",
-    example: {
-      kweyolText: "Dé zanmi.",
-      englishText: "Two friends.",
-    },
-    child: {
-      simpleMeaning: "The number 2.",
-      shortExampleKweyol: "Dé!",
-      shortExampleEnglish: "Two!",
-      childCategoryKey: "numbers",
-      ageBand: "EARLY_4_6",
-    },
-  },
-  {
-    slug: "pwason",
-    kweyolWord: "pwason",
-    englishTranslation: "fish",
-    partOfSpeech: "noun",
-    pronunciationGuide: "pwa-son",
-    simpleDefinition: "A fish; also fish as food.",
-    detailedDefinition: "Fish as an animal or as food, depending on context.",
-    culturalNotes:
-      "Fishing and seafood are part of coastal Dominican life and meals.",
-    topicCategory: "animals",
-    difficulty: "BEGINNER",
-    reviewStatus: "APPROVED",
-    example: {
-      kweyolText: "Nou ka manjé pwason.",
-      englishText: "We are eating fish.",
-    },
-    child: {
-      simpleMeaning: "A fish that swims in the sea or river.",
-      shortExampleKweyol: "Gadé pwason-an!",
-      shortExampleEnglish: "Look at the fish!",
-      childCategoryKey: "sea-life",
-      ageBand: "GROWING_7_9",
-      funFact: "Many families in Dominica enjoy fresh fish.",
-    },
-  },
-  {
-    slug: "lapli",
-    kweyolWord: "lapli",
-    englishTranslation: "rain",
-    partOfSpeech: "noun",
-    pronunciationGuide: "la-plee",
-    simpleDefinition: "Rain.",
-    detailedDefinition: "Rainfall; wet weather.",
-    topicCategory: "weather",
-    difficulty: "BEGINNER",
-    reviewStatus: "APPROVED",
-    example: {
-      kweyolText: "Lapli ka tonbé.",
-      englishText: "Rain is falling.",
-    },
-    child: {
-      simpleMeaning: "Water that falls from the sky.",
-      shortExampleKweyol: "Lapli!",
-      shortExampleEnglish: "Rain!",
-      childCategoryKey: "weather",
-      ageBand: "EARLY_4_6",
-    },
-  },
-  {
-    slug: "souple-draft",
-    kweyolWord: "souplé",
-    englishTranslation: "please",
-    partOfSpeech: "adverb",
-    pronunciationGuide: "soo-play",
-    simpleDefinition: "Please. (Draft demonstration — needs review.)",
-    detailedDefinition: "Used to make a polite request.",
-    topicCategory: "everyday-conversation",
-    difficulty: "BEGINNER",
-    reviewStatus: "DRAFT",
-    example: {
-      kweyolText: "Édé mwen, souplé.",
-      englishText: "Help me, please.",
-    },
-  },
-];
+export const SEED_ENTRIES = BEGINNER_CURRICULUM_ENTRIES;
 
 export const SEED_GRAMMAR_LESSONS = [
   {
@@ -490,6 +103,16 @@ export const SEED_QUIZZES = [
           { answerText: "Water", isCorrect: false },
         ],
       },
+      {
+        prompt: "What does “orevwa” mean?",
+        questionType: "multiple-choice",
+        explanation: "Orevwa is used to say goodbye.",
+        answers: [
+          { answerText: "Please", isCorrect: false },
+          { answerText: "Goodbye", isCorrect: true },
+          { answerText: "Water", isCorrect: false },
+        ],
+      },
     ],
   },
   {
@@ -507,6 +130,74 @@ export const SEED_QUIZZES = [
           { answerText: "Red", isCorrect: true },
           { answerText: "Blue", isCorrect: false },
           { answerText: "Green", isCorrect: false },
+        ],
+      },
+      {
+        prompt: "Which English word matches “vèt”?",
+        questionType: "matching",
+        explanation: "Vèt means green.",
+        answers: [
+          { answerText: "Yellow", isCorrect: false },
+          { answerText: "Green", isCorrect: true },
+          { answerText: "Black", isCorrect: false },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "numbers-basics",
+    title: "Numbers: basics",
+    description: "Choose the correct English number.",
+    audience: "ADULT" as const,
+    difficulty: "BEGINNER" as const,
+    questions: [
+      {
+        prompt: "What does “twa” mean?",
+        questionType: "multiple-choice",
+        explanation: "Twa means three.",
+        answers: [
+          { answerText: "Two", isCorrect: false },
+          { answerText: "Three", isCorrect: true },
+          { answerText: "Ten", isCorrect: false },
+        ],
+      },
+      {
+        prompt: "What does “dis” mean?",
+        questionType: "multiple-choice",
+        explanation: "Dis means ten.",
+        answers: [
+          { answerText: "Ten", isCorrect: true },
+          { answerText: "Two", isCorrect: false },
+          { answerText: "Five", isCorrect: false },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "nature-island",
+    title: "Nature Island words",
+    description: "Practice nature and place vocabulary linked to Dominica.",
+    audience: "ADULT" as const,
+    difficulty: "BEGINNER" as const,
+    questions: [
+      {
+        prompt: "What does “rivyè” mean?",
+        questionType: "multiple-choice",
+        explanation: "Rivyè means river.",
+        answers: [
+          { answerText: "Mountain", isCorrect: false },
+          { answerText: "River", isCorrect: true },
+          { answerText: "Market", isCorrect: false },
+        ],
+      },
+      {
+        prompt: "What does “Dominik” refer to?",
+        questionType: "multiple-choice",
+        explanation: "Dominik refers to Dominica.",
+        answers: [
+          { answerText: "Dominica", isCorrect: true },
+          { answerText: "A type of fish", isCorrect: false },
+          { answerText: "A colour", isCorrect: false },
         ],
       },
     ],

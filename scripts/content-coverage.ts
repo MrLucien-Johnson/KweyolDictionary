@@ -1,24 +1,11 @@
-import "dotenv/config";
-import { PrismaBetterSqlite3 } from "@prisma/adapter-better-sqlite3";
-import { PrismaClient } from "../src/generated/prisma/client";
 import { writeFileSync } from "node:fs";
+import catalogJson from "../src/data/published/catalog.json";
+import type { PublishedCatalog, PublishedEntry } from "../src/lib/content/types";
 
-const prisma = new PrismaClient({
-  adapter: new PrismaBetterSqlite3({
-    url: process.env.DATABASE_URL ?? "file:./prisma/dev.db",
-  }),
-});
+const catalog = catalogJson as PublishedCatalog;
 
-async function main() {
-  const entries = await prisma.dictionaryEntry.findMany({
-    include: {
-      examples: true,
-      audioFiles: true,
-      imageAssets: true,
-      childPresentation: true,
-    },
-  });
-
+function main() {
+  const entries: PublishedEntry[] = catalog.entries;
   const approved = entries.filter((entry) => entry.reviewStatus === "APPROVED");
   const drafts = entries.filter((entry) => entry.reviewStatus === "DRAFT");
   const withAudio = entries.filter((entry) =>
@@ -42,14 +29,23 @@ async function main() {
   }
   const duplicates = [...slugCounts.entries()].filter(([, count]) => count > 1);
 
-  const categories = await prisma.category.findMany({
-    include: { entries: true },
-  });
-  const thinCategories = categories.filter((category) => category.entries.length === 0);
+  const allCategoryKeys = [
+    ...catalog.adultCategories.map((category) => category.key),
+    ...catalog.childCategories.map((category) => category.key),
+  ];
+  const thinCategories = [...new Set(allCategoryKeys)].filter(
+    (key) =>
+      !entries.some(
+        (entry) =>
+          entry.topicCategory === key || entry.categories.includes(key),
+      ),
+  );
 
   const report = `# Content coverage report
 
 Generated: ${new Date().toISOString()}
+
+Source: published static catalog (GitHub Pages / public dictionary)
 
 | Metric | Count |
 |--------|------:|
@@ -58,34 +54,33 @@ Generated: ${new Date().toISOString()}
 | Draft entries | ${drafts.length} |
 | Words with audio | ${withAudio.length} |
 | Words without audio | ${entries.length - withAudio.length} |
-| Words with images | ${withImages.length} |
+| Words with images (incl. placeholders) | ${withImages.length} |
 | Children’s words without confirmed images | ${childWithoutImages.length} |
 | Entries without examples | ${withoutExamples.length} |
 | Entries without cultural notes | ${withoutCultural.length} |
-| Duplicate candidates | ${duplicates.length} |
+| Duplicate headword candidates | ${duplicates.length} |
 | Categories with little or no content | ${thinCategories.length} |
+| Grammar lessons | ${catalog.lessons.length} |
+| Quizzes | ${catalog.quizzes.length} |
+| Children’s activities | ${catalog.childActivities.length} |
 
-## Duplicate candidates
+## Notes
+
+- Beginner product-density curriculum is approved for public learning journeys.
+- Entries remain open to Dominican community and linguist correction.
+- Audio and final illustrations are still outstanding for most words.
+
+## Duplicate headword candidates
 
 ${duplicates.length ? duplicates.map(([word, count]) => `- ${word} (${count})`).join("\n") : "_None_"}
 
 ## Thin categories (sample)
 
-${thinCategories
-  .slice(0, 20)
-  .map((category) => `- ${category.key}`)
-  .join("\n") || "_None_"}
+${thinCategories.slice(0, 25).map((key) => `- ${key}`).join("\n") || "_None_"}
 `;
 
   writeFileSync("docs/CONTENT_COVERAGE.md", report);
   console.log(report);
 }
 
-main()
-  .catch((error) => {
-    console.error(error);
-    process.exit(1);
-  })
-  .finally(async () => {
-    await prisma.$disconnect();
-  });
+main();

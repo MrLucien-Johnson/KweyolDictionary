@@ -51,3 +51,5 @@ npm run test:e2e
 - Dominica’s Kwéyòl only
 - Public Pages build is static (no runtime admin/API)
 - Local Node mode still includes admin tools for editors
+- Beginner curriculum currently publishes **300+ approved entries** for product density; still open to community correction
+- See [docs/CONTENT_EXPANSION.md](docs/CONTENT_EXPANSION.md) and [docs/CONTENT_COVERAGE.md](docs/CONTENT_COVERAGE.md)
