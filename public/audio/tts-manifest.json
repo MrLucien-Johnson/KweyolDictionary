@@ -1,0 +1,1681 @@
+{
+  "generatedAt": "2026-08-02T19:43:08.140302+00:00",
+  "generator": "edge-tts",
+  "voice": "fr-FR-DeniseNeural",
+  "rate": "-10%",
+  "status": "SYNTHETIC",
+  "disclaimer": "Synthetic practice audio using a French neural voice. Not verified native Dominican Kw\u00e9y\u00f2l pronunciation.",
+  "entryCount": 334,
+  "files": {
+    "bonjou": {
+      "text": "bonjou",
+      "file": "bonjou.mp3",
+      "bytes": 11232
+    },
+    "bonswa": {
+      "text": "bonswa",
+      "file": "bonswa.mp3",
+      "bytes": 10656
+    },
+    "mesi": {
+      "text": "m\u00e8si",
+      "file": "mesi.mp3",
+      "bytes": 10656
+    },
+    "souple": {
+      "text": "soupl\u00e9",
+      "file": "souple.mp3",
+      "bytes": 10656
+    },
+    "wi-yes": {
+      "text": "wi",
+      "file": "wi-yes.mp3",
+      "bytes": 10656
+    },
+    "non-no": {
+      "text": "non",
+      "file": "non-no.mp3",
+      "bytes": 10656
+    },
+    "orevwa": {
+      "text": "orevwa",
+      "file": "orevwa.mp3",
+      "bytes": 10800
+    },
+    "bye": {
+      "text": "bye",
+      "file": "bye.mp3",
+      "bytes": 10656
+    },
+    "kouman-ou-ye": {
+      "text": "kouman ou y\u00e9",
+      "file": "kouman-ou-ye.mp3",
+      "bytes": 12240
+    },
+    "sa-ka-fet": {
+      "text": "sa ka f\u00e8t",
+      "file": "sa-ka-fet.mp3",
+      "bytes": 12960
+    },
+    "pa-pi-mal": {
+      "text": "pa pi mal",
+      "file": "pa-pi-mal.mp3",
+      "bytes": 12816
+    },
+    "tout-an-form": {
+      "text": "tout an form",
+      "file": "tout-an-form.mp3",
+      "bytes": 12384
+    },
+    "padon": {
+      "text": "padon",
+      "file": "padon.mp3",
+      "bytes": 10656
+    },
+    "konne": {
+      "text": "konn\u00e9",
+      "file": "konne.mp3",
+      "bytes": 10656
+    },
+    "vle": {
+      "text": "vl\u00e9",
+      "file": "vle.mp3",
+      "bytes": 10656
+    },
+    "enme": {
+      "text": "enm\u00e9",
+      "file": "enme.mp3",
+      "bytes": 10656
+    },
+    "ede": {
+      "text": "\u00e9d\u00e9",
+      "file": "ede.mp3",
+      "bytes": 10656
+    },
+    "pale": {
+      "text": "pal\u00e9",
+      "file": "pale.mp3",
+      "bytes": 10656
+    },
+    "koutre": {
+      "text": "koutr\u00e9",
+      "file": "koutre.mp3",
+      "bytes": 10656
+    },
+    "gade": {
+      "text": "gad\u00e9",
+      "file": "gade.mp3",
+      "bytes": 10656
+    },
+    "vini": {
+      "text": "vini",
+      "file": "vini.mp3",
+      "bytes": 10656
+    },
+    "ale": {
+      "text": "al\u00e9",
+      "file": "ale.mp3",
+      "bytes": 10656
+    },
+    "fe": {
+      "text": "f\u00e8",
+      "file": "fe.mp3",
+      "bytes": 10656
+    },
+    "ni": {
+      "text": "ni",
+      "file": "ni.mp3",
+      "bytes": 10656
+    },
+    "se-be": {
+      "text": "s\u00e9",
+      "file": "se-be.mp3",
+      "bytes": 10656
+    },
+    "ka": {
+      "text": "ka",
+      "file": "ka.mp3",
+      "bytes": 10656
+    },
+    "maman": {
+      "text": "maman",
+      "file": "maman.mp3",
+      "bytes": 10656
+    },
+    "papa": {
+      "text": "papa",
+      "file": "papa.mp3",
+      "bytes": 10656
+    },
+    "fanmi": {
+      "text": "fanmi",
+      "file": "fanmi.mp3",
+      "bytes": 10656
+    },
+    "fre": {
+      "text": "fr\u00e8",
+      "file": "fre.mp3",
+      "bytes": 10656
+    },
+    "se": {
+      "text": "s\u00e8",
+      "file": "se.mp3",
+      "bytes": 10656
+    },
+    "timoun": {
+      "text": "timoun",
+      "file": "timoun.mp3",
+      "bytes": 10656
+    },
+    "granmoun": {
+      "text": "granmoun",
+      "file": "granmoun.mp3",
+      "bytes": 11376
+    },
+    "nou": {
+      "text": "nou",
+      "file": "nou.mp3",
+      "bytes": 10656
+    },
+    "mwen": {
+      "text": "mwen",
+      "file": "mwen.mp3",
+      "bytes": 10656
+    },
+    "ou": {
+      "text": "ou",
+      "file": "ou.mp3",
+      "bytes": 10656
+    },
+    "li-pronoun": {
+      "text": "li",
+      "file": "li-pronoun.mp3",
+      "bytes": 10656
+    },
+    "yo": {
+      "text": "yo",
+      "file": "yo.mp3",
+      "bytes": 10656
+    },
+    "zanmi": {
+      "text": "zanmi",
+      "file": "zanmi.mp3",
+      "bytes": 10656
+    },
+    "nonm": {
+      "text": "nonm",
+      "file": "nonm.mp3",
+      "bytes": 10656
+    },
+    "fanm": {
+      "text": "fanm",
+      "file": "fanm.mp3",
+      "bytes": 10656
+    },
+    "garson": {
+      "text": "garson",
+      "file": "garson.mp3",
+      "bytes": 10656
+    },
+    "fi": {
+      "text": "fi",
+      "file": "fi.mp3",
+      "bytes": 10656
+    },
+    "kay": {
+      "text": "kay",
+      "file": "kay.mp3",
+      "bytes": 10656
+    },
+    "pwot": {
+      "text": "pwot",
+      "file": "pwot.mp3",
+      "bytes": 10656
+    },
+    "fenet": {
+      "text": "fen\u00e8t",
+      "file": "fenet.mp3",
+      "bytes": 10656
+    },
+    "tab": {
+      "text": "tab",
+      "file": "tab.mp3",
+      "bytes": 10656
+    },
+    "chez": {
+      "text": "ch\u00e8z",
+      "file": "chez.mp3",
+      "bytes": 10656
+    },
+    "li-bed": {
+      "text": "li",
+      "file": "li-bed.mp3",
+      "bytes": 10656
+    },
+    "kwizin": {
+      "text": "kwizin",
+      "file": "kwizin.mp3",
+      "bytes": 10656
+    },
+    "twalet": {
+      "text": "twal\u00e8t",
+      "file": "twalet.mp3",
+      "bytes": 10656
+    },
+    "lakou": {
+      "text": "lakou",
+      "file": "lakou.mp3",
+      "bytes": 10656
+    },
+    "jaden-garden": {
+      "text": "jaden",
+      "file": "jaden-garden.mp3",
+      "bytes": 11088
+    },
+    "kle": {
+      "text": "kl\u00e9",
+      "file": "kle.mp3",
+      "bytes": 10656
+    },
+    "limye": {
+      "text": "limy\u00e8",
+      "file": "limye.mp3",
+      "bytes": 10656
+    },
+    "dlo": {
+      "text": "dlo",
+      "file": "dlo.mp3",
+      "bytes": 10656
+    },
+    "manje": {
+      "text": "manj\u00e9",
+      "file": "manje.mp3",
+      "bytes": 10656
+    },
+    "bwe": {
+      "text": "bw\u00e8",
+      "file": "bwe.mp3",
+      "bytes": 10656
+    },
+    "pen": {
+      "text": "pen",
+      "file": "pen.mp3",
+      "bytes": 10656
+    },
+    "diri": {
+      "text": "diri",
+      "file": "diri.mp3",
+      "bytes": 10656
+    },
+    "pwa": {
+      "text": "pwa",
+      "file": "pwa.mp3",
+      "bytes": 12384
+    },
+    "pwason": {
+      "text": "pwason",
+      "file": "pwason.mp3",
+      "bytes": 10656
+    },
+    "vyann": {
+      "text": "vyann",
+      "file": "vyann.mp3",
+      "bytes": 10656
+    },
+    "poul": {
+      "text": "poul",
+      "file": "poul.mp3",
+      "bytes": 10656
+    },
+    "ze": {
+      "text": "z\u00e9",
+      "file": "ze.mp3",
+      "bytes": 10656
+    },
+    "let": {
+      "text": "l\u00e8t",
+      "file": "let.mp3",
+      "bytes": 10656
+    },
+    "sik": {
+      "text": "sik",
+      "file": "sik.mp3",
+      "bytes": 10656
+    },
+    "se-salt": {
+      "text": "s\u00e9",
+      "file": "se-salt.mp3",
+      "bytes": 10656
+    },
+    "lwil": {
+      "text": "lwil",
+      "file": "lwil.mp3",
+      "bytes": 10656
+    },
+    "soup": {
+      "text": "soup",
+      "file": "soup.mp3",
+      "bytes": 10656
+    },
+    "bouyon": {
+      "text": "bouyon",
+      "file": "bouyon.mp3",
+      "bytes": 10656
+    },
+    "bakes": {
+      "text": "bakes",
+      "file": "bakes.mp3",
+      "bytes": 10656
+    },
+    "kwibich": {
+      "text": "kwibich",
+      "file": "kwibich.mp3",
+      "bytes": 10944
+    },
+    "fig": {
+      "text": "fig",
+      "file": "fig.mp3",
+      "bytes": 10656
+    },
+    "banann": {
+      "text": "banann",
+      "file": "banann.mp3",
+      "bytes": 10656
+    },
+    "mango": {
+      "text": "mango",
+      "file": "mango.mp3",
+      "bytes": 10656
+    },
+    "zowanj": {
+      "text": "zowanj",
+      "file": "zowanj.mp3",
+      "bytes": 11376
+    },
+    "sitwon": {
+      "text": "sitwon",
+      "file": "sitwon.mp3",
+      "bytes": 10656
+    },
+    "koko": {
+      "text": "koko",
+      "file": "koko.mp3",
+      "bytes": 10656
+    },
+    "yanm": {
+      "text": "yanm",
+      "file": "yanm.mp3",
+      "bytes": 10656
+    },
+    "patat": {
+      "text": "patat",
+      "file": "patat.mp3",
+      "bytes": 10656
+    },
+    "yanm-kouch": {
+      "text": "yanm kouch",
+      "file": "yanm-kouch.mp3",
+      "bytes": 12240
+    },
+    "toumam": {
+      "text": "toumam",
+      "file": "toumam.mp3",
+      "bytes": 10656
+    },
+    "zonyon": {
+      "text": "zonyon",
+      "file": "zonyon.mp3",
+      "bytes": 10656
+    },
+    "ji": {
+      "text": "ji",
+      "file": "ji.mp3",
+      "bytes": 10656
+    },
+    "te": {
+      "text": "t\u00e9",
+      "file": "te.mp3",
+      "bytes": 10656
+    },
+    "kafe": {
+      "text": "kaf\u00e9",
+      "file": "kafe.mp3",
+      "bytes": 10656
+    },
+    "bonbon": {
+      "text": "bonbon",
+      "file": "bonbon.mp3",
+      "bytes": 10656
+    },
+    "gou": {
+      "text": "gou",
+      "file": "gou.mp3",
+      "bytes": 10656
+    },
+    "cho": {
+      "text": "cho",
+      "file": "cho.mp3",
+      "bytes": 10656
+    },
+    "fwet": {
+      "text": "fw\u00e8t",
+      "file": "fwet.mp3",
+      "bytes": 10656
+    },
+    "dous": {
+      "text": "dous",
+      "file": "dous.mp3",
+      "bytes": 10656
+    },
+    "sel": {
+      "text": "sel",
+      "file": "sel.mp3",
+      "bytes": 10656
+    },
+    "wouj": {
+      "text": "wouj",
+      "file": "wouj.mp3",
+      "bytes": 10656
+    },
+    "ble": {
+      "text": "bl\u00e9",
+      "file": "ble.mp3",
+      "bytes": 10656
+    },
+    "vet": {
+      "text": "v\u00e8t",
+      "file": "vet.mp3",
+      "bytes": 10656
+    },
+    "jon": {
+      "text": "j\u00f2n",
+      "file": "jon.mp3",
+      "bytes": 10656
+    },
+    "nwa": {
+      "text": "nwa",
+      "file": "nwa.mp3",
+      "bytes": 11520
+    },
+    "blan": {
+      "text": "blan",
+      "file": "blan.mp3",
+      "bytes": 10656
+    },
+    "owo": {
+      "text": "owo",
+      "file": "owo.mp3",
+      "bytes": 10656
+    },
+    "mouve": {
+      "text": "mouve",
+      "file": "mouve.mp3",
+      "bytes": 10656
+    },
+    "gwiy": {
+      "text": "gwiy",
+      "file": "gwiy.mp3",
+      "bytes": 10656
+    },
+    "mawon": {
+      "text": "mawon",
+      "file": "mawon.mp3",
+      "bytes": 10656
+    },
+    "kwoule": {
+      "text": "kwoul\u00e8",
+      "file": "kwoule.mp3",
+      "bytes": 10656
+    },
+    "yon": {
+      "text": "yon",
+      "file": "yon.mp3",
+      "bytes": 10656
+    },
+    "de": {
+      "text": "d\u00e9",
+      "file": "de.mp3",
+      "bytes": 10656
+    },
+    "twa": {
+      "text": "twa",
+      "file": "twa.mp3",
+      "bytes": 12240
+    },
+    "kat": {
+      "text": "kat",
+      "file": "kat.mp3",
+      "bytes": 10656
+    },
+    "senk": {
+      "text": "senk",
+      "file": "senk.mp3",
+      "bytes": 10656
+    },
+    "sis": {
+      "text": "sis",
+      "file": "sis.mp3",
+      "bytes": 10656
+    },
+    "set": {
+      "text": "s\u00e8t",
+      "file": "set.mp3",
+      "bytes": 10656
+    },
+    "wit": {
+      "text": "wit",
+      "file": "wit.mp3",
+      "bytes": 10656
+    },
+    "nef": {
+      "text": "n\u00e8f",
+      "file": "nef.mp3",
+      "bytes": 10656
+    },
+    "dis": {
+      "text": "dis",
+      "file": "dis.mp3",
+      "bytes": 10656
+    },
+    "onz": {
+      "text": "onz",
+      "file": "onz.mp3",
+      "bytes": 10656
+    },
+    "douz": {
+      "text": "douz",
+      "file": "douz.mp3",
+      "bytes": 10656
+    },
+    "ven": {
+      "text": "ven",
+      "file": "ven.mp3",
+      "bytes": 10656
+    },
+    "san": {
+      "text": "san",
+      "file": "san.mp3",
+      "bytes": 10656
+    },
+    "kontre": {
+      "text": "kontr\u00e9",
+      "file": "kontre.mp3",
+      "bytes": 10656
+    },
+    "jou": {
+      "text": "jou",
+      "file": "jou.mp3",
+      "bytes": 10656
+    },
+    "lannuit": {
+      "text": "lannuit",
+      "file": "lannuit.mp3",
+      "bytes": 10656
+    },
+    "maten": {
+      "text": "maten",
+      "file": "maten.mp3",
+      "bytes": 10656
+    },
+    "apwemidi": {
+      "text": "apw\u00e9midi",
+      "file": "apwemidi.mp3",
+      "bytes": 11952
+    },
+    "swe": {
+      "text": "sw\u00e8",
+      "file": "swe.mp3",
+      "bytes": 10656
+    },
+    "le": {
+      "text": "l\u00e9",
+      "file": "le.mp3",
+      "bytes": 10656
+    },
+    "semen": {
+      "text": "sem\u00e8n",
+      "file": "semen.mp3",
+      "bytes": 10656
+    },
+    "mwa": {
+      "text": "mwa",
+      "file": "mwa.mp3",
+      "bytes": 10656
+    },
+    "lane": {
+      "text": "lan\u00e9",
+      "file": "lane.mp3",
+      "bytes": 10656
+    },
+    "lendi": {
+      "text": "lendi",
+      "file": "lendi.mp3",
+      "bytes": 10656
+    },
+    "madi": {
+      "text": "madi",
+      "file": "madi.mp3",
+      "bytes": 10656
+    },
+    "mekredi": {
+      "text": "m\u00e8kredi",
+      "file": "mekredi.mp3",
+      "bytes": 11232
+    },
+    "jedi": {
+      "text": "jedi",
+      "file": "jedi.mp3",
+      "bytes": 11232
+    },
+    "vandwedi": {
+      "text": "vandw\u00e9di",
+      "file": "vandwedi.mp3",
+      "bytes": 12240
+    },
+    "samdi": {
+      "text": "samdi",
+      "file": "samdi.mp3",
+      "bytes": 11232
+    },
+    "dimanch": {
+      "text": "dimanch",
+      "file": "dimanch.mp3",
+      "bytes": 10656
+    },
+    "jodi-a": {
+      "text": "j\u00f2di-a",
+      "file": "jodi-a.mp3",
+      "bytes": 11232
+    },
+    "ye": {
+      "text": "y\u00e8",
+      "file": "ye.mp3",
+      "bytes": 14544
+    },
+    "denmen": {
+      "text": "denmen",
+      "file": "denmen.mp3",
+      "bytes": 10656
+    },
+    "lapli": {
+      "text": "lapli",
+      "file": "lapli.mp3",
+      "bytes": 10656
+    },
+    "soley": {
+      "text": "sol\u00e8y",
+      "file": "soley.mp3",
+      "bytes": 10656
+    },
+    "nwaj": {
+      "text": "nwaj",
+      "file": "nwaj.mp3",
+      "bytes": 10800
+    },
+    "van": {
+      "text": "van",
+      "file": "van.mp3",
+      "bytes": 10656
+    },
+    "loraj": {
+      "text": "loraj",
+      "file": "loraj.mp3",
+      "bytes": 10944
+    },
+    "zife": {
+      "text": "zif\u00e8",
+      "file": "zife.mp3",
+      "bytes": 10656
+    },
+    "chale": {
+      "text": "chal\u00e8",
+      "file": "chale.mp3",
+      "bytes": 10656
+    },
+    "syel": {
+      "text": "sy\u00e8l",
+      "file": "syel.mp3",
+      "bytes": 10656
+    },
+    "late": {
+      "text": "lat\u00e8",
+      "file": "late.mp3",
+      "bytes": 10656
+    },
+    "lanme": {
+      "text": "lanm\u00e8",
+      "file": "lanme.mp3",
+      "bytes": 10656
+    },
+    "rivye": {
+      "text": "rivy\u00e8",
+      "file": "rivye.mp3",
+      "bytes": 10656
+    },
+    "saut": {
+      "text": "saut",
+      "file": "saut.mp3",
+      "bytes": 10656
+    },
+    "mon": {
+      "text": "m\u00f2n",
+      "file": "mon.mp3",
+      "bytes": 10656
+    },
+    "bwa-wood": {
+      "text": "bwa",
+      "file": "bwa-wood.mp3",
+      "bytes": 10656
+    },
+    "fle": {
+      "text": "fl\u00e8",
+      "file": "fle.mp3",
+      "bytes": 10656
+    },
+    "pye-bwa": {
+      "text": "py\u00e9 bwa",
+      "file": "pye-bwa.mp3",
+      "bytes": 10656
+    },
+    "fey": {
+      "text": "f\u00e8y",
+      "file": "fey.mp3",
+      "bytes": 10656
+    },
+    "woch": {
+      "text": "w\u00f2ch",
+      "file": "woch.mp3",
+      "bytes": 10656
+    },
+    "sab": {
+      "text": "sab",
+      "file": "sab.mp3",
+      "bytes": 10656
+    },
+    "zeb": {
+      "text": "z\u00e8b",
+      "file": "zeb.mp3",
+      "bytes": 10656
+    },
+    "chat": {
+      "text": "chat",
+      "file": "chat.mp3",
+      "bytes": 10656
+    },
+    "chen": {
+      "text": "chen",
+      "file": "chen.mp3",
+      "bytes": 10656
+    },
+    "zwazo": {
+      "text": "zwazo",
+      "file": "zwazo.mp3",
+      "bytes": 10656
+    },
+    "pwason-animal": {
+      "text": "pwason",
+      "file": "pwason-animal.mp3",
+      "bytes": 10656
+    },
+    "kabwit": {
+      "text": "kabwit",
+      "file": "kabwit.mp3",
+      "bytes": 11088
+    },
+    "bef": {
+      "text": "b\u00e8f",
+      "file": "bef.mp3",
+      "bytes": 10656
+    },
+    "kochon": {
+      "text": "kochon",
+      "file": "kochon.mp3",
+      "bytes": 10656
+    },
+    "mouton": {
+      "text": "mouton",
+      "file": "mouton.mp3",
+      "bytes": 10656
+    },
+    "souwi": {
+      "text": "souwi",
+      "file": "souwi.mp3",
+      "bytes": 10800
+    },
+    "krapo": {
+      "text": "krapo",
+      "file": "krapo.mp3",
+      "bytes": 10656
+    },
+    "kwab": {
+      "text": "kwab",
+      "file": "kwab.mp3",
+      "bytes": 10656
+    },
+    "toti": {
+      "text": "t\u00f2ti",
+      "file": "toti.mp3",
+      "bytes": 10656
+    },
+    "mes": {
+      "text": "m\u00e8s",
+      "file": "mes.mp3",
+      "bytes": 10656
+    },
+    "myel": {
+      "text": "my\u00e8l",
+      "file": "myel.mp3",
+      "bytes": 10656
+    },
+    "moustik": {
+      "text": "moustik",
+      "file": "moustik.mp3",
+      "bytes": 10656
+    },
+    "kok": {
+      "text": "k\u00f2k",
+      "file": "kok.mp3",
+      "bytes": 10656
+    },
+    "kannaw": {
+      "text": "kannaw",
+      "file": "kannaw.mp3",
+      "bytes": 10656
+    },
+    "tet": {
+      "text": "t\u00e8t",
+      "file": "tet.mp3",
+      "bytes": 10656
+    },
+    "zye": {
+      "text": "zy\u00e9",
+      "file": "zye.mp3",
+      "bytes": 10656
+    },
+    "nen": {
+      "text": "nen",
+      "file": "nen.mp3",
+      "bytes": 10656
+    },
+    "bouch": {
+      "text": "bouch",
+      "file": "bouch.mp3",
+      "bytes": 10656
+    },
+    "zowey": {
+      "text": "z\u00f2w\u00e8y",
+      "file": "zowey.mp3",
+      "bytes": 10656
+    },
+    "dan": {
+      "text": "dan",
+      "file": "dan.mp3",
+      "bytes": 10656
+    },
+    "lanmen": {
+      "text": "lanmen",
+      "file": "lanmen.mp3",
+      "bytes": 10656
+    },
+    "pye": {
+      "text": "py\u00e9",
+      "file": "pye.mp3",
+      "bytes": 10656
+    },
+    "bwa-arm": {
+      "text": "bwa",
+      "file": "bwa-arm.mp3",
+      "bytes": 10656
+    },
+    "vant": {
+      "text": "vant",
+      "file": "vant.mp3",
+      "bytes": 10656
+    },
+    "ke": {
+      "text": "k\u00e8",
+      "file": "ke.mp3",
+      "bytes": 10656
+    },
+    "do": {
+      "text": "do",
+      "file": "do.mp3",
+      "bytes": 10656
+    },
+    "chive": {
+      "text": "chiv\u00e9",
+      "file": "chive.mp3",
+      "bytes": 10656
+    },
+    "po": {
+      "text": "po",
+      "file": "po.mp3",
+      "bytes": 10656
+    },
+    "wob": {
+      "text": "w\u00f2b",
+      "file": "wob.mp3",
+      "bytes": 10656
+    },
+    "chimiz": {
+      "text": "chimiz",
+      "file": "chimiz.mp3",
+      "bytes": 10800
+    },
+    "pantalon": {
+      "text": "pantalon",
+      "file": "pantalon.mp3",
+      "bytes": 11088
+    },
+    "soulye": {
+      "text": "souly\u00e9",
+      "file": "soulye.mp3",
+      "bytes": 10800
+    },
+    "chapo": {
+      "text": "chapo",
+      "file": "chapo.mp3",
+      "bytes": 10656
+    },
+    "jip": {
+      "text": "jip",
+      "file": "jip.mp3",
+      "bytes": 10656
+    },
+    "choket": {
+      "text": "chok\u00e8t",
+      "file": "choket.mp3",
+      "bytes": 10656
+    },
+    "senti": {
+      "text": "senti",
+      "file": "senti.mp3",
+      "bytes": 10800
+    },
+    "lunet": {
+      "text": "lun\u00e8t",
+      "file": "lunet.mp3",
+      "bytes": 10656
+    },
+    "lekol": {
+      "text": "l\u00e9k\u00f2l",
+      "file": "lekol.mp3",
+      "bytes": 10944
+    },
+    "pwofese": {
+      "text": "pw\u00f2fes\u00e8",
+      "file": "pwofese.mp3",
+      "bytes": 10944
+    },
+    "elev": {
+      "text": "\u00e9l\u00e8v",
+      "file": "elev.mp3",
+      "bytes": 10656
+    },
+    "liv": {
+      "text": "liv",
+      "file": "liv.mp3",
+      "bytes": 10656
+    },
+    "kweyon": {
+      "text": "kw\u00e9yon",
+      "file": "kweyon.mp3",
+      "bytes": 10656
+    },
+    "papye": {
+      "text": "papye",
+      "file": "papye.mp3",
+      "bytes": 10656
+    },
+    "tablo": {
+      "text": "tablo",
+      "file": "tablo.mp3",
+      "bytes": 10656
+    },
+    "klas": {
+      "text": "klas",
+      "file": "klas.mp3",
+      "bytes": 10656
+    },
+    "lekol-variant": {
+      "text": "lek\u00f2l",
+      "file": "lekol-variant.mp3",
+      "bytes": 10800
+    },
+    "li-read": {
+      "text": "li",
+      "file": "li-read.mp3",
+      "bytes": 10656
+    },
+    "ekwi": {
+      "text": "\u00e9kwi",
+      "file": "ekwi.mp3",
+      "bytes": 10656
+    },
+    "aprann": {
+      "text": "aprann",
+      "file": "aprann.mp3",
+      "bytes": 10656
+    },
+    "travay": {
+      "text": "travay",
+      "file": "travay.mp3",
+      "bytes": 10656
+    },
+    "lajan": {
+      "text": "lajan",
+      "file": "lajan.mp3",
+      "bytes": 10656
+    },
+    "mache-market": {
+      "text": "mach\u00e9",
+      "file": "mache-market.mp3",
+      "bytes": 10656
+    },
+    "machin": {
+      "text": "machin",
+      "file": "machin.mp3",
+      "bytes": 10656
+    },
+    "bis": {
+      "text": "bis",
+      "file": "bis.mp3",
+      "bytes": 10656
+    },
+    "batiman": {
+      "text": "batiman",
+      "file": "batiman.mp3",
+      "bytes": 10800
+    },
+    "avyon": {
+      "text": "avyon",
+      "file": "avyon.mp3",
+      "bytes": 10656
+    },
+    "bisiklet": {
+      "text": "bisikl\u00e8t",
+      "file": "bisiklet.mp3",
+      "bytes": 11232
+    },
+    "wout": {
+      "text": "wout",
+      "file": "wout.mp3",
+      "bytes": 10656
+    },
+    "vil": {
+      "text": "vil",
+      "file": "vil.mp3",
+      "bytes": 10656
+    },
+    "peyi": {
+      "text": "p\u00e9yi",
+      "file": "peyi.mp3",
+      "bytes": 10656
+    },
+    "dominik": {
+      "text": "Dominik",
+      "file": "dominik.mp3",
+      "bytes": 11520
+    },
+    "kweyol": {
+      "text": "Kw\u00e9y\u00f2l",
+      "file": "kweyol.mp3",
+      "bytes": 11088
+    },
+    "wozo": {
+      "text": "W\u00f2z\u00f2",
+      "file": "wozo.mp3",
+      "bytes": 10656
+    },
+    "kontan": {
+      "text": "kontan",
+      "file": "kontan.mp3",
+      "bytes": 10656
+    },
+    "tris": {
+      "text": "tris",
+      "file": "tris.mp3",
+      "bytes": 10656
+    },
+    "fache": {
+      "text": "f\u00e2ch\u00e9",
+      "file": "fache.mp3",
+      "bytes": 10656
+    },
+    "pe": {
+      "text": "p\u00e8",
+      "file": "pe.mp3",
+      "bytes": 10656
+    },
+    "fatige": {
+      "text": "fatig\u00e9",
+      "file": "fatige.mp3",
+      "bytes": 11232
+    },
+    "malad": {
+      "text": "malad",
+      "file": "malad.mp3",
+      "bytes": 10656
+    },
+    "byen": {
+      "text": "byen",
+      "file": "byen.mp3",
+      "bytes": 10656
+    },
+    "mal": {
+      "text": "mal",
+      "file": "mal.mp3",
+      "bytes": 10656
+    },
+    "bel": {
+      "text": "b\u00e8l",
+      "file": "bel.mp3",
+      "bytes": 10656
+    },
+    "gwo": {
+      "text": "gwo",
+      "file": "gwo.mp3",
+      "bytes": 10656
+    },
+    "piti": {
+      "text": "piti",
+      "file": "piti.mp3",
+      "bytes": 10656
+    },
+    "bon": {
+      "text": "bon",
+      "file": "bon.mp3",
+      "bytes": 10656
+    },
+    "move": {
+      "text": "mov\u00e9",
+      "file": "move.mp3",
+      "bytes": 10656
+    },
+    "nouvo": {
+      "text": "nouvo",
+      "file": "nouvo.mp3",
+      "bytes": 10656
+    },
+    "vye": {
+      "text": "vy\u00e9",
+      "file": "vye.mp3",
+      "bytes": 10656
+    },
+    "vit": {
+      "text": "vit",
+      "file": "vit.mp3",
+      "bytes": 10656
+    },
+    "lent": {
+      "text": "l\u00e8nt",
+      "file": "lent.mp3",
+      "bytes": 10656
+    },
+    "fo": {
+      "text": "f\u00f2",
+      "file": "fo.mp3",
+      "bytes": 10656
+    },
+    "fasil": {
+      "text": "fasil",
+      "file": "fasil.mp3",
+      "bytes": 10800
+    },
+    "difisil": {
+      "text": "difisil",
+      "file": "difisil.mp3",
+      "bytes": 11664
+    },
+    "jwe-play": {
+      "text": "jw\u00e9",
+      "file": "jwe-play.mp3",
+      "bytes": 10656
+    },
+    "sote": {
+      "text": "sot\u00e9",
+      "file": "sote.mp3",
+      "bytes": 10656
+    },
+    "kouri": {
+      "text": "kouri",
+      "file": "kouri.mp3",
+      "bytes": 10656
+    },
+    "mache-walk": {
+      "text": "mach\u00e9",
+      "file": "mache-walk.mp3",
+      "bytes": 10656
+    },
+    "domi": {
+      "text": "d\u00f2mi",
+      "file": "domi.mp3",
+      "bytes": 10656
+    },
+    "leve": {
+      "text": "l\u00e9v\u00e9",
+      "file": "leve.mp3",
+      "bytes": 10656
+    },
+    "asiz": {
+      "text": "asiz",
+      "file": "asiz.mp3",
+      "bytes": 10656
+    },
+    "chante": {
+      "text": "chant\u00e9",
+      "file": "chante.mp3",
+      "bytes": 10800
+    },
+    "danse": {
+      "text": "dans\u00e9",
+      "file": "danse.mp3",
+      "bytes": 10656
+    },
+    "wi-laugh": {
+      "text": "wi",
+      "file": "wi-laugh.mp3",
+      "bytes": 10656
+    },
+    "pli": {
+      "text": "pli",
+      "file": "pli.mp3",
+      "bytes": 10656
+    },
+    "achtre": {
+      "text": "achtr\u00e9",
+      "file": "achtre.mp3",
+      "bytes": 10656
+    },
+    "vann": {
+      "text": "vann",
+      "file": "vann.mp3",
+      "bytes": 10656
+    },
+    "ba": {
+      "text": "ba",
+      "file": "ba.mp3",
+      "bytes": 10656
+    },
+    "pwann": {
+      "text": "pwann",
+      "file": "pwann.mp3",
+      "bytes": 10656
+    },
+    "ouve": {
+      "text": "ouv\u00e8",
+      "file": "ouve.mp3",
+      "bytes": 10656
+    },
+    "feme": {
+      "text": "f\u00e8m\u00e9",
+      "file": "feme.mp3",
+      "bytes": 10656
+    },
+    "netwaye": {
+      "text": "netway\u00e9",
+      "file": "netwaye.mp3",
+      "bytes": 11664
+    },
+    "kwit": {
+      "text": "kwit",
+      "file": "kwit.mp3",
+      "bytes": 10656
+    },
+    "mizik": {
+      "text": "mizik",
+      "file": "mizik.mp3",
+      "bytes": 10656
+    },
+    "tanbou": {
+      "text": "tanbou",
+      "file": "tanbou.mp3",
+      "bytes": 10656
+    },
+    "chan": {
+      "text": "chan",
+      "file": "chan.mp3",
+      "bytes": 10656
+    },
+    "kannaval": {
+      "text": "kannaval",
+      "file": "kannaval.mp3",
+      "bytes": 11520
+    },
+    "mas": {
+      "text": "mas",
+      "file": "mas.mp3",
+      "bytes": 10656
+    },
+    "bande": {
+      "text": "band\u00e9",
+      "file": "bande.mp3",
+      "bytes": 10656
+    },
+    "jou-ouve": {
+      "text": "jou ouv\u00e8",
+      "file": "jou-ouve.mp3",
+      "bytes": 11664
+    },
+    "kweyol-day": {
+      "text": "kw\u00e9y\u00f2l day",
+      "file": "kweyol-day.mp3",
+      "bytes": 11376
+    },
+    "pwoveb": {
+      "text": "pwov\u00e9b",
+      "file": "pwoveb.mp3",
+      "bytes": 11088
+    },
+    "istwa": {
+      "text": "istwa",
+      "file": "istwa.mp3",
+      "bytes": 10656
+    },
+    "kilti": {
+      "text": "kilti",
+      "file": "kilti.mp3",
+      "bytes": 10656
+    },
+    "dokte": {
+      "text": "dokt\u00e8",
+      "file": "dokte.mp3",
+      "bytes": 10656
+    },
+    "lopital": {
+      "text": "lopital",
+      "file": "lopital.mp3",
+      "bytes": 11952
+    },
+    "medikaman": {
+      "text": "m\u00e9dikaman",
+      "file": "medikaman.mp3",
+      "bytes": 11808
+    },
+    "doule": {
+      "text": "doul\u00e8",
+      "file": "doule.mp3",
+      "bytes": 10656
+    },
+    "lafyev": {
+      "text": "lafy\u00e8v",
+      "file": "lafyev.mp3",
+      "bytes": 11232
+    },
+    "ki": {
+      "text": "ki",
+      "file": "ki.mp3",
+      "bytes": 10656
+    },
+    "ki-moun": {
+      "text": "ki moun",
+      "file": "ki-moun.mp3",
+      "bytes": 10656
+    },
+    "ki-kote": {
+      "text": "ki kot\u00e9",
+      "file": "ki-kote.mp3",
+      "bytes": 11232
+    },
+    "ki-le": {
+      "text": "ki l\u00e8",
+      "file": "ki-le.mp3",
+      "bytes": 10656
+    },
+    "pouki": {
+      "text": "pouki",
+      "file": "pouki.mp3",
+      "bytes": 10656
+    },
+    "kouman": {
+      "text": "kouman",
+      "file": "kouman.mp3",
+      "bytes": 10656
+    },
+    "konbyen": {
+      "text": "konbyen",
+      "file": "konbyen.mp3",
+      "bytes": 10656
+    },
+    "isi": {
+      "text": "isi",
+      "file": "isi.mp3",
+      "bytes": 10656
+    },
+    "la": {
+      "text": "la",
+      "file": "la.mp3",
+      "bytes": 10656
+    },
+    "anle": {
+      "text": "anl\u00e8",
+      "file": "anle.mp3",
+      "bytes": 10656
+    },
+    "anba": {
+      "text": "anba",
+      "file": "anba.mp3",
+      "bytes": 10656
+    },
+    "devan": {
+      "text": "devan",
+      "file": "devan.mp3",
+      "bytes": 10656
+    },
+    "deye": {
+      "text": "d\u00e8y\u00e8",
+      "file": "deye.mp3",
+      "bytes": 10656
+    },
+    "epi": {
+      "text": "\u00e9pi",
+      "file": "epi.mp3",
+      "bytes": 10656
+    },
+    "men": {
+      "text": "men",
+      "file": "men.mp3",
+      "bytes": 10656
+    },
+    "pou": {
+      "text": "pou",
+      "file": "pou.mp3",
+      "bytes": 10656
+    },
+    "nan": {
+      "text": "nan",
+      "file": "nan.mp3",
+      "bytes": 10656
+    },
+    "sou": {
+      "text": "sou",
+      "file": "sou.mp3",
+      "bytes": 10656
+    },
+    "anko": {
+      "text": "ank\u00f2",
+      "file": "anko.mp3",
+      "bytes": 10656
+    },
+    "toujou": {
+      "text": "toujou",
+      "file": "toujou.mp3",
+      "bytes": 10656
+    },
+    "jame": {
+      "text": "jam\u00e8",
+      "file": "jame.mp3",
+      "bytes": 10656
+    },
+    "kounye-a": {
+      "text": "kouny\u00e8-a",
+      "file": "kounye-a.mp3",
+      "bytes": 10656
+    },
+    "pito": {
+      "text": "pito",
+      "file": "pito.mp3",
+      "bytes": 10656
+    },
+    "jwe-game": {
+      "text": "jw\u00e9",
+      "file": "jwe-game.mp3",
+      "bytes": 10656
+    },
+    "boul": {
+      "text": "boul",
+      "file": "boul.mp3",
+      "bytes": 10656
+    },
+    "poupe": {
+      "text": "poup\u00e9",
+      "file": "poupe.mp3",
+      "bytes": 10656
+    },
+    "desen": {
+      "text": "desen",
+      "file": "desen.mp3",
+      "bytes": 10656
+    },
+    "jaden-farm": {
+      "text": "jaden",
+      "file": "jaden-farm.mp3",
+      "bytes": 11088
+    },
+    "plante": {
+      "text": "plant\u00e9",
+      "file": "plante.mp3",
+      "bytes": 10656
+    },
+    "wekolt": {
+      "text": "w\u00e9kolt",
+      "file": "wekolt.mp3",
+      "bytes": 11232
+    },
+    "peche": {
+      "text": "p\u00e9ch\u00e9",
+      "file": "peche.mp3",
+      "bytes": 10656
+    },
+    "file": {
+      "text": "fil\u00e9",
+      "file": "file.mp3",
+      "bytes": 10656
+    },
+    "kay-bati": {
+      "text": "kay bati",
+      "file": "kay-bati.mp3",
+      "bytes": 11232
+    },
+    "matlo": {
+      "text": "matlo",
+      "file": "matlo.mp3",
+      "bytes": 10656
+    },
+    "klou": {
+      "text": "klou",
+      "file": "klou.mp3",
+      "bytes": 10656
+    },
+    "legliz": {
+      "text": "l\u00e9gliz",
+      "file": "legliz.mp3",
+      "bytes": 11088
+    },
+    "priye": {
+      "text": "priy\u00e9",
+      "file": "priye.mp3",
+      "bytes": 10656
+    },
+    "bondye": {
+      "text": "Bondy\u00e9",
+      "file": "bondye.mp3",
+      "bytes": 10656
+    },
+    "non-name": {
+      "text": "non",
+      "file": "non-name.mp3",
+      "bytes": 10656
+    },
+    "bagay": {
+      "text": "bagay",
+      "file": "bagay.mp3",
+      "bytes": 10656
+    },
+    "moun": {
+      "text": "moun",
+      "file": "moun.mp3",
+      "bytes": 10656
+    },
+    "ko": {
+      "text": "k\u00f2",
+      "file": "ko.mp3",
+      "bytes": 10656
+    },
+    "viv": {
+      "text": "viv",
+      "file": "viv.mp3",
+      "bytes": 10656
+    },
+    "we": {
+      "text": "w\u00e8",
+      "file": "we.mp3",
+      "bytes": 10656
+    },
+    "tande": {
+      "text": "tand\u00e9",
+      "file": "tande.mp3",
+      "bytes": 10656
+    },
+    "di": {
+      "text": "di",
+      "file": "di.mp3",
+      "bytes": 10656
+    },
+    "wete": {
+      "text": "w\u00e9t\u00e9",
+      "file": "wete.mp3",
+      "bytes": 10656
+    },
+    "tout": {
+      "text": "tout",
+      "file": "tout.mp3",
+      "bytes": 10656
+    },
+    "yon-ti": {
+      "text": "yon ti",
+      "file": "yon-ti.mp3",
+      "bytes": 10656
+    },
+    "anpil": {
+      "text": "anpil",
+      "file": "anpil.mp3",
+      "bytes": 10656
+    },
+    "mezi": {
+      "text": "m\u00e9zi",
+      "file": "mezi.mp3",
+      "bytes": 10656
+    },
+    "pwoblem": {
+      "text": "pwobl\u00e8m",
+      "file": "pwoblem.mp3",
+      "bytes": 11088
+    },
+    "ekzamp": {
+      "text": "\u00e9kzamp",
+      "file": "ekzamp.mp3",
+      "bytes": 10656
+    },
+    "repons": {
+      "text": "r\u00e9pons",
+      "file": "repons.mp3",
+      "bytes": 10656
+    },
+    "kesyon": {
+      "text": "k\u00e8syon",
+      "file": "kesyon.mp3",
+      "bytes": 10656
+    }
+  }
+}

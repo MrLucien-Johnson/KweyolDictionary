@@ -41,6 +41,7 @@ export default async function ChildWordPage({ params }: Props) {
         imageSrc={image?.filePath}
         imageStatus={image?.status}
         audioSrc={audio?.filePath}
+        audioIsSynthetic={audio?.source === "SYNTHETIC_TTS"}
       />
       <section className="word-detail__section">
         <h2>Example</h2>

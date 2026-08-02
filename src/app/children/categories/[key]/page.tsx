@@ -47,6 +47,7 @@ export default async function ChildCategoryPage({ params }: Props) {
                 imageSrc={image?.filePath}
                 imageStatus={image?.status}
                 audioSrc={audio?.filePath}
+                audioIsSynthetic={audio?.source === "SYNTHETIC_TTS"}
               />
             );
           })}

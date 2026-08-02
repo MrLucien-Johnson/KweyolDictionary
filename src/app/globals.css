@@ -762,6 +762,13 @@ a {
 }
 
 .word-card__english,
+.child-word-card__audio-note {
+  margin: 0.35rem 0 0;
+  color: var(--color-muted);
+  font-size: 0.82rem;
+  line-height: 1.35;
+}
+
 .child-word-card p {
   margin: var(--space-2) 0 0;
   color: var(--color-muted);

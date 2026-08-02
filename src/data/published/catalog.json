@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-02T19:38:10.275Z",
+  "generatedAt": "2026-08-02T19:43:14.273Z",
   "language": "Dominican Kwéyòl",
   "entries": [
     {
@@ -33,7 +33,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "bonjou-audio",
+          "filePath": "/audio/bonjou.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "bonjou-img",
@@ -94,7 +102,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "bonswa-audio",
+          "filePath": "/audio/bonswa.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "bonswa-img",
@@ -155,7 +171,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "mesi-audio",
+          "filePath": "/audio/mesi.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "mesi-img",
@@ -216,7 +240,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "souple-audio",
+          "filePath": "/audio/souple.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "souple-img",
@@ -277,7 +309,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "wi-yes-audio",
+          "filePath": "/audio/wi-yes.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "wi-yes-img",
@@ -340,7 +380,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "non-no-audio",
+          "filePath": "/audio/non-no.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "non-no-img",
@@ -403,7 +451,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "orevwa-audio",
+          "filePath": "/audio/orevwa.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "orevwa-img",
@@ -464,7 +520,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "bye-audio",
+          "filePath": "/audio/bye.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "bye-img",
@@ -525,7 +589,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "kouman-ou-ye-audio",
+          "filePath": "/audio/kouman-ou-ye.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "kouman-ou-ye-img",
@@ -586,7 +658,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "sa-ka-fet-audio",
+          "filePath": "/audio/sa-ka-fet.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "What's up / what's happening. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -630,7 +710,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "pa-pi-mal-audio",
+          "filePath": "/audio/pa-pi-mal.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "Not too bad. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -674,7 +762,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "tout-an-form-audio",
+          "filePath": "/audio/tout-an-form.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "All good / fine. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -718,7 +814,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "padon-audio",
+          "filePath": "/audio/padon.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "padon-img",
@@ -779,7 +883,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "konne-audio",
+          "filePath": "/audio/konne.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "konne-img",
@@ -840,7 +952,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "vle-audio",
+          "filePath": "/audio/vle.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "vle-img",
@@ -901,7 +1021,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "enme-audio",
+          "filePath": "/audio/enme.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "enme-img",
@@ -962,7 +1090,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "ede-audio",
+          "filePath": "/audio/ede.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "ede-img",
@@ -1023,7 +1159,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "pale-audio",
+          "filePath": "/audio/pale.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "pale-img",
@@ -1084,7 +1228,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "koutre-audio",
+          "filePath": "/audio/koutre.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "koutre-img",
@@ -1145,7 +1297,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "gade-audio",
+          "filePath": "/audio/gade.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "gade-img",
@@ -1206,7 +1366,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "vini-audio",
+          "filePath": "/audio/vini.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "vini-img",
@@ -1267,7 +1435,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "ale-audio",
+          "filePath": "/audio/ale.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "ale-img",
@@ -1328,7 +1504,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "fe-audio",
+          "filePath": "/audio/fe.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "fe-img",
@@ -1389,7 +1573,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "ni-audio",
+          "filePath": "/audio/ni.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "ni-img",
@@ -1450,7 +1642,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "se-be-audio",
+          "filePath": "/audio/se-be.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "se-be-img",
@@ -1513,7 +1713,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "ka-audio",
+          "filePath": "/audio/ka.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "Ongoing action marker. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -1557,7 +1765,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "maman-audio",
+          "filePath": "/audio/maman.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "maman-img",
@@ -1618,7 +1834,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "papa-audio",
+          "filePath": "/audio/papa.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "papa-img",
@@ -1679,7 +1903,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "fanmi-audio",
+          "filePath": "/audio/fanmi.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "fanmi-img",
@@ -1740,7 +1972,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "fre-audio",
+          "filePath": "/audio/fre.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "fre-img",
@@ -1801,7 +2041,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "se-audio",
+          "filePath": "/audio/se.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "se-img",
@@ -1862,7 +2110,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "timoun-audio",
+          "filePath": "/audio/timoun.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "timoun-img",
@@ -1923,7 +2179,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "granmoun-audio",
+          "filePath": "/audio/granmoun.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "granmoun-img",
@@ -1984,7 +2248,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "nou-audio",
+          "filePath": "/audio/nou.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "nou-img",
@@ -2045,7 +2317,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "mwen-audio",
+          "filePath": "/audio/mwen.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "mwen-img",
@@ -2106,7 +2386,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "ou-audio",
+          "filePath": "/audio/ou.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "ou-img",
@@ -2167,7 +2455,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "li-pronoun-audio",
+          "filePath": "/audio/li-pronoun.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "He / she / it. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -2214,7 +2510,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "yo-audio",
+          "filePath": "/audio/yo.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "They / them. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -2258,7 +2562,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "zanmi-audio",
+          "filePath": "/audio/zanmi.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "zanmi-img",
@@ -2319,7 +2631,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "nonm-audio",
+          "filePath": "/audio/nonm.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "Man. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -2363,7 +2683,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "fanm-audio",
+          "filePath": "/audio/fanm.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "Woman. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -2407,7 +2735,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "garson-audio",
+          "filePath": "/audio/garson.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "garson-img",
@@ -2468,7 +2804,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "fi-audio",
+          "filePath": "/audio/fi.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "fi-img",
@@ -2529,7 +2873,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "kay-audio",
+          "filePath": "/audio/kay.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "kay-img",
@@ -2590,7 +2942,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "pwot-audio",
+          "filePath": "/audio/pwot.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "pwot-img",
@@ -2651,7 +3011,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "fenet-audio",
+          "filePath": "/audio/fenet.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "fenet-img",
@@ -2712,7 +3080,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "tab-audio",
+          "filePath": "/audio/tab.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "tab-img",
@@ -2773,7 +3149,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "chez-audio",
+          "filePath": "/audio/chez.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "chez-img",
@@ -2834,7 +3218,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "li-bed-audio",
+          "filePath": "/audio/li-bed.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "li-bed-img",
@@ -2898,7 +3290,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "kwizin-audio",
+          "filePath": "/audio/kwizin.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "kwizin-img",
@@ -2959,7 +3359,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "twalet-audio",
+          "filePath": "/audio/twalet.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "twalet-img",
@@ -3020,7 +3428,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "lakou-audio",
+          "filePath": "/audio/lakou.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "lakou-img",
@@ -3081,7 +3497,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "jaden-garden-audio",
+          "filePath": "/audio/jaden-garden.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "jaden-garden-img",
@@ -3144,7 +3568,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "kle-audio",
+          "filePath": "/audio/kle.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "kle-img",
@@ -3205,7 +3637,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "limye-audio",
+          "filePath": "/audio/limye.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "limye-img",
@@ -3266,7 +3706,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "dlo-audio",
+          "filePath": "/audio/dlo.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "dlo-img",
@@ -3327,7 +3775,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "manje-audio",
+          "filePath": "/audio/manje.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "manje-img",
@@ -3388,7 +3844,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "bwe-audio",
+          "filePath": "/audio/bwe.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "bwe-img",
@@ -3449,7 +3913,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "pen-audio",
+          "filePath": "/audio/pen.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "pen-img",
@@ -3510,7 +3982,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "diri-audio",
+          "filePath": "/audio/diri.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "diri-img",
@@ -3571,7 +4051,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "pwa-audio",
+          "filePath": "/audio/pwa.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "pwa-img",
@@ -3632,7 +4120,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "pwason-audio",
+          "filePath": "/audio/pwason.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "pwason-img",
@@ -3695,7 +4191,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "vyann-audio",
+          "filePath": "/audio/vyann.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "vyann-img",
@@ -3756,7 +4260,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "poul-audio",
+          "filePath": "/audio/poul.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "poul-img",
@@ -3817,7 +4329,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "ze-audio",
+          "filePath": "/audio/ze.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "ze-img",
@@ -3878,7 +4398,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "let-audio",
+          "filePath": "/audio/let.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "let-img",
@@ -3939,7 +4467,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "sik-audio",
+          "filePath": "/audio/sik.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "sik-img",
@@ -4000,7 +4536,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "se-salt-audio",
+          "filePath": "/audio/se-salt.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "se-salt-img",
@@ -4063,7 +4607,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "lwil-audio",
+          "filePath": "/audio/lwil.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "lwil-img",
@@ -4124,7 +4676,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "soup-audio",
+          "filePath": "/audio/soup.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "soup-img",
@@ -4185,7 +4745,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "bouyon-audio",
+          "filePath": "/audio/bouyon.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "bouyon-img",
@@ -4246,7 +4814,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "bakes-audio",
+          "filePath": "/audio/bakes.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "bakes-img",
@@ -4307,7 +4883,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "kwibich-audio",
+          "filePath": "/audio/kwibich.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "kwibich-img",
@@ -4368,7 +4952,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "fig-audio",
+          "filePath": "/audio/fig.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "fig-img",
@@ -4429,7 +5021,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "banann-audio",
+          "filePath": "/audio/banann.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "banann-img",
@@ -4490,7 +5090,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "mango-audio",
+          "filePath": "/audio/mango.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "mango-img",
@@ -4551,7 +5159,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "zowanj-audio",
+          "filePath": "/audio/zowanj.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "zowanj-img",
@@ -4612,7 +5228,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "sitwon-audio",
+          "filePath": "/audio/sitwon.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "sitwon-img",
@@ -4673,7 +5297,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "koko-audio",
+          "filePath": "/audio/koko.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "koko-img",
@@ -4734,7 +5366,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "yanm-audio",
+          "filePath": "/audio/yanm.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "yanm-img",
@@ -4795,7 +5435,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "patat-audio",
+          "filePath": "/audio/patat.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "patat-img",
@@ -4856,7 +5504,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "yanm-kouch-audio",
+          "filePath": "/audio/yanm-kouch.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "yanm-kouch-img",
@@ -4917,7 +5573,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "toumam-audio",
+          "filePath": "/audio/toumam.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "toumam-img",
@@ -4978,7 +5642,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "zonyon-audio",
+          "filePath": "/audio/zonyon.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "zonyon-img",
@@ -5039,7 +5711,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "ji-audio",
+          "filePath": "/audio/ji.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "ji-img",
@@ -5100,7 +5780,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "te-audio",
+          "filePath": "/audio/te.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "te-img",
@@ -5161,7 +5849,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "kafe-audio",
+          "filePath": "/audio/kafe.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "Coffee. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -5205,7 +5901,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "bonbon-audio",
+          "filePath": "/audio/bonbon.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "bonbon-img",
@@ -5266,7 +5970,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "gou-audio",
+          "filePath": "/audio/gou.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "gou-img",
@@ -5327,7 +6039,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "cho-audio",
+          "filePath": "/audio/cho.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "cho-img",
@@ -5388,7 +6108,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "fwet-audio",
+          "filePath": "/audio/fwet.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "fwet-img",
@@ -5449,7 +6177,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "dous-audio",
+          "filePath": "/audio/dous.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "dous-img",
@@ -5510,7 +6246,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "sel-audio",
+          "filePath": "/audio/sel.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "sel-img",
@@ -5571,7 +6315,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "wouj-audio",
+          "filePath": "/audio/wouj.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "wouj-img",
@@ -5632,7 +6384,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "ble-audio",
+          "filePath": "/audio/ble.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "ble-img",
@@ -5693,7 +6453,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "vet-audio",
+          "filePath": "/audio/vet.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "vet-img",
@@ -5754,7 +6522,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "jon-audio",
+          "filePath": "/audio/jon.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "jon-img",
@@ -5815,7 +6591,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "nwa-audio",
+          "filePath": "/audio/nwa.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "nwa-img",
@@ -5876,7 +6660,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "blan-audio",
+          "filePath": "/audio/blan.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "blan-img",
@@ -5937,7 +6729,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "owo-audio",
+          "filePath": "/audio/owo.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "owo-img",
@@ -5998,7 +6798,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "mouve-audio",
+          "filePath": "/audio/mouve.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "mouve-img",
@@ -6059,7 +6867,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "gwiy-audio",
+          "filePath": "/audio/gwiy.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "gwiy-img",
@@ -6120,7 +6936,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "mawon-audio",
+          "filePath": "/audio/mawon.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "mawon-img",
@@ -6181,7 +7005,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "kwoule-audio",
+          "filePath": "/audio/kwoule.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "kwoule-img",
@@ -6242,7 +7074,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "yon-audio",
+          "filePath": "/audio/yon.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "yon-img",
@@ -6303,7 +7143,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "de-audio",
+          "filePath": "/audio/de.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "de-img",
@@ -6364,7 +7212,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "twa-audio",
+          "filePath": "/audio/twa.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "twa-img",
@@ -6425,7 +7281,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "kat-audio",
+          "filePath": "/audio/kat.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "kat-img",
@@ -6486,7 +7350,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "senk-audio",
+          "filePath": "/audio/senk.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "senk-img",
@@ -6547,7 +7419,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "sis-audio",
+          "filePath": "/audio/sis.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "sis-img",
@@ -6608,7 +7488,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "set-audio",
+          "filePath": "/audio/set.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "set-img",
@@ -6669,7 +7557,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "wit-audio",
+          "filePath": "/audio/wit.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "wit-img",
@@ -6730,7 +7626,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "nef-audio",
+          "filePath": "/audio/nef.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "nef-img",
@@ -6791,7 +7695,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "dis-audio",
+          "filePath": "/audio/dis.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "dis-img",
@@ -6852,7 +7764,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "onz-audio",
+          "filePath": "/audio/onz.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "onz-img",
@@ -6913,7 +7833,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "douz-audio",
+          "filePath": "/audio/douz.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "douz-img",
@@ -6974,7 +7902,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "ven-audio",
+          "filePath": "/audio/ven.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "ven-img",
@@ -7035,7 +7971,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "san-audio",
+          "filePath": "/audio/san.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "san-img",
@@ -7096,7 +8040,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "kontre-audio",
+          "filePath": "/audio/kontre.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "kontre-img",
@@ -7157,7 +8109,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "jou-audio",
+          "filePath": "/audio/jou.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "jou-img",
@@ -7218,7 +8178,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "lannuit-audio",
+          "filePath": "/audio/lannuit.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "lannuit-img",
@@ -7279,7 +8247,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "maten-audio",
+          "filePath": "/audio/maten.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "maten-img",
@@ -7340,7 +8316,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "apwemidi-audio",
+          "filePath": "/audio/apwemidi.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "Afternoon. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -7384,7 +8368,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "swe-audio",
+          "filePath": "/audio/swe.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "Evening. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -7428,7 +8420,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "le-audio",
+          "filePath": "/audio/le.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "Hour / time. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -7472,7 +8472,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "semen-audio",
+          "filePath": "/audio/semen.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "Week. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -7516,7 +8524,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "mwa-audio",
+          "filePath": "/audio/mwa.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "Month. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -7560,7 +8576,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "lane-audio",
+          "filePath": "/audio/lane.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "Year. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -7604,7 +8628,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "lendi-audio",
+          "filePath": "/audio/lendi.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "Monday. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -7648,7 +8680,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "madi-audio",
+          "filePath": "/audio/madi.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "Tuesday. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -7692,7 +8732,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "mekredi-audio",
+          "filePath": "/audio/mekredi.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "Wednesday. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -7736,7 +8784,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "jedi-audio",
+          "filePath": "/audio/jedi.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "Thursday. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -7780,7 +8836,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "vandwedi-audio",
+          "filePath": "/audio/vandwedi.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "Friday. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -7824,7 +8888,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "samdi-audio",
+          "filePath": "/audio/samdi.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "Saturday. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -7868,7 +8940,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "dimanch-audio",
+          "filePath": "/audio/dimanch.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "Sunday. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -7912,7 +8992,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "jodi-a-audio",
+          "filePath": "/audio/jodi-a.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "jodi-a-img",
@@ -7973,7 +9061,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "ye-audio",
+          "filePath": "/audio/ye.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "Yesterday. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -8017,7 +9113,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "denmen-audio",
+          "filePath": "/audio/denmen.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "Tomorrow. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -8061,7 +9165,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "lapli-audio",
+          "filePath": "/audio/lapli.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "lapli-img",
@@ -8122,7 +9234,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "soley-audio",
+          "filePath": "/audio/soley.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "soley-img",
@@ -8183,7 +9303,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "nwaj-audio",
+          "filePath": "/audio/nwaj.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "nwaj-img",
@@ -8244,7 +9372,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "van-audio",
+          "filePath": "/audio/van.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "van-img",
@@ -8305,7 +9441,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "loraj-audio",
+          "filePath": "/audio/loraj.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "loraj-img",
@@ -8366,7 +9510,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "zife-audio",
+          "filePath": "/audio/zife.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "zife-img",
@@ -8427,7 +9579,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "chale-audio",
+          "filePath": "/audio/chale.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "chale-img",
@@ -8488,7 +9648,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "syel-audio",
+          "filePath": "/audio/syel.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "syel-img",
@@ -8549,7 +9717,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "late-audio",
+          "filePath": "/audio/late.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "late-img",
@@ -8610,7 +9786,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "lanme-audio",
+          "filePath": "/audio/lanme.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "lanme-img",
@@ -8671,7 +9855,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "rivye-audio",
+          "filePath": "/audio/rivye.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "rivye-img",
@@ -8732,7 +9924,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "saut-audio",
+          "filePath": "/audio/saut.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "saut-img",
@@ -8793,7 +9993,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "mon-audio",
+          "filePath": "/audio/mon.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "mon-img",
@@ -8854,7 +10062,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "bwa-wood-audio",
+          "filePath": "/audio/bwa-wood.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "bwa-wood-img",
@@ -8917,7 +10133,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "fle-audio",
+          "filePath": "/audio/fle.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "fle-img",
@@ -8978,7 +10202,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "pye-bwa-audio",
+          "filePath": "/audio/pye-bwa.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "pye-bwa-img",
@@ -9039,7 +10271,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "fey-audio",
+          "filePath": "/audio/fey.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "fey-img",
@@ -9100,7 +10340,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "woch-audio",
+          "filePath": "/audio/woch.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "woch-img",
@@ -9161,7 +10409,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "sab-audio",
+          "filePath": "/audio/sab.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "sab-img",
@@ -9222,7 +10478,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "zeb-audio",
+          "filePath": "/audio/zeb.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "zeb-img",
@@ -9283,7 +10547,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "chat-audio",
+          "filePath": "/audio/chat.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "chat-img",
@@ -9344,7 +10616,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "chen-audio",
+          "filePath": "/audio/chen.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "chen-img",
@@ -9405,7 +10685,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "zwazo-audio",
+          "filePath": "/audio/zwazo.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "zwazo-img",
@@ -9466,7 +10754,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "pwason-animal-audio",
+          "filePath": "/audio/pwason-animal.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "pwason-animal-img",
@@ -9529,7 +10825,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "kabwit-audio",
+          "filePath": "/audio/kabwit.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "kabwit-img",
@@ -9590,7 +10894,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "bef-audio",
+          "filePath": "/audio/bef.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "bef-img",
@@ -9651,7 +10963,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "kochon-audio",
+          "filePath": "/audio/kochon.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "kochon-img",
@@ -9712,7 +11032,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "mouton-audio",
+          "filePath": "/audio/mouton.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "mouton-img",
@@ -9773,7 +11101,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "souwi-audio",
+          "filePath": "/audio/souwi.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "souwi-img",
@@ -9834,7 +11170,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "krapo-audio",
+          "filePath": "/audio/krapo.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "krapo-img",
@@ -9895,7 +11239,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "kwab-audio",
+          "filePath": "/audio/kwab.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "kwab-img",
@@ -9956,7 +11308,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "toti-audio",
+          "filePath": "/audio/toti.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "toti-img",
@@ -10017,7 +11377,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "mes-audio",
+          "filePath": "/audio/mes.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "mes-img",
@@ -10078,7 +11446,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "myel-audio",
+          "filePath": "/audio/myel.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "myel-img",
@@ -10139,7 +11515,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "moustik-audio",
+          "filePath": "/audio/moustik.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "moustik-img",
@@ -10200,7 +11584,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "kok-audio",
+          "filePath": "/audio/kok.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "kok-img",
@@ -10261,7 +11653,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "kannaw-audio",
+          "filePath": "/audio/kannaw.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "kannaw-img",
@@ -10322,7 +11722,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "tet-audio",
+          "filePath": "/audio/tet.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "tet-img",
@@ -10383,7 +11791,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "zye-audio",
+          "filePath": "/audio/zye.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "zye-img",
@@ -10444,7 +11860,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "nen-audio",
+          "filePath": "/audio/nen.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "nen-img",
@@ -10505,7 +11929,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "bouch-audio",
+          "filePath": "/audio/bouch.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "bouch-img",
@@ -10566,7 +11998,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "zowey-audio",
+          "filePath": "/audio/zowey.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "zowey-img",
@@ -10627,7 +12067,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "dan-audio",
+          "filePath": "/audio/dan.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "dan-img",
@@ -10688,7 +12136,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "lanmen-audio",
+          "filePath": "/audio/lanmen.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "lanmen-img",
@@ -10749,7 +12205,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "pye-audio",
+          "filePath": "/audio/pye.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "pye-img",
@@ -10810,7 +12274,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "bwa-arm-audio",
+          "filePath": "/audio/bwa-arm.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "bwa-arm-img",
@@ -10873,7 +12345,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "vant-audio",
+          "filePath": "/audio/vant.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "vant-img",
@@ -10934,7 +12414,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "ke-audio",
+          "filePath": "/audio/ke.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "ke-img",
@@ -10995,7 +12483,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "do-audio",
+          "filePath": "/audio/do.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "do-img",
@@ -11056,7 +12552,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "chive-audio",
+          "filePath": "/audio/chive.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "chive-img",
@@ -11117,7 +12621,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "po-audio",
+          "filePath": "/audio/po.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "po-img",
@@ -11178,7 +12690,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "wob-audio",
+          "filePath": "/audio/wob.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "wob-img",
@@ -11239,7 +12759,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "chimiz-audio",
+          "filePath": "/audio/chimiz.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "chimiz-img",
@@ -11300,7 +12828,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "pantalon-audio",
+          "filePath": "/audio/pantalon.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "pantalon-img",
@@ -11361,7 +12897,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "soulye-audio",
+          "filePath": "/audio/soulye.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "soulye-img",
@@ -11422,7 +12966,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "chapo-audio",
+          "filePath": "/audio/chapo.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "chapo-img",
@@ -11483,7 +13035,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "jip-audio",
+          "filePath": "/audio/jip.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "jip-img",
@@ -11544,7 +13104,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "choket-audio",
+          "filePath": "/audio/choket.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "choket-img",
@@ -11605,7 +13173,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "senti-audio",
+          "filePath": "/audio/senti.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "senti-img",
@@ -11666,7 +13242,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "lunet-audio",
+          "filePath": "/audio/lunet.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "lunet-img",
@@ -11727,7 +13311,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "lekol-audio",
+          "filePath": "/audio/lekol.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "lekol-img",
@@ -11788,7 +13380,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "pwofese-audio",
+          "filePath": "/audio/pwofese.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "pwofese-img",
@@ -11849,7 +13449,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "elev-audio",
+          "filePath": "/audio/elev.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "elev-img",
@@ -11910,7 +13518,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "liv-audio",
+          "filePath": "/audio/liv.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "liv-img",
@@ -11971,7 +13587,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "kweyon-audio",
+          "filePath": "/audio/kweyon.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "kweyon-img",
@@ -12032,7 +13656,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "papye-audio",
+          "filePath": "/audio/papye.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "papye-img",
@@ -12093,7 +13725,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "tablo-audio",
+          "filePath": "/audio/tablo.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "tablo-img",
@@ -12154,7 +13794,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "klas-audio",
+          "filePath": "/audio/klas.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "klas-img",
@@ -12215,7 +13863,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "lekol-variant-audio",
+          "filePath": "/audio/lekol-variant.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "lekol-variant-img",
@@ -12276,7 +13932,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "li-read-audio",
+          "filePath": "/audio/li-read.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "li-read-img",
@@ -12340,7 +14004,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "ekwi-audio",
+          "filePath": "/audio/ekwi.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "ekwi-img",
@@ -12401,7 +14073,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "aprann-audio",
+          "filePath": "/audio/aprann.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "aprann-img",
@@ -12462,7 +14142,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "travay-audio",
+          "filePath": "/audio/travay.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "travay-img",
@@ -12523,7 +14211,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "lajan-audio",
+          "filePath": "/audio/lajan.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "Money. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -12567,7 +14263,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "mache-market-audio",
+          "filePath": "/audio/mache-market.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "mache-market-img",
@@ -12630,7 +14334,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "machin-audio",
+          "filePath": "/audio/machin.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "machin-img",
@@ -12691,7 +14403,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "bis-audio",
+          "filePath": "/audio/bis.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "bis-img",
@@ -12752,7 +14472,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "batiman-audio",
+          "filePath": "/audio/batiman.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "batiman-img",
@@ -12813,7 +14541,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "avyon-audio",
+          "filePath": "/audio/avyon.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "avyon-img",
@@ -12874,7 +14610,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "bisiklet-audio",
+          "filePath": "/audio/bisiklet.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "bisiklet-img",
@@ -12935,7 +14679,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "wout-audio",
+          "filePath": "/audio/wout.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "wout-img",
@@ -12996,7 +14748,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "vil-audio",
+          "filePath": "/audio/vil.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "vil-img",
@@ -13057,7 +14817,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "peyi-audio",
+          "filePath": "/audio/peyi.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "peyi-img",
@@ -13118,7 +14886,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "dominik-audio",
+          "filePath": "/audio/dominik.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "dominik-img",
@@ -13179,7 +14955,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "kweyol-audio",
+          "filePath": "/audio/kweyol.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "kweyol-img",
@@ -13240,7 +15024,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "wozo-audio",
+          "filePath": "/audio/wozo.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "wozo-img",
@@ -13301,7 +15093,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "kontan-audio",
+          "filePath": "/audio/kontan.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "kontan-img",
@@ -13362,7 +15162,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "tris-audio",
+          "filePath": "/audio/tris.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "tris-img",
@@ -13423,7 +15231,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "fache-audio",
+          "filePath": "/audio/fache.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "fache-img",
@@ -13484,7 +15300,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "pe-audio",
+          "filePath": "/audio/pe.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "pe-img",
@@ -13545,7 +15369,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "fatige-audio",
+          "filePath": "/audio/fatige.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "fatige-img",
@@ -13606,7 +15438,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "malad-audio",
+          "filePath": "/audio/malad.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "malad-img",
@@ -13667,7 +15507,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "byen-audio",
+          "filePath": "/audio/byen.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "byen-img",
@@ -13728,7 +15576,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "mal-audio",
+          "filePath": "/audio/mal.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "mal-img",
@@ -13789,7 +15645,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "bel-audio",
+          "filePath": "/audio/bel.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "bel-img",
@@ -13850,7 +15714,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "gwo-audio",
+          "filePath": "/audio/gwo.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "gwo-img",
@@ -13911,7 +15783,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "piti-audio",
+          "filePath": "/audio/piti.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "piti-img",
@@ -13972,7 +15852,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "bon-audio",
+          "filePath": "/audio/bon.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "bon-img",
@@ -14033,7 +15921,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "move-audio",
+          "filePath": "/audio/move.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "move-img",
@@ -14094,7 +15990,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "nouvo-audio",
+          "filePath": "/audio/nouvo.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "New. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -14138,7 +16042,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "vye-audio",
+          "filePath": "/audio/vye.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "Old. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -14182,7 +16094,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "vit-audio",
+          "filePath": "/audio/vit.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "vit-img",
@@ -14243,7 +16163,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "lent-audio",
+          "filePath": "/audio/lent.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "lent-img",
@@ -14304,7 +16232,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "fo-audio",
+          "filePath": "/audio/fo.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "fo-img",
@@ -14365,7 +16301,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "fasil-audio",
+          "filePath": "/audio/fasil.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "Easy. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -14409,7 +16353,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "difisil-audio",
+          "filePath": "/audio/difisil.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "Difficult. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -14453,7 +16405,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "jwe-play-audio",
+          "filePath": "/audio/jwe-play.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "jwe-play-img",
@@ -14516,7 +16476,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "sote-audio",
+          "filePath": "/audio/sote.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "sote-img",
@@ -14577,7 +16545,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "kouri-audio",
+          "filePath": "/audio/kouri.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "kouri-img",
@@ -14638,7 +16614,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "mache-walk-audio",
+          "filePath": "/audio/mache-walk.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "mache-walk-img",
@@ -14701,7 +16685,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "domi-audio",
+          "filePath": "/audio/domi.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "domi-img",
@@ -14762,7 +16754,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "leve-audio",
+          "filePath": "/audio/leve.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "leve-img",
@@ -14823,7 +16823,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "asiz-audio",
+          "filePath": "/audio/asiz.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "asiz-img",
@@ -14884,7 +16892,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "chante-audio",
+          "filePath": "/audio/chante.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "chante-img",
@@ -14945,7 +16961,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "danse-audio",
+          "filePath": "/audio/danse.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "danse-img",
@@ -15006,7 +17030,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "wi-laugh-audio",
+          "filePath": "/audio/wi-laugh.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "wi-laugh-img",
@@ -15069,7 +17101,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "pli-audio",
+          "filePath": "/audio/pli.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "pli-img",
@@ -15130,7 +17170,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "achtre-audio",
+          "filePath": "/audio/achtre.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "To buy. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -15174,7 +17222,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "vann-audio",
+          "filePath": "/audio/vann.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "To sell. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -15218,7 +17274,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "ba-audio",
+          "filePath": "/audio/ba.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "ba-img",
@@ -15279,7 +17343,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "pwann-audio",
+          "filePath": "/audio/pwann.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "pwann-img",
@@ -15340,7 +17412,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "ouve-audio",
+          "filePath": "/audio/ouve.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "ouve-img",
@@ -15401,7 +17481,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "feme-audio",
+          "filePath": "/audio/feme.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "feme-img",
@@ -15462,7 +17550,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "netwaye-audio",
+          "filePath": "/audio/netwaye.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "netwaye-img",
@@ -15523,7 +17619,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "kwit-audio",
+          "filePath": "/audio/kwit.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "kwit-img",
@@ -15584,7 +17688,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "mizik-audio",
+          "filePath": "/audio/mizik.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "mizik-img",
@@ -15645,7 +17757,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "tanbou-audio",
+          "filePath": "/audio/tanbou.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "tanbou-img",
@@ -15706,7 +17826,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "chan-audio",
+          "filePath": "/audio/chan.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "chan-img",
@@ -15767,7 +17895,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "kannaval-audio",
+          "filePath": "/audio/kannaval.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "kannaval-img",
@@ -15828,7 +17964,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "mas-audio",
+          "filePath": "/audio/mas.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "mas-img",
@@ -15889,7 +18033,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "bande-audio",
+          "filePath": "/audio/bande.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "bande-img",
@@ -15950,7 +18102,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "jou-ouve-audio",
+          "filePath": "/audio/jou-ouve.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "jou-ouve-img",
@@ -16011,7 +18171,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "kweyol-day-audio",
+          "filePath": "/audio/kweyol-day.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "kweyol-day-img",
@@ -16072,7 +18240,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "pwoveb-audio",
+          "filePath": "/audio/pwoveb.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "Proverb. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -16116,7 +18292,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "istwa-audio",
+          "filePath": "/audio/istwa.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "istwa-img",
@@ -16177,7 +18361,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "kilti-audio",
+          "filePath": "/audio/kilti.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "kilti-img",
@@ -16238,7 +18430,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "dokte-audio",
+          "filePath": "/audio/dokte.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "Doctor. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -16282,7 +18482,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "lopital-audio",
+          "filePath": "/audio/lopital.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "Hospital. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -16326,7 +18534,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "medikaman-audio",
+          "filePath": "/audio/medikaman.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "Medicine. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -16370,7 +18586,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "doule-audio",
+          "filePath": "/audio/doule.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "Pain. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -16414,7 +18638,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "lafyev-audio",
+          "filePath": "/audio/lafyev.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "Fever. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -16458,7 +18690,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "ki-audio",
+          "filePath": "/audio/ki.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "What / which. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -16502,7 +18742,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "ki-moun-audio",
+          "filePath": "/audio/ki-moun.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "Who. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -16546,7 +18794,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "ki-kote-audio",
+          "filePath": "/audio/ki-kote.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "Where. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -16590,7 +18846,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "ki-le-audio",
+          "filePath": "/audio/ki-le.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "When. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -16634,7 +18898,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "pouki-audio",
+          "filePath": "/audio/pouki.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "Why. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -16678,7 +18950,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "kouman-audio",
+          "filePath": "/audio/kouman.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "How. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -16722,7 +19002,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "konbyen-audio",
+          "filePath": "/audio/konbyen.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "How many / how much. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -16766,7 +19054,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "isi-audio",
+          "filePath": "/audio/isi.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "isi-img",
@@ -16827,7 +19123,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "la-audio",
+          "filePath": "/audio/la.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "la-img",
@@ -16888,7 +19192,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "anle-audio",
+          "filePath": "/audio/anle.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "On / above. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -16932,7 +19244,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "anba-audio",
+          "filePath": "/audio/anba.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "Under / below. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -16976,7 +19296,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "devan-audio",
+          "filePath": "/audio/devan.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "In front. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -17020,7 +19348,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "deye-audio",
+          "filePath": "/audio/deye.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "Behind. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -17064,7 +19400,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "epi-audio",
+          "filePath": "/audio/epi.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "And / with. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -17108,7 +19452,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "men-audio",
+          "filePath": "/audio/men.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "But. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -17152,7 +19504,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "pou-audio",
+          "filePath": "/audio/pou.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "For / to. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -17196,7 +19556,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "nan-audio",
+          "filePath": "/audio/nan.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "In / into. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -17240,7 +19608,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "sou-audio",
+          "filePath": "/audio/sou.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "On. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -17284,7 +19660,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "anko-audio",
+          "filePath": "/audio/anko.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "anko-img",
@@ -17345,7 +19729,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "toujou-audio",
+          "filePath": "/audio/toujou.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "Always / still. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -17389,7 +19781,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "jame-audio",
+          "filePath": "/audio/jame.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "Never. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -17433,7 +19833,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "kounye-a-audio",
+          "filePath": "/audio/kounye-a.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "Now. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -17477,7 +19885,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "pito-audio",
+          "filePath": "/audio/pito.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "Rather / prefer. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -17521,7 +19937,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "jwe-game-audio",
+          "filePath": "/audio/jwe-game.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "jwe-game-img",
@@ -17584,7 +20008,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "boul-audio",
+          "filePath": "/audio/boul.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "boul-img",
@@ -17645,7 +20077,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "poupe-audio",
+          "filePath": "/audio/poupe.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "poupe-img",
@@ -17706,7 +20146,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "desen-audio",
+          "filePath": "/audio/desen.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "desen-img",
@@ -17767,7 +20215,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "jaden-farm-audio",
+          "filePath": "/audio/jaden-farm.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "jaden-farm-img",
@@ -17830,7 +20286,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "plante-audio",
+          "filePath": "/audio/plante.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "plante-img",
@@ -17891,7 +20355,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "wekolt-audio",
+          "filePath": "/audio/wekolt.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "Harvest. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -17935,7 +20407,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "peche-audio",
+          "filePath": "/audio/peche.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "peche-img",
@@ -17996,7 +20476,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "file-audio",
+          "filePath": "/audio/file.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "Net / fishing line context. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -18040,7 +20528,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "kay-bati-audio",
+          "filePath": "/audio/kay-bati.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "Building a house. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -18084,7 +20580,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "matlo-audio",
+          "filePath": "/audio/matlo.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "Hammer. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -18128,7 +20632,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "klou-audio",
+          "filePath": "/audio/klou.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "Nail. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -18172,7 +20684,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "legliz-audio",
+          "filePath": "/audio/legliz.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "Church. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -18216,7 +20736,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "priye-audio",
+          "filePath": "/audio/priye.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "To pray. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -18260,7 +20788,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "bondye-audio",
+          "filePath": "/audio/bondye.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "God. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -18304,7 +20840,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "non-name-audio",
+          "filePath": "/audio/non-name.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "non-name-img",
@@ -18367,7 +20911,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "bagay-audio",
+          "filePath": "/audio/bagay.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "Thing. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -18411,7 +20963,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "moun-audio",
+          "filePath": "/audio/moun.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "moun-img",
@@ -18472,7 +21032,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "ko-audio",
+          "filePath": "/audio/ko.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "ko-img",
@@ -18533,7 +21101,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "viv-audio",
+          "filePath": "/audio/viv.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "To live. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -18577,7 +21153,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "we-audio",
+          "filePath": "/audio/we.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "we-img",
@@ -18638,7 +21222,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "tande-audio",
+          "filePath": "/audio/tande.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "tande-img",
@@ -18699,7 +21291,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "di-audio",
+          "filePath": "/audio/di.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "di-img",
@@ -18760,7 +21360,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "wete-audio",
+          "filePath": "/audio/wete.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "To stay / remain. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -18804,7 +21412,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "tout-audio",
+          "filePath": "/audio/tout.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "All / every. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -18848,7 +21464,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "yon-ti-audio",
+          "filePath": "/audio/yon-ti.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "yon-ti-img",
@@ -18909,7 +21533,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "anpil-audio",
+          "filePath": "/audio/anpil.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "anpil-img",
@@ -18970,7 +21602,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "mezi-audio",
+          "filePath": "/audio/mezi.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "Measure / maybe context learning. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -19014,7 +21654,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "pwoblem-audio",
+          "filePath": "/audio/pwoblem.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "Problem. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -19058,7 +21706,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "ekzamp-audio",
+          "filePath": "/audio/ekzamp.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [],
       "adultPresentation": {
         "displayDefinition": "Example. (Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.)",
@@ -19102,7 +21758,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "repons-audio",
+          "filePath": "/audio/repons.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "repons-img",
@@ -19163,7 +21827,15 @@
           "audience": "ADULT"
         }
       ],
-      "audioFiles": [],
+      "audioFiles": [
+        {
+          "id": "kesyon-audio",
+          "filePath": "/audio/kesyon.mp3",
+          "status": "PLACEHOLDER",
+          "source": "SYNTHETIC_TTS",
+          "voice": "fr-FR-DeniseNeural"
+        }
+      ],
       "imageAssets": [
         {
           "id": "kesyon-img",

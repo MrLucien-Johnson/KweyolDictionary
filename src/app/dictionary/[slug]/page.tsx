@@ -66,6 +66,13 @@ export default async function WordDetailPage({ params }: WordPageProps) {
         <PronunciationAid
           kweyolWord={entry.kweyolWord}
           audioSrc={audio?.filePath}
+          audioSource={
+            audio?.source === "SYNTHETIC_TTS" ||
+            audio?.source === "RECORDED" ||
+            audio?.source === "UNKNOWN"
+              ? audio.source
+              : null
+          }
           featured={entry.isFeatured}
         />
       </header>

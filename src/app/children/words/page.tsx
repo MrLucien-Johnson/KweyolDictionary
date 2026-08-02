@@ -29,6 +29,7 @@ export default async function ChildrenWordsPage() {
               imageSrc={image?.filePath}
               imageStatus={image?.status}
               audioSrc={audio?.filePath}
+              audioIsSynthetic={audio?.source === "SYNTHETIC_TTS"}
             />
           );
         })}

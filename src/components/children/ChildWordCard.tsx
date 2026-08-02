@@ -16,6 +16,7 @@ type ChildWordCardProps = {
   imageSrc?: string | null;
   imageStatus?: string | null;
   audioSrc?: string | null;
+  audioIsSynthetic?: boolean;
 };
 
 export function ChildWordCard({
@@ -25,6 +26,7 @@ export function ChildWordCard({
   imageSrc,
   imageStatus,
   audioSrc,
+  audioIsSynthetic = false,
 }: ChildWordCardProps) {
   return (
     <article className="child-word-card">
@@ -52,13 +54,18 @@ export function ChildWordCard({
       <p>{meaning}</p>
       <AudioButton
         src={audioSrc}
-        label="Listen"
+        label={audioIsSynthetic ? "Practice sound" : "Listen"}
         large
         onPlay={() => {
           const next = markListened(loadChildProgress(), slug);
           saveChildProgress(next);
         }}
       />
+      {audioSrc && audioIsSynthetic ? (
+        <p className="child-word-card__audio-note">
+          Practice sound only — not native Kwéyòl yet.
+        </p>
+      ) : null}
     </article>
   );
 }
