@@ -109,6 +109,58 @@ a {
   backdrop-filter: blur(10px);
 }
 
+.content-notice {
+  color: var(--color-ink);
+  line-height: 1.5;
+}
+
+.content-notice p {
+  margin: 0;
+}
+
+.content-notice a {
+  color: var(--color-canopy);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+}
+
+.content-notice__label {
+  display: inline-block;
+  margin-right: 0.45rem;
+  font-weight: 700;
+  color: var(--color-sun-deep);
+}
+
+.content-notice--banner {
+  border-bottom: 1px solid rgba(201, 138, 18, 0.28);
+  background: rgba(201, 138, 18, 0.1);
+  padding: 0.65rem 1rem;
+  font-size: 0.92rem;
+}
+
+.content-notice--banner p {
+  width: min(100% - 0rem, var(--content-max));
+  margin-inline: auto;
+}
+
+.content-notice--panel {
+  margin: var(--space-4) 0 var(--space-5);
+  padding: 0.85rem 1rem;
+  border-left: 3px solid var(--color-sun-deep);
+  background: rgba(201, 138, 18, 0.08);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-size: 0.95rem;
+  color: var(--color-muted);
+}
+
+.dict-page .content-notice--panel,
+.word-detail .content-notice--panel,
+.children-page .content-notice--panel,
+.learn-page .content-notice--panel {
+  width: 100%;
+}
+
 .site-header__inner,
 .site-footer__inner,
 .home-section,

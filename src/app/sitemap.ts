@@ -22,6 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/learn/flashcards",
     "/contribute",
     "/about",
+    "/disclaimer",
   ];
 
   const words = listEntries({});

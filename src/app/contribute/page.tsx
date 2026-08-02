@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { ContributeFormClient } from "@/components/contribute/ContributeFormClient";
-import { LANGUAGE_VARIATION_NOTE } from "@/lib/content/editorial";
+import { ContentAccuracyNotice } from "@/components/layout/ContentAccuracyNotice";
+import {
+  CONTENT_ACCURACY_SHORT,
+  LANGUAGE_VARIATION_NOTE,
+} from "@/lib/content/editorial";
 
 export const metadata: Metadata = {
   title: "Contribute",
@@ -20,9 +24,11 @@ export default function ContributePage() {
       <p>
         Suggest new words, corrections, example sentences, cultural explanations
         or alternative spellings. Every submission is moderated before
-        publication.
+        publication. Corrections help reduce incorrect public learning content.
       </p>
+      <ContentAccuracyNotice variant="panel" />
       <p>{LANGUAGE_VARIATION_NOTE}</p>
+      <p>{CONTENT_ACCURACY_SHORT}</p>
       <Suspense fallback={<p className="loading-line">Loading form…</p>}>
         <ContributeFormClient issuesUrl={issuesUrl} />
       </Suspense>

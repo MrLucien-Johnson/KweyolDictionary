@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Fraunces, Source_Sans_3 } from "next/font/google";
+import { ContentAccuracyNotice } from "@/components/layout/ContentAccuracyNotice";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { MISSION_STATEMENT, PROJECT_NAME } from "@/lib/content/editorial";
@@ -46,6 +47,7 @@ export default function RootLayout({
     >
       <body className="page-shell antialiased">
         <SiteHeader />
+        <ContentAccuracyNotice variant="banner" />
         <main className="page-main">{children}</main>
         <SiteFooter />
       </body>

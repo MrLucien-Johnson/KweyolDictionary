@@ -16,6 +16,10 @@ test("homepage presents brand, mission and both dictionary paths", async ({
   await expect(
     page.getByRole("link", { name: /open children’s dictionary/i }),
   ).toBeVisible();
+  await expect(page.getByText(/provisional beginner curriculum/i).first()).toBeVisible();
+  await expect(
+    page.getByRole("link", { name: /content disclaimer/i }).first(),
+  ).toBeVisible();
 });
 
 test("adult dictionary path is reachable from homepage", async ({ page }) => {

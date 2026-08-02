@@ -50,7 +50,7 @@ type Row = {
 };
 
 const SOURCE_NOTE =
-  "Beginner product curriculum — open for Dominican community/linguist correction.";
+  "Provisional beginner curriculum — open for Dominican community/linguist correction; provided as a learning aid, not a final linguistic authority.";
 
 const VARIATION_NOTE =
   "Dominican Kwéyòl varies by community, generation and speaker. Spellings and everyday use can differ.";

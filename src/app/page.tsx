@@ -3,6 +3,7 @@ import { ExperienceChooser } from "@/components/home/ExperienceChooser";
 import { HomeSearch } from "@/components/home/HomeSearch";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { WordCard } from "@/components/dictionary/WordCard";
+import { ContentAccuracyNotice } from "@/components/layout/ContentAccuracyNotice";
 import {
   CONTENT_DENSITY_NOTE,
   LANGUAGE_VARIATION_NOTE,
@@ -42,6 +43,10 @@ export default async function HomePage() {
 
       <div className="home-section">
         <ExperienceChooser />
+      </div>
+
+      <div className="home-section">
+        <ContentAccuracyNotice variant="panel" />
       </div>
 
       <section className="home-section" aria-labelledby="wotd-title">

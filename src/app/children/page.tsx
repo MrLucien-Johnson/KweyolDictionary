@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { listChildActivities, listChildCategories } from "@/lib/children/queries";
 import { ChildProgressPanel } from "@/components/children/ChildProgressPanel";
+import { ContentAccuracyNotice } from "@/components/layout/ContentAccuracyNotice";
 import { PublicImage } from "@/components/ui/PublicImage";
 
 export const metadata: Metadata = {
@@ -33,6 +34,8 @@ export default async function ChildrenHomePage() {
           </Link>
         </div>
       </header>
+
+      <ContentAccuracyNotice audience="children" variant="panel" />
 
       <ChildProgressPanel />
 
