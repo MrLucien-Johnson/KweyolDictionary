@@ -4,6 +4,7 @@ import { HomeSearch } from "@/components/home/HomeSearch";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { WordCard } from "@/components/dictionary/WordCard";
 import {
+  CONTENT_DENSITY_NOTE,
   LANGUAGE_VARIATION_NOTE,
   MISSION_STATEMENT,
   PROJECT_NAME,
@@ -87,6 +88,7 @@ export default async function HomePage() {
           Pronunciation, culture and featured words
         </h2>
         <p className="section-lead">{LANGUAGE_VARIATION_NOTE}</p>
+        <p className="section-lead">{CONTENT_DENSITY_NOTE}</p>
         <div className="feature-grid">
           <article className="feature-block">
             <h3>Pronunciation learning</h3>
