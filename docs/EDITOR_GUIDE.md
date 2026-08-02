@@ -34,7 +34,9 @@ Only **Dominica’s Kwéyòl** should be added.
 4. Set status to **Draft** or **Needs review**
 5. Save
 
-Do **not** set a word to **Approved** unless a language reviewer has checked it.
+Do **not** set a **new** word to **Approved** unless a language reviewer has checked it.
+
+The current beginner curriculum was published for product density as provisional public content. It remains open to correction and is labelled on the public site (see Content disclaimer). Prefer improving examples and notes over quietly inventing new “approved” glosses.
 
 ## Add children’s content
 
@@ -92,3 +94,5 @@ Use **Import / export** in admin to download JSON backups or upload reviewed bat
 - Do not copy from other Creole languages without a labelled comparison and approval
 - Language varies by community and generation — note this when needed
 - Children’s progress should not require personal accounts
+- The public site is an as-is learning aid, not certified curriculum — keep disclaimer links intact
+- See `docs/CONTENT_APPROVAL.md` for review tiers and priority lists

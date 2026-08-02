@@ -10,6 +10,8 @@ Publish a larger **APPROVED beginner curriculum** now so Adult and Children’s 
 - Entries are open to community/linguist correction
 - Not presented as a final linguistic authority
 - Homonyms use distinct slugs (for example `li-bed`, `li-read`)
+- Public site carries provisional / as-is notices and a Content disclaimer page
+- See `docs/CONTENT_APPROVAL.md` for approval tiers and liability stance
 
 ## Current density
 

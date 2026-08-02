@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ContentAccuracyNotice } from "@/components/layout/ContentAccuracyNotice";
 import { listLessons } from "@/lib/content/catalog";
 import { listPublicQuizzes } from "@/lib/learning/quizzes";
 
@@ -24,6 +25,7 @@ export default async function LearnPage() {
           practice activities. Quiz answers stay inside the quiz experience.
         </p>
       </header>
+      <ContentAccuracyNotice variant="panel" />
 
       <section className="learn-section">
         <h2 className="section-title">Lessons</h2>
