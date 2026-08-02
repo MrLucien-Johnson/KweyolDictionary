@@ -29,11 +29,13 @@ Only `APPROVED` entries appear in the published static catalog today. For this p
 
 ## Review priority
 
-1. Homonym groups (`li`, `sé`, `maché`, `wi`, `non`, `pwason`, `jaden`, `bwa`, `jwé`)
-2. Greetings and everyday conversation
-3. Family, numbers, colours, body, food
-4. Verbs, school, animals
-5. Culture, festivals, religion, proverbs
+1. Homonym groups (`li`, `sé`, `maché`, `wi`, `non`, `pwason`, `jaden`, `bwa`, `jwé`) — examples + related-sense links shipped; still welcome native-speaker confirmation
+2. Featured-word native audio (`public/audio/{slug}.mp3`; see `docs/AUDIO.md`)
+3. Example-sentence quality pass beyond POS defaults
+4. Greetings and everyday conversation
+5. Family, numbers, colours, body, food
+6. Verbs, school, animals
+7. Culture, festivals, religion, proverbs
 
 ## Editor rule going forward
 

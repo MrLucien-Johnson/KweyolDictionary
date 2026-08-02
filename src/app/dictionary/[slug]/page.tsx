@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { AudioButton } from "@/components/dictionary/AudioButton";
+import { PronunciationAid } from "@/components/dictionary/PronunciationAid";
 import { WordActions } from "@/components/dictionary/WordActions";
 import { ContentAccuracyNotice } from "@/components/layout/ContentAccuracyNotice";
-import { listEntries } from "@/lib/content/catalog";
+import { getCatalog, listEntries } from "@/lib/content/catalog";
 import {
   getAdjacentEntries,
   getEntryBySlug,
@@ -40,6 +40,9 @@ export default async function WordDetailPage({ params }: WordPageProps) {
 
   const { previous, next } = await getAdjacentEntries(entry.slug);
   const audio = entry.audioFiles.find((file) => file.status !== "MISSING");
+  const relatedEntries = entry.relatedSlugs
+    .map((slug) => getCatalog().entries.find((item) => item.slug === slug))
+    .filter((item): item is NonNullable<typeof item> => Boolean(item));
   const definition =
     entry.adultPresentation?.displayDefinition ||
     entry.detailedDefinition ||
@@ -59,8 +62,12 @@ export default async function WordDetailPage({ params }: WordPageProps) {
           {entry.pronunciationGuide ? (
             <span className="word-detail__pron">/{entry.pronunciationGuide}/</span>
           ) : null}
-          <AudioButton src={audio?.filePath} label="Pronunciation" />
         </div>
+        <PronunciationAid
+          kweyolWord={entry.kweyolWord}
+          audioSrc={audio?.filePath}
+          featured={entry.isFeatured}
+        />
       </header>
 
       {definition ? (
@@ -102,6 +109,28 @@ export default async function WordDetailPage({ params }: WordPageProps) {
         <section className="word-detail__section">
           <h2>Cultural notes</h2>
           <p>{entry.culturalNotes}</p>
+        </section>
+      ) : null}
+
+      {relatedEntries.length ? (
+        <section className="word-detail__section">
+          <h2>Same spelling, different meaning</h2>
+          <p>
+            This headword has more than one beginner sense. Open the matching
+            entry for the meaning you need.
+          </p>
+          <ul className="related-sense-list">
+            {relatedEntries.map((related) => (
+              <li key={related.slug}>
+                <Link href={`/dictionary/${related.slug}`}>
+                  {related.kweyolWord} — {related.englishTranslation}
+                </Link>
+                {related.partOfSpeech ? (
+                  <span className="meta-pill">{related.partOfSpeech}</span>
+                ) : null}
+              </li>
+            ))}
+          </ul>
         </section>
       ) : null}
 

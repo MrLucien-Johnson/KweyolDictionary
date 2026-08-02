@@ -2,7 +2,7 @@
  * Build-time publisher: writes approved public content to JSON for static hosting.
  * Source of truth for GitHub Pages (no runtime database).
  */
-import { mkdirSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import {
   SEED_CHILD_ACTIVITIES,
@@ -56,11 +56,23 @@ const entries = approved.map((entry) => {
         audience: "ADULT",
       },
     ],
-    audioFiles: [] as {
-      id: string;
-      filePath: string;
-      status: "MISSING" | "PLACEHOLDER" | "CONFIRMED";
-    }[],
+    audioFiles: (() => {
+      const relative = `/audio/${entry.slug}.mp3`;
+      const absolute = path.join(process.cwd(), "public", "audio", `${entry.slug}.mp3`);
+      if (!existsSync(absolute)) return [] as {
+        id: string;
+        filePath: string;
+        status: "MISSING" | "PLACEHOLDER" | "CONFIRMED";
+      }[];
+      return [
+        {
+          id: `${entry.slug}-audio`,
+          filePath: relative,
+          // Files dropped in public/audio stay PLACEHOLDER until a reviewer confirms native audio.
+          status: "PLACEHOLDER" as const,
+        },
+      ];
+    })(),
     imageAssets: entry.child
       ? [
           {
@@ -95,7 +107,7 @@ const entries = approved.map((entry) => {
         }
       : null,
     categories: [entry.topicCategory],
-    relatedSlugs: [] as string[],
+    relatedSlugs: entry.relatedSlugs ?? [],
   };
 });
 
