@@ -41,6 +41,7 @@ describe("roles", () => {
   it("limits approval to designated roles", () => {
     expect(canApproveEntries("LANGUAGE_REVIEWER")).toBe(true);
     expect(canApproveEntries("CONTRIBUTOR")).toBe(false);
+    expect(canApproveEntries("EDITOR")).toBe(false);
   });
 });
 

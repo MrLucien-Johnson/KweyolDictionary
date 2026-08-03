@@ -27,6 +27,18 @@ export const APPROVER_ROLES: UserRoleValue[] = [
   "LANGUAGE_REVIEWER",
 ];
 
+/** Roles that may accept community audio after meticulous review. */
+export const AUDIO_REVIEWER_ROLES: UserRoleValue[] = [
+  "OWNER",
+  "ADMINISTRATOR",
+  "LANGUAGE_REVIEWER",
+  "AUDIO_REVIEWER",
+];
+
+export function isUserRole(value: string): value is UserRoleValue {
+  return (USER_ROLES as readonly string[]).includes(value);
+}
+
 export function canApproveEntries(role: UserRoleValue): boolean {
   return APPROVER_ROLES.includes(role);
 }
@@ -38,4 +50,13 @@ export function canEditEntries(role: UserRoleValue): boolean {
     role === "EDITOR" ||
     role === "LANGUAGE_REVIEWER"
   );
+}
+
+export function canReviewAudio(role: UserRoleValue): boolean {
+  return AUDIO_REVIEWER_ROLES.includes(role);
+}
+
+/** Text/example submissions apply as drafts — editors and approvers may accept. */
+export function canAcceptTextSubmissions(role: UserRoleValue): boolean {
+  return canEditEntries(role);
 }

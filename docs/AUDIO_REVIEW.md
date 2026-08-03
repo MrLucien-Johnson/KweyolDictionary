@@ -30,8 +30,18 @@ Before accepting a recording:
 
 ## Install after review
 
+### Local admin (preferred)
+
+1. Open `/admin/submissions`
+2. Confirm you listened (checkbox)
+3. **Accept** — installs `public/audio/{slug}.mp3`, removes the slug from `tts-manifest.json`, upserts a `PLACEHOLDER` `AudioAsset`
+4. Run `npm run content:publish`
+5. Deploy / merge only after the meticulous review checklist passes
+
+### CLI
+
 ```bash
-node scripts/accept-community-audio.mjs --slug bonjou --file ./path/to/recording.webm
+npm run content:accept-audio -- --slug bonjou --file ./path/to/recording.webm
 npm run content:publish
 ```
 

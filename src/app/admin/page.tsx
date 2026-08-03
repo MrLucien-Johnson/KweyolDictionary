@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import { LogoutButton } from "@/components/admin/LogoutButton";
 import { getAdminSession } from "@/lib/admin/auth";
 import { REVIEW_STATUS_LABELS } from "@/lib/constants/review-status";
+import { ROLE_LABELS } from "@/lib/constants/roles";
 import { prisma } from "@/lib/db";
 
 export const metadata: Metadata = {
@@ -39,7 +40,9 @@ export default async function AdminDashboardPage() {
     <div className="admin-page">
       <header className="dict-page__header">
         <h1>Administration</h1>
-        <p>Signed in as {session.email}</p>
+        <p>
+          Signed in as {session.email} · {ROLE_LABELS[session.role]}
+        </p>
       </header>
 
       <div className="feature-grid">

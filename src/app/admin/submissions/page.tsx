@@ -3,6 +3,10 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { SubmissionActions } from "@/components/admin/SubmissionActions";
 import { getAdminSession } from "@/lib/admin/auth";
+import {
+  canAcceptTextSubmissions,
+  canReviewAudio,
+} from "@/lib/constants/roles";
 import { prisma } from "@/lib/db";
 
 export const metadata: Metadata = {
@@ -41,9 +45,11 @@ export default async function AdminSubmissionsPage() {
     <div className="admin-page">
       <h1>Community submissions</h1>
       <p>
-        All suggestions require moderation before publication. Audio submissions
-        must be re-listened carefully and must not replace synthetic TTS until
-        accepted via the audio review checklist (`docs/AUDIO_REVIEW.md`).
+        Accepting a text suggestion creates or updates a dictionary entry as{" "}
+        <strong>NEEDS_REVIEW</strong> (never public automatically). Accepting
+        audio installs the file into <code>public/audio/</code> after you confirm
+        you listened — then run <code>npm run content:publish</code>. See{" "}
+        <code>docs/AUDIO_REVIEW.md</code>.
       </p>
       <div className="admin-table-wrap">
         <table className="admin-table">
@@ -66,8 +72,17 @@ export default async function AdminSubmissionsPage() {
                 <td>{submission.submitterNote ?? "—"}</td>
                 <td>{submission.createdAt.toISOString()}</td>
                 <td>
-                  {submission.status === "PENDING" ? (
-                    <SubmissionActions id={submission.id} />
+                  {submission.status === "PENDING" ||
+                  submission.status === "IN_REVIEW" ? (
+                    <SubmissionActions
+                      id={submission.id}
+                      type={submission.type}
+                      canAccept={
+                        submission.type === "AUDIO"
+                          ? canReviewAudio(session.role)
+                          : canAcceptTextSubmissions(session.role)
+                      }
+                    />
                   ) : (
                     "—"
                   )}

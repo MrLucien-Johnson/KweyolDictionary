@@ -24,7 +24,7 @@
     "content:publish": "tsx scripts/publish-static-content.ts",
     "content:tts": "python3 scripts/generate-tts-audio.py",
     "content:audio": "npm run content:publish && npm run content:tts && npm run content:publish",
-    "content:accept-audio": "node scripts/accept-community-audio.mjs",
+    "content:accept-audio": "tsx scripts/accept-community-audio.ts",
     "postinstall": "prisma generate",
     "validate": "prisma generate && npm run content:publish && npm run lint && npm run typecheck && npm run test && npm run db:validate && next build",
     "validate:pages": "npm run validate && npm run build:pages"

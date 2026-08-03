@@ -108,8 +108,8 @@ export function DictionaryBrowser({
             event.preventDefault();
             const input = event.currentTarget.elements.namedItem("q");
             const raw =
-              input && "value" in input
-                ? String((input as HTMLInputElement).value)
+              input && typeof input === "object" && "value" in input
+                ? String((input as unknown as HTMLInputElement).value)
                 : searchDraft;
             const query = raw.trim();
             setSearchDraft(query);

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { EntryEditorForm } from "@/components/admin/EntryEditorForm";
 import { getAdminSession } from "@/lib/admin/auth";
+import { canApproveEntries } from "@/lib/constants/roles";
 
 export const metadata: Metadata = {
   title: "Add entry",
@@ -14,7 +15,7 @@ export default async function NewEntryPage() {
   return (
     <div className="admin-page">
       <h1>Add dictionary entry</h1>
-      <EntryEditorForm />
+      <EntryEditorForm canApprove={canApproveEntries(session.role)} />
     </div>
   );
 }

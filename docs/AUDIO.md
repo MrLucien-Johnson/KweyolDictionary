@@ -23,9 +23,11 @@ Learners should hear every word. Prefer native Dominican Kwéyòl recordings. Un
 ## Replace synthetic audio after meticulous review
 
 ```bash
-node scripts/accept-community-audio.mjs --slug bonjou --file ./reviewed-recording.webm
+npm run content:accept-audio -- --slug bonjou --file ./reviewed-recording.webm
 npm run content:publish
 ```
+
+Accepting an AUDIO submission in `/admin/submissions` (after the listened checkbox) runs the same install path.
 
 ## Regenerate synthetic audio
 

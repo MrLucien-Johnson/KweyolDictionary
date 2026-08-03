@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound, redirect } from "next/navigation";
 import { EntryEditorForm } from "@/components/admin/EntryEditorForm";
 import { getAdminSession } from "@/lib/admin/auth";
+import { canApproveEntries } from "@/lib/constants/roles";
 import { prisma } from "@/lib/db";
 
 type Props = { params: Promise<{ id: string }> };
@@ -26,6 +27,7 @@ export default async function EditEntryPage({ params }: Props) {
       <h1>Edit {entry.kweyolWord}</h1>
       <EntryEditorForm
         entryId={entry.id}
+        canApprove={canApproveEntries(session.role)}
         initial={{
           slug: entry.slug,
           kweyolWord: entry.kweyolWord,

@@ -1,15 +1,19 @@
 import { NextResponse } from "next/server";
-import { getAdminSession } from "@/lib/admin/auth";
+import {
+  requireAdminSession,
+  requireApprovalPermission,
+  requireCanEdit,
+} from "@/lib/admin/require-session";
 import { prisma } from "@/lib/db";
 import { reviewStatusSchema } from "@/lib/validation/dictionary-entry";
 
 type RouteProps = { params: Promise<{ id: string }> };
 
 export async function PATCH(request: Request, { params }: RouteProps) {
-  const session = await getAdminSession();
-  if (!session) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
+  const auth = await requireAdminSession();
+  if (!auth.ok) return auth.response;
+  const editGate = requireCanEdit(auth.session);
+  if (editGate) return editGate;
 
   const { id } = await params;
   const body = await request.json().catch(() => null);
@@ -24,6 +28,13 @@ export async function PATCH(request: Request, { params }: RouteProps) {
   const reviewStatus = reviewStatusSchema.catch(existing.reviewStatus).parse(
     body?.reviewStatus ?? existing.reviewStatus,
   );
+
+  const approveGate = requireApprovalPermission(
+    auth.session,
+    reviewStatus,
+    existing.reviewStatus,
+  );
+  if (approveGate) return approveGate;
 
   const beforeJson = JSON.stringify(existing);
   const updated = await prisma.dictionaryEntry.update({
@@ -45,14 +56,39 @@ export async function PATCH(request: Request, { params }: RouteProps) {
     },
   });
 
+  await prisma.adultPresentation.upsert({
+    where: { entryId: id },
+    update: {
+      showInPublicDictionary: reviewStatus === "APPROVED",
+      displayDefinition:
+        body?.detailedDefinition ||
+        existing.detailedDefinition ||
+        undefined,
+    },
+    create: {
+      entryId: id,
+      displayDefinition: body?.detailedDefinition || existing.detailedDefinition,
+      showInPublicDictionary: reviewStatus === "APPROVED",
+    },
+  });
+
   if (body?.childSimpleMeaning) {
     await prisma.childPresentation.upsert({
       where: { entryId: id },
-      update: { simpleMeaning: String(body.childSimpleMeaning) },
+      update: {
+        simpleMeaning: String(body.childSimpleMeaning),
+        showInChildrenDictionary: reviewStatus === "APPROVED",
+      },
       create: {
         entryId: id,
         simpleMeaning: String(body.childSimpleMeaning),
+        showInChildrenDictionary: reviewStatus === "APPROVED",
       },
+    });
+  } else if (existing.childPresentation) {
+    await prisma.childPresentation.update({
+      where: { entryId: id },
+      data: { showInChildrenDictionary: reviewStatus === "APPROVED" },
     });
   }
 
@@ -70,7 +106,11 @@ export async function PATCH(request: Request, { params }: RouteProps) {
   await prisma.auditEvent.create({
     data: {
       action: "ENTRY_UPDATE",
-      detailJson: JSON.stringify({ entryId: id, by: session.email }),
+      detailJson: JSON.stringify({
+        entryId: id,
+        by: auth.session.email,
+        role: auth.session.role,
+      }),
     },
   });
 
