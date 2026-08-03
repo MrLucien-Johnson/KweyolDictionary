@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 
 type EntryEditorFormProps = {
   entryId?: string;
+  canApprove?: boolean;
   initial?: {
     slug: string;
     kweyolWord: string;
@@ -20,7 +21,11 @@ type EntryEditorFormProps = {
   };
 };
 
-export function EntryEditorForm({ entryId, initial }: EntryEditorFormProps) {
+export function EntryEditorForm({
+  entryId,
+  canApprove = false,
+  initial,
+}: EntryEditorFormProps) {
   const router = useRouter();
   const [error, setError] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
@@ -50,6 +55,10 @@ export function EntryEditorForm({ entryId, initial }: EntryEditorFormProps) {
     router.push("/admin/entries");
     router.refresh();
   }
+
+  const defaultStatus = initial?.reviewStatus ?? "DRAFT";
+  const showApprovedOption =
+    canApprove || defaultStatus === "APPROVED";
 
   return (
     <form className="admin-form" onSubmit={onSubmit}>
@@ -110,16 +119,25 @@ export function EntryEditorForm({ entryId, initial }: EntryEditorFormProps) {
       </label>
       <label>
         Review status
-        <select name="reviewStatus" defaultValue={initial?.reviewStatus ?? "DRAFT"}>
+        <select name="reviewStatus" defaultValue={defaultStatus}>
           <option value="DRAFT">Draft</option>
           <option value="NEEDS_REVIEW">Needs review</option>
           <option value="LINGUIST_REVIEWED">Linguist reviewed</option>
           <option value="COMMUNITY_REVIEWED">Community reviewed</option>
-          <option value="APPROVED">Approved</option>
+          {showApprovedOption ? (
+            <option value="APPROVED" disabled={!canApprove}>
+              Approved{!canApprove ? " (requires approver role)" : ""}
+            </option>
+          ) : null}
           <option value="REJECTED">Rejected</option>
           <option value="ARCHIVED">Archived</option>
         </select>
       </label>
+      {!canApprove ? (
+        <p className="section-lead">
+          Your role can edit drafts but cannot set entries to Approved.
+        </p>
+      ) : null}
       <label>
         Child-friendly meaning (optional)
         <input

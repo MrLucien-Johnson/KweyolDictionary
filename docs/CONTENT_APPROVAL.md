@@ -40,3 +40,17 @@ Only `APPROVED` entries appear in the published static catalog today. For this p
 ## Editor rule going forward
 
 Do not mark newly invented content as `APPROVED` without review. Prefer `DRAFT` / `NEEDS_REVIEW` for imports until checked. See `EDITOR_GUIDE.md` and `LANGUAGE_POLICY.md`.
+
+## Admin role enforcement (local Node)
+
+Admin APIs gate writes by session role:
+
+| Action | Allowed roles |
+|--------|----------------|
+| Edit entries / accept text submissions (as draft) | Owner, Administrator, Editor, Language reviewer |
+| Set `APPROVED` / import as approved | Owner, Administrator, Language reviewer |
+| Accept audio submissions | Owner, Administrator, Language reviewer, Audio reviewer |
+
+Configure users with `ADMIN_USERS_JSON` (email, password, role) or the legacy single `ADMIN_EMAIL` / `ADMIN_PASSWORD` pair (optional `ADMIN_ROLE`, default `ADMINISTRATOR`).
+
+Accepted **NEW_WORD** / **CORRECTION** / related text submissions apply into the SQLite dictionary as `NEEDS_REVIEW` — never public until an approver sets `APPROVED` and content is published for Pages.

@@ -17,14 +17,22 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid credentials payload" }, { status: 400 });
   }
 
-  if (!validateAdminCredentials(parsed.data.email, parsed.data.password)) {
+  const identity = validateAdminCredentials(
+    parsed.data.email,
+    parsed.data.password,
+  );
+  if (!identity) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  const response = NextResponse.json({ ok: true });
+  const response = NextResponse.json({
+    ok: true,
+    email: identity.email,
+    role: identity.role,
+  });
   response.cookies.set({
     name: adminCookieName(),
-    value: createAdminSessionToken(parsed.data.email),
+    value: createAdminSessionToken(identity.email, identity.role),
     httpOnly: true,
     sameSite: "lax",
     secure: process.env.NODE_ENV === "production",

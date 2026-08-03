@@ -1,18 +1,23 @@
 import { NextResponse } from "next/server";
-import { z } from "zod";
-import { getAdminSession } from "@/lib/admin/auth";
+import {
+  requireAdminSession,
+  requireCanApprove,
+  requireCanEdit,
+} from "@/lib/admin/require-session";
+import { canApproveEntries } from "@/lib/constants/roles";
 import { prisma } from "@/lib/db";
 import { dictionaryEntryInputSchema } from "@/lib/validation/dictionary-entry";
+import { z } from "zod";
 
 const importSchema = z.object({
   entries: z.array(dictionaryEntryInputSchema.partial()),
 });
 
 export async function POST(request: Request) {
-  const session = await getAdminSession();
-  if (!session) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
+  const auth = await requireAdminSession();
+  if (!auth.ok) return auth.response;
+  const editGate = requireCanEdit(auth.session);
+  if (editGate) return editGate;
 
   const json = await request.json().catch(() => null);
   const parsed = importSchema.safeParse(json);
@@ -20,10 +25,21 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid import JSON" }, { status: 400 });
   }
 
+  const wantsApproved = parsed.data.entries.some(
+    (entry) => entry.reviewStatus === "APPROVED",
+  );
+  if (wantsApproved && !canApproveEntries(auth.session.role)) {
+    const approveGate = requireCanApprove(auth.session);
+    if (approveGate) return approveGate;
+  }
+
   let imported = 0;
   for (const entry of parsed.data.entries) {
     if (!entry.slug || !entry.kweyolWord || !entry.englishTranslation) continue;
-    const reviewStatus = entry.reviewStatus ?? "DRAFT";
+    let reviewStatus = entry.reviewStatus ?? "DRAFT";
+    if (reviewStatus === "APPROVED" && !canApproveEntries(auth.session.role)) {
+      reviewStatus = "DRAFT";
+    }
     await prisma.dictionaryEntry.upsert({
       where: { slug: entry.slug },
       update: {
@@ -54,7 +70,11 @@ export async function POST(request: Request) {
   await prisma.auditEvent.create({
     data: {
       action: "IMPORT",
-      detailJson: JSON.stringify({ imported, by: session.email }),
+      detailJson: JSON.stringify({
+        imported,
+        by: auth.session.email,
+        role: auth.session.role,
+      }),
     },
   });
 

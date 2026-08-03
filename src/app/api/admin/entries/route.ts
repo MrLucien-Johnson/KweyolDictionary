@@ -1,14 +1,18 @@
 import { NextResponse } from "next/server";
-import { getAdminSession } from "@/lib/admin/auth";
+import {
+  requireAdminSession,
+  requireApprovalPermission,
+  requireCanEdit,
+} from "@/lib/admin/require-session";
 import { prisma } from "@/lib/db";
 import { dictionaryEntryInputSchema } from "@/lib/validation/dictionary-entry";
 import { slugifyKweyol } from "@/lib/search/normalize";
 
 export async function POST(request: Request) {
-  const session = await getAdminSession();
-  if (!session) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
+  const auth = await requireAdminSession();
+  if (!auth.ok) return auth.response;
+  const editGate = requireCanEdit(auth.session);
+  if (editGate) return editGate;
 
   const body = await request.json().catch(() => null);
   const slug =
@@ -38,6 +42,12 @@ export async function POST(request: Request) {
       { status: 400 },
     );
   }
+
+  const approveGate = requireApprovalPermission(
+    auth.session,
+    parsed.data.reviewStatus,
+  );
+  if (approveGate) return approveGate;
 
   const data = parsed.data;
   const entry = await prisma.dictionaryEntry.create({
@@ -85,7 +95,11 @@ export async function POST(request: Request) {
   await prisma.auditEvent.create({
     data: {
       action: "ENTRY_CREATE",
-      detailJson: JSON.stringify({ entryId: entry.id, by: session.email }),
+      detailJson: JSON.stringify({
+        entryId: entry.id,
+        by: auth.session.email,
+        role: auth.session.role,
+      }),
     },
   });
 
