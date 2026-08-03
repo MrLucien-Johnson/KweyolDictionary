@@ -48,9 +48,21 @@ export function ChildWordCard({
           <span className="media-flag">Image coming soon</span>
         ) : null}
       </Link>
-      <h3>
-        <Link href={`/children/words/${slug}`}>{kweyolWord}</Link>
-      </h3>
+      <div className="word-heading">
+        <h3>
+          <Link href={`/children/words/${slug}`}>{kweyolWord}</Link>
+        </h3>
+        <AudioButton
+          variant="icon"
+          src={audioSrc}
+          label={`Play sound for ${kweyolWord}`}
+          large
+          onPlay={() => {
+            const next = markListened(loadChildProgress(), slug);
+            saveChildProgress(next);
+          }}
+        />
+      </div>
       <p>{meaning}</p>
       <AudioButton
         src={audioSrc}

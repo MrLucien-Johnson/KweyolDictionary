@@ -194,6 +194,10 @@ export function DictionaryBrowser({
               englishTranslation={entry.englishTranslation}
               partOfSpeech={entry.partOfSpeech}
               pronunciationGuide={entry.pronunciationGuide}
+              audioSrc={
+                entry.audioFiles.find((file) => file.status !== "MISSING")
+                  ?.filePath
+              }
             />
           ))}
         </div>
