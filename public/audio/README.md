@@ -8,9 +8,8 @@ Those clips use a **French neural TTS voice** as a rough approximation. They are
 
 ## Replace with native audio
 
-1. Record clear Dominican Kwéyòl pronunciation as MP3.
-2. Save as `{entry-slug}.mp3` (example: `bonjou.mp3`).
-3. Remove that slug from `tts-manifest.json` if present.
-4. Run `npm run content:publish`.
+1. Record clear Dominican Kwéyòl pronunciation (or accept a reviewed community upload).
+2. Install via `npm run content:accept-audio -- --slug {slug} --file ./recording.mp3` or Accept in `/admin/submissions`.
+3. Run `npm run content:publish`.
 
 Do not label audio as verified native pronunciation until reviewed.
