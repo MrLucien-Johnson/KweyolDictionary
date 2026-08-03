@@ -61,6 +61,10 @@ export default async function HomePage() {
               englishTranslation={wordOfDay.englishTranslation}
               partOfSpeech={wordOfDay.partOfSpeech}
               pronunciationGuide={wordOfDay.pronunciationGuide}
+              audioSrc={
+                wordOfDay.audioFiles.find((file) => file.status !== "MISSING")
+                  ?.filePath
+              }
             />
           </div>
         ) : (
@@ -115,6 +119,10 @@ export default async function HomePage() {
               englishTranslation={entry.englishTranslation}
               partOfSpeech={entry.partOfSpeech}
               pronunciationGuide={entry.pronunciationGuide}
+              audioSrc={
+                entry.audioFiles.find((file) => file.status !== "MISSING")
+                  ?.filePath
+              }
             />
           ))}
         </div>
@@ -134,6 +142,10 @@ export default async function HomePage() {
                 englishTranslation={entry.englishTranslation}
                 partOfSpeech={entry.partOfSpeech}
                 pronunciationGuide={entry.pronunciationGuide}
+                audioSrc={
+                  entry.audioFiles.find((file) => file.status !== "MISSING")
+                    ?.filePath
+                }
               />
             ))}
           </div>

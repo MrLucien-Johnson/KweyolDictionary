@@ -10,6 +10,9 @@ test("adult dictionary lists approved words and opens a detail page", async ({
   await expect(page).toHaveURL(/\/dictionary\/bonjou/);
   await expect(page.getByRole("heading", { name: /^bonjou$/i })).toBeVisible();
   await expect(page.getByText(/good morning/i).first()).toBeVisible();
+  await expect(
+    page.getByRole("button", { name: /play pronunciation of bonjou/i }),
+  ).toBeVisible();
 });
 
 test("quiz page does not expose correct answers before submit", async ({ page }) => {

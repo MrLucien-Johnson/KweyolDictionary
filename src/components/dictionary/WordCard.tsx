@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { AudioButton } from "@/components/dictionary/AudioButton";
 
 type WordCardProps = {
   slug: string;
@@ -6,6 +7,7 @@ type WordCardProps = {
   englishTranslation: string;
   partOfSpeech?: string | null;
   pronunciationGuide?: string | null;
+  audioSrc?: string | null;
 };
 
 export function WordCard({
@@ -14,12 +16,20 @@ export function WordCard({
   englishTranslation,
   partOfSpeech,
   pronunciationGuide,
+  audioSrc,
 }: WordCardProps) {
   return (
     <article className="word-card">
-      <h3 className="word-card__title">
-        <Link href={`/dictionary/${slug}`}>{kweyolWord}</Link>
-      </h3>
+      <div className="word-heading">
+        <h3 className="word-card__title">
+          <Link href={`/dictionary/${slug}`}>{kweyolWord}</Link>
+        </h3>
+        <AudioButton
+          variant="icon"
+          src={audioSrc}
+          label={`Play pronunciation of ${kweyolWord}`}
+        />
+      </div>
       <p className="word-card__english">{englishTranslation}</p>
       <div className="word-card__meta">
         {partOfSpeech ? <span className="meta-pill">{partOfSpeech}</span> : null}

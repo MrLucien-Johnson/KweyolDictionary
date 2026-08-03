@@ -983,6 +983,25 @@ a {
   text-decoration: underline;
 }
 
+.word-heading {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+  max-width: 100%;
+}
+
+.word-heading--detail {
+  gap: 0.75rem;
+  margin-top: 0.15rem;
+}
+
+.word-heading .word-card__title,
+.word-heading .word-detail__word,
+.word-heading h3 {
+  margin: 0;
+}
+
 .audio-btn {
   border: 0;
   border-radius: var(--radius-md);
@@ -992,6 +1011,37 @@ a {
   min-height: 44px;
   padding: 0.65rem 1rem;
   cursor: pointer;
+}
+
+.audio-btn--icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  min-width: 2.5rem;
+  height: 2.5rem;
+  min-height: 2.5rem;
+  padding: 0;
+  border-radius: 999px;
+  flex-shrink: 0;
+}
+
+.audio-btn--icon.audio-btn--large {
+  width: 3rem;
+  min-width: 3rem;
+  height: 3rem;
+  min-height: 3rem;
+  font-size: 1.25rem;
+}
+
+.audio-btn--icon:hover:not(:disabled) {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+}
+
+.audio-btn--icon:focus-visible {
+  outline: 3px solid rgba(201, 138, 18, 0.55);
+  outline-offset: 2px;
 }
 
 .audio-btn--large {

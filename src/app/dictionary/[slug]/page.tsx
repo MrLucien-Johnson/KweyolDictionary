@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { AudioButton } from "@/components/dictionary/AudioButton";
 import { PronunciationAid } from "@/components/dictionary/PronunciationAid";
 import { WordActions } from "@/components/dictionary/WordActions";
 import { ContentAccuracyNotice } from "@/components/layout/ContentAccuracyNotice";
@@ -53,7 +54,15 @@ export default async function WordDetailPage({ params }: WordPageProps) {
       <ContentAccuracyNotice variant="panel" />
       <header className="word-detail__header">
         <p className="word-detail__eyebrow">Dominican Kwéyòl · provisional entry</p>
-        <h1 className="word-detail__word">{entry.kweyolWord}</h1>
+        <div className="word-heading word-heading--detail">
+          <h1 className="word-detail__word">{entry.kweyolWord}</h1>
+          <AudioButton
+            variant="icon"
+            src={audio?.filePath}
+            label={`Play pronunciation of ${entry.kweyolWord}`}
+            large
+          />
+        </div>
         <p className="word-detail__english">{entry.englishTranslation}</p>
         <div className="word-detail__meta">
           {entry.partOfSpeech ? (
