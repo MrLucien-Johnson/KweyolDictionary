@@ -41,3 +41,18 @@ test("verified speech contribute flow requires pre-checks", async ({ page }) => 
   await page.getByRole("button", { name: /download recording|submit for local review/i }).click();
   await expect(page.getByText(/add a recording|choose an audio file|listen/i).first()).toBeVisible();
 });
+
+test("dictionary filters search without requiring apply click", async ({
+  page,
+}) => {
+  await page.goto("/dictionary");
+  await expect(page.getByRole("search")).toBeVisible();
+  const search = page.getByRole("searchbox", { name: /search kwéyòl or english/i });
+  await search.click();
+  await search.pressSequentially("bonjou", { delay: 15 });
+  await page.getByRole("search").getByRole("button", { name: /^search$/i }).click();
+  await expect(page).toHaveURL(/q=bonjou/, { timeout: 5000 });
+  await expect(page.getByRole("link", { name: /^bonjou$/i }).first()).toBeVisible();
+  await page.getByRole("button", { name: /^featured$/i }).click();
+  await expect(page).toHaveURL(/featured=1/);
+});

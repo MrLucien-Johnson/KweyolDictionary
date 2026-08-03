@@ -1,16 +1,24 @@
 import Link from "next/link";
+import {
+  buildDictionaryHref,
+  type DictionaryFilterState,
+} from "@/lib/dictionary/filter-url";
 
 const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
 type AlphabetNavProps = {
   activeLetter?: string;
+  currentFilters?: DictionaryFilterState;
 };
 
-export function AlphabetNav({ activeLetter }: AlphabetNavProps) {
+export function AlphabetNav({
+  activeLetter,
+  currentFilters = {},
+}: AlphabetNavProps) {
   return (
     <nav className="alphabet-nav" aria-label="Browse by letter">
       <Link
-        href="/dictionary"
+        href={buildDictionaryHref(currentFilters, { letter: undefined })}
         className={!activeLetter ? "alphabet-nav__link is-active" : "alphabet-nav__link"}
       >
         All
@@ -20,8 +28,11 @@ export function AlphabetNav({ activeLetter }: AlphabetNavProps) {
         return (
           <Link
             key={letter}
-            href={`/dictionary?letter=${letter.toLowerCase()}`}
+            href={buildDictionaryHref(currentFilters, {
+              letter: letter.toLowerCase(),
+            })}
             className={active ? "alphabet-nav__link is-active" : "alphabet-nav__link"}
+            aria-current={active ? "page" : undefined}
           >
             {letter}
           </Link>
