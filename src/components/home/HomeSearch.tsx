@@ -2,6 +2,7 @@
 
 import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
+import { buildDictionaryHref } from "@/lib/dictionary/filter-url";
 
 export function HomeSearch() {
   const router = useRouter();
@@ -9,12 +10,7 @@ export function HomeSearch() {
 
   function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const trimmed = query.trim();
-    const params = new URLSearchParams();
-    if (trimmed) {
-      params.set("q", trimmed);
-    }
-    router.push(`/dictionary?${params.toString()}`);
+    router.push(buildDictionaryHref({}, { q: query.trim() || undefined }));
   }
 
   return (
