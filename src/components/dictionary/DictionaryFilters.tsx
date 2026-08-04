@@ -19,7 +19,7 @@ export function DictionaryFilters({
   categories,
 }: DictionaryFiltersProps) {
   return (
-    <form className="dict-filters" method="get" action="/dictionary">
+    <form className="dict-filters" method="get" action="/dictionary/">
       {current.letter ? (
         <input type="hidden" name="letter" value={current.letter} />
       ) : null}
