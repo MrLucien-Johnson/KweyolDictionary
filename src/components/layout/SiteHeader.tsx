@@ -4,6 +4,7 @@ import { PROJECT_NAME } from "@/lib/content/editorial";
 const navItems = [
   { href: "/dictionary", label: "Adult Dictionary" },
   { href: "/children", label: "Children’s Dictionary" },
+  { href: "/practice", label: "Practice" },
   { href: "/learn", label: "Learn" },
   { href: "/contribute", label: "Contribute" },
 ] as const;

@@ -100,6 +100,18 @@ export default async function HomePage() {
         <p className="section-lead">{CONTENT_DENSITY_NOTE}</p>
         <div className="feature-grid">
           <article className="feature-block">
+            <h3>Sentence practice</h3>
+            <p>
+              Practise common words in full sentences with cloze and word-order
+              games for adults and children.
+            </p>
+            <div style={{ marginTop: "1rem" }}>
+              <ButtonLink href="/practice" variant="primary">
+                Play practice games
+              </ButtonLink>
+            </div>
+          </article>
+          <article className="feature-block">
             <h3>Pronunciation learning</h3>
             <p>
               Explore the alphabet, greetings and sentence patterns in the

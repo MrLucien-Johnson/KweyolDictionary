@@ -18,6 +18,7 @@ export function SiteFooter() {
         <nav className="site-footer__nav" aria-label="Footer">
           <Link href="/dictionary">Adult Dictionary</Link>
           <Link href="/children">Children’s Dictionary</Link>
+          <Link href="/practice">Practice games</Link>
           <Link href="/learn">Grammar & learning</Link>
           <Link href="/contribute">Suggest a word</Link>
           <Link href="/about">About & language policy</Link>

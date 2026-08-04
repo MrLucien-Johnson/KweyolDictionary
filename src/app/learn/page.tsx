@@ -48,8 +48,24 @@ export default async function LearnPage() {
       </section>
 
       <section className="learn-section">
-        <h2 className="section-title">Practice</h2>
+        <h2 className="section-title">Sentence practice</h2>
+        <p className="section-lead">
+          Use common words in complete sentences — fill the blank or rebuild the
+          word order.
+        </p>
         <div className="feature-grid">
+          <article className="feature-block">
+            <h3>Practice games</h3>
+            <p>
+              Cloze and sentence-building games for adults and children, built
+              from dictionary examples.
+            </p>
+            <div style={{ marginTop: "1rem" }}>
+              <Link href="/practice" className="btn btn--primary btn--md">
+                Open practice games
+              </Link>
+            </div>
+          </article>
           <article className="feature-block">
             <h3>Flashcards</h3>
             <p>Review approved vocabulary with simple flip cards.</p>

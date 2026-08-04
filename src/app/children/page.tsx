@@ -29,8 +29,11 @@ export default async function ChildrenHomePage() {
           <Link href="/children/words" className="btn btn--secondary btn--lg">
             Browse picture words
           </Link>
-          <Link href="/children/activities" className="btn btn--primary btn--lg">
-            Play activities
+          <Link href="/practice/kids-everyday-cloze" className="btn btn--primary btn--lg">
+            Sentence games
+          </Link>
+          <Link href="/children/activities" className="btn btn--soft btn--lg">
+            More activities
           </Link>
         </div>
       </header>
