@@ -764,9 +764,9 @@ a {
   font-weight: 600;
 }
 
-.dict-filters input,
+.dict-filters input:not([type="checkbox"]),
 .dict-filters select,
-.admin-form input,
+.admin-form input:not([type="checkbox"]),
 .admin-form select,
 .admin-form textarea,
 .home-search__input {
@@ -780,19 +780,45 @@ a {
 }
 
 .dict-filters__checks {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-3) var(--space-5);
+  display: grid;
+  gap: var(--space-3);
   border: 0;
   padding: 0;
   margin: 0;
+  min-width: 0;
 }
 
-.dict-filters__checks label {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
+@media (min-width: 640px) {
+  .dict-filters__checks {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-3) var(--space-4);
+  }
+}
+
+.dict-filters__checks label,
+.dict-filters__check {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  margin: 0;
+  min-width: 0;
   font-weight: 600;
+  color: var(--color-ink);
+  line-height: 1.35;
+}
+
+.dict-filters__checks input[type="checkbox"],
+.dict-filters__check input[type="checkbox"] {
+  width: 1.15rem;
+  height: 1.15rem;
+  min-width: 1.15rem;
+  margin: 0.15rem 0 0;
+  padding: 0;
+  flex-shrink: 0;
+  accent-color: var(--color-leaf);
+  border: 1px solid var(--color-line);
+  border-radius: 0.25rem;
+  background: #fff;
 }
 
 .dict-filters__actions,
