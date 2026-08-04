@@ -1,6 +1,10 @@
 import { getCatalog } from "@/lib/content/catalog";
 import type { PublishedEntry } from "@/lib/content/types";
 import {
+  PRACTICE_DIFFICULTY_CONFIG,
+  type PracticeDifficulty,
+} from "@/lib/practice/difficulty";
+import {
   findHeadwordTokenIndex,
   joinTokens,
   pickDistractors,
@@ -26,6 +30,7 @@ export type PracticeGameMeta = {
   deck: PracticeDeck;
   maxRounds: number;
   maxTokens?: number;
+  accent?: "sun" | "sea" | "leaf" | "mango";
 };
 
 export type ClozeRound = {
@@ -54,69 +59,73 @@ export type TilesRound = {
 export type PracticeRound = ClozeRound | TilesRound;
 
 export type PracticeGame = PracticeGameMeta & {
+  difficulty: PracticeDifficulty;
   rounds: PracticeRound[];
 };
 
 export const PRACTICE_GAMES: PracticeGameMeta[] = [
   {
     slug: "featured-sentence-cloze",
-    title: "Complete the sentence",
-    description:
-      "Fill the blank in everyday Kwéyòl sentences using common featured words.",
+    title: "Blank Busters",
+    description: "Fill the blank before the clock runs out.",
     activityType: "sentence-cloze",
     audience: "ADULT",
     deck: "featured",
     maxRounds: 12,
+    accent: "leaf",
   },
   {
     slug: "featured-sentence-tiles",
-    title: "Build the sentence",
-    description:
-      "Put the words in order to rebuild natural Kwéyòl sentences.",
+    title: "Sentence Sprint",
+    description: "Snap the tiles into the right order at speed.",
     activityType: "sentence-tiles",
     audience: "ADULT",
     deck: "featured",
     maxRounds: 10,
     maxTokens: 8,
+    accent: "sea",
   },
   {
     slug: "greetings-sentence-cloze",
-    title: "Greetings in sentences",
-    description: "Practise the most common greeting words inside full sentences.",
+    title: "Greeting Dash",
+    description: "Common hello/thanks words inside full sentences.",
     activityType: "sentence-cloze",
     audience: "BOTH",
     deck: "greetings",
     maxRounds: 8,
+    accent: "sun",
   },
   {
     slug: "family-sentence-cloze",
-    title: "Family words in sentences",
-    description: "Choose the right family word to complete each sentence.",
+    title: "Family Fill-in",
+    description: "Pick the family word that completes each line.",
     activityType: "sentence-cloze",
     audience: "BOTH",
     deck: "family",
     maxRounds: 10,
+    accent: "mango",
   },
   {
     slug: "kids-everyday-cloze",
-    title: "Kids: finish the sentence",
-    description:
-      "Short sentences with everyday words — pick the missing Kwéyòl word.",
+    title: "Kids: Word Pop",
+    description: "Short sentences — tap the missing everyday word.",
     activityType: "sentence-cloze",
     audience: "CHILD",
     deck: "everyday-child",
     maxRounds: 8,
     maxTokens: 6,
+    accent: "sun",
   },
   {
     slug: "kids-everyday-tiles",
-    title: "Kids: line up the words",
-    description: "Tap the words in order to build a short Kwéyòl sentence.",
+    title: "Kids: Line-up",
+    description: "Line up the words to build a short Kwéyòl sentence.",
     activityType: "sentence-tiles",
     audience: "CHILD",
     deck: "everyday-child",
     maxRounds: 6,
     maxTokens: 5,
+    accent: "mango",
   },
 ];
 
@@ -150,7 +159,6 @@ function deckEntries(deck: PracticeDeck): PublishedEntry[] {
         entry.topicCategory === "verbs" || entry.categories.includes("verbs"),
     );
   }
-  // everyday-child: featured or greetings/family that also appear in children dict
   return entries.filter(
     (entry) =>
       entry.childPresentation?.showInChildrenDictionary &&
@@ -165,6 +173,7 @@ function deckEntries(deck: PracticeDeck): PublishedEntry[] {
 function buildClozeRound(
   entry: PublishedEntry,
   pool: PublishedEntry[],
+  distractors: number,
 ): ClozeRound | null {
   const example = entry.examples[0];
   if (!example) return null;
@@ -176,14 +185,12 @@ function buildClozeRound(
   const correctOption = entry.kweyolWord;
   const promptTokens = [...tokens];
   promptTokens[index] = "______";
-  const distractors = pickDistractors(
+  const chosen = pickDistractors(
     correctOption,
     pool.map((row) => row.kweyolWord),
-    3,
+    distractors,
   );
-  if (distractors.length < 2) return null;
-
-  const options = shuffleInPlace([correctOption, ...distractors]);
+  if (chosen.length < Math.min(2, distractors)) return null;
 
   return {
     id: `${entry.slug}-cloze`,
@@ -193,7 +200,7 @@ function buildClozeRound(
     english: entry.englishTranslation,
     promptSentence: joinTokens(promptTokens),
     englishHint: example.englishText,
-    options,
+    options: shuffleInPlace([correctOption, ...chosen]),
     correctOption,
   };
 }
@@ -207,7 +214,6 @@ function buildTilesRound(
   const tokens = tokenizeSentence(example.kweyolText);
   if (tokens.length < 2) return null;
   if (maxTokens && tokens.length > maxTokens) return null;
-  // Need at least one shuffle that differs; skip tiny punctuation-heavy lines
   const wordLike = tokens.filter((token) => /[\p{L}\p{M}]/u.test(token));
   if (wordLike.length < 2) return null;
 
@@ -243,27 +249,35 @@ export function getPracticeGameMeta(slug: string) {
   return PRACTICE_GAMES.find((game) => game.slug === slug) ?? null;
 }
 
-export function buildPracticeGame(slug: string): PracticeGame | null {
+export function buildPracticeGame(
+  slug: string,
+  difficulty: PracticeDifficulty = "medium",
+): PracticeGame | null {
   const meta = getPracticeGameMeta(slug);
   if (!meta) return null;
+  const config = PRACTICE_DIFFICULTY_CONFIG[difficulty];
 
   const pool = deckEntries(meta.deck);
   const rounds: PracticeRound[] = [];
+  const roundLimit = Math.min(meta.maxRounds, config.roundCap);
+  const tokenLimit = config.maxTokens ?? meta.maxTokens;
 
   for (const entry of shuffleInPlace([...pool])) {
-    if (rounds.length >= meta.maxRounds) break;
+    if (rounds.length >= roundLimit) break;
     const round =
       meta.activityType === "sentence-cloze"
-        ? buildClozeRound(entry, pool)
-        : buildTilesRound(entry, meta.maxTokens);
+        ? buildClozeRound(entry, pool, config.distractors)
+        : buildTilesRound(entry, tokenLimit);
     if (round) rounds.push(round);
   }
 
   if (!rounds.length) return null;
-  return { ...meta, rounds };
+  return { ...meta, difficulty, rounds };
 }
 
-/** Client-safe payload: cloze keeps correctOption for local check after answer. */
-export function getPracticeGameForClient(slug: string) {
-  return buildPracticeGame(slug);
+export function getPracticeGameForClient(
+  slug: string,
+  difficulty: PracticeDifficulty = "medium",
+) {
+  return buildPracticeGame(slug, difficulty);
 }

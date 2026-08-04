@@ -66,7 +66,7 @@ export default async function GrammarLessonPage({ params }: LessonPageProps) {
               href="/practice/featured-sentence-tiles"
               className="btn btn--primary btn--md"
             >
-              Build sentences
+              Play Sentence Sprint
             </Link>
           </div>
         </section>
