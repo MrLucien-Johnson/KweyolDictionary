@@ -56,3 +56,21 @@ test("dictionary filters search without requiring apply click", async ({
   await page.getByRole("button", { name: /^featured$/i }).click();
   await expect(page).toHaveURL(/featured=1/);
 });
+
+test("letter filter chip and All clear the letter", async ({ page }) => {
+  await page.goto("/dictionary/?letter=s");
+  const chip = page.getByRole("button", { name: /letter:\s*s/i });
+  await expect(chip).toBeVisible();
+  await chip.click();
+  await expect(page).not.toHaveURL(/letter=s/, { timeout: 5000 });
+  await expect(page.getByRole("button", { name: /letter:\s*s/i })).toHaveCount(0);
+
+  await page.goto("/dictionary/?letter=s");
+  await expect(page.getByRole("button", { name: /letter:\s*s/i })).toBeVisible();
+  await page
+    .getByRole("navigation", { name: /browse by letter/i })
+    .getByRole("link", { name: /^all$/i })
+    .click();
+  await expect(page).not.toHaveURL(/letter=s/, { timeout: 5000 });
+  await expect(page.getByRole("button", { name: /letter:\s*s/i })).toHaveCount(0);
+});

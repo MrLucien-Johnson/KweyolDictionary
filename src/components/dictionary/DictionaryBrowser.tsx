@@ -9,8 +9,11 @@ import { listEntries } from "@/lib/content/catalog";
 import {
   buildDictionaryHref,
   countActiveDictionaryFilters,
+  needsHardDictionaryNavigation,
+  withBasePath,
   type DictionaryFilterState,
 } from "@/lib/dictionary/filter-url";
+import { DictionaryFilterLink } from "@/components/dictionary/DictionaryFilterLink";
 
 type DictionaryBrowserProps = {
   partsOfSpeech: string[];
@@ -64,8 +67,16 @@ export function DictionaryBrowser({
   }, [filters.q]);
 
   function navigate(next: DictionaryFilterState) {
+    const href = buildDictionaryHref(next);
+    if (
+      typeof window !== "undefined" &&
+      needsHardDictionaryNavigation(window.location.search, href)
+    ) {
+      window.location.assign(withBasePath(href));
+      return;
+    }
     startTransition(() => {
-      router.push(buildDictionaryHref(next));
+      router.push(href);
     });
   }
 
@@ -357,9 +368,12 @@ export function DictionaryBrowser({
                 With cultural notes ×
               </button>
             ) : null}
-            <Link href="/dictionary" className="dict-filters__clear">
+            <DictionaryFilterLink
+              href="/dictionary/"
+              className="dict-filters__clear"
+            >
               Clear all
-            </Link>
+            </DictionaryFilterLink>
           </div>
         ) : null}
       </section>
@@ -380,7 +394,7 @@ export function DictionaryBrowser({
         <div className="empty-state" role="status">
           <h2>No matching entries</h2>
           <p>Try another spelling, clear filters, or browse by letter.</p>
-          <Link href="/dictionary" className="btn btn--soft btn--md">
+          <Link href="/dictionary/" className="btn btn--soft btn--md">
             Clear filters
           </Link>
         </div>

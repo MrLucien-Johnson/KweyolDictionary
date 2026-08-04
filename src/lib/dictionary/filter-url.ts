@@ -11,6 +11,7 @@ export type DictionaryFilterState = {
   recent?: boolean;
 };
 
+/** Path always uses a trailing slash so GitHub Pages static export matches. */
 export function buildDictionaryHref(
   current: DictionaryFilterState,
   patch: Partial<DictionaryFilterState> = {},
@@ -20,6 +21,14 @@ export function buildDictionaryHref(
   // Explicit nullish clears via empty string / false in patch
   for (const key of Object.keys(patch) as (keyof DictionaryFilterState)[]) {
     const value = patch[key];
+    if (value === "" || value === false || value == null) {
+      delete merged[key];
+    }
+  }
+
+  // Drop falsey booleans left over from readFilters spreads
+  for (const key of Object.keys(merged) as (keyof DictionaryFilterState)[]) {
+    const value = merged[key];
     if (value === "" || value === false || value == null) {
       delete merged[key];
     }
@@ -38,7 +47,7 @@ export function buildDictionaryHref(
   if (merged.recent) params.set("recent", "1");
 
   const query = params.toString();
-  return query ? `/dictionary?${query}` : "/dictionary";
+  return query ? `/dictionary/?${query}` : "/dictionary/";
 }
 
 export function countActiveDictionaryFilters(filters: DictionaryFilterState) {
@@ -54,4 +63,25 @@ export function countActiveDictionaryFilters(filters: DictionaryFilterState) {
   if (filters.featured) count += 1;
   if (filters.recent) count += 1;
   return count;
+}
+
+export function withBasePath(href: string) {
+  const base = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+  if (!base) return href;
+  if (href.startsWith(base + "/") || href === base) return href;
+  return `${base}${href.startsWith("/") ? href : `/${href}`}`;
+}
+
+/**
+ * Static GitHub Pages exports soft-navigate poorly when clearing search
+ * params on the same pathname (URL stays stuck). Detect that case so callers
+ * can force a real navigation.
+ */
+export function needsHardDictionaryNavigation(
+  currentSearch: string,
+  nextHref: string,
+) {
+  const nextHasQuery = nextHref.includes("?");
+  const currentHasQuery = Boolean(currentSearch && currentSearch !== "?");
+  return currentHasQuery && !nextHasQuery;
 }
