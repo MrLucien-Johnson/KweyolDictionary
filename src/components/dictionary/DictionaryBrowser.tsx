@@ -228,7 +228,7 @@ export function DictionaryBrowser({
             </label>
             <fieldset className="dict-filters__checks">
               <legend className="sr-only">Content filters</legend>
-              <label>
+              <label className="dict-filters__check">
                 <input
                   type="checkbox"
                   checked={Boolean(filters.hasAudio)}
@@ -236,9 +236,9 @@ export function DictionaryBrowser({
                     patchFilters({ hasAudio: event.target.checked })
                   }
                 />
-                With audio
+                <span>With audio</span>
               </label>
-              <label>
+              <label className="dict-filters__check">
                 <input
                   type="checkbox"
                   checked={Boolean(filters.hasExamples)}
@@ -246,9 +246,9 @@ export function DictionaryBrowser({
                     patchFilters({ hasExamples: event.target.checked })
                   }
                 />
-                With examples
+                <span>With examples</span>
               </label>
-              <label>
+              <label className="dict-filters__check">
                 <input
                   type="checkbox"
                   checked={Boolean(filters.hasCulturalNotes)}
@@ -256,7 +256,7 @@ export function DictionaryBrowser({
                     patchFilters({ hasCulturalNotes: event.target.checked })
                   }
                 />
-                With cultural notes
+                <span>With cultural notes</span>
               </label>
             </fieldset>
           </div>
