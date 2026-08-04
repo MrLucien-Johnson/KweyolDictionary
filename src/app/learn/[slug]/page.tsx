@@ -63,10 +63,10 @@ export default async function GrammarLessonPage({ params }: LessonPageProps) {
           <p>{lesson.practiceActivity}</p>
           <div style={{ marginTop: "1rem" }}>
             <Link
-              href="/learn/quizzes/greetings-multiple-choice"
+              href="/practice/featured-sentence-tiles"
               className="btn btn--primary btn--md"
             >
-              Try a related quiz
+              Build sentences
             </Link>
           </div>
         </section>

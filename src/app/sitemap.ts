@@ -5,6 +5,7 @@ import {
   listEntries,
   listLessons,
 } from "@/lib/content/catalog";
+import { listPracticeGames } from "@/lib/practice/games";
 
 export const dynamic = "force-static";
 
@@ -18,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/children",
     "/children/words",
     "/children/activities",
+    "/practice",
     "/learn",
     "/learn/flashcards",
     "/contribute",
@@ -29,6 +31,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const lessons = listLessons();
   const childWords = listChildEntries();
   const categories = getCatalog().childCategories;
+  const practiceGames = listPracticeGames();
 
   return [
     ...routes.map((route) => ({
@@ -60,6 +63,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: 0.6,
+    })),
+    ...practiceGames.map((game) => ({
+      url: `${base}/practice/${game.slug}`,
+      lastModified: new Date(),
+      changeFrequency: "weekly" as const,
+      priority: 0.7,
     })),
   ];
 }
