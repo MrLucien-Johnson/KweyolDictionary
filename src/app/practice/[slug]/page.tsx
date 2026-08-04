@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Suspense } from "react";
 import { notFound } from "next/navigation";
-import { PracticeGamePlayer } from "@/components/practice/PracticeGamePlayer";
+import { PracticeArcade } from "@/components/practice/PracticeArcade";
 import {
-  buildPracticeGame,
+  getPracticeGameMeta,
   listPracticeGames,
 } from "@/lib/practice/games";
 
@@ -19,7 +20,7 @@ export async function generateMetadata({
   params,
 }: PracticeGamePageProps): Promise<Metadata> {
   const { slug } = await params;
-  const game = buildPracticeGame(slug);
+  const game = getPracticeGameMeta(slug);
   return {
     title: game?.title ?? "Practice game",
     description: game?.description,
@@ -28,12 +29,14 @@ export async function generateMetadata({
 
 export default async function PracticeGamePage({ params }: PracticeGamePageProps) {
   const { slug } = await params;
-  const game = buildPracticeGame(slug);
-  if (!game) notFound();
+  const meta = getPracticeGameMeta(slug);
+  if (!meta) notFound();
 
   return (
     <div className="practice-page">
-      <PracticeGamePlayer game={game} />
+      <Suspense fallback={<p className="loading-line">Loading game…</p>}>
+        <PracticeArcade slug={slug} />
+      </Suspense>
       <p className="practice-player__back">
         <Link href="/practice" className="text-link">
           ← All practice games

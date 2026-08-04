@@ -75,11 +75,14 @@ test("letter filter chip and All clear the letter", async ({ page }) => {
   await expect(page.getByRole("button", { name: /letter:\s*s/i })).toHaveCount(0);
 });
 
-test("practice hub opens a sentence cloze game", async ({ page }) => {
+test("practice hub opens arcade lobby and starts a game", async ({ page }) => {
   await page.goto("/practice");
   await expect(page.getByRole("heading", { name: /practice games/i })).toBeVisible();
-  await page.getByRole("link", { name: /^play$/i }).first().click();
+  await expect(page.getByText(/easy/i).first()).toBeVisible();
+  await page.getByRole("link", { name: /open lobby/i }).first().click();
   await expect(page).toHaveURL(/\/practice\//);
-  await expect(page.getByText(/focus word/i)).toBeVisible();
-  await expect(page.getByRole("button", { name: /^check$/i })).toBeVisible();
+  await expect(page.getByRole("button", { name: /start/i })).toBeVisible();
+  await page.getByRole("button", { name: /start/i }).click();
+  await expect(page.getByText(/score/i).first()).toBeVisible();
+  await expect(page.getByText(/focus/i).first()).toBeVisible();
 });
