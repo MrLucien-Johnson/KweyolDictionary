@@ -10,6 +10,7 @@ import {
   getAdjacentEntries,
   getEntryBySlug,
 } from "@/lib/dictionary/queries";
+import { getLabeledRelationsForEntry } from "@/lib/search/suggest";
 
 type WordPageProps = {
   params: Promise<{ slug: string }>;
@@ -44,6 +45,10 @@ export default async function WordDetailPage({ params }: WordPageProps) {
   const relatedEntries = entry.relatedSlugs
     .map((slug) => getCatalog().entries.find((item) => item.slug === slug))
     .filter((item): item is NonNullable<typeof item> => Boolean(item));
+  const labeledRelations = getLabeledRelationsForEntry(
+    entry,
+    listEntries({}),
+  );
   const definition =
     entry.adultPresentation?.displayDefinition ||
     entry.detailedDefinition ||
@@ -129,6 +134,29 @@ export default async function WordDetailPage({ params }: WordPageProps) {
         </section>
       ) : null}
 
+      {labeledRelations.length ? (
+        <section className="word-detail__section">
+          <h2>Related words</h2>
+          <p>
+            Antonyms, synonyms, and other links that show how this word
+            connects in the beginner curriculum.
+          </p>
+          <ul className="related-sense-list">
+            {labeledRelations.map((related) => (
+              <li key={`${related.kind}-${related.slug}`}>
+                <Link href={`/dictionary/${related.slug}`}>
+                  {related.kweyolWord} — {related.englishTranslation}
+                </Link>
+                <span className="meta-pill">{related.label}</span>
+                {related.partOfSpeech ? (
+                  <span className="meta-pill">{related.partOfSpeech}</span>
+                ) : null}
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
+
       {relatedEntries.length ? (
         <section className="word-detail__section">
           <h2>Same spelling, different meaning</h2>
@@ -142,6 +170,7 @@ export default async function WordDetailPage({ params }: WordPageProps) {
                 <Link href={`/dictionary/${related.slug}`}>
                   {related.kweyolWord} — {related.englishTranslation}
                 </Link>
+                <span className="meta-pill">Homonym — same spelling</span>
                 {related.partOfSpeech ? (
                   <span className="meta-pill">{related.partOfSpeech}</span>
                 ) : null}
