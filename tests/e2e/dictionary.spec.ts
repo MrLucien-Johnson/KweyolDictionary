@@ -47,7 +47,7 @@ test("dictionary filters search without requiring apply click", async ({
 }) => {
   await page.goto("/dictionary");
   await expect(page.getByRole("search")).toBeVisible();
-  const search = page.getByRole("searchbox", { name: /search kwéyòl or english/i });
+  const search = page.getByRole("combobox", { name: /search kwéyòl or english/i });
   await search.click();
   await search.pressSequentially("bonjou", { delay: 15 });
   await page.getByRole("search").getByRole("button", { name: /^search$/i }).click();
@@ -55,6 +55,30 @@ test("dictionary filters search without requiring apply click", async ({
   await expect(page.getByRole("link", { name: /^bonjou$/i }).first()).toBeVisible();
   await page.getByRole("button", { name: /^featured$/i }).click();
   await expect(page).toHaveURL(/featured=1/);
+});
+
+test("predictive search shows matches and related antonyms", async ({
+  page,
+}) => {
+  await page.goto("/dictionary");
+  const search = page.getByRole("combobox", { name: /search kwéyòl or english/i });
+  await search.click();
+  await search.pressSequentially("bonj", { delay: 20 });
+  await expect(page.getByRole("listbox", { name: /predicted matches/i })).toBeVisible();
+  await expect(
+    page.getByRole("option").filter({ hasText: /bonjou/i }).first(),
+  ).toBeVisible();
+
+  await page.goto("/dictionary/?q=yes");
+  await expect(page.getByRole("heading", { name: /related meanings/i })).toBeVisible();
+  await expect(page.getByText(/antonym/i).first()).toBeVisible();
+  await expect(page.getByRole("link", { name: /^non$/i }).first()).toBeVisible();
+});
+
+test("misspelled search offers did you mean", async ({ page }) => {
+  await page.goto("/dictionary/?q=bonxou");
+  await expect(page.getByRole("heading", { name: /did you mean/i })).toBeVisible();
+  await expect(page.getByRole("link", { name: /^bonjou$/i }).first()).toBeVisible();
 });
 
 test("letter filter chip and All clear the letter", async ({ page }) => {

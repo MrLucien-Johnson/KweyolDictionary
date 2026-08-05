@@ -4,6 +4,9 @@ import Link from "next/link";
 import { startTransition, useEffect, useMemo, useRef, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { AlphabetNav } from "@/components/dictionary/AlphabetNav";
+import { DictionaryFilterLink } from "@/components/dictionary/DictionaryFilterLink";
+import { SearchInsights } from "@/components/dictionary/SearchInsights";
+import { SearchSuggest } from "@/components/dictionary/SearchSuggest";
 import { WordCard } from "@/components/dictionary/WordCard";
 import { listEntries } from "@/lib/content/catalog";
 import {
@@ -13,7 +16,6 @@ import {
   withBasePath,
   type DictionaryFilterState,
 } from "@/lib/dictionary/filter-url";
-import { DictionaryFilterLink } from "@/components/dictionary/DictionaryFilterLink";
 
 type DictionaryBrowserProps = {
   partsOfSpeech: string[];
@@ -112,38 +114,17 @@ export function DictionaryBrowser({
   return (
     <>
       <section className="dict-filters" aria-label="Dictionary filters">
-        <form
-          className="dict-filters__search"
-          role="search"
-          onSubmit={(event) => {
-            event.preventDefault();
-            const input = event.currentTarget.elements.namedItem("q");
-            const raw =
-              input && typeof input === "object" && "value" in input
-                ? String((input as unknown as HTMLInputElement).value)
-                : searchDraft;
-            const query = raw.trim();
+        <SearchSuggest
+          id="dict-q"
+          value={searchDraft}
+          onChange={setSearchDraft}
+          onSubmitQuery={(query) => {
             setSearchDraft(query);
             patchFilters({ q: query || undefined });
           }}
-        >
-          <label className="sr-only" htmlFor="dict-q">
-            Search Kwéyòl or English
-          </label>
-          <input
-            id="dict-q"
-            name="q"
-            type="search"
-            value={searchDraft}
-            onChange={(event) => setSearchDraft(event.target.value)}
-            placeholder="Search Kwéyòl or English…"
-            className="dict-filters__input dict-filters__input--search"
-            autoComplete="off"
-          />
-          <button type="submit" className="btn btn--primary btn--md">
-            Search
-          </button>
-        </form>
+          formClassName="dict-filters__search"
+          inputClassName="dict-filters__input dict-filters__input--search"
+        />
 
         <AlphabetNav activeLetter={filters.letter} currentFilters={filters} />
 
@@ -390,10 +371,21 @@ export function DictionaryBrowser({
         </Link>
       </div>
 
+      {filters.q?.trim() ? (
+        <SearchInsights
+          query={filters.q}
+          resultSlugs={entries.map((entry) => entry.slug)}
+          resultCount={entries.length}
+        />
+      ) : null}
+
       {entries.length === 0 ? (
         <div className="empty-state" role="status">
           <h2>No matching entries</h2>
-          <p>Try another spelling, clear filters, or browse by letter.</p>
+          <p>
+            Check the suggestions above, try another spelling, clear filters, or
+            browse by letter.
+          </p>
           <Link href="/dictionary/" className="btn btn--soft btn--md">
             Clear filters
           </Link>
