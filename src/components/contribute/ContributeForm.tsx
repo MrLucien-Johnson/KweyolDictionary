@@ -174,7 +174,7 @@ export function ContributeForm({
             ? "Submitting…"
             : localApiAvailable
               ? "Submit for review"
-              : "Continue"}
+              : "Continue to GitHub Issues"}
         </button>
       </form>
     </div>

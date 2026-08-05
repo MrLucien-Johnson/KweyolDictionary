@@ -29,65 +29,76 @@ export function WordActions({
 
   return (
     <div className="word-actions">
-      <button
-        type="button"
-        className="btn btn--soft btn--md"
-        onClick={() => {
-          const next = toggleFavouriteSlug(slug);
-          setSaved(next.includes(slug));
-          setStatus(next.includes(slug) ? "Saved to favourites" : "Removed from favourites");
-        }}
-        aria-pressed={saved}
-      >
-        {saved ? "Saved" : "Save to favourites"}
-      </button>
-      <button
-        type="button"
-        className="btn btn--soft btn--md"
-        onClick={async () => {
-          const text = `${kweyolWord} — ${englishTranslation}`;
-          await navigator.clipboard.writeText(text);
-          setStatus("Copied");
-        }}
-      >
-        Copy word
-      </button>
-      <button
-        type="button"
-        className="btn btn--soft btn--md"
-        onClick={async () => {
-          const url = window.location.href;
-          if (navigator.share) {
-            await navigator.share({
-              title: kweyolWord,
-              text: `${kweyolWord} — ${englishTranslation}`,
-              url,
-            });
-            setStatus("Shared");
-            return;
-          }
-          await navigator.clipboard.writeText(url);
-          setStatus("Link copied");
-        }}
-      >
-        Share
-      </button>
-      <a className="btn btn--soft btn--md" href={`/contribute?entry=${slug}&type=CORRECTION`}>
-        Report an error
-      </a>
-      <a
-        className="btn btn--soft btn--md"
-        href={`/contribute?entry=${slug}&type=AUDIO&word=${encodeURIComponent(kweyolWord)}&english=${encodeURIComponent(englishTranslation)}`}
-      >
-        Contribute speech
-      </a>
-      <button
-        type="button"
-        className="btn btn--soft btn--md"
-        onClick={() => window.print()}
-      >
-        Print-friendly view
-      </button>
+      <div className="word-actions__primary">
+        <button
+          type="button"
+          className="btn btn--primary btn--md"
+          onClick={() => {
+            const next = toggleFavouriteSlug(slug);
+            setSaved(next.includes(slug));
+            setStatus(
+              next.includes(slug)
+                ? "Saved to favourites"
+                : "Removed from favourites",
+            );
+          }}
+          aria-pressed={saved}
+        >
+          {saved ? "Saved to favourites" : "Save to favourites"}
+        </button>
+        <a
+          className="btn btn--soft btn--md"
+          href={`/contribute?entry=${slug}&type=AUDIO&word=${encodeURIComponent(kweyolWord)}&english=${encodeURIComponent(englishTranslation)}`}
+        >
+          Contribute speech
+        </a>
+      </div>
+      <div className="word-actions__secondary" aria-label="More actions">
+        <button
+          type="button"
+          className="btn btn--soft btn--sm"
+          onClick={async () => {
+            const text = `${kweyolWord} — ${englishTranslation}`;
+            await navigator.clipboard.writeText(text);
+            setStatus("Copied");
+          }}
+        >
+          Copy
+        </button>
+        <button
+          type="button"
+          className="btn btn--soft btn--sm"
+          onClick={async () => {
+            const url = window.location.href;
+            if (navigator.share) {
+              await navigator.share({
+                title: kweyolWord,
+                text: `${kweyolWord} — ${englishTranslation}`,
+                url,
+              });
+              setStatus("Shared");
+              return;
+            }
+            await navigator.clipboard.writeText(url);
+            setStatus("Link copied");
+          }}
+        >
+          Share
+        </button>
+        <button
+          type="button"
+          className="btn btn--soft btn--sm"
+          onClick={() => window.print()}
+        >
+          Print
+        </button>
+        <a
+          className="btn btn--soft btn--sm"
+          href={`/contribute?entry=${slug}&type=CORRECTION`}
+        >
+          Report error
+        </a>
+      </div>
       {status ? (
         <p className="word-actions__status" role="status" aria-live="polite">
           {status}

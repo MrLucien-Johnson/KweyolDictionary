@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { AudioButton } from "@/components/dictionary/AudioButton";
 import { PronunciationAid } from "@/components/dictionary/PronunciationAid";
 import { WordActions } from "@/components/dictionary/WordActions";
-import { ContentAccuracyNotice } from "@/components/layout/ContentAccuracyNotice";
 import { getCatalog, listEntries } from "@/lib/content/catalog";
 import {
   getAdjacentEntries,
@@ -43,7 +41,9 @@ export default async function WordDetailPage({ params }: WordPageProps) {
   const { previous, next } = await getAdjacentEntries(entry.slug);
   const audio = entry.audioFiles.find((file) => file.status !== "MISSING");
   const relatedEntries = entry.relatedSlugs
-    .map((slug) => getCatalog().entries.find((item) => item.slug === slug))
+    .map((relatedSlug) =>
+      getCatalog().entries.find((item) => item.slug === relatedSlug),
+    )
     .filter((item): item is NonNullable<typeof item> => Boolean(item));
   const labeledRelations = getLabeledRelationsForEntry(
     entry,
@@ -56,18 +56,9 @@ export default async function WordDetailPage({ params }: WordPageProps) {
 
   return (
     <article className="word-detail">
-      <ContentAccuracyNotice variant="panel" />
       <header className="word-detail__header">
-        <p className="word-detail__eyebrow">Dominican Kwéyòl · provisional entry</p>
-        <div className="word-heading word-heading--detail">
-          <h1 className="word-detail__word">{entry.kweyolWord}</h1>
-          <AudioButton
-            variant="icon"
-            src={audio?.filePath}
-            label={`Play pronunciation of ${entry.kweyolWord}`}
-            large
-          />
-        </div>
+        <p className="word-detail__eyebrow">Provisional beginner entry</p>
+        <h1 className="word-detail__word">{entry.kweyolWord}</h1>
         <p className="word-detail__english">{entry.englishTranslation}</p>
         <div className="word-detail__meta">
           {entry.partOfSpeech ? (
@@ -89,6 +80,7 @@ export default async function WordDetailPage({ params }: WordPageProps) {
               : null
           }
           featured={entry.isFeatured}
+          large
         />
       </header>
 
@@ -138,8 +130,7 @@ export default async function WordDetailPage({ params }: WordPageProps) {
         <section className="word-detail__section">
           <h2>Related words</h2>
           <p>
-            Antonyms, synonyms, and other links that show how this word
-            connects in the beginner curriculum.
+            Antonyms, synonyms, and other links from the beginner curriculum.
           </p>
           <ul className="related-sense-list">
             {labeledRelations.map((related) => (

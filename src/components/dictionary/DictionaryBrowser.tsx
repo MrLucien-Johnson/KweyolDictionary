@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { startTransition, useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, useTransition } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { AlphabetNav } from "@/components/dictionary/AlphabetNav";
 import { DictionaryFilterLink } from "@/components/dictionary/DictionaryFilterLink";
@@ -37,6 +37,16 @@ function readFilters(searchParams: URLSearchParams): DictionaryFilterState {
   };
 }
 
+function countMoreFilters(filters: DictionaryFilterState) {
+  let count = 0;
+  if (filters.difficulty) count += 1;
+  if (filters.hasAudio) count += 1;
+  if (filters.hasExamples) count += 1;
+  if (filters.hasCulturalNotes) count += 1;
+  if (filters.recent) count += 1;
+  return count;
+}
+
 export function DictionaryBrowser({
   partsOfSpeech,
   categories,
@@ -44,6 +54,7 @@ export function DictionaryBrowser({
   const router = useRouter();
   const searchParams = useSearchParams();
   const queryKey = searchParams.toString();
+  const [isPending, startFilterTransition] = useTransition();
 
   const filters = useMemo(
     () => readFilters(searchParams),
@@ -56,14 +67,24 @@ export function DictionaryBrowser({
     filtersRef.current = filters;
   }, [filters]);
 
+  const moreFilterCount = countMoreFilters(filters);
   const [searchDraft, setSearchDraft] = useState(filters.q ?? "");
+  const [searchPending, setSearchPending] = useState(false);
   const [moreOpen, setMoreOpen] = useState(
-    Boolean(filters.difficulty || filters.hasAudio || filters.recent),
+    () =>
+      Boolean(
+        filters.difficulty ||
+          filters.hasAudio ||
+          filters.hasExamples ||
+          filters.hasCulturalNotes ||
+          filters.recent,
+      ),
   );
 
   useEffect(() => {
     const frame = requestAnimationFrame(() => {
       setSearchDraft(filters.q ?? "");
+      setSearchPending(false);
     });
     return () => cancelAnimationFrame(frame);
   }, [filters.q]);
@@ -77,7 +98,7 @@ export function DictionaryBrowser({
       window.location.assign(withBasePath(href));
       return;
     }
-    startTransition(() => {
+    startFilterTransition(() => {
       router.push(href);
     });
   }
@@ -95,10 +116,14 @@ export function DictionaryBrowser({
   }
 
   useEffect(() => {
+    const nextQuery = searchDraft.trim();
+    const currentQuery = (filtersRef.current.q ?? "").trim();
+    if (nextQuery === currentQuery) {
+      setSearchPending(false);
+      return;
+    }
+    setSearchPending(true);
     const handle = window.setTimeout(() => {
-      const nextQuery = searchDraft.trim();
-      const currentQuery = (filtersRef.current.q ?? "").trim();
-      if (nextQuery === currentQuery) return;
       patchFilters({ q: nextQuery || undefined });
     }, 250);
     return () => window.clearTimeout(handle);
@@ -110,23 +135,29 @@ export function DictionaryBrowser({
   const categoryLabel =
     categories.find((category) => category.value === filters.category)?.label ??
     filters.category;
+  const updating = searchPending || isPending;
+  const resultSummary = `${entries.length} ${
+    entries.length === 1 ? "entry" : "entries"
+  }${activeCount ? ` · ${activeCount} filter${activeCount === 1 ? "" : "s"}` : ""}`;
 
   return (
     <>
       <section className="dict-filters" aria-label="Dictionary filters">
-        <SearchSuggest
-          id="dict-q"
-          value={searchDraft}
-          onChange={setSearchDraft}
-          onSubmitQuery={(query) => {
-            setSearchDraft(query);
-            patchFilters({ q: query || undefined });
-          }}
-          formClassName="dict-filters__search"
-          inputClassName="dict-filters__input dict-filters__input--search"
-        />
+        <div className="dict-filters__pin">
+          <SearchSuggest
+            id="dict-q"
+            value={searchDraft}
+            onChange={setSearchDraft}
+            onSubmitQuery={(query) => {
+              setSearchDraft(query);
+              patchFilters({ q: query || undefined });
+            }}
+            formClassName="dict-filters__search"
+            inputClassName="dict-filters__input dict-filters__input--search"
+          />
 
-        <AlphabetNav activeLetter={filters.letter} currentFilters={filters} />
+          <AlphabetNav activeLetter={filters.letter} currentFilters={filters} />
+        </div>
 
         <div className="dict-filters__grid">
           <label>
@@ -172,7 +203,9 @@ export function DictionaryBrowser({
                     : "dict-filters__toggle"
                 }
                 aria-pressed={Boolean(filters.featured)}
-                onClick={() => patchFilters({ featured: !filtersRef.current.featured })}
+                onClick={() =>
+                  patchFilters({ featured: !filtersRef.current.featured })
+                }
               >
                 Featured
               </button>
@@ -184,7 +217,9 @@ export function DictionaryBrowser({
                     : "dict-filters__toggle"
                 }
                 aria-pressed={Boolean(filters.recent)}
-                onClick={() => patchFilters({ recent: !filtersRef.current.recent })}
+                onClick={() =>
+                  patchFilters({ recent: !filtersRef.current.recent })
+                }
               >
                 Recent
               </button>
@@ -199,6 +234,7 @@ export function DictionaryBrowser({
           onClick={() => setMoreOpen((open) => !open)}
         >
           {moreOpen ? "Hide more filters" : "More filters"}
+          {moreFilterCount > 0 ? ` · ${moreFilterCount}` : ""}
         </button>
 
         {moreOpen ? (
@@ -260,6 +296,7 @@ export function DictionaryBrowser({
               <button
                 type="button"
                 className="dict-filters__chip"
+                aria-label={`Remove search filter: ${filters.q}`}
                 onClick={() => {
                   setSearchDraft("");
                   patchFilters({ q: undefined });
@@ -272,6 +309,7 @@ export function DictionaryBrowser({
               <button
                 type="button"
                 className="dict-filters__chip"
+                aria-label={`Remove letter filter: ${filters.letter.toUpperCase()}`}
                 onClick={() => patchFilters({ letter: undefined })}
               >
                 Letter: {filters.letter.toUpperCase()} ×
@@ -281,6 +319,7 @@ export function DictionaryBrowser({
               <button
                 type="button"
                 className="dict-filters__chip"
+                aria-label={`Remove part of speech filter: ${filters.partOfSpeech}`}
                 onClick={() => patchFilters({ partOfSpeech: undefined })}
               >
                 {filters.partOfSpeech} ×
@@ -290,6 +329,7 @@ export function DictionaryBrowser({
               <button
                 type="button"
                 className="dict-filters__chip"
+                aria-label={`Remove category filter: ${categoryLabel}`}
                 onClick={() => patchFilters({ category: undefined })}
               >
                 {categoryLabel} ×
@@ -299,6 +339,7 @@ export function DictionaryBrowser({
               <button
                 type="button"
                 className="dict-filters__chip"
+                aria-label={`Remove difficulty filter: ${filters.difficulty}`}
                 onClick={() => patchFilters({ difficulty: undefined })}
               >
                 {filters.difficulty} ×
@@ -308,6 +349,7 @@ export function DictionaryBrowser({
               <button
                 type="button"
                 className="dict-filters__chip"
+                aria-label="Remove featured filter"
                 onClick={() => patchFilters({ featured: false })}
               >
                 Featured ×
@@ -317,6 +359,7 @@ export function DictionaryBrowser({
               <button
                 type="button"
                 className="dict-filters__chip"
+                aria-label="Remove recent filter"
                 onClick={() => patchFilters({ recent: false })}
               >
                 Recent ×
@@ -326,6 +369,7 @@ export function DictionaryBrowser({
               <button
                 type="button"
                 className="dict-filters__chip"
+                aria-label="Remove with audio filter"
                 onClick={() => patchFilters({ hasAudio: false })}
               >
                 With audio ×
@@ -335,6 +379,7 @@ export function DictionaryBrowser({
               <button
                 type="button"
                 className="dict-filters__chip"
+                aria-label="Remove with examples filter"
                 onClick={() => patchFilters({ hasExamples: false })}
               >
                 With examples ×
@@ -344,6 +389,7 @@ export function DictionaryBrowser({
               <button
                 type="button"
                 className="dict-filters__chip"
+                aria-label="Remove with cultural notes filter"
                 onClick={() => patchFilters({ hasCulturalNotes: false })}
               >
                 With cultural notes ×
@@ -360,11 +406,14 @@ export function DictionaryBrowser({
       </section>
 
       <div className="dict-page__toolbar">
-        <p>
-          {entries.length} {entries.length === 1 ? "entry" : "entries"}
-          {activeCount
-            ? ` · ${activeCount} filter${activeCount === 1 ? "" : "s"}`
-            : ""}
+        <p
+          className="dict-page__count"
+          role="status"
+          aria-live="polite"
+          aria-atomic="true"
+          aria-busy={updating}
+        >
+          {updating ? "Updating results…" : resultSummary}
         </p>
         <Link href="/dictionary/favourites" className="text-link">
           View favourites
@@ -383,15 +432,21 @@ export function DictionaryBrowser({
         <div className="empty-state" role="status">
           <h2>No matching entries</h2>
           <p>
-            Check the suggestions above, try another spelling, clear filters, or
-            browse by letter.
+            {filters.q?.trim()
+              ? "Try another spelling, clear a filter, or pick a suggestion if one is shown above."
+              : "Try clearing filters or browse by letter."}
           </p>
           <Link href="/dictionary/" className="btn btn--soft btn--md">
             Clear filters
           </Link>
         </div>
       ) : (
-        <div className="word-grid">
+        <div
+          className={
+            updating ? "word-grid word-grid--pending" : "word-grid"
+          }
+          aria-busy={updating}
+        >
           {entries.map((entry) => (
             <WordCard
               key={entry.id}
