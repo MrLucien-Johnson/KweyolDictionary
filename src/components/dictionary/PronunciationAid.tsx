@@ -37,38 +37,43 @@ export function PronunciationAid({
 
   return (
     <div className={`pronunciation-aid ${large ? "pronunciation-aid--large" : ""}`}>
-      <AudioButton
-        src={audioSrc}
-        label={isSynthetic ? "Practice audio" : "Pronunciation"}
-        large={large}
-      />
+      <div className="pronunciation-aid__controls">
+        <AudioButton
+          src={audioSrc}
+          label={
+            isSynthetic
+              ? `Play practice audio for ${kweyolWord}`
+              : `Play pronunciation of ${kweyolWord}`
+          }
+          large={large}
+        />
+        <button
+          type="button"
+          className="btn btn--soft btn--md pronunciation-aid__practice"
+          onClick={practiceWithBrowser}
+        >
+          Browser speech
+        </button>
+      </div>
       {!audioSrc ? (
         <p className="pronunciation-aid__status">
           Native Dominican audio not recorded yet.
           {featured ? " Featured word — priority for community recording." : null}{" "}
-          <Link href={contributeHref}>Suggest / contribute audio</Link>
+          <Link href={contributeHref}>Contribute audio</Link>
         </p>
       ) : isSynthetic ? (
         <p className="pronunciation-aid__status">
-          Synthetic practice audio (French neural TTS approximation).{" "}
-          <strong>Not native Dominican Kwéyòl.</strong> Community recordings welcome —{" "}
-          <Link href={contributeHref}>contribute audio</Link>.
+          Synthetic practice audio only —{" "}
+          <strong>not native Dominican Kwéyòl.</strong>{" "}
+          <Link href={contributeHref}>Contribute a recording</Link>
         </p>
       ) : (
         <p className="pronunciation-aid__status">
-          Recorded audio is provisional until marked verified native pronunciation.
+          Audio is provisional until verified as native pronunciation.
         </p>
       )}
-      <button
-        type="button"
-        className="btn btn--soft btn--md pronunciation-aid__practice"
-        onClick={practiceWithBrowser}
-      >
-        Practice with browser speech
-      </button>
       <p className="pronunciation-aid__caveat">
-        Browser speech and synthetic TTS are rough practice aids only — not verified
-        Dominican Kwéyòl native audio.
+        Browser speech and synthetic TTS are practice aids, not verified native audio.
       </p>
     </div>
   );

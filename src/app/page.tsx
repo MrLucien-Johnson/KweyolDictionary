@@ -3,7 +3,6 @@ import { ExperienceChooser } from "@/components/home/ExperienceChooser";
 import { HomeSearch } from "@/components/home/HomeSearch";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { WordCard } from "@/components/dictionary/WordCard";
-import { ContentAccuracyNotice } from "@/components/layout/ContentAccuracyNotice";
 import {
   CONTENT_DENSITY_NOTE,
   LANGUAGE_VARIATION_NOTE,
@@ -43,10 +42,6 @@ export default async function HomePage() {
 
       <div className="home-section">
         <ExperienceChooser />
-      </div>
-
-      <div className="home-section">
-        <ContentAccuracyNotice variant="panel" />
       </div>
 
       <section className="home-section" aria-labelledby="wotd-title">
@@ -92,20 +87,19 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="home-section" aria-labelledby="featured-learning-title">
-        <h2 id="featured-learning-title" className="section-title">
-          Pronunciation, culture and featured words
+      <section className="home-section" aria-labelledby="practice-learn-title">
+        <h2 id="practice-learn-title" className="section-title">
+          Practice & learn
         </h2>
         <p className="section-lead">{LANGUAGE_VARIATION_NOTE}</p>
-        <p className="section-lead">{CONTENT_DENSITY_NOTE}</p>
-        <div className="feature-grid">
+        <div className="feature-grid feature-grid--cta">
           <article className="feature-block">
             <h3>Sentence practice</h3>
             <p>
               Practise common words in full sentences with cloze and word-order
               games for adults and children.
             </p>
-            <div style={{ marginTop: "1rem" }}>
+            <div className="feature-block__action">
               <ButtonLink href="/practice" variant="primary">
                 Play practice games
               </ButtonLink>
@@ -117,27 +111,40 @@ export default async function HomePage() {
               Explore the alphabet, greetings and sentence patterns in the
               learning section.
             </p>
-            <div style={{ marginTop: "1rem" }}>
+            <div className="feature-block__action">
               <ButtonLink href="/learn" variant="soft">
                 Explore learning
               </ButtonLink>
             </div>
           </article>
-          {featured.map((entry) => (
-            <WordCard
-              key={entry.id}
-              slug={entry.slug}
-              kweyolWord={entry.kweyolWord}
-              englishTranslation={entry.englishTranslation}
-              partOfSpeech={entry.partOfSpeech}
-              pronunciationGuide={entry.pronunciationGuide}
-              audioSrc={
-                entry.audioFiles.find((file) => file.status !== "MISSING")
-                  ?.filePath
-              }
-            />
-          ))}
         </div>
+      </section>
+
+      <section className="home-section" aria-labelledby="featured-words-title">
+        <h2 id="featured-words-title" className="section-title">
+          Featured words
+        </h2>
+        <p className="section-lead">{CONTENT_DENSITY_NOTE}</p>
+        {featured.length ? (
+          <div className="word-grid">
+            {featured.map((entry) => (
+              <WordCard
+                key={entry.id}
+                slug={entry.slug}
+                kweyolWord={entry.kweyolWord}
+                englishTranslation={entry.englishTranslation}
+                partOfSpeech={entry.partOfSpeech}
+                pronunciationGuide={entry.pronunciationGuide}
+                audioSrc={
+                  entry.audioFiles.find((file) => file.status !== "MISSING")
+                    ?.filePath
+                }
+              />
+            ))}
+          </div>
+        ) : (
+          <p className="section-lead">No featured entries yet.</p>
+        )}
       </section>
 
       <section className="home-section" aria-labelledby="recent-title">
@@ -175,7 +182,7 @@ export default async function HomePage() {
           corrections, examples and cultural explanations. All submissions are
           moderated before publication.
         </p>
-        <div style={{ marginTop: "1.5rem" }}>
+        <div className="home-section__action">
           <ButtonLink href="/contribute" variant="primary" size="lg">
             Suggest a contribution
           </ButtonLink>

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { DictionaryBrowser } from "@/components/dictionary/DictionaryBrowser";
-import { ContentAccuracyNotice } from "@/components/layout/ContentAccuracyNotice";
 import {
   getPartsOfSpeech,
   getPublicCategories,
@@ -24,11 +23,10 @@ export default async function DictionaryPage() {
       <header className="dict-page__header">
         <h1>Adult Dictionary</h1>
         <p>
-          Search Dominica’s Kwéyòl by Kwéyòl or English. Public entries are a
-          provisional beginner curriculum, open to community correction.
+          Search Dominica’s Kwéyòl by Kwéyòl or English. Type to see suggestions,
+          related words, and spelling help as you go.
         </p>
       </header>
-      <ContentAccuracyNotice variant="panel" />
       <Suspense fallback={<p className="loading-line">Loading dictionary…</p>}>
         <DictionaryBrowser
           partsOfSpeech={partsOfSpeech}
