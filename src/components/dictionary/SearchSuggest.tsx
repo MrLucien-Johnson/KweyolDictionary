@@ -6,10 +6,12 @@ import {
   KeyboardEvent,
   useEffect,
   useId,
+  useLayoutEffect,
   useMemo,
   useRef,
   useState,
 } from "react";
+import { createPortal } from "react-dom";
 import { listEntries } from "@/lib/content/catalog";
 import {
   matchKindLabel,
@@ -47,8 +49,15 @@ export function SearchSuggest({
 }: SearchSuggestProps) {
   const listId = useId();
   const rootRef = useRef<HTMLFormElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const listRef = useRef<HTMLUListElement>(null);
   const [open, setOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(-1);
+  const [menuBox, setMenuBox] = useState<{
+    top: number;
+    left: number;
+    width: number;
+  } | null>(null);
 
   const catalog = useMemo(() => listEntries({}), []);
   const suggestions = useMemo(
@@ -56,17 +65,45 @@ export function SearchSuggest({
     [catalog, value],
   );
 
+  const showList = open && value.trim().length >= 1 && suggestions.length > 0;
+
+  useLayoutEffect(() => {
+    if (!showList) return;
+
+    function updatePosition() {
+      const input = inputRef.current;
+      if (!input) return;
+      const rect = input.getBoundingClientRect();
+      setMenuBox({
+        top: rect.bottom + 6,
+        left: rect.left,
+        width: rect.width,
+      });
+    }
+
+    updatePosition();
+    window.addEventListener("resize", updatePosition);
+    window.addEventListener("scroll", updatePosition, true);
+    return () => {
+      window.removeEventListener("resize", updatePosition);
+      window.removeEventListener("scroll", updatePosition, true);
+    };
+  }, [showList, value, suggestions.length]);
+
   useEffect(() => {
     function onPointerDown(event: MouseEvent) {
-      if (!rootRef.current?.contains(event.target as Node)) {
-        setOpen(false);
+      const target = event.target as Node;
+      if (
+        rootRef.current?.contains(target) ||
+        listRef.current?.contains(target)
+      ) {
+        return;
       }
+      setOpen(false);
     }
     document.addEventListener("mousedown", onPointerDown);
     return () => document.removeEventListener("mousedown", onPointerDown);
   }, []);
-
-  const showList = open && value.trim().length >= 1 && suggestions.length > 0;
 
   function chooseSuggestion(suggestion: SearchSuggestion) {
     onChange(suggestion.kweyolWord);
@@ -115,48 +152,20 @@ export function SearchSuggest({
     }
   }
 
-  return (
-    <form
-      ref={rootRef}
-      className={formClassName}
-      role="search"
-      onSubmit={onSubmit}
-    >
-      <label className="sr-only" htmlFor={id}>
-        Search Kwéyòl or English
-      </label>
-      <div className="search-suggest">
-        <input
-          id={id}
-          name="q"
-          type="search"
-          value={value}
-          onChange={(event) => {
-            onChange(event.target.value);
-            setActiveIndex(-1);
-            setOpen(true);
-          }}
-          onFocus={() => setOpen(true)}
-          onKeyDown={onKeyDown}
-          placeholder={placeholder}
-          className={inputClassName}
-          autoComplete="off"
-          autoCorrect="off"
-          spellCheck={false}
-          role="combobox"
-          aria-expanded={showList}
-          aria-controls={listId}
-          aria-autocomplete="list"
-          aria-activedescendant={
-            activeIndex >= 0 ? `${listId}-option-${activeIndex}` : undefined
-          }
-        />
-        {showList ? (
+  const listbox =
+    showList && menuBox && typeof document !== "undefined"
+      ? createPortal(
           <ul
+            ref={listRef}
             id={listId}
-            className="search-suggest__list"
+            className="search-suggest__list search-suggest__list--portal"
             role="listbox"
             aria-label="Predicted matches"
+            style={{
+              top: menuBox.top,
+              left: menuBox.left,
+              width: menuBox.width,
+            }}
           >
             {suggestions.map((suggestion, index) => (
               <li
@@ -200,8 +209,49 @@ export function SearchSuggest({
                 Search all results for “{value.trim()}”
               </Link>
             </li>
-          </ul>
-        ) : null}
+          </ul>,
+          document.body,
+        )
+      : null;
+
+  return (
+    <form
+      ref={rootRef}
+      className={formClassName}
+      role="search"
+      onSubmit={onSubmit}
+    >
+      <label className="sr-only" htmlFor={id}>
+        Search Kwéyòl or English
+      </label>
+      <div className="search-suggest">
+        <input
+          ref={inputRef}
+          id={id}
+          name="q"
+          type="search"
+          value={value}
+          onChange={(event) => {
+            onChange(event.target.value);
+            setActiveIndex(-1);
+            setOpen(true);
+          }}
+          onFocus={() => setOpen(true)}
+          onKeyDown={onKeyDown}
+          placeholder={placeholder}
+          className={inputClassName}
+          autoComplete="off"
+          autoCorrect="off"
+          spellCheck={false}
+          role="combobox"
+          aria-expanded={showList}
+          aria-controls={listId}
+          aria-autocomplete="list"
+          aria-activedescendant={
+            activeIndex >= 0 ? `${listId}-option-${activeIndex}` : undefined
+          }
+        />
+        {listbox}
       </div>
       <button type="submit" className="btn btn--primary btn--md">
         {submitLabel}
