@@ -295,7 +295,8 @@ a {
 
 .home-hero {
   position: relative;
-  overflow: hidden;
+  /* Allow predictive search to paint below the field. */
+  overflow: visible;
   padding-block: var(--space-8) var(--space-7);
 }
 
@@ -697,6 +698,13 @@ a {
   box-shadow: 0 16px 36px rgba(26, 61, 48, 0.12);
   max-height: min(22rem, 70vh);
   overflow: auto;
+  color: var(--color-ink);
+}
+
+.search-suggest__list--portal {
+  position: fixed;
+  right: auto;
+  z-index: 80;
 }
 
 .search-suggest__option {
