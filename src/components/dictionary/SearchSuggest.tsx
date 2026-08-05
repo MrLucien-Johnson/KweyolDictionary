@@ -57,10 +57,6 @@ export function SearchSuggest({
   );
 
   useEffect(() => {
-    setActiveIndex(-1);
-  }, [value]);
-
-  useEffect(() => {
     function onPointerDown(event: MouseEvent) {
       if (!rootRef.current?.contains(event.target as Node)) {
         setOpen(false);
@@ -137,6 +133,7 @@ export function SearchSuggest({
           value={value}
           onChange={(event) => {
             onChange(event.target.value);
+            setActiveIndex(-1);
             setOpen(true);
           }}
           onFocus={() => setOpen(true)}
