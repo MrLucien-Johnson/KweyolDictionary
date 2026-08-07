@@ -8,6 +8,7 @@ import {
   getAdjacentEntries,
   getEntryBySlug,
 } from "@/lib/dictionary/queries";
+import { needsNativeAudio, pickPlayableAudio } from "@/lib/audio/pick";
 import { getLabeledRelationsForEntry } from "@/lib/search/suggest";
 
 type WordPageProps = {
@@ -39,7 +40,7 @@ export default async function WordDetailPage({ params }: WordPageProps) {
   if (!entry) notFound();
 
   const { previous, next } = await getAdjacentEntries(entry.slug);
-  const audio = entry.audioFiles.find((file) => file.status !== "MISSING");
+  const audio = pickPlayableAudio(entry);
   const relatedEntries = entry.relatedSlugs
     .map((relatedSlug) =>
       getCatalog().entries.find((item) => item.slug === relatedSlug),
@@ -71,14 +72,9 @@ export default async function WordDetailPage({ params }: WordPageProps) {
         <PronunciationAid
           slug={entry.slug}
           kweyolWord={entry.kweyolWord}
+          englishTranslation={entry.englishTranslation}
           audioSrc={audio?.filePath}
-          audioSource={
-            audio?.source === "SYNTHETIC_TTS" ||
-            audio?.source === "RECORDED" ||
-            audio?.source === "UNKNOWN"
-              ? audio.source
-              : null
-          }
+          audioSource={audio?.source ?? null}
           featured={entry.isFeatured}
           large
         />
@@ -175,6 +171,7 @@ export default async function WordDetailPage({ params }: WordPageProps) {
         slug={entry.slug}
         kweyolWord={entry.kweyolWord}
         englishTranslation={entry.englishTranslation}
+        needsNativeAudio={needsNativeAudio(entry)}
       />
 
       <nav className="word-detail__nav" aria-label="Nearby words">

@@ -5,6 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { ChildWordCard } from "@/components/children/ChildWordCard";
 import { ChildrenSearch } from "@/components/children/ChildrenSearch";
 import { PrintStudySheet } from "@/components/dictionary/PrintStudySheet";
+import { pickPlayableAudio } from "@/lib/audio/pick";
 import { listChildEntries } from "@/lib/content/catalog";
 import { normalizeSearchText } from "@/lib/search/normalize";
 import { suggestEntries } from "@/lib/search/suggest";
@@ -101,9 +102,7 @@ export function ChildrenWordsBrowser({
         <div className="child-word-grid">
           {words.map((word) => {
             const image = word.imageAssets[0];
-            const audio = word.audioFiles.find(
-              (file) => file.status !== "MISSING",
-            );
+            const audio = pickPlayableAudio(word);
             return (
               <ChildWordCard
                 key={word.id}

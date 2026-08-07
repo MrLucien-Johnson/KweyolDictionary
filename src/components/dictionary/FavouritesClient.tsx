@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { WordCard } from "@/components/dictionary/WordCard";
+import { pickPlayableAudio } from "@/lib/audio/pick";
 import { listEntries } from "@/lib/content/catalog";
 import type { PublishedEntry } from "@/lib/content/types";
 import {
@@ -93,29 +94,30 @@ export function FavouritesClient() {
       </div>
 
       <div className="word-grid favourites-hub__grid">
-        {entries.map((entry) => (
-          <div key={entry.slug} className="favourites-hub__card">
-            <WordCard
-              slug={entry.slug}
-              kweyolWord={entry.kweyolWord}
-              englishTranslation={entry.englishTranslation}
-              partOfSpeech={entry.partOfSpeech}
-              pronunciationGuide={entry.pronunciationGuide}
-              audioSrc={
-                entry.audioFiles.find((file) => file.status !== "MISSING")
-                  ?.filePath
-              }
-            />
-            <button
-              type="button"
-              className="favourites-hub__remove no-print"
-              aria-label={`Remove ${entry.kweyolWord} from favourites`}
-              onClick={() => setSlugs(removeFavouriteSlug(entry.slug))}
-            >
-              Remove
-            </button>
-          </div>
-        ))}
+        {entries.map((entry) => {
+          const audio = pickPlayableAudio(entry);
+          return (
+            <div key={entry.slug} className="favourites-hub__card">
+              <WordCard
+                slug={entry.slug}
+                kweyolWord={entry.kweyolWord}
+                englishTranslation={entry.englishTranslation}
+                partOfSpeech={entry.partOfSpeech}
+                pronunciationGuide={entry.pronunciationGuide}
+                audioSrc={audio?.filePath}
+                audioSource={audio?.source}
+              />
+              <button
+                type="button"
+                className="favourites-hub__remove no-print"
+                aria-label={`Remove ${entry.kweyolWord} from favourites`}
+                onClick={() => setSlugs(removeFavouriteSlug(entry.slug))}
+              >
+                Remove
+              </button>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

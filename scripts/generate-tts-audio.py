@@ -55,14 +55,34 @@ async def main() -> int:
     entries = catalog.get("entries") or []
     OUT_DIR.mkdir(parents=True, exist_ok=True)
 
+    # Preserve community/recorded installs: never overwrite MP3s that are not
+    # currently tracked as synthetic TTS in the manifest.
+    existing_manifest: dict[str, object] = {}
+    if MANIFEST.exists():
+        try:
+            existing_manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            existing_manifest = {}
+    synthetic_slugs = set((existing_manifest.get("files") or {}).keys())
+
     jobs: list[tuple[str, str, Path]] = []
+    skipped_recorded = 0
     for entry in entries:
         slug = entry["slug"]
         text = (entry.get("kweyolWord") or "").strip()
         if not text:
             continue
-        jobs.append((slug, text, OUT_DIR / f"{slug}.mp3"))
+        out_path = OUT_DIR / f"{slug}.mp3"
+        if out_path.exists() and slug not in synthetic_slugs:
+            skipped_recorded += 1
+            continue
+        jobs.append((slug, text, out_path))
 
+    if skipped_recorded:
+        print(
+            f"Skipping {skipped_recorded} community/recorded file(s) "
+            "not listed in tts-manifest.json"
+        )
     print(f"Generating synthetic TTS for {len(jobs)} entries with {VOICE}…")
     sem = asyncio.Semaphore(MAX_CONCURRENCY)
     results = await asyncio.gather(
@@ -102,6 +122,9 @@ async def main() -> int:
                 still_failed.append(f"{slug}: {detail}")
         failures = still_failed
 
+    # Keep previously tracked synthetic files that were skipped this run
+    # only if we intentionally did not regenerate them (empty jobs edge case).
+    # Recorded installs must stay out of this manifest.
     manifest = {
         "generatedAt": datetime.now(timezone.utc).isoformat(),
         "generator": "edge-tts",
@@ -114,6 +137,7 @@ async def main() -> int:
         ),
         "entryCount": len(files),
         "files": files,
+        "skippedRecordedCount": skipped_recorded,
     }
     MANIFEST.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
 

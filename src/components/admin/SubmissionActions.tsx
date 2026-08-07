@@ -7,12 +7,15 @@ type SubmissionActionsProps = {
   id: string;
   type: string;
   canAccept: boolean;
+  /** Local admin listen URL for pending AUDIO submissions. */
+  audioListenSrc?: string | null;
 };
 
 export function SubmissionActions({
   id,
   type,
   canAccept,
+  audioListenSrc = null,
 }: SubmissionActionsProps) {
   const router = useRouter();
   const [listenedConfirmed, setListenedConfirmed] = useState(false);
@@ -53,6 +56,16 @@ export function SubmissionActions({
 
   return (
     <span className="admin-inline-actions">
+      {type === "AUDIO" && audioListenSrc ? (
+        <audio
+          className="admin-audio-listen"
+          controls
+          preload="metadata"
+          src={audioListenSrc}
+        >
+          Your browser cannot play this recording.
+        </audio>
+      ) : null}
       {type === "AUDIO" ? (
         <label className="admin-listen-confirm">
           <input
@@ -60,7 +73,7 @@ export function SubmissionActions({
             checked={listenedConfirmed}
             onChange={(event) => setListenedConfirmed(event.target.checked)}
           />{" "}
-          Listened
+          Listened end-to-end
         </label>
       ) : null}
       <button

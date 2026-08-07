@@ -11,12 +11,14 @@ type WordActionsProps = {
   slug: string;
   kweyolWord: string;
   englishTranslation: string;
+  needsNativeAudio?: boolean;
 };
 
 export function WordActions({
   slug,
   kweyolWord,
   englishTranslation,
+  needsNativeAudio = false,
 }: WordActionsProps) {
   const [saved, setSaved] = useState(false);
   const [status, setStatus] = useState<string | null>(null);
@@ -31,9 +33,19 @@ export function WordActions({
   return (
     <div className="word-actions">
       <div className="word-actions__primary">
+        {needsNativeAudio ? (
+          <a
+            className="btn btn--primary btn--md"
+            href={`/contribute?entry=${slug}&type=AUDIO&word=${encodeURIComponent(kweyolWord)}&english=${encodeURIComponent(englishTranslation)}`}
+          >
+            Record native audio
+          </a>
+        ) : null}
         <button
           type="button"
-          className="btn btn--primary btn--md"
+          className={
+            needsNativeAudio ? "btn btn--soft btn--md" : "btn btn--primary btn--md"
+          }
           onClick={() => {
             const next = toggleFavouriteSlug(slug);
             const isSaved = next.includes(slug);
@@ -46,12 +58,14 @@ export function WordActions({
         >
           {saved ? "Saved to favourites" : "Save to favourites"}
         </button>
-        <a
-          className="btn btn--soft btn--md"
-          href={`/contribute?entry=${slug}&type=AUDIO&word=${encodeURIComponent(kweyolWord)}&english=${encodeURIComponent(englishTranslation)}`}
-        >
-          Contribute speech
-        </a>
+        {!needsNativeAudio ? (
+          <a
+            className="btn btn--soft btn--md"
+            href={`/contribute?entry=${slug}&type=AUDIO&word=${encodeURIComponent(kweyolWord)}&english=${encodeURIComponent(englishTranslation)}`}
+          >
+            Contribute speech
+          </a>
+        ) : null}
       </div>
       {saved ? (
         <p className="word-actions__hint">

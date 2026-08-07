@@ -9,6 +9,7 @@ import { PrintStudySheet } from "@/components/dictionary/PrintStudySheet";
 import { SearchInsights } from "@/components/dictionary/SearchInsights";
 import { SearchSuggest } from "@/components/dictionary/SearchSuggest";
 import { WordCard } from "@/components/dictionary/WordCard";
+import { pickPlayableAudio } from "@/lib/audio/pick";
 import { listEntries } from "@/lib/content/catalog";
 import {
   buildDictionaryHref,
@@ -500,20 +501,21 @@ export function DictionaryBrowser({
           }
           aria-busy={updating}
         >
-          {entries.map((entry) => (
-            <WordCard
-              key={entry.id}
-              slug={entry.slug}
-              kweyolWord={entry.kweyolWord}
-              englishTranslation={entry.englishTranslation}
-              partOfSpeech={entry.partOfSpeech}
-              pronunciationGuide={entry.pronunciationGuide}
-              audioSrc={
-                entry.audioFiles.find((file) => file.status !== "MISSING")
-                  ?.filePath
-              }
-            />
-          ))}
+          {entries.map((entry) => {
+            const audio = pickPlayableAudio(entry);
+            return (
+              <WordCard
+                key={entry.id}
+                slug={entry.slug}
+                kweyolWord={entry.kweyolWord}
+                englishTranslation={entry.englishTranslation}
+                partOfSpeech={entry.partOfSpeech}
+                pronunciationGuide={entry.pronunciationGuide}
+                audioSrc={audio?.filePath}
+                audioSource={audio?.source}
+              />
+            );
+          })}
         </div>
       )}
     </>
