@@ -1,8 +1,10 @@
 import Link from "next/link";
+import { NativeAudioPriority } from "@/components/audio/NativeAudioPriority";
 import { ExperienceChooser } from "@/components/home/ExperienceChooser";
 import { HomeSearch } from "@/components/home/HomeSearch";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { WordCard } from "@/components/dictionary/WordCard";
+import { pickPlayableAudio } from "@/lib/audio/pick";
 import {
   CONTENT_DENSITY_NOTE,
   LANGUAGE_VARIATION_NOTE,
@@ -15,6 +17,15 @@ import {
   getWordOfTheDay,
   getPublicCategories,
 } from "@/lib/dictionary/queries";
+import type { PublishedEntry } from "@/lib/content/types";
+
+function wordCardAudio(entry: PublishedEntry) {
+  const audio = pickPlayableAudio(entry);
+  return {
+    audioSrc: audio?.filePath,
+    audioSource: audio?.source,
+  };
+}
 
 export default async function HomePage() {
   const [wordOfDay, featured, recent, categories] = await Promise.all([
@@ -56,10 +67,7 @@ export default async function HomePage() {
               englishTranslation={wordOfDay.englishTranslation}
               partOfSpeech={wordOfDay.partOfSpeech}
               pronunciationGuide={wordOfDay.pronunciationGuide}
-              audioSrc={
-                wordOfDay.audioFiles.find((file) => file.status !== "MISSING")
-                  ?.filePath
-              }
+              {...wordCardAudio(wordOfDay)}
             />
           </div>
         ) : (
@@ -135,10 +143,7 @@ export default async function HomePage() {
                 englishTranslation={entry.englishTranslation}
                 partOfSpeech={entry.partOfSpeech}
                 pronunciationGuide={entry.pronunciationGuide}
-                audioSrc={
-                  entry.audioFiles.find((file) => file.status !== "MISSING")
-                    ?.filePath
-                }
+                {...wordCardAudio(entry)}
               />
             ))}
           </div>
@@ -146,6 +151,10 @@ export default async function HomePage() {
           <p className="section-lead">No featured entries yet.</p>
         )}
       </section>
+
+      <div className="home-section">
+        <NativeAudioPriority limit={8} />
+      </div>
 
       <section className="home-section" aria-labelledby="recent-title">
         <h2 id="recent-title" className="section-title">
@@ -161,10 +170,7 @@ export default async function HomePage() {
                 englishTranslation={entry.englishTranslation}
                 partOfSpeech={entry.partOfSpeech}
                 pronunciationGuide={entry.pronunciationGuide}
-                audioSrc={
-                  entry.audioFiles.find((file) => file.status !== "MISSING")
-                    ?.filePath
-                }
+                {...wordCardAudio(entry)}
               />
             ))}
           </div>
@@ -178,13 +184,15 @@ export default async function HomePage() {
           Help grow the dictionary
         </h2>
         <p className="section-lead">
-          Speakers, teachers and community members can suggest words,
-          corrections, examples and cultural explanations. All submissions are
-          moderated before publication.
+          Speakers can record Dominican Kwéyòl, suggest words, corrections and
+          cultural notes. Every contribution is moderated before publication.
         </p>
         <div className="home-section__action">
-          <ButtonLink href="/contribute" variant="primary" size="lg">
-            Suggest a contribution
+          <ButtonLink href="/contribute?type=AUDIO" variant="primary" size="lg">
+            Record native audio
+          </ButtonLink>
+          <ButtonLink href="/contribute" variant="soft" size="lg">
+            Other contributions
           </ButtonLink>
         </div>
       </section>

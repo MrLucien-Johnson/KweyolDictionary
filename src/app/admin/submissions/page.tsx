@@ -32,6 +32,19 @@ function summarizePayload(type: string, payloadJson: string) {
   }
 }
 
+function audioListenSrcFor(type: string, id: string, payloadJson: string) {
+  if (type !== "AUDIO") return null;
+  try {
+    const payload = JSON.parse(payloadJson) as Record<string, unknown>;
+    const relative = String(payload.storedRelativePath ?? "");
+    if (!relative.startsWith("storage/community-audio/")) return null;
+    const base = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+    return `${base}/api/admin/submissions/${id}/audio`;
+  } catch {
+    return null;
+  }
+}
+
 export default async function AdminSubmissionsPage() {
   const session = await getAdminSession();
   if (!session) redirect("/admin/login");
@@ -77,6 +90,11 @@ export default async function AdminSubmissionsPage() {
                     <SubmissionActions
                       id={submission.id}
                       type={submission.type}
+                      audioListenSrc={audioListenSrcFor(
+                        submission.type,
+                        submission.id,
+                        submission.payloadJson,
+                      )}
                       canAccept={
                         submission.type === "AUDIO"
                           ? canReviewAudio(session.role)

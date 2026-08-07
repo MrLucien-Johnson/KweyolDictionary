@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
+import { NativeAudioPriority } from "@/components/audio/NativeAudioPriority";
 import { ContributeFormClient } from "@/components/contribute/ContributeFormClient";
 import { ContentAccuracyNotice } from "@/components/layout/ContentAccuracyNotice";
 import {
@@ -10,7 +11,7 @@ import {
 export const metadata: Metadata = {
   title: "Contribute",
   description:
-    "Suggest Dominican Kwéyòl words, corrections, audio and cultural notes for review.",
+    "Suggest Dominican Kwéyòl words, corrections, native audio and cultural notes for review.",
 };
 
 export default function ContributePage() {
@@ -22,12 +23,14 @@ export default function ContributePage() {
     <div className="placeholder-page">
       <h1>Contribute</h1>
       <p>
-        Suggest new words, corrections, example sentences, cultural explanations
-        or alternative spellings. For speech, use the verified-audio flow: your
-        browser pre-checks the recording, you must listen first, and editors
-        re-test meticulously before it can replace synthetic practice audio.
+        The highest priority is <strong>native Dominican Kwéyòl recordings</strong>{" "}
+        to replace synthetic practice TTS. You can also suggest new words,
+        corrections, examples and cultural notes. Speech uses a verified-audio
+        flow: your browser pre-checks the recording, you must listen first, and
+        editors re-test meticulously before it can replace practice audio.
       </p>
       <ContentAccuracyNotice variant="panel" />
+      <NativeAudioPriority limit={16} />
       <p>{LANGUAGE_VARIATION_NOTE}</p>
       <p>{CONTENT_ACCURACY_SHORT}</p>
       <Suspense fallback={<p className="loading-line">Loading form…</p>}>

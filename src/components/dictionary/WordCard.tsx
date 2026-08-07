@@ -1,5 +1,9 @@
 import Link from "next/link";
 import { AudioButton } from "@/components/dictionary/AudioButton";
+import {
+  audioListenLabel,
+  type AudioSource,
+} from "@/lib/audio/pick";
 
 type WordCardProps = {
   slug: string;
@@ -8,6 +12,7 @@ type WordCardProps = {
   partOfSpeech?: string | null;
   pronunciationGuide?: string | null;
   audioSrc?: string | null;
+  audioSource?: AudioSource | null;
 };
 
 export function WordCard({
@@ -17,7 +22,10 @@ export function WordCard({
   partOfSpeech,
   pronunciationGuide,
   audioSrc,
+  audioSource = null,
 }: WordCardProps) {
+  const isSynthetic = audioSource === "SYNTHETIC_TTS";
+
   return (
     <article className="word-card">
       <div className="word-card__top">
@@ -30,7 +38,7 @@ export function WordCard({
           <AudioButton
             variant="icon"
             src={audioSrc}
-            label={`Play pronunciation of ${kweyolWord}`}
+            label={audioListenLabel(kweyolWord, audioSource)}
           />
         </div>
         <p className="word-card__english">
@@ -43,6 +51,11 @@ export function WordCard({
         {partOfSpeech ? <span className="meta-pill">{partOfSpeech}</span> : null}
         {pronunciationGuide ? (
           <span className="word-card__pron">/{pronunciationGuide}/</span>
+        ) : null}
+        {isSynthetic ? (
+          <span className="meta-pill meta-pill--warn">Practice TTS</span>
+        ) : audioSource === "RECORDED" ? (
+          <span className="meta-pill">Community audio</span>
         ) : null}
         <Link href={`/dictionary/${slug}`} className="word-card__open">
           Open entry

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ChildWordCard } from "@/components/children/ChildWordCard";
+import { pickPlayableAudio } from "@/lib/audio/pick";
 import { getChildWord, listChildWords } from "@/lib/children/queries";
 import { CHILD_AGE_BAND_LABELS } from "@/lib/constants/age-groups";
 import type { ChildAgeBandValue } from "@/lib/constants/age-groups";
@@ -28,7 +29,7 @@ export default async function ChildWordPage({ params }: Props) {
   if (!word || !word.childPresentation) notFound();
 
   const image = word.imageAssets[0];
-  const audio = word.audioFiles.find((file) => file.status !== "MISSING");
+  const audio = pickPlayableAudio(word);
   const ageBand = word.childPresentation.ageBand as ChildAgeBandValue;
   const age = CHILD_AGE_BAND_LABELS[ageBand];
 

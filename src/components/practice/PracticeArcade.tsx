@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useMemo, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { AudioButton } from "@/components/dictionary/AudioButton";
+import { pickPlayableAudio } from "@/lib/audio/pick";
 import { getEntry } from "@/lib/content/catalog";
 import {
   PRACTICE_DIFFICULTIES,
@@ -42,8 +43,7 @@ type RoundUiState = {
 type FloatScore = { id: number; text: string };
 
 function audioFor(entrySlug: string) {
-  const entry = getEntry(entrySlug);
-  return entry?.audioFiles.find((file) => file.status !== "MISSING")?.filePath;
+  return pickPlayableAudio(getEntry(entrySlug))?.filePath;
 }
 
 function initialUiForRound(round: PracticeRound | undefined): RoundUiState {
