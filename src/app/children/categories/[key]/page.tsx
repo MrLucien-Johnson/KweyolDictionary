@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Suspense } from "react";
 import { notFound } from "next/navigation";
-import { ChildWordCard } from "@/components/children/ChildWordCard";
+import { ChildrenWordsBrowser } from "@/components/children/ChildrenWordsBrowser";
 import { listChildCategories, listChildWords } from "@/lib/children/queries";
 
 type Props = { params: Promise<{ key: string }> };
@@ -29,29 +30,15 @@ export default async function ChildCategoryPage({ params }: Props) {
     <div className="children-page">
       <header className="dict-page__header">
         <h1>{category.nameEn}</h1>
-        <p>Tap a picture card to learn the Kwéyòl word.</p>
+        <p>Search this category or tap a picture card to learn the Kwéyòl word.</p>
       </header>
       {words.length ? (
-        <div className="child-word-grid">
-          {words.map((word) => {
-            const image = word.imageAssets[0];
-            const audio = word.audioFiles.find((file) => file.status !== "MISSING");
-            return (
-              <ChildWordCard
-                key={word.id}
-                slug={word.slug}
-                kweyolWord={word.kweyolWord}
-                meaning={
-                  word.childPresentation?.simpleMeaning ?? word.englishTranslation
-                }
-                imageSrc={image?.filePath}
-                imageStatus={image?.status}
-                audioSrc={audio?.filePath}
-                audioIsSynthetic={audio?.source === "SYNTHETIC_TTS"}
-              />
-            );
-          })}
-        </div>
+        <Suspense fallback={<p className="loading-line">Loading words…</p>}>
+          <ChildrenWordsBrowser
+            categoryKey={key}
+            categoryName={category.nameEn}
+          />
+        </Suspense>
       ) : (
         <div className="empty-state">
           <h2>No approved words in this category yet</h2>

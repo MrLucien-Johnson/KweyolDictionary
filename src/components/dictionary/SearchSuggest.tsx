@@ -13,6 +13,7 @@ import {
 } from "react";
 import { createPortal } from "react-dom";
 import { listEntries } from "@/lib/content/catalog";
+import type { PublishedEntry } from "@/lib/content/types";
 import {
   matchKindLabel,
   suggestEntries,
@@ -52,6 +53,14 @@ type SearchSuggestProps = {
   /** Prefer English-oriented placeholder copy. */
   englishFirst?: boolean;
   submitLabel?: string;
+  /** Override catalog used for suggestions (e.g. children’s entries). */
+  entries?: PublishedEntry[];
+  /** Build the href for a selected suggestion slug. */
+  getResultHref?: (slug: string) => string;
+  /** Build the “search all” href for the typed query. */
+  buildSearchAllHref?: (query: string) => string;
+  /** Separate recent-search storage scope (e.g. "children"). */
+  recentScope?: string;
 };
 
 function useCompactViewport() {
@@ -97,6 +106,10 @@ export function SearchSuggest({
   onSelectRecent,
   englishFirst = false,
   submitLabel = "Search",
+  entries,
+  getResultHref,
+  buildSearchAllHref,
+  recentScope,
 }: SearchSuggestProps) {
   const listId = useId();
   const rootRef = useRef<HTMLFormElement>(null);
@@ -113,20 +126,25 @@ export function SearchSuggest({
       ? "Search English meaning or Kwéyòl…"
       : "Search Kwéyòl or English…");
 
-  const catalog = useMemo(() => listEntries({}), []);
+  const catalog = useMemo(() => entries ?? listEntries({}), [entries]);
   const suggestionLimit = compact ? 5 : 8;
   const suggestions = useMemo(
     () => suggestEntries(value, catalog, suggestionLimit),
     [catalog, suggestionLimit, value],
   );
+  const resolveHref =
+    getResultHref ?? ((slug: string) => `/dictionary/${slug}/`);
+  const resolveSearchAll =
+    buildSearchAllHref ??
+    ((query: string) => `/dictionary/?q=${encodeURIComponent(query)}`);
 
   useEffect(() => {
     if (!open) return;
     const frame = requestAnimationFrame(() => {
-      setRecent(getRecentSearches());
+      setRecent(getRecentSearches(recentScope));
     });
     return () => cancelAnimationFrame(frame);
-  }, [open, value]);
+  }, [open, value, recentScope]);
 
   const showList = open && value.trim().length >= 1 && suggestions.length > 0;
   const showRecent = open && value.trim().length === 0 && recent.length > 0;
@@ -230,11 +248,11 @@ export function SearchSuggest({
 
   function chooseSuggestion(suggestion: SearchSuggestion) {
     onChange(suggestion.kweyolWord);
-    pushRecentSearch(suggestion.kweyolWord);
+    pushRecentSearch(suggestion.kweyolWord, recentScope);
     setOpen(false);
     onSelectSuggestion?.(suggestion);
     if (navigateOnSelect) {
-      window.location.assign(withBasePath(`/dictionary/${suggestion.slug}/`));
+      window.location.assign(withBasePath(resolveHref(suggestion.slug)));
       return;
     }
     onSubmitQuery(suggestion.kweyolWord);
@@ -242,7 +260,7 @@ export function SearchSuggest({
 
   function chooseRecent(query: string) {
     onChange(query);
-    pushRecentSearch(query);
+    pushRecentSearch(query, recentScope);
     setOpen(false);
     if (onSelectRecent) {
       onSelectRecent(query);
@@ -254,7 +272,7 @@ export function SearchSuggest({
   function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const query = value.trim();
-    if (query) pushRecentSearch(query);
+    if (query) pushRecentSearch(query, recentScope);
     setOpen(false);
     onSubmitQuery(query);
   }
@@ -365,7 +383,7 @@ export function SearchSuggest({
         ))}
         <li className="search-suggest__footer">
           <Link
-            href={`/dictionary/?q=${encodeURIComponent(value.trim())}`}
+            href={resolveSearchAll(value.trim())}
             className="search-suggest__search-all"
             onClick={() => setOpen(false)}
           >

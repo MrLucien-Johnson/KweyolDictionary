@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useEffect, useState } from "react";
+import Link from "next/link";
 import { CommunityAudioUploader } from "@/components/contribute/CommunityAudioUploader";
 
 type ContributeFormProps = {
@@ -10,6 +11,8 @@ type ContributeFormProps = {
   defaultEnglish?: string;
   issuesUrl: string;
 };
+
+type SuccessKind = "github" | "local";
 
 export function ContributeForm({
   defaultEntry,
@@ -23,6 +26,7 @@ export function ContributeForm({
   const [status, setStatus] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
+  const [success, setSuccess] = useState<SuccessKind | null>(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -79,12 +83,16 @@ export function ContributeForm({
 
     if (!localApiAvailable) {
       window.open(buildIssueUrl(form), "_blank", "noopener,noreferrer");
+      setSuccess("github");
+      setStatus(null);
+      setError(null);
       return;
     }
 
     setSubmitting(true);
     setError(null);
     setStatus(null);
+    setSuccess(null);
     const base = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
     const response = await fetch(`${base}/api/submissions`, {
       method: "POST",
@@ -109,8 +117,41 @@ export function ContributeForm({
       return;
     }
     form.reset();
-    setStatus(
-      "Queued for local moderation. Editors can accept it under /admin/submissions (creates a draft, not public).",
+    setSuccess("local");
+  }
+
+  if (success) {
+    return (
+      <div className="contribute-success" role="status" aria-live="polite">
+        <h2 className="section-title">Thank you</h2>
+        {success === "github" ? (
+          <p className="section-lead">
+            A GitHub Issue draft should have opened in a new tab. Finish and
+            submit it there so editors can review your suggestion. If nothing
+            opened, check your browser’s popup settings, then try again.
+          </p>
+        ) : (
+          <p className="section-lead">
+            Your suggestion is queued for local moderation. An editor can accept
+            it as a draft before it becomes public.
+          </p>
+        )}
+        <div className="contribute-success__actions">
+          <button
+            type="button"
+            className="btn btn--primary btn--md"
+            onClick={() => setSuccess(null)}
+          >
+            Suggest another
+          </button>
+          <Link href="/dictionary/" className="btn btn--soft btn--md">
+            Back to dictionary
+          </Link>
+          <Link href="/" className="btn btn--soft btn--md">
+            Home
+          </Link>
+        </div>
+      </div>
     );
   }
 

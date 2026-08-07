@@ -5,6 +5,7 @@ import { useEffect, useMemo, useRef, useState, useTransition } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { AlphabetNav } from "@/components/dictionary/AlphabetNav";
 import { DictionaryFilterLink } from "@/components/dictionary/DictionaryFilterLink";
+import { PrintStudySheet } from "@/components/dictionary/PrintStudySheet";
 import { SearchInsights } from "@/components/dictionary/SearchInsights";
 import { SearchSuggest } from "@/components/dictionary/SearchSuggest";
 import { WordCard } from "@/components/dictionary/WordCard";
@@ -451,9 +452,25 @@ export function DictionaryBrowser({
         >
           {updating ? "Updating results…" : resultSummary}
         </p>
-        <Link href="/dictionary/favourites" className="text-link">
-          View favourites
-        </Link>
+        <div className="dict-page__toolbar-actions">
+          <PrintStudySheet
+            title="Kwéyòl dictionary study sheet"
+            subtitle={
+              activeCount
+                ? `${entries.length} entries · ${activeCount} active filter${activeCount === 1 ? "" : "s"}`
+                : `${entries.length} entries`
+            }
+            rows={entries.map((entry) => ({
+              kweyolWord: entry.kweyolWord,
+              english: entry.englishTranslation,
+              pronunciation: entry.pronunciationGuide,
+            }))}
+            disabled={entries.length === 0}
+          />
+          <Link href="/dictionary/favourites" className="text-link">
+            View favourites
+          </Link>
+        </div>
       </div>
 
       {filters.q?.trim() ? (

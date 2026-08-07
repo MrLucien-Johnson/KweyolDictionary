@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { listChildActivities, listChildCategories } from "@/lib/children/queries";
+import { ChildrenSearch } from "@/components/children/ChildrenSearch";
 import { ChildProgressPanel } from "@/components/children/ChildProgressPanel";
 import { ContentAccuracyNotice } from "@/components/layout/ContentAccuracyNotice";
 import { PublicImage } from "@/components/ui/PublicImage";
@@ -36,6 +37,7 @@ export default async function ChildrenHomePage() {
             More activities
           </Link>
         </div>
+        <ChildrenSearch formClassName="children-search children-search--hero" />
       </header>
 
       <ContentAccuracyNotice audience="children" variant="panel" />
@@ -76,7 +78,7 @@ export default async function ChildrenHomePage() {
             <article key={activity.id} className="feature-block">
               <h3>{activity.title}</h3>
               <p>{activity.description}</p>
-              <div style={{ marginTop: "1rem" }}>
+              <div className="feature-block__action">
                 <Link
                   href={`/children/activities/${activity.slug}`}
                   className="btn btn--soft btn--md"
