@@ -19,6 +19,7 @@ export type CatalogListFilters = {
   hasCulturalNotes?: boolean;
   featured?: boolean;
   recent?: boolean;
+  mode?: "en";
 };
 
 function matchesQuery(entry: PublishedEntry, q: string) {
@@ -82,12 +83,45 @@ export function listEntries(filters: CatalogListFilters = {}): PublishedEntry[] 
     rows = rows.filter((entry) => entry.isFeatured);
   }
 
-  rows = [...rows].sort((a, b) =>
-    filters.recent
-      ? b.dateAdded.localeCompare(a.dateAdded) ||
+  const needle = filters.q?.trim()
+    ? normalizeSearchText(filters.q.trim())
+    : "";
+
+  rows = [...rows].sort((a, b) => {
+    if (filters.recent) {
+      return (
+        b.dateAdded.localeCompare(a.dateAdded) ||
         a.kweyolWord.localeCompare(b.kweyolWord)
-      : a.kweyolWord.localeCompare(b.kweyolWord),
-  );
+      );
+    }
+
+    if (filters.mode === "en" && needle) {
+      const score = (entry: PublishedEntry) => {
+        const en = normalizeSearchText(entry.englishTranslation);
+        const alt = normalizeSearchText(entry.alternativeEnglish ?? "");
+        const kw = normalizeSearchText(entry.kweyolWord);
+        if (en === needle || alt === needle) return 0;
+        if (en.startsWith(needle) || alt.startsWith(needle)) return 1;
+        if (en.includes(needle) || alt.includes(needle)) return 2;
+        if (kw === needle || kw.startsWith(needle)) return 3;
+        return 4;
+      };
+      return (
+        score(a) - score(b) ||
+        a.englishTranslation.localeCompare(b.englishTranslation) ||
+        a.kweyolWord.localeCompare(b.kweyolWord)
+      );
+    }
+
+    if (filters.mode === "en") {
+      return (
+        a.englishTranslation.localeCompare(b.englishTranslation) ||
+        a.kweyolWord.localeCompare(b.kweyolWord)
+      );
+    }
+
+    return a.kweyolWord.localeCompare(b.kweyolWord);
+  });
 
   return filters.recent ? rows.slice(0, 12) : rows;
 }

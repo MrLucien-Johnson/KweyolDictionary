@@ -47,6 +47,15 @@ export const WORD_RELATION_PAIRS: WordRelationPair[] = [
   { a: "bonjou", b: "bonswa", kind: "antonym" },
   { a: "maten", b: "swe", kind: "antonym" },
   { a: "dous", b: "sel", kind: "antonym" },
+  { a: "wouj", b: "ble", kind: "related" },
+  { a: "nwa", b: "wouj", kind: "related" },
+  { a: "blan", b: "jon", kind: "related" },
+  { a: "fatige", b: "malad", kind: "related" },
+  { a: "bel", b: "bon", kind: "related" },
+  { a: "leve", b: "ale", kind: "related" },
+  { a: "mesi", b: "souple", kind: "related" },
+  { a: "bonjou", b: "orevwa", kind: "related" },
+  { a: "wi-yes", b: "mesi", kind: "related" },
 
   // Near-synonyms / closely related senses
   { a: "bon", b: "byen", kind: "synonym" },
@@ -65,6 +74,12 @@ export const WORD_RELATION_PAIRS: WordRelationPair[] = [
   { a: "li-read", b: "ekwi", kind: "related" },
   { a: "pwofese", b: "elev", kind: "related" },
   { a: "lekol", b: "klas", kind: "related" },
+  { a: "liv", b: "li-read", kind: "related" },
+  { a: "papye", b: "ekwi", kind: "related" },
+  { a: "fanm", b: "maman", kind: "related" },
+  { a: "nonm", b: "papa", kind: "related" },
+  { a: "garson", b: "nonm", kind: "related" },
+  { a: "fi", b: "fanm", kind: "related" },
 
   // Spelling / sense variants already linked as homonyms stay separate;
   // these are deliberate spelling variants learners often confuse.

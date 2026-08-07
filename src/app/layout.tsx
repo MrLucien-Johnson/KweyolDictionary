@@ -46,9 +46,14 @@ export default function RootLayout({
       className={`${displayFont.variable} ${bodyFont.variable} h-full`}
     >
       <body className="page-shell antialiased">
+        <a href="#main-content" className="skip-link">
+          Skip to content
+        </a>
         <SiteHeader />
         <ContentAccuracyNotice variant="banner" />
-        <main className="page-main">{children}</main>
+        <main id="main-content" className="page-main" tabIndex={-1}>
+          {children}
+        </main>
         <SiteFooter />
       </body>
     </html>

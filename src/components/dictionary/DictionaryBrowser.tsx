@@ -16,6 +16,7 @@ import {
   withBasePath,
   type DictionaryFilterState,
 } from "@/lib/dictionary/filter-url";
+import { pushRecentSearch } from "@/lib/search/recent";
 
 type DictionaryBrowserProps = {
   partsOfSpeech: string[];
@@ -34,6 +35,7 @@ function readFilters(searchParams: URLSearchParams): DictionaryFilterState {
     hasCulturalNotes: searchParams.get("cultural") === "1",
     featured: searchParams.get("featured") === "1",
     recent: searchParams.get("recent") === "1",
+    mode: searchParams.get("mode") === "en" ? "en" : undefined,
   };
 }
 
@@ -148,13 +150,20 @@ export function DictionaryBrowser({
             id="dict-q"
             value={searchDraft}
             onChange={setSearchDraft}
-            onSubmitQuery={(query) => {
-              setSearchDraft(query);
-              patchFilters({ q: query || undefined });
-            }}
-            formClassName="dict-filters__search"
-            inputClassName="dict-filters__input dict-filters__input--search"
-          />
+          onSubmitQuery={(query) => {
+            setSearchDraft(query);
+            if (query.trim()) pushRecentSearch(query);
+            patchFilters({ q: query || undefined });
+          }}
+          onSelectRecent={(query) => {
+            setSearchDraft(query);
+            pushRecentSearch(query);
+            patchFilters({ q: query || undefined });
+          }}
+          formClassName="dict-filters__search"
+          inputClassName="dict-filters__input dict-filters__input--search"
+          englishFirst={filters.mode === "en"}
+        />
 
           <AlphabetNav activeLetter={filters.letter} currentFilters={filters} />
         </div>
@@ -222,6 +231,23 @@ export function DictionaryBrowser({
                 }
               >
                 Recent
+              </button>
+              <button
+                type="button"
+                className={
+                  filters.mode === "en"
+                    ? "dict-filters__toggle is-active"
+                    : "dict-filters__toggle"
+                }
+                aria-pressed={filters.mode === "en"}
+                title="Sort and rank results for English-first lookups"
+                onClick={() =>
+                  patchFilters({
+                    mode: filtersRef.current.mode === "en" ? undefined : "en",
+                  })
+                }
+              >
+                English first
               </button>
             </div>
           </div>
@@ -363,6 +389,16 @@ export function DictionaryBrowser({
                 onClick={() => patchFilters({ recent: false })}
               >
                 Recent ×
+              </button>
+            ) : null}
+            {filters.mode === "en" ? (
+              <button
+                type="button"
+                className="dict-filters__chip"
+                aria-label="Remove English-first mode"
+                onClick={() => patchFilters({ mode: undefined })}
+              >
+                English first ×
               </button>
             ) : null}
             {filters.hasAudio ? (

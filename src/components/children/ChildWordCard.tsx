@@ -64,19 +64,12 @@ export function ChildWordCard({
         />
       </div>
       <p>{meaning}</p>
-      <AudioButton
-        src={audioSrc}
-        label={audioIsSynthetic ? "Practice sound" : "Listen"}
-        large
-        onPlay={() => {
-          const next = markListened(loadChildProgress(), slug);
-          saveChildProgress(next);
-        }}
-      />
       {audioSrc && audioIsSynthetic ? (
         <p className="child-word-card__audio-note">
           Practice sound only — not native Kwéyòl yet.
         </p>
+      ) : !audioSrc ? (
+        <p className="child-word-card__audio-note">Sound coming soon.</p>
       ) : null}
     </article>
   );

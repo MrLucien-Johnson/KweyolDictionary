@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Flashcards } from "@/components/learning/Flashcards";
+import { Suspense } from "react";
+import { FlashcardsClient } from "@/components/learning/FlashcardsClient";
 import { listDictionaryEntries } from "@/lib/dictionary/queries";
 
 export const metadata: Metadata = {
@@ -20,9 +21,14 @@ export default async function FlashcardsPage() {
     <div className="learn-page">
       <header className="dict-page__header">
         <h1>Flashcards</h1>
-        <p>Flip each card, say the word aloud, then reveal the English meaning.</p>
+        <p>
+          Flip each card, say the word aloud, then reveal the English meaning.
+          Switch to your favourites deck anytime.
+        </p>
       </header>
-      <Flashcards cards={cards} />
+      <Suspense fallback={<p className="loading-line">Loading flashcards…</p>}>
+        <FlashcardsClient defaultCards={cards} />
+      </Suspense>
     </div>
   );
 }

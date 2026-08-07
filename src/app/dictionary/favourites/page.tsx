@@ -12,7 +12,8 @@ export default function FavouritesPage() {
       <header className="dict-page__header">
         <h1>Favourites</h1>
         <p>
-          Saved words stay on this device. No account is required.
+          Your personal study list on this device — listen, remove words, print a
+          sheet, or open flashcards. No account is required.
         </p>
       </header>
       <FavouritesClient />

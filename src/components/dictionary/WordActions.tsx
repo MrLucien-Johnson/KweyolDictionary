@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import {
   getFavouriteSlugs,
   toggleFavouriteSlug,
@@ -35,11 +36,10 @@ export function WordActions({
           className="btn btn--primary btn--md"
           onClick={() => {
             const next = toggleFavouriteSlug(slug);
-            setSaved(next.includes(slug));
+            const isSaved = next.includes(slug);
+            setSaved(isSaved);
             setStatus(
-              next.includes(slug)
-                ? "Saved to favourites"
-                : "Removed from favourites",
+              isSaved ? "Saved to favourites" : "Removed from favourites",
             );
           }}
           aria-pressed={saved}
@@ -53,14 +53,25 @@ export function WordActions({
           Contribute speech
         </a>
       </div>
+      {saved ? (
+        <p className="word-actions__hint">
+          <Link href="/dictionary/favourites">Open favourites</Link>
+          {" · "}
+          <Link href="/learn/flashcards?deck=favourites">Study flashcards</Link>
+        </p>
+      ) : null}
       <div className="word-actions__secondary" aria-label="More actions">
         <button
           type="button"
           className="btn btn--soft btn--sm"
           onClick={async () => {
             const text = `${kweyolWord} — ${englishTranslation}`;
-            await navigator.clipboard.writeText(text);
-            setStatus("Copied");
+            try {
+              await navigator.clipboard.writeText(text);
+              setStatus("Copied");
+            } catch {
+              setStatus("Could not copy — try selecting the text instead");
+            }
           }}
         >
           Copy
@@ -70,17 +81,30 @@ export function WordActions({
           className="btn btn--soft btn--sm"
           onClick={async () => {
             const url = window.location.href;
-            if (navigator.share) {
-              await navigator.share({
-                title: kweyolWord,
-                text: `${kweyolWord} — ${englishTranslation}`,
-                url,
-              });
-              setStatus("Shared");
-              return;
+            try {
+              if (navigator.share) {
+                await navigator.share({
+                  title: kweyolWord,
+                  text: `${kweyolWord} — ${englishTranslation}`,
+                  url,
+                });
+                setStatus("Shared");
+                return;
+              }
+              await navigator.clipboard.writeText(url);
+              setStatus("Link copied");
+            } catch (error) {
+              if (error instanceof DOMException && error.name === "AbortError") {
+                setStatus(null);
+                return;
+              }
+              try {
+                await navigator.clipboard.writeText(url);
+                setStatus("Link copied");
+              } catch {
+                setStatus("Could not share from this browser");
+              }
             }
-            await navigator.clipboard.writeText(url);
-            setStatus("Link copied");
           }}
         >
           Share
