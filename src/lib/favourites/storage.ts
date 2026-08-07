@@ -27,6 +27,21 @@ export function toggleFavouriteSlug(slug: string): string[] {
   return next;
 }
 
+export function addFavouriteSlugs(slugs: string[]): string[] {
+  const next = [...getFavouriteSlugs()];
+  for (const slug of slugs) {
+    if (!next.includes(slug)) next.push(slug);
+  }
+  setFavouriteSlugs(next);
+  return next;
+}
+
+export function removeFavouriteSlug(slug: string): string[] {
+  const next = getFavouriteSlugs().filter((item) => item !== slug);
+  setFavouriteSlugs(next);
+  return next;
+}
+
 export function getOrCreateClientKey(): string {
   const keyName = "kweyol-client-key";
   const existing = window.localStorage.getItem(keyName);

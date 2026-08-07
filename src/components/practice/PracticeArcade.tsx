@@ -25,6 +25,7 @@ import {
 } from "@/lib/practice/high-scores";
 import { joinTokens } from "@/lib/practice/sentence";
 import { ArcadeTimer } from "@/components/practice/ArcadeTimer";
+import { addFavouriteSlugs } from "@/lib/favourites/storage";
 
 type PracticeArcadeProps = {
   slug: string;
@@ -313,10 +314,21 @@ export function PracticeArcade({ slug }: PracticeArcadeProps) {
 
   if (phase === "results" && game) {
     const stars = starRating(score, Math.max(maxPossible, score));
+    const reviewed = Array.from(
+      new Map(
+        game.rounds.map((item) => [
+          item.entrySlug,
+          { slug: item.entrySlug, headword: item.headword, english: item.english },
+        ]),
+      ).values(),
+    );
+    const endedEarly = lives <= 0 && index < total - 1;
     return (
       <div className={`arcade-shell arcade-shell--${accent} ${isKids ? "arcade-shell--kids" : ""}`}>
         <div className="arcade-results">
-          <p className="arcade-lobby__eyebrow">Run complete</p>
+          <p className="arcade-lobby__eyebrow">
+            {endedEarly ? "Out of lives" : "Run complete"}
+          </p>
           <h1>{meta.title}</h1>
           <div className="arcade-stars" aria-label={`${stars} stars`}>
             {[1, 2, 3].map((value) => (
@@ -334,6 +346,32 @@ export function PracticeArcade({ slug }: PracticeArcadeProps) {
           {highScore != null ? (
             <p className="arcade-lobby__best">High score: {highScore}</p>
           ) : null}
+
+          {reviewed.length ? (
+            <section className="arcade-results__review" aria-label="Words to review">
+              <h2>Words from this run</h2>
+              <ul className="arcade-results__words">
+                {reviewed.map((word) => (
+                  <li key={word.slug}>
+                    <Link href={`/dictionary/${word.slug}`}>
+                      {word.headword}
+                    </Link>
+                    <span> — {word.english}</span>
+                  </li>
+                ))}
+              </ul>
+              <button
+                type="button"
+                className="btn btn--soft btn--md"
+                onClick={() => {
+                  addFavouriteSlugs(reviewed.map((word) => word.slug));
+                }}
+              >
+                Save these words to favourites
+              </button>
+            </section>
+          ) : null}
+
           <div className="arcade-lobby__actions">
             <button
               type="button"
@@ -351,6 +389,15 @@ export function PracticeArcade({ slug }: PracticeArcadeProps) {
             </button>
             <Link href="/practice" className="btn btn--soft btn--md">
               More games
+            </Link>
+            <Link
+              href={isKids ? "/children/" : "/dictionary/"}
+              className="btn btn--soft btn--md"
+            >
+              {isKids ? "Children’s dictionary" : "Browse dictionary"}
+            </Link>
+            <Link href="/dictionary/favourites" className="btn btn--soft btn--md">
+              Favourites
             </Link>
           </div>
         </div>

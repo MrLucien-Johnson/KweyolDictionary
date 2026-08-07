@@ -6,6 +6,7 @@ import { PROJECT_NAME } from "@/lib/content/editorial";
 
 const navItems = [
   { href: "/dictionary", label: "Dictionary", shortLabel: "Dictionary" },
+  { href: "/dictionary/favourites", label: "Favourites", shortLabel: "Saved" },
   { href: "/children", label: "Children’s", shortLabel: "Children" },
   { href: "/practice", label: "Practice", shortLabel: "Practice" },
   { href: "/learn", label: "Learn", shortLabel: "Learn" },
@@ -16,7 +17,13 @@ function pathMatches(pathname: string, href: string) {
   const normalized = pathname.replace(/\/$/, "") || "/";
   const target = href.replace(/\/$/, "") || "/";
   if (target === "/") return normalized === "/";
-  return normalized === target || normalized.startsWith(`${target}/`);
+  if (normalized === target) return true;
+  if (!normalized.startsWith(`${target}/`)) return false;
+  // Keep Favourites as its own nav state under /dictionary/*.
+  if (target === "/dictionary") {
+    return !normalized.startsWith("/dictionary/favourites");
+  }
+  return true;
 }
 
 export function SiteHeader() {

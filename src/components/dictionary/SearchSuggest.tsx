@@ -18,6 +18,10 @@ import {
   suggestEntries,
   type SearchSuggestion,
 } from "@/lib/search/suggest";
+import {
+  getRecentSearches,
+  pushRecentSearch,
+} from "@/lib/search/recent";
 import { withBasePath } from "@/lib/dictionary/filter-url";
 
 const COMPACT_QUERY = "(max-width: 720px)";
@@ -43,6 +47,10 @@ type SearchSuggestProps = {
   navigateOnSelect?: boolean;
   /** Called when a suggestion is chosen (after optional navigation). */
   onSelectSuggestion?: (suggestion: SearchSuggestion) => void;
+  /** Called when a recent search chip is chosen. */
+  onSelectRecent?: (query: string) => void;
+  /** Prefer English-oriented placeholder copy. */
+  englishFirst?: boolean;
   submitLabel?: string;
 };
 
@@ -81,11 +89,13 @@ export function SearchSuggest({
   value,
   onChange,
   onSubmitQuery,
-  placeholder = "Search Kwéyòl or English…",
+  placeholder,
   inputClassName,
   formClassName,
   navigateOnSelect = true,
   onSelectSuggestion,
+  onSelectRecent,
+  englishFirst = false,
   submitLabel = "Search",
 }: SearchSuggestProps) {
   const listId = useId();
@@ -95,7 +105,13 @@ export function SearchSuggest({
   const [open, setOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(-1);
   const [menuBox, setMenuBox] = useState<MenuBox | null>(null);
+  const [recent, setRecent] = useState<string[]>([]);
   const compact = useCompactViewport();
+  const resolvedPlaceholder =
+    placeholder ??
+    (englishFirst
+      ? "Search English meaning or Kwéyòl…"
+      : "Search Kwéyòl or English…");
 
   const catalog = useMemo(() => listEntries({}), []);
   const suggestionLimit = compact ? 5 : 8;
@@ -104,7 +120,16 @@ export function SearchSuggest({
     [catalog, suggestionLimit, value],
   );
 
+  useEffect(() => {
+    if (!open) return;
+    const frame = requestAnimationFrame(() => {
+      setRecent(getRecentSearches());
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [open, value]);
+
   const showList = open && value.trim().length >= 1 && suggestions.length > 0;
+  const showRecent = open && value.trim().length === 0 && recent.length > 0;
   // On small screens, keep the list in document flow so it never covers the field
   // (fixed portals + soft keyboards often overlap the focused input).
   const usePortal = showList && !compact;
@@ -205,6 +230,7 @@ export function SearchSuggest({
 
   function chooseSuggestion(suggestion: SearchSuggestion) {
     onChange(suggestion.kweyolWord);
+    pushRecentSearch(suggestion.kweyolWord);
     setOpen(false);
     onSelectSuggestion?.(suggestion);
     if (navigateOnSelect) {
@@ -214,9 +240,21 @@ export function SearchSuggest({
     onSubmitQuery(suggestion.kweyolWord);
   }
 
+  function chooseRecent(query: string) {
+    onChange(query);
+    pushRecentSearch(query);
+    setOpen(false);
+    if (onSelectRecent) {
+      onSelectRecent(query);
+      return;
+    }
+    onSubmitQuery(query);
+  }
+
   function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const query = value.trim();
+    if (query) pushRecentSearch(query);
     setOpen(false);
     onSubmitQuery(query);
   }
@@ -372,7 +410,7 @@ export function SearchSuggest({
           }}
           onFocus={() => setOpen(true)}
           onKeyDown={onKeyDown}
-          placeholder={placeholder}
+          placeholder={resolvedPlaceholder}
           className={inputClassName}
           autoComplete="off"
           autoCorrect="off"
@@ -385,6 +423,23 @@ export function SearchSuggest({
             activeIndex >= 0 ? `${listId}-option-${activeIndex}` : undefined
           }
         />
+        {showRecent ? (
+          <div className="search-suggest__recent" aria-label="Recent searches">
+            <span className="search-suggest__recent-label">Recent</span>
+            <div className="search-suggest__recent-chips">
+              {recent.map((item) => (
+                <button
+                  key={item}
+                  type="button"
+                  className="search-suggest__recent-chip"
+                  onClick={() => chooseRecent(item)}
+                >
+                  {item}
+                </button>
+              ))}
+            </div>
+          </div>
+        ) : null}
         {compact ? listbox : portaledListbox}
       </div>
       <button type="submit" className="btn btn--primary btn--md">

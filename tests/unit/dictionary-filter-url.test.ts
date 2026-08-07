@@ -40,6 +40,13 @@ describe("dictionary filter urls", () => {
     expect(countActiveDictionaryFilters({ q: "a", featured: true })).toBe(2);
     expect(countActiveDictionaryFilters({ hasAudio: false })).toBe(0);
     expect(countActiveDictionaryFilters({})).toBe(0);
+    expect(countActiveDictionaryFilters({ mode: "en" })).toBe(1);
+  });
+
+  it("builds English-first mode into the URL", () => {
+    expect(buildDictionaryHref({}, { mode: "en", q: "yes" })).toBe(
+      "/dictionary/?q=yes&mode=en",
+    );
   });
 
   it("detects when clearing query needs a hard navigation", () => {

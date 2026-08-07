@@ -9,6 +9,8 @@ export type DictionaryFilterState = {
   hasCulturalNotes?: boolean;
   featured?: boolean;
   recent?: boolean;
+  /** Prefer English gloss matching / sorting for English-first lookups. */
+  mode?: "en";
 };
 
 /** Path always uses a trailing slash so GitHub Pages static export matches. */
@@ -45,6 +47,7 @@ export function buildDictionaryHref(
   if (merged.hasCulturalNotes) params.set("cultural", "1");
   if (merged.featured) params.set("featured", "1");
   if (merged.recent) params.set("recent", "1");
+  if (merged.mode === "en") params.set("mode", "en");
 
   const query = params.toString();
   return query ? `/dictionary/?${query}` : "/dictionary/";
@@ -62,6 +65,7 @@ export function countActiveDictionaryFilters(filters: DictionaryFilterState) {
   if (filters.hasCulturalNotes) count += 1;
   if (filters.featured) count += 1;
   if (filters.recent) count += 1;
+  if (filters.mode === "en") count += 1;
   return count;
 }
 
