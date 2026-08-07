@@ -8,6 +8,7 @@ import {
 describe("recent searches", () => {
   afterEach(() => {
     clearRecentSearches();
+    clearRecentSearches("children");
   });
 
   it("stores newest first and dedupes case-insensitively", () => {
@@ -15,6 +16,13 @@ describe("recent searches", () => {
     pushRecentSearch("mesi");
     pushRecentSearch("BONJOU");
     expect(getRecentSearches()).toEqual(["BONJOU", "mesi"]);
+  });
+
+  it("keeps children recent searches in a separate scope", () => {
+    pushRecentSearch("bonjou");
+    pushRecentSearch("wouj", "children");
+    expect(getRecentSearches()).toEqual(["bonjou"]);
+    expect(getRecentSearches("children")).toEqual(["wouj"]);
   });
 
   it("ignores very short queries", () => {
