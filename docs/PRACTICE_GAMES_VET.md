@@ -62,6 +62,9 @@ Synthetic TTS and browser speech remain practice aids, not native authority.
    until the learner taps **Check sentence**.
 6. Child memory is a flip-to-match game (not an open answer key list).
 7. Colour tap activities use distinct swatches (not identical placeholders).
+8. Quit / lobby must cancel pending round-advance timers (no surprise results jump).
+9. URL-boot timed runs initialize `secondsLeft` so early answers still get speed bonus.
+10. Spelling Check must not farm stars on repeat presses after success.
 
 ## Continuous fix loop (agent prompt)
 

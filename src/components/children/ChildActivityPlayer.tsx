@@ -8,7 +8,10 @@ import {
   markActivityComplete,
   saveChildProgress,
 } from "@/lib/progress/child-progress";
-import { shuffleInPlace } from "@/lib/practice/sentence";
+import {
+  shuffleInPlace,
+  shuffleUntilDifferentOrder,
+} from "@/lib/practice/sentence";
 
 type ChildActivityPlayerProps = {
   slug: string;
@@ -31,6 +34,7 @@ type MemoryCard = {
   pairId: string;
   text: string;
 };
+type SpellingTile = { id: string; letter: string };
 
 const MEANING_SWATCHES: Record<string, string> = {
   red: "#c0392b",
@@ -72,11 +76,22 @@ export function ChildActivityPlayer({
         { key: `${card.id}-b`, pairId: card.id, text: card.match },
       ]),
     );
+    const kweyolColumn = shuffleInPlace([...nextPairs]);
+    const englishColumn = shuffleUntilDifferentOrder(
+      nextPairs,
+      kweyolColumn.map((pair) => pair.kweyol),
+      (pair) => pair.kweyol,
+    );
     return {
       pictureOptions: shuffleInPlace([...nextPrompts]),
-      kweyolColumn: shuffleInPlace([...nextPairs]),
-      englishColumn: shuffleInPlace([...nextPairs]),
-      spellingTiles: shuffleInPlace([...nextTiles]),
+      kweyolColumn,
+      englishColumn,
+      spellingTiles: shuffleInPlace(
+        nextTiles.map((letter, index) => ({
+          id: `${index}-${letter}`,
+          letter,
+        })),
+      ) as SpellingTile[],
       memoryDeck,
     };
   }, [config]);
@@ -89,20 +104,31 @@ export function ChildActivityPlayer({
   const memoryDeck = layout.memoryDeck;
 
   const [message, setMessage] = useState<string | null>(null);
+  const [messageOk, setMessageOk] = useState(false);
   const [choice, setChoice] = useState<string | null>(null);
   const [selectedKweyol, setSelectedKweyol] = useState<string | null>(null);
   const [matched, setMatched] = useState<string[]>([]);
   const [built, setBuilt] = useState("");
-  const [remainingSpellingTiles, setRemainingSpellingTiles] = useState<string[]>(
-    () => spellingTiles,
-  );
+  const [remainingSpellingTiles, setRemainingSpellingTiles] = useState<
+    SpellingTile[]
+  >(() => spellingTiles);
+  const [spellingDone, setSpellingDone] = useState(false);
   const [flipped, setFlipped] = useState<string[]>([]);
   const [memoryMatched, setMemoryMatched] = useState<string[]>([]);
   const [memoryLock, setMemoryLock] = useState(false);
 
+  function showStatus(text: string, ok: boolean) {
+    setMessage(text);
+    setMessageOk(ok);
+  }
+
   function complete(extraStars = 0) {
-    let progress = markActivityComplete(loadChildProgress(), slug);
-    if (extraStars) progress = awardStars(progress, extraStars);
+    let progress = loadChildProgress();
+    const alreadyDone = progress.completedActivities.includes(slug);
+    progress = markActivityComplete(progress, slug);
+    if (extraStars && !alreadyDone) {
+      progress = awardStars(progress, extraStars);
+    }
     if (
       activityType === "spelling-tiles" &&
       !progress.badges.includes("spelling-try")
@@ -113,7 +139,10 @@ export function ChildActivityPlayer({
       };
     }
     saveChildProgress(progress);
-    setMessage("Great job! You earned stars. Progress is saved on this device.");
+    showStatus(
+      "Great job! You earned stars. Progress is saved on this device.",
+      true,
+    );
   }
 
   function swatchFor(prompt: PicturePrompt) {
@@ -147,7 +176,7 @@ export function ChildActivityPlayer({
                     if (pictureTargetSlug && prompt.slug === pictureTargetSlug) {
                       complete();
                     } else {
-                      setMessage("Try again — you can do it!");
+                      showStatus("Try again — you can do it!", false);
                     }
                   }}
                 >
@@ -215,7 +244,7 @@ export function ChildActivityPlayer({
                       setMessage(null);
                       if (next.length === pairs.length) complete();
                     } else {
-                      setMessage("Not a match — try another pair.");
+                      showStatus("Not a match — try another pair.", false);
                     }
                   }}
                 >
@@ -234,19 +263,20 @@ export function ChildActivityPlayer({
             {built || "…"}
           </p>
           <div className="tile-row">
-            {remainingSpellingTiles.map((tile, index) => (
+            {remainingSpellingTiles.map((tile) => (
               <button
-                key={`${tile}-${index}-${remainingSpellingTiles.length}`}
+                key={tile.id}
                 type="button"
                 className="btn btn--secondary btn--md"
+                disabled={spellingDone}
                 onClick={() => {
-                  setBuilt((value) => value + tile);
+                  setBuilt((value) => value + tile.letter);
                   setRemainingSpellingTiles((current) =>
-                    current.filter((_, tileIndex) => tileIndex !== index),
+                    current.filter((item) => item.id !== tile.id),
                   );
                 }}
               >
-                {tile}
+                {tile.letter}
               </button>
             ))}
           </div>
@@ -254,6 +284,7 @@ export function ChildActivityPlayer({
             <button
               type="button"
               className="btn btn--soft btn--md"
+              disabled={spellingDone}
               onClick={() => {
                 setBuilt("");
                 setRemainingSpellingTiles([...spellingTiles]);
@@ -264,9 +295,14 @@ export function ChildActivityPlayer({
             <button
               type="button"
               className="btn btn--primary btn--md"
+              disabled={spellingDone}
               onClick={() => {
-                if (built === spellingTarget) complete(1);
-                else setMessage("Almost! Clear and try again.");
+                if (built === spellingTarget) {
+                  setSpellingDone(true);
+                  complete(1);
+                } else {
+                  showStatus("Almost! Clear and try again.", false);
+                }
               }}
             >
               Check
@@ -320,7 +356,7 @@ export function ChildActivityPlayer({
                     window.setTimeout(() => {
                       setFlipped([]);
                       setMemoryLock(false);
-                      setMessage("Not a match — try again.");
+                      showStatus("Not a match — try again.", false);
                     }, 700);
                   }}
                 >
@@ -355,7 +391,14 @@ export function ChildActivityPlayer({
       ) : null}
 
       {message ? (
-        <p role="status" className="quiz-feedback quiz-feedback--ok">
+        <p
+          role="status"
+          className={
+            messageOk
+              ? "quiz-feedback quiz-feedback--ok"
+              : "quiz-feedback quiz-feedback--bad"
+          }
+        >
           {message}
         </p>
       ) : null}

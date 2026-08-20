@@ -35,7 +35,7 @@ type PracticeArcadeProps = {
 type RoundUiState = {
   selected: string | null;
   tilePicks: string[];
-  remainingTiles: string[];
+  remainingTiles: { id: string; token: string }[];
   checked: boolean;
   timedOut: boolean;
 };
@@ -51,7 +51,10 @@ function initialUiForRound(round: PracticeRound | undefined): RoundUiState {
     return {
       selected: null,
       tilePicks: [],
-      remainingTiles: [...round.shuffledTokens],
+      remainingTiles: round.shuffledTokens.map((token, index) => ({
+        id: `${index}-${token}`,
+        token,
+      })),
       checked: false,
       timedOut: false,
     };
@@ -93,13 +96,21 @@ export function PracticeArcade({ slug }: PracticeArcadeProps) {
   const [streak, setStreak] = useState(0);
   const [bestStreak, setBestStreak] = useState(0);
   const [correctCount, setCorrectCount] = useState(0);
-  const [secondsLeft, setSecondsLeft] = useState<number | null>(null);
+  const [secondsLeft, setSecondsLeft] = useState<number | null>(() =>
+    urlDifficulty
+      ? PRACTICE_DIFFICULTY_CONFIG[bootDifficulty].secondsPerRound || null
+      : null,
+  );
   const [floatScores, setFloatScores] = useState<FloatScore[]>([]);
   const [pulse, setPulse] = useState<"ok" | "bad" | null>(null);
   const [scoreBoardTick, setScoreBoardTick] = useState(0);
   const [lobbyError, setLobbyError] = useState<string | null>(null);
   const floatId = useRef(0);
   const resolving = useRef(false);
+  const advanceTimerRef = useRef<number | null>(null);
+  const phaseRef = useRef<"lobby" | "play" | "results">(
+    urlDifficulty ? "play" : "lobby",
+  );
 
   const config = PRACTICE_DIFFICULTY_CONFIG[difficulty];
   const isKids = meta?.audience === "CHILD";
@@ -110,6 +121,18 @@ export function PracticeArcade({ slug }: PracticeArcadeProps) {
 
   const round = game?.rounds[index];
   const total = game?.rounds.length ?? 0;
+
+  function clearAdvanceTimer() {
+    if (advanceTimerRef.current != null) {
+      window.clearTimeout(advanceTimerRef.current);
+      advanceTimerRef.current = null;
+    }
+  }
+
+  function setArcadePhase(next: "lobby" | "play" | "results") {
+    phaseRef.current = next;
+    setPhase(next);
+  }
 
   const maxPossible = useMemo(() => {
     if (!game) return 0;
@@ -144,6 +167,7 @@ export function PracticeArcade({ slug }: PracticeArcadeProps) {
       );
       return;
     }
+    clearAdvanceTimer();
     setLobbyError(null);
     setDifficulty(nextDifficulty);
     setGame(built);
@@ -159,7 +183,7 @@ export function PracticeArcade({ slug }: PracticeArcadeProps) {
       PRACTICE_DIFFICULTY_CONFIG[nextDifficulty].secondsPerRound || null,
     );
     resolving.current = false;
-    setPhase("play");
+    setArcadePhase("play");
     const url = new URL(window.location.href);
     url.searchParams.set("difficulty", nextDifficulty);
     window.history.replaceState({}, "", url.toString());
@@ -182,7 +206,13 @@ export function PracticeArcade({ slug }: PracticeArcadeProps) {
       stars,
     });
     setScoreBoardTick((value) => value + 1);
-    setPhase("results");
+    setArcadePhase("results");
+  }
+
+  function quitToLobby() {
+    clearAdvanceTimer();
+    resolving.current = false;
+    setArcadePhase("lobby");
   }
 
   function resolveRound(ok: boolean, timedOut = false) {
@@ -223,13 +253,18 @@ export function PracticeArcade({ slug }: PracticeArcadeProps) {
     setLives(nextLives);
     setUi((current) => ({ ...current, checked: true, timedOut }));
 
-    window.setTimeout(() => {
+    clearAdvanceTimer();
+    const scheduledGame = game;
+    const scheduledIndex = index;
+    advanceTimerRef.current = window.setTimeout(() => {
+      advanceTimerRef.current = null;
+      if (phaseRef.current !== "play") return;
       const stars = starRating(nextScore, Math.max(maxPossible, nextScore));
-      if (nextLives <= 0 || index + 1 >= game.rounds.length) {
+      if (nextLives <= 0 || scheduledIndex + 1 >= scheduledGame.rounds.length) {
         finishRun(nextScore, stars);
         return;
       }
-      goToRound(index + 1, game);
+      goToRound(scheduledIndex + 1, scheduledGame);
     }, ok ? 650 : 900);
   }
 
@@ -403,7 +438,7 @@ export function PracticeArcade({ slug }: PracticeArcadeProps) {
             <button
               type="button"
               className="btn btn--soft btn--md"
-              onClick={() => setPhase("lobby")}
+              onClick={quitToLobby}
             >
               Change difficulty
             </button>
@@ -429,7 +464,7 @@ export function PracticeArcade({ slug }: PracticeArcadeProps) {
     return (
       <div className="empty-state">
         <h2>Could not start this game</h2>
-        <button type="button" className="btn btn--soft btn--md" onClick={() => setPhase("lobby")}>
+        <button type="button" className="btn btn--soft btn--md" onClick={quitToLobby}>
           Back
         </button>
       </div>
@@ -568,26 +603,36 @@ export function PracticeArcade({ slug }: PracticeArcadeProps) {
                 : "Tap tiles in order…"}
             </div>
             <div className="arcade-tiles" role="group" aria-label="Word tiles">
-              {ui.remainingTiles.map((token, tokenIndex) => (
+              {ui.remainingTiles.map((piece) => (
                 <button
-                  key={`${token}-${tokenIndex}-${ui.remainingTiles.length}`}
+                  key={piece.id}
                   type="button"
                   className="arcade-tile"
                   disabled={ui.checked}
                   onClick={() => {
-                    const nextPicks = [...ui.tilePicks, token];
-                    const nextRemaining = ui.remainingTiles.filter(
-                      (_, i) => i !== tokenIndex,
-                    );
-                    setUi((current) => ({
-                      ...current,
-                      tilePicks: nextPicks,
-                      remainingTiles: nextRemaining,
-                    }));
-                    tryAutoCheckTiles(nextPicks, currentRound.correctTokens);
+                    if (resolving.current || ui.checked) return;
+                    let nextPicks: string[] = [];
+                    setUi((current) => {
+                      if (current.checked) return current;
+                      const selected = current.remainingTiles.find(
+                        (item) => item.id === piece.id,
+                      );
+                      if (!selected) return current;
+                      nextPicks = [...current.tilePicks, selected.token];
+                      return {
+                        ...current,
+                        tilePicks: nextPicks,
+                        remainingTiles: current.remainingTiles.filter(
+                          (item) => item.id !== piece.id,
+                        ),
+                      };
+                    });
+                    if (nextPicks.length) {
+                      tryAutoCheckTiles(nextPicks, currentRound.correctTokens);
+                    }
                   }}
                 >
-                  {token}
+                  {piece.token}
                 </button>
               ))}
             </div>
@@ -599,11 +644,17 @@ export function PracticeArcade({ slug }: PracticeArcadeProps) {
                   onClick={() => {
                     setUi((current) => {
                       if (!current.tilePicks.length) return current;
-                      const last = current.tilePicks[current.tilePicks.length - 1];
+                      const last = current.tilePicks[current.tilePicks.length - 1]!;
                       return {
                         ...current,
                         tilePicks: current.tilePicks.slice(0, -1),
-                        remainingTiles: [...current.remainingTiles, last],
+                        remainingTiles: [
+                          ...current.remainingTiles,
+                          {
+                            id: `undo-${current.tilePicks.length}-${last}`,
+                            token: last,
+                          },
+                        ],
                       };
                     });
                   }}
@@ -656,7 +707,7 @@ export function PracticeArcade({ slug }: PracticeArcadeProps) {
             Word link unlocks after this round
           </span>
         )}
-        <button type="button" className="text-link" onClick={() => setPhase("lobby")}>
+        <button type="button" className="text-link" onClick={quitToLobby}>
           Quit to lobby
         </button>
       </div>
