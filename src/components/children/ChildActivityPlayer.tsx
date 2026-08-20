@@ -8,6 +8,7 @@ import {
   markActivityComplete,
   saveChildProgress,
 } from "@/lib/progress/child-progress";
+import { shuffleInPlace } from "@/lib/practice/sentence";
 
 type ChildActivityPlayerProps = {
   slug: string;
@@ -15,6 +16,9 @@ type ChildActivityPlayerProps = {
   activityType: string;
   configJson: string | null;
 };
+
+type PicturePrompt = { slug: string; label: string; meaning: string };
+type MatchPair = { kweyol: string; english: string };
 
 export function ChildActivityPlayer({
   slug,
@@ -30,12 +34,30 @@ export function ChildActivityPlayer({
     }
   }, [configJson]);
 
-  const prompts =
-    (config.prompts as { slug: string; label: string; meaning: string }[]) ?? [];
-  const pairs = (config.pairs as { kweyol: string; english: string }[]) ?? [];
+  const prompts = (config.prompts as PicturePrompt[]) ?? [];
+  const pairs = (config.pairs as MatchPair[]) ?? [];
   const cards = (config.cards as { id: string; face: string; match: string }[]) ?? [];
   const spellingTarget = String(config.target ?? "");
   const tiles = (config.tiles as string[]) ?? [];
+
+  // Shuffle once per activity config so option order never spoils the answer.
+  const layout = useMemo(() => {
+    const nextPrompts = (config.prompts as PicturePrompt[]) ?? [];
+    const nextPairs = (config.pairs as MatchPair[]) ?? [];
+    const nextTiles = (config.tiles as string[]) ?? [];
+    return {
+      pictureOptions: shuffleInPlace([...nextPrompts]),
+      kweyolColumn: shuffleInPlace([...nextPairs]),
+      englishColumn: shuffleInPlace([...nextPairs]),
+      spellingTiles: shuffleInPlace([...nextTiles]),
+    };
+  }, [config]);
+
+  const pictureOptions = layout.pictureOptions;
+  const pictureTargetSlug = prompts[0]?.slug ?? null;
+  const kweyolColumn = layout.kweyolColumn;
+  const englishColumn = layout.englishColumn;
+  const spellingTiles = layout.spellingTiles;
 
   const [message, setMessage] = useState<string | null>(null);
   const [choice, setChoice] = useState<string | null>(null);
@@ -66,18 +88,22 @@ export function ChildActivityPlayer({
       {(activityType === "tap-picture" || activityType === "picture-quiz") && (
         <>
           <p className="section-lead">
-            Tap the picture that matches <strong>{prompts[0]?.label}</strong>.
+            Tap the picture that matches{" "}
+            <strong>{prompts[0]?.label}</strong>.
           </p>
           <div className="child-word-grid">
-            {prompts.map((prompt) => (
+            {pictureOptions.map((prompt) => (
               <button
                 key={prompt.slug}
                 type="button"
                 className={`child-word-card ${choice === prompt.slug ? "is-selected" : ""}`}
                 onClick={() => {
                   setChoice(prompt.slug);
-                  if (prompt.slug === prompts[0]?.slug) complete();
-                  else setMessage("Try again — you can do it!");
+                  if (pictureTargetSlug && prompt.slug === pictureTargetSlug) {
+                    complete();
+                  } else {
+                    setMessage("Try again — you can do it!");
+                  }
                 }}
               >
                 <PublicImage
@@ -98,7 +124,7 @@ export function ChildActivityPlayer({
           <p className="section-lead">Match each Kwéyòl word to English.</p>
           <div className="match-board">
             <div className="match-board__col">
-              {pairs.map((pair) => (
+              {kweyolColumn.map((pair) => (
                 <button
                   key={pair.kweyol}
                   type="button"
@@ -111,7 +137,7 @@ export function ChildActivityPlayer({
               ))}
             </div>
             <div className="match-board__col">
-              {pairs.map((pair) => (
+              {englishColumn.map((pair) => (
                 <button
                   key={pair.english}
                   type="button"
@@ -143,7 +169,7 @@ export function ChildActivityPlayer({
             {built || "…"}
           </p>
           <div className="tile-row">
-            {tiles.map((tile, index) => (
+            {spellingTiles.map((tile, index) => (
               <button
                 key={`${tile}-${index}`}
                 type="button"

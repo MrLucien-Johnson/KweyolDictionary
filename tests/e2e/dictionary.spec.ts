@@ -108,5 +108,8 @@ test("practice hub opens arcade lobby and starts a game", async ({ page }) => {
   await expect(page.getByRole("button", { name: /start/i })).toBeVisible();
   await page.getByRole("button", { name: /start/i }).click();
   await expect(page.getByText(/score/i).first()).toBeVisible();
-  await expect(page.getByText(/focus/i).first()).toBeVisible();
+  // Pre-answer stage must not reveal Focus headword / gloss.
+  await expect(page.getByText(/fill the blank|rebuild the sentence/i).first()).toBeVisible();
+  await expect(page.getByText(/^focus$/i)).toHaveCount(0);
+  await expect(page.getByRole("link", { name: /open word/i })).toHaveCount(0);
 });
