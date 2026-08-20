@@ -10,6 +10,7 @@ import {
   pickDistractors,
   shuffleInPlace,
   tokenizeSentence,
+  tokenMatchesHeadword,
 } from "@/lib/practice/sentence";
 
 export type PracticeAudience = "ADULT" | "CHILD" | "BOTH";
@@ -183,8 +184,9 @@ function buildClozeRound(
   if (index < 0) return null;
 
   const correctOption = entry.kweyolWord;
-  const promptTokens = [...tokens];
-  promptTokens[index] = "______";
+  const promptTokens = tokens.map((token) =>
+    tokenMatchesHeadword(token, entry.kweyolWord) ? "______" : token,
+  );
   const chosen = pickDistractors(
     correctOption,
     pool.map((row) => row.kweyolWord),

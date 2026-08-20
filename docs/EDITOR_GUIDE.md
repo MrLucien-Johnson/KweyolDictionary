@@ -84,6 +84,8 @@ Public visitors normally see **Approved** only.
 
 These are managed in the database/admin tools. Keep quiz answers inside the quiz only. Never publish answer keys on ordinary information pages.
 
+For practice arcade and children’s activity spoilers, follow `docs/PRACTICE_GAMES_VET.md` and keep `tests/unit/practice-anti-spoiler.test.ts` green.
+
 ## Import and export
 
 Use **Import / export** in admin to download JSON backups or upload reviewed batches. New imports default to Draft unless a status is included.

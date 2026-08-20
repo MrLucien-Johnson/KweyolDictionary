@@ -48,6 +48,11 @@ export function findHeadwordTokenIndex(
   });
 }
 
+/** Whether a single token is the headword (including mango-a style forms). */
+export function tokenMatchesHeadword(token: string, headword: string): boolean {
+  return findHeadwordTokenIndex([token], headword) === 0;
+}
+
 export function shuffleInPlace<T>(items: T[], random = Math.random): T[] {
   for (let i = items.length - 1; i > 0; i -= 1) {
     const j = Math.floor(random() * (i + 1));

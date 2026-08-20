@@ -68,6 +68,15 @@ export default function PracticeHubPage() {
       <ContentAccuracyNotice variant="panel" />
 
       <section className="learn-section">
+        <h2 className="section-title">How rounds work</h2>
+        <p className="section-lead">
+          Answers stay hidden until you choose. Fill-the-blank and sentence
+          rebuild rounds reveal the focus word only after you check — so you
+          practise from the sentence, not from a spoiler at the top.
+        </p>
+      </section>
+
+      <section className="learn-section">
         <h2 className="section-title">Difficulty</h2>
         <div className="arcade-legend">
           <div>

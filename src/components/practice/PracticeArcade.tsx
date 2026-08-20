@@ -473,12 +473,25 @@ export function PracticeArcade({ slug }: PracticeArcadeProps) {
         ))}
 
         <div className="arcade-stage__word">
-          <p>
-            <span className="arcade-stage__label">Focus</span>{" "}
-            <strong>{currentRound.headword}</strong>
-            <span className="arcade-stage__gloss"> · {currentRound.english}</span>
-          </p>
-          {audioSrc ? (
+          {ui.checked ? (
+            <p>
+              <span className="arcade-stage__label">Focus</span>{" "}
+              <strong>{currentRound.headword}</strong>
+              <span className="arcade-stage__gloss">
+                {" "}
+                · {currentRound.english}
+              </span>
+            </p>
+          ) : (
+            <p>
+              <span className="arcade-stage__label">
+                {currentRound.type === "sentence-cloze"
+                  ? "Fill the blank"
+                  : "Rebuild the sentence"}
+              </span>
+            </p>
+          )}
+          {ui.checked && audioSrc ? (
             <AudioButton
               src={audioSrc}
               label={`Play ${currentRound.headword}`}
@@ -605,9 +618,15 @@ export function PracticeArcade({ slug }: PracticeArcadeProps) {
       </div>
 
       <div className="arcade-footer-links">
-        <Link href={`/dictionary/${currentRound.entrySlug}`} className="text-link">
-          Open word
-        </Link>
+        {ui.checked ? (
+          <Link href={`/dictionary/${currentRound.entrySlug}`} className="text-link">
+            Open word
+          </Link>
+        ) : (
+          <span className="arcade-footer-links__muted">
+            Word link unlocks after this round
+          </span>
+        )}
         <button type="button" className="text-link" onClick={() => setPhase("lobby")}>
           Quit to lobby
         </button>
