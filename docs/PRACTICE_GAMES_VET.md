@@ -56,24 +56,28 @@ Synthetic TTS and browser speech remain practice aids, not native authority.
 
 1. Correct option / sentence is shown in feedback.
 2. Wrong picks are marked without trapping the player (lives / next round).
-3. Results review can deep-link to dictionary entries.
+3. Results review can deep-link to dictionary entries (played rounds only).
 4. Favourites / save flows still work from results.
+5. Tile builds: correct sentences may auto-check; wrong full builds stay editable
+   until the learner taps **Check sentence**.
+6. Child memory is a flip-to-match game (not an open answer key list).
+7. Colour tap activities use distinct swatches (not identical placeholders).
 
 ## Continuous fix loop (agent prompt)
 
 Copy this when asking an agent to keep improving games:
 
 > Vet practice and children’s games against `docs/PRACTICE_GAMES_VET.md`. Play or
-> read each mode for answer leakage before check. Fix every leak found. Extend
-> `tests/unit/practice-anti-spoiler.test.ts` (and e2e if needed) so the same
-> class of bug cannot return. Keep difficulty behaviour intact. Commit and open
-> a focused PR.
+> read each mode for answer leakage and logic bugs before check. Fix every issue
+> found. Extend `tests/unit/practice-anti-spoiler.test.ts` / `practice-games.test.ts`
+> (and e2e if needed) so the same class of bug cannot return. Keep difficulty
+> behaviour intact. Commit and open a focused PR.
+
 
 ## Known intentional behaviours
 
 - Easy / Medium show the **English example sentence** as a hint (not the Kwéyòl blank).
 - Client-side games can still hold answers in React state (GitHub Pages has no
   secret answer API). Secrecy target is **visible UI / labels / option order**.
-- Memory child activities that openly list pairs are review sheets, not scored
-  recall games — do not treat that list as an arcade spoiler unless the activity
-  is later turned into a hidden-card memory game.
+- Unknown / future child activity types may show a teacher-complete fallback;
+  scored memory must hide cards until flipped.

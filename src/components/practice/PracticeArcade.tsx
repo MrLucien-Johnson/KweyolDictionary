@@ -241,7 +241,17 @@ export function PracticeArcade({ slug }: PracticeArcadeProps) {
 
   function tryAutoCheckTiles(nextPicks: string[], correctTokens: string[]) {
     if (nextPicks.length !== correctTokens.length) return;
-    resolveRound(joinTokens(nextPicks) === joinTokens(correctTokens));
+    // Only auto-resolve when the sentence is correct. Wrong full builds stay
+    // editable so learners can Undo instead of losing a life on the last tap.
+    if (joinTokens(nextPicks) === joinTokens(correctTokens)) {
+      resolveRound(true);
+    }
+  }
+
+  function checkTilesManually() {
+    if (!round || round.type !== "sentence-tiles" || ui.checked) return;
+    if (ui.tilePicks.length !== round.correctTokens.length) return;
+    resolveRound(joinTokens(ui.tilePicks) === joinTokens(round.correctTokens));
   }
 
   if (!meta) {
@@ -607,6 +617,15 @@ export function PracticeArcade({ slug }: PracticeArcadeProps) {
                 >
                   Reset
                 </button>
+                {ui.tilePicks.length === currentRound.correctTokens.length ? (
+                  <button
+                    type="button"
+                    className="btn btn--primary btn--md"
+                    onClick={checkTilesManually}
+                  >
+                    Check sentence
+                  </button>
+                ) : null}
               </div>
             ) : null}
           </>

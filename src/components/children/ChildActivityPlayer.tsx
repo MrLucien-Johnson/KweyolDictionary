@@ -17,8 +17,30 @@ type ChildActivityPlayerProps = {
   configJson: string | null;
 };
 
-type PicturePrompt = { slug: string; label: string; meaning: string };
+type PicturePrompt = {
+  slug: string;
+  label: string;
+  meaning: string;
+  swatch?: string;
+  image?: string;
+};
 type MatchPair = { kweyol: string; english: string };
+type MemoryCardSeed = { id: string; face: string; match: string };
+type MemoryCard = {
+  key: string;
+  pairId: string;
+  text: string;
+};
+
+const MEANING_SWATCHES: Record<string, string> = {
+  red: "#c0392b",
+  blue: "#2471a3",
+  yellow: "#f4d03f",
+  green: "#1e8449",
+  white: "#f7f9f8",
+  black: "#1c2833",
+  orange: "#e67e22",
+};
 
 export function ChildActivityPlayer({
   slug,
@@ -36,19 +58,26 @@ export function ChildActivityPlayer({
 
   const prompts = (config.prompts as PicturePrompt[]) ?? [];
   const pairs = (config.pairs as MatchPair[]) ?? [];
-  const cards = (config.cards as { id: string; face: string; match: string }[]) ?? [];
+  const cards = (config.cards as MemoryCardSeed[]) ?? [];
   const spellingTarget = String(config.target ?? "");
 
-  // Shuffle once per activity config so option order never spoils the answer.
   const layout = useMemo(() => {
     const nextPrompts = (config.prompts as PicturePrompt[]) ?? [];
     const nextPairs = (config.pairs as MatchPair[]) ?? [];
     const nextTiles = (config.tiles as string[]) ?? [];
+    const memorySeed = (config.cards as MemoryCardSeed[]) ?? [];
+    const memoryDeck: MemoryCard[] = shuffleInPlace(
+      memorySeed.flatMap((card) => [
+        { key: `${card.id}-a`, pairId: card.id, text: card.face },
+        { key: `${card.id}-b`, pairId: card.id, text: card.match },
+      ]),
+    );
     return {
       pictureOptions: shuffleInPlace([...nextPrompts]),
       kweyolColumn: shuffleInPlace([...nextPairs]),
       englishColumn: shuffleInPlace([...nextPairs]),
       spellingTiles: shuffleInPlace([...nextTiles]),
+      memoryDeck,
     };
   }, [config]);
 
@@ -57,6 +86,7 @@ export function ChildActivityPlayer({
   const kweyolColumn = layout.kweyolColumn;
   const englishColumn = layout.englishColumn;
   const spellingTiles = layout.spellingTiles;
+  const memoryDeck = layout.memoryDeck;
 
   const [message, setMessage] = useState<string | null>(null);
   const [choice, setChoice] = useState<string | null>(null);
@@ -66,6 +96,9 @@ export function ChildActivityPlayer({
   const [remainingSpellingTiles, setRemainingSpellingTiles] = useState<string[]>(
     () => spellingTiles,
   );
+  const [flipped, setFlipped] = useState<string[]>([]);
+  const [memoryMatched, setMemoryMatched] = useState<string[]>([]);
+  const [memoryLock, setMemoryLock] = useState(false);
 
   function complete(extraStars = 0) {
     let progress = markActivityComplete(loadChildProgress(), slug);
@@ -83,6 +116,14 @@ export function ChildActivityPlayer({
     setMessage("Great job! You earned stars. Progress is saved on this device.");
   }
 
+  function swatchFor(prompt: PicturePrompt) {
+    return (
+      prompt.swatch ||
+      MEANING_SWATCHES[prompt.meaning.toLowerCase()] ||
+      null
+    );
+  }
+
   return (
     <div className="activity-player">
       <h1>{title}</h1>
@@ -94,29 +135,42 @@ export function ChildActivityPlayer({
             <strong>{prompts[0]?.label}</strong>.
           </p>
           <div className="child-word-grid">
-            {pictureOptions.map((prompt) => (
-              <button
-                key={prompt.slug}
-                type="button"
-                className={`child-word-card ${choice === prompt.slug ? "is-selected" : ""}`}
-                onClick={() => {
-                  setChoice(prompt.slug);
-                  if (pictureTargetSlug && prompt.slug === pictureTargetSlug) {
-                    complete();
-                  } else {
-                    setMessage("Try again — you can do it!");
-                  }
-                }}
-              >
-                <PublicImage
-                  src="/images/placeholders/colours.svg"
-                  alt={prompt.meaning}
-                  width={180}
-                  height={180}
-                />
-                <span>{prompt.meaning}</span>
-              </button>
-            ))}
+            {pictureOptions.map((prompt) => {
+              const swatch = swatchFor(prompt);
+              return (
+                <button
+                  key={prompt.slug}
+                  type="button"
+                  className={`child-word-card ${choice === prompt.slug ? "is-selected" : ""}`}
+                  onClick={() => {
+                    setChoice(prompt.slug);
+                    if (pictureTargetSlug && prompt.slug === pictureTargetSlug) {
+                      complete();
+                    } else {
+                      setMessage("Try again — you can do it!");
+                    }
+                  }}
+                >
+                  {swatch ? (
+                    <span
+                      className="child-word-card__swatch"
+                      style={{ background: swatch }}
+                      aria-hidden="true"
+                    />
+                  ) : (
+                    <PublicImage
+                      src={
+                        prompt.image ?? "/images/placeholders/colours.svg"
+                      }
+                      alt={prompt.meaning}
+                      width={180}
+                      height={180}
+                    />
+                  )}
+                  <span>{prompt.meaning}</span>
+                </button>
+              );
+            })}
           </div>
         </>
       )}
@@ -137,7 +191,10 @@ export function ChildActivityPlayer({
                   }
                   aria-pressed={selectedKweyol === pair.kweyol}
                   disabled={matched.includes(pair.kweyol)}
-                  onClick={() => setSelectedKweyol(pair.kweyol)}
+                  onClick={() => {
+                    setMessage(null);
+                    setSelectedKweyol(pair.kweyol);
+                  }}
                 >
                   {pair.kweyol}
                 </button>
@@ -155,6 +212,7 @@ export function ChildActivityPlayer({
                       const next = [...matched, pair.kweyol];
                       setMatched(next);
                       setSelectedKweyol(null);
+                      setMessage(null);
                       if (next.length === pairs.length) complete();
                     } else {
                       setMessage("Not a match — try another pair.");
@@ -217,21 +275,75 @@ export function ChildActivityPlayer({
         </>
       )}
 
-      {(activityType === "memory" ||
-        !["tap-picture", "picture-quiz", "match-pairs", "spelling-tiles"].includes(
-          activityType,
-        )) && (
+      {activityType === "memory" && (
         <>
           <p className="section-lead">
-            Memory / picture practice. Review the pairs, then mark complete.
+            Flip two cards. Match each Kwéyòl word with its English meaning.
           </p>
-          <ul className="plain-list">
-            {cards.map((card) => (
-              <li key={card.id}>
-                <strong>{card.face}</strong> ↔ {card.match}
-              </li>
-            ))}
-          </ul>
+          <div className="memory-grid" role="group" aria-label="Memory cards">
+            {memoryDeck.map((card) => {
+              const isMatched = memoryMatched.includes(card.pairId);
+              const isFlipped = isMatched || flipped.includes(card.key);
+              return (
+                <button
+                  key={card.key}
+                  type="button"
+                  className={
+                    isFlipped
+                      ? "memory-card is-flipped"
+                      : "memory-card"
+                  }
+                  disabled={isMatched || memoryLock || isFlipped}
+                  onClick={() => {
+                    if (memoryLock || isMatched || flipped.includes(card.key)) {
+                      return;
+                    }
+                    setMessage(null);
+                    const nextFlipped = [...flipped, card.key];
+                    setFlipped(nextFlipped);
+                    if (nextFlipped.length < 2) return;
+
+                    const [firstKey, secondKey] = nextFlipped;
+                    const first = memoryDeck.find((item) => item.key === firstKey);
+                    const second = memoryDeck.find((item) => item.key === secondKey);
+                    if (!first || !second) return;
+
+                    if (first.pairId === second.pairId) {
+                      const nextMatched = [...memoryMatched, first.pairId];
+                      setMemoryMatched(nextMatched);
+                      setFlipped([]);
+                      if (nextMatched.length === cards.length) complete(1);
+                      return;
+                    }
+
+                    setMemoryLock(true);
+                    window.setTimeout(() => {
+                      setFlipped([]);
+                      setMemoryLock(false);
+                      setMessage("Not a match — try again.");
+                    }, 700);
+                  }}
+                >
+                  <span className="memory-card__face">
+                    {isFlipped ? card.text : "?"}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </>
+      )}
+
+      {activityType !== "tap-picture" &&
+      activityType !== "picture-quiz" &&
+      activityType !== "match-pairs" &&
+      activityType !== "spelling-tiles" &&
+      activityType !== "memory" ? (
+        <>
+          <p className="section-lead">
+            This activity type is not playable yet. Mark complete when you have
+            reviewed it with a teacher.
+          </p>
           <button
             type="button"
             className="btn btn--primary btn--lg"
@@ -240,7 +352,7 @@ export function ChildActivityPlayer({
             I finished this activity
           </button>
         </>
-      )}
+      ) : null}
 
       {message ? (
         <p role="status" className="quiz-feedback quiz-feedback--ok">

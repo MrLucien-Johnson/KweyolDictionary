@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-20T12:13:15.717Z",
+  "generatedAt": "2026-08-20T12:15:25.250Z",
   "language": "Dominican Kwéyòl",
   "entries": [
     {
@@ -22565,11 +22565,11 @@
     {
       "slug": "tap-picture-colours",
       "title": "Tap the colour",
-      "description": "Hear or read a colour word and choose the matching picture card.",
+      "description": "Read a colour word and choose the matching colour card.",
       "activityType": "tap-picture",
       "ageBand": "EARLY_4_6",
       "categoryKey": "colours",
-      "configJson": "{\"prompts\":[{\"slug\":\"wouj\",\"label\":\"wouj\",\"meaning\":\"red\"},{\"slug\":\"ble\",\"label\":\"blé\",\"meaning\":\"blue\"}]}",
+      "configJson": "{\"prompts\":[{\"slug\":\"wouj\",\"label\":\"wouj\",\"meaning\":\"red\"},{\"slug\":\"ble\",\"label\":\"blé\",\"meaning\":\"blue\"},{\"slug\":\"jon\",\"label\":\"jòn\",\"meaning\":\"yellow\"}]}",
       "reviewStatus": "APPROVED"
     },
     {
@@ -22579,17 +22579,17 @@
       "activityType": "match-pairs",
       "ageBand": "EARLY_4_6",
       "categoryKey": "family",
-      "configJson": "{\"pairs\":[{\"kweyol\":\"maman\",\"english\":\"mother\"},{\"kweyol\":\"papa\",\"english\":\"father\"}]}",
+      "configJson": "{\"pairs\":[{\"kweyol\":\"maman\",\"english\":\"mother\"},{\"kweyol\":\"papa\",\"english\":\"father\"},{\"kweyol\":\"sè\",\"english\":\"sister\"},{\"kweyol\":\"frè\",\"english\":\"brother\"}]}",
       "reviewStatus": "APPROVED"
     },
     {
       "slug": "memory-food",
       "title": "Food memory cards",
-      "description": "Find matching Kwéyòl and English food cards.",
+      "description": "Flip cards to match Kwéyòl food words with English.",
       "activityType": "memory",
       "ageBand": "GROWING_7_9",
       "categoryKey": "food",
-      "configJson": "{\"cards\":[{\"id\":\"dlo\",\"face\":\"dlo\",\"match\":\"water\"},{\"id\":\"manje\",\"face\":\"manjé\",\"match\":\"food\"}]}",
+      "configJson": "{\"cards\":[{\"id\":\"dlo\",\"face\":\"dlo\",\"match\":\"water\"},{\"id\":\"manje\",\"face\":\"manjé\",\"match\":\"food\"},{\"id\":\"pwason\",\"face\":\"pwason\",\"match\":\"fish\"}]}",
       "reviewStatus": "APPROVED"
     },
     {
