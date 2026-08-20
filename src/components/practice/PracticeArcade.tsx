@@ -69,28 +69,25 @@ export function PracticeArcade({ slug }: PracticeArcadeProps) {
   const meta = getPracticeGameMeta(slug);
   const searchParams = useSearchParams();
   const urlDifficulty = parsePracticeDifficulty(searchParams.get("difficulty"));
+  const bootDifficulty =
+    urlDifficulty ?? (meta?.audience === "CHILD" ? "easy" : "medium");
 
-  const [difficulty, setDifficulty] = useState<PracticeDifficulty>(
-    urlDifficulty ?? (meta?.audience === "CHILD" ? "easy" : "medium"),
+  // Build the URL-bootstrapped game once so tiles / options stay in sync with grading.
+  const [bootGame] = useState<PracticeGame | null>(() =>
+    urlDifficulty ? buildPracticeGame(slug, urlDifficulty) : null,
   );
+
+  const [difficulty, setDifficulty] = useState<PracticeDifficulty>(bootDifficulty);
   const [phase, setPhase] = useState<"lobby" | "play" | "results">(
     urlDifficulty ? "play" : "lobby",
   );
-  const [game, setGame] = useState<PracticeGame | null>(() =>
-    urlDifficulty ? buildPracticeGame(slug, urlDifficulty) : null,
-  );
+  const [game, setGame] = useState<PracticeGame | null>(() => bootGame);
   const [index, setIndex] = useState(0);
   const [ui, setUi] = useState<RoundUiState>(() =>
-    initialUiForRound(
-      urlDifficulty
-        ? buildPracticeGame(slug, urlDifficulty)?.rounds[0]
-        : undefined,
-    ),
+    initialUiForRound(bootGame?.rounds[0]),
   );
   const [lives, setLives] = useState(
-    PRACTICE_DIFFICULTY_CONFIG[
-      urlDifficulty ?? (meta?.audience === "CHILD" ? "easy" : "medium")
-    ].lives,
+    PRACTICE_DIFFICULTY_CONFIG[bootDifficulty].lives,
   );
   const [score, setScore] = useState(0);
   const [streak, setStreak] = useState(0);
@@ -100,6 +97,7 @@ export function PracticeArcade({ slug }: PracticeArcadeProps) {
   const [floatScores, setFloatScores] = useState<FloatScore[]>([]);
   const [pulse, setPulse] = useState<"ok" | "bad" | null>(null);
   const [scoreBoardTick, setScoreBoardTick] = useState(0);
+  const [lobbyError, setLobbyError] = useState<string | null>(null);
   const floatId = useRef(0);
   const resolving = useRef(false);
 
@@ -140,7 +138,13 @@ export function PracticeArcade({ slug }: PracticeArcadeProps) {
 
   function startRun(nextDifficulty: PracticeDifficulty) {
     const built = buildPracticeGame(slug, nextDifficulty);
-    if (!built) return;
+    if (!built || !built.rounds.length) {
+      setLobbyError(
+        "Not enough sentence examples for this game yet. Try another deck or difficulty.",
+      );
+      return;
+    }
+    setLobbyError(null);
     setDifficulty(nextDifficulty);
     setGame(built);
     setIndex(0);
@@ -307,6 +311,11 @@ export function PracticeArcade({ slug }: PracticeArcadeProps) {
               All games
             </Link>
           </div>
+          {lobbyError ? (
+            <p className="form-error" role="alert">
+              {lobbyError}
+            </p>
+          ) : null}
         </div>
       </div>
     );
@@ -314,9 +323,10 @@ export function PracticeArcade({ slug }: PracticeArcadeProps) {
 
   if (phase === "results" && game) {
     const stars = starRating(score, Math.max(maxPossible, score));
+    const playedRounds = game.rounds.slice(0, Math.min(index + 1, game.rounds.length));
     const reviewed = Array.from(
       new Map(
-        game.rounds.map((item) => [
+        playedRounds.map((item) => [
           item.entrySlug,
           { slug: item.entrySlug, headword: item.headword, english: item.english },
         ]),
@@ -340,7 +350,7 @@ export function PracticeArcade({ slug }: PracticeArcadeProps) {
           </div>
           <p className="arcade-results__score">{score} pts</p>
           <p className="section-lead">
-            {correctCount}/{total} sentences · best streak {bestStreak} ·{" "}
+            {correctCount}/{playedRounds.length} sentences · best streak {bestStreak} ·{" "}
             {PRACTICE_DIFFICULTY_CONFIG[difficulty].label}
           </p>
           {highScore != null ? (
@@ -457,7 +467,7 @@ export function PracticeArcade({ slug }: PracticeArcadeProps) {
 
       {config.secondsPerRound > 0 ? (
         <ArcadeTimer
-          key={`${index}-${game.difficulty}-${ui.checked ? "done" : "go"}`}
+          key={`${index}-${game.difficulty}`}
           seconds={config.secondsPerRound}
           paused={ui.checked}
           onTick={setSecondsLeft}

@@ -83,4 +83,23 @@ describe("practice games", () => {
       expect(hard!.rounds[0].options.length).toBe(5);
     }
   });
+
+  it("applies the tighter of game and difficulty token caps", () => {
+    const kidsTiles = buildPracticeGame("kids-everyday-tiles", "medium");
+    expect(kidsTiles).toBeTruthy();
+    for (const round of kidsTiles!.rounds) {
+      if (round.type !== "sentence-tiles") continue;
+      expect(round.correctTokens.length).toBeLessThanOrEqual(5);
+    }
+    const kidsCloze = buildPracticeGame("kids-everyday-cloze", "easy");
+    expect(kidsCloze).toBeTruthy();
+    for (const round of kidsCloze!.rounds) {
+      if (round.type !== "sentence-cloze") continue;
+      const tokenCount = round.promptSentence
+        .split(/\s+/)
+        .filter(Boolean).length;
+      // blank counts as a token; cap is 5 on easy for kids meta (min of 5,6)
+      expect(tokenCount).toBeLessThanOrEqual(5);
+    }
+  });
 });

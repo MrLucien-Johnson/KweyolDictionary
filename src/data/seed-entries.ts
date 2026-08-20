@@ -248,9 +248,9 @@ export const SEED_CHILD_ACTIVITIES = [
     }),
   },
   {
-    slug: "spelling-yon",
+    slug: "spelling-numbers-1",
     title: "Spell with letter tiles",
-    description: "Build the word yon with letter tiles.",
+    description: "Build the number word with letter tiles.",
     activityType: "spelling-tiles",
     ageBand: "CONFIDENT_10_12" as const,
     categoryKey: "numbers",
