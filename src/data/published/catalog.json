@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-02T19:43:14.273Z",
+  "generatedAt": "2026-08-20T12:13:15.717Z",
   "language": "Dominican Kwéyòl",
   "entries": [
     {
@@ -22593,9 +22593,9 @@
       "reviewStatus": "APPROVED"
     },
     {
-      "slug": "spelling-yon",
+      "slug": "spelling-numbers-1",
       "title": "Spell with letter tiles",
-      "description": "Build the word yon with letter tiles.",
+      "description": "Build the number word with letter tiles.",
       "activityType": "spelling-tiles",
       "ageBand": "CONFIDENT_10_12",
       "categoryKey": "numbers",

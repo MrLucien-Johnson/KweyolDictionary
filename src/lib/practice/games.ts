@@ -175,11 +175,13 @@ function buildClozeRound(
   entry: PublishedEntry,
   pool: PublishedEntry[],
   distractors: number,
+  maxTokens?: number,
 ): ClozeRound | null {
   const example = entry.examples[0];
   if (!example) return null;
   const tokens = tokenizeSentence(example.kweyolText);
   if (tokens.length < 2) return null;
+  if (maxTokens && tokens.length > maxTokens) return null;
   const index = findHeadwordTokenIndex(tokens, entry.kweyolWord);
   if (index < 0) return null;
 
@@ -262,13 +264,16 @@ export function buildPracticeGame(
   const pool = deckEntries(meta.deck);
   const rounds: PracticeRound[] = [];
   const roundLimit = Math.min(meta.maxRounds, config.roundCap);
-  const tokenLimit = config.maxTokens ?? meta.maxTokens;
+  const tokenLimit =
+    config.maxTokens != null && meta.maxTokens != null
+      ? Math.min(config.maxTokens, meta.maxTokens)
+      : (config.maxTokens ?? meta.maxTokens);
 
   for (const entry of shuffleInPlace([...pool])) {
     if (rounds.length >= roundLimit) break;
     const round =
       meta.activityType === "sentence-cloze"
-        ? buildClozeRound(entry, pool, config.distractors)
+        ? buildClozeRound(entry, pool, config.distractors, tokenLimit)
         : buildTilesRound(entry, tokenLimit);
     if (round) rounds.push(round);
   }

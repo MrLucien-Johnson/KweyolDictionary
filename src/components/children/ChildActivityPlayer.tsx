@@ -38,7 +38,6 @@ export function ChildActivityPlayer({
   const pairs = (config.pairs as MatchPair[]) ?? [];
   const cards = (config.cards as { id: string; face: string; match: string }[]) ?? [];
   const spellingTarget = String(config.target ?? "");
-  const tiles = (config.tiles as string[]) ?? [];
 
   // Shuffle once per activity config so option order never spoils the answer.
   const layout = useMemo(() => {
@@ -64,6 +63,9 @@ export function ChildActivityPlayer({
   const [selectedKweyol, setSelectedKweyol] = useState<string | null>(null);
   const [matched, setMatched] = useState<string[]>([]);
   const [built, setBuilt] = useState("");
+  const [remainingSpellingTiles, setRemainingSpellingTiles] = useState<string[]>(
+    () => spellingTiles,
+  );
 
   function complete(extraStars = 0) {
     let progress = markActivityComplete(loadChildProgress(), slug);
@@ -128,7 +130,12 @@ export function ChildActivityPlayer({
                 <button
                   key={pair.kweyol}
                   type="button"
-                  className="btn btn--soft btn--lg"
+                  className={
+                    selectedKweyol === pair.kweyol
+                      ? "btn btn--soft btn--lg is-selected"
+                      : "btn btn--soft btn--lg"
+                  }
+                  aria-pressed={selectedKweyol === pair.kweyol}
                   disabled={matched.includes(pair.kweyol)}
                   onClick={() => setSelectedKweyol(pair.kweyol)}
                 >
@@ -169,12 +176,17 @@ export function ChildActivityPlayer({
             {built || "…"}
           </p>
           <div className="tile-row">
-            {spellingTiles.map((tile, index) => (
+            {remainingSpellingTiles.map((tile, index) => (
               <button
-                key={`${tile}-${index}`}
+                key={`${tile}-${index}-${remainingSpellingTiles.length}`}
                 type="button"
                 className="btn btn--secondary btn--md"
-                onClick={() => setBuilt((value) => value + tile)}
+                onClick={() => {
+                  setBuilt((value) => value + tile);
+                  setRemainingSpellingTiles((current) =>
+                    current.filter((_, tileIndex) => tileIndex !== index),
+                  );
+                }}
               >
                 {tile}
               </button>
@@ -184,7 +196,10 @@ export function ChildActivityPlayer({
             <button
               type="button"
               className="btn btn--soft btn--md"
-              onClick={() => setBuilt("")}
+              onClick={() => {
+                setBuilt("");
+                setRemainingSpellingTiles([...spellingTiles]);
+              }}
             >
               Clear
             </button>

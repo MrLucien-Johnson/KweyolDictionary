@@ -35,16 +35,22 @@ Synthetic TTS and browser speech remain practice aids, not native authority.
    until the round is checked. Prompt uses `______` and must not still contain the
    answer token.
 2. **Tiles** — Tokens are shuffled (not already the correct sentence). Focus /
-   dictionary link stay hidden until checked.
+   dictionary link stay hidden until checked. URL-boot (`?difficulty=`) must build
+   the game **once** so UI tiles match grading tokens.
 3. **Hard mode** — English sentence hint stays hidden.
-4. **Child tap-picture** — Correct card is not always first; compare against a
+4. **Token caps** — Kids decks and difficulty `maxTokens` both apply (use the tighter
+   cap for cloze and tiles).
+5. **Child tap-picture** — Correct card is not always first; compare against a
    stable target id after shuffling display options.
-5. **Child match-pairs** — English column order differs from Kwéyòl column order.
-6. **Child spelling** — Letter tiles are shuffled; target word is not printed
-   above the tiles.
-7. **Quizzes** — Client payload must not expose `isCorrect` before submit.
-8. **Accessibility** — Audio / button labels must not embed the answer before
+6. **Child match-pairs** — English column order differs from Kwéyòl column order;
+   selected Kwéyòl shows a pressed/selected state.
+7. **Child spelling** — Letter tiles are shuffled and consumed; listing/description
+   must not print the target word; prefer neutral slugs.
+8. **Quizzes** — Client payload must not expose `isCorrect` before submit; after
+   submit wrong answers should show the correct answer text.
+9. **Accessibility** — Audio / button labels must not embed the answer before
    resolve (e.g. avoid `Play {headword}` until checked).
+10. **Timer** — Pausing after check must not remount/refill the timer bar.
 
 ## After-answer checklist
 

@@ -92,14 +92,19 @@ export function QuizPlayer({ slug, title, questions }: QuizPlayerProps) {
               }
               role="status"
             >
-              {result.results.find((item) => item.questionId === question.id)
-                ?.isCorrect
-                ? "Correct. "
-                : "Not quite. "}
-              {
-                result.results.find((item) => item.questionId === question.id)
-                  ?.explanation
-              }
+              {(() => {
+                const item = result.results.find(
+                  (row) => row.questionId === question.id,
+                );
+                if (!item) return null;
+                if (item.isCorrect) {
+                  return `Correct. ${item.explanation ?? ""}`.trim();
+                }
+                const answer = item.correctAnswerText
+                  ? ` Correct answer: ${item.correctAnswerText}.`
+                  : "";
+                return `Not quite.${answer} ${item.explanation ?? ""}`.trim();
+              })()}
             </p>
           ) : null}
         </fieldset>
