@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type ArcadeTimerProps = {
   seconds: number;
@@ -9,6 +9,10 @@ type ArcadeTimerProps = {
   onTimeout: () => void;
 };
 
+/**
+ * Counts down from `seconds`. Pausing freezes remaining time.
+ * Parent should remount (new `key`) when a new round starts.
+ */
 export function ArcadeTimer({
   seconds,
   paused = false,
@@ -16,16 +20,17 @@ export function ArcadeTimer({
   onTimeout,
 }: ArcadeTimerProps) {
   const [left, setLeft] = useState(seconds);
+  const leftRef = useRef(seconds);
   const ratio = seconds > 0 ? left / seconds : 0;
 
   useEffect(() => {
     if (paused || seconds <= 0) return;
-    let remaining = seconds;
     const timer = window.setInterval(() => {
-      remaining -= 1;
-      setLeft(remaining);
-      onTick?.(remaining);
-      if (remaining <= 0) {
+      const next = leftRef.current - 1;
+      leftRef.current = next;
+      setLeft(next);
+      onTick?.(next);
+      if (next <= 0) {
         window.clearInterval(timer);
         onTimeout();
       }

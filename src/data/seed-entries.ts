@@ -208,7 +208,7 @@ export const SEED_CHILD_ACTIVITIES = [
   {
     slug: "tap-picture-colours",
     title: "Tap the colour",
-    description: "Hear or read a colour word and choose the matching picture card.",
+    description: "Read a colour word and choose the matching colour card.",
     activityType: "tap-picture",
     ageBand: "EARLY_4_6" as const,
     categoryKey: "colours",
@@ -216,6 +216,7 @@ export const SEED_CHILD_ACTIVITIES = [
       prompts: [
         { slug: "wouj", label: "wouj", meaning: "red" },
         { slug: "ble", label: "blé", meaning: "blue" },
+        { slug: "jon", label: "jòn", meaning: "yellow" },
       ],
     }),
   },
@@ -230,13 +231,15 @@ export const SEED_CHILD_ACTIVITIES = [
       pairs: [
         { kweyol: "maman", english: "mother" },
         { kweyol: "papa", english: "father" },
+        { kweyol: "sè", english: "sister" },
+        { kweyol: "frè", english: "brother" },
       ],
     }),
   },
   {
     slug: "memory-food",
     title: "Food memory cards",
-    description: "Find matching Kwéyòl and English food cards.",
+    description: "Flip cards to match Kwéyòl food words with English.",
     activityType: "memory",
     ageBand: "GROWING_7_9" as const,
     categoryKey: "food",
@@ -244,6 +247,7 @@ export const SEED_CHILD_ACTIVITIES = [
       cards: [
         { id: "dlo", face: "dlo", match: "water" },
         { id: "manje", face: "manjé", match: "food" },
+        { id: "pwason", face: "pwason", match: "fish" },
       ],
     }),
   },
