@@ -44,3 +44,17 @@ export function collectClozeRounds(rounds: PracticeRound[]): ClozeRound[] {
 export function collectTilesRounds(rounds: PracticeRound[]): TilesRound[] {
   return rounds.filter((round): round is TilesRound => round.type === "sentence-tiles");
 }
+
+/**
+ * Mask whole-word overlaps of the Kwéyòl answer inside the English hint
+ * (e.g. "The mango is sweet." → "The ______ is sweet.").
+ */
+export function maskAnswerInEnglishHint(
+  hint: string,
+  answer: string,
+): string {
+  const trimmed = answer.trim();
+  if (!hint || !trimmed) return hint;
+  const escaped = trimmed.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  return hint.replace(new RegExp(`\\b${escaped}\\b`, "gi"), "______");
+}

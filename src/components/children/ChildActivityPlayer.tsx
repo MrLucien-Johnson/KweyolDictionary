@@ -64,6 +64,7 @@ export function ChildActivityPlayer({
   const pairs = (config.pairs as MatchPair[]) ?? [];
   const cards = (config.cards as MemoryCardSeed[]) ?? [];
   const spellingTarget = String(config.target ?? "");
+  const spellingMeaning = String(config.meaning ?? "").trim();
 
   const layout = useMemo(() => {
     const nextPrompts = (config.prompts as PicturePrompt[]) ?? [];
@@ -237,6 +238,7 @@ export function ChildActivityPlayer({
                   className="btn btn--soft btn--lg"
                   disabled={matched.includes(pair.kweyol)}
                   onClick={() => {
+                    if (!selectedKweyol) return;
                     if (selectedKweyol === pair.kweyol) {
                       const next = [...matched, pair.kweyol];
                       setMatched(next);
@@ -258,7 +260,11 @@ export function ChildActivityPlayer({
 
       {activityType === "spelling-tiles" && (
         <>
-          <p className="section-lead">Build the word with letter tiles.</p>
+          <p className="section-lead">
+            {spellingMeaning
+              ? <>Spell the Kwéyòl word for <strong>{spellingMeaning}</strong>.</>
+              : "Build the word with letter tiles."}
+          </p>
           <p className="spelling-built" aria-live="polite">
             {built || "…"}
           </p>

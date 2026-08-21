@@ -25,6 +25,7 @@ import {
   savePracticeHighScore,
 } from "@/lib/practice/high-scores";
 import { joinTokens } from "@/lib/practice/sentence";
+import { maskAnswerInEnglishHint } from "@/lib/practice/anti-spoiler";
 import { ArcadeTimer } from "@/components/practice/ArcadeTimer";
 import { addFavouriteSlugs } from "@/lib/favourites/storage";
 
@@ -213,6 +214,9 @@ export function PracticeArcade({ slug }: PracticeArcadeProps) {
     clearAdvanceTimer();
     resolving.current = false;
     setArcadePhase("lobby");
+    const url = new URL(window.location.href);
+    url.searchParams.delete("difficulty");
+    window.history.replaceState({}, "", url.toString());
   }
 
   function resolveRound(ok: boolean, timedOut = false) {
@@ -269,8 +273,13 @@ export function PracticeArcade({ slug }: PracticeArcadeProps) {
   }
 
   function onClozePick(option: string) {
-    if (!round || round.type !== "sentence-cloze" || ui.checked) return;
-    setUi((current) => ({ ...current, selected: option }));
+    if (!round || round.type !== "sentence-cloze" || ui.checked || resolving.current) {
+      return;
+    }
+    setUi((current) => {
+      if (current.checked) return current;
+      return { ...current, selected: option };
+    });
     resolveRound(option === round.correctOption);
   }
 
@@ -284,7 +293,14 @@ export function PracticeArcade({ slug }: PracticeArcadeProps) {
   }
 
   function checkTilesManually() {
-    if (!round || round.type !== "sentence-tiles" || ui.checked) return;
+    if (
+      !round ||
+      round.type !== "sentence-tiles" ||
+      ui.checked ||
+      resolving.current
+    ) {
+      return;
+    }
     if (ui.tilePicks.length !== round.correctTokens.length) return;
     resolveRound(joinTokens(ui.tilePicks) === joinTokens(round.correctTokens));
   }
@@ -559,7 +575,12 @@ export function PracticeArcade({ slug }: PracticeArcadeProps) {
           <>
             <p className="arcade-prompt">{currentRound.promptSentence}</p>
             {config.showEnglishHint ? (
-              <p className="arcade-hint">{currentRound.englishHint}</p>
+              <p className="arcade-hint">
+                {maskAnswerInEnglishHint(
+                  currentRound.englishHint,
+                  currentRound.correctOption,
+                )}
+              </p>
             ) : (
               <p className="arcade-hint arcade-hint--hidden">English hint hidden on Hard</p>
             )}
@@ -593,7 +614,12 @@ export function PracticeArcade({ slug }: PracticeArcadeProps) {
         ) : (
           <>
             {config.showEnglishHint ? (
-              <p className="arcade-hint">{currentRound.englishHint}</p>
+              <p className="arcade-hint">
+                {maskAnswerInEnglishHint(
+                  currentRound.englishHint,
+                  currentRound.headword,
+                )}
+              </p>
             ) : (
               <p className="arcade-hint arcade-hint--hidden">English hint hidden on Hard</p>
             )}
@@ -642,8 +668,11 @@ export function PracticeArcade({ slug }: PracticeArcadeProps) {
                   type="button"
                   className="btn btn--soft btn--md"
                   onClick={() => {
+                    if (resolving.current) return;
                     setUi((current) => {
-                      if (!current.tilePicks.length) return current;
+                      if (current.checked || !current.tilePicks.length) {
+                        return current;
+                      }
                       const last = current.tilePicks[current.tilePicks.length - 1]!;
                       return {
                         ...current,
@@ -664,7 +693,12 @@ export function PracticeArcade({ slug }: PracticeArcadeProps) {
                 <button
                   type="button"
                   className="btn btn--soft btn--md"
-                  onClick={() => setUi(initialUiForRound(currentRound))}
+                  onClick={() => {
+                    if (resolving.current) return;
+                    setUi((current) =>
+                      current.checked ? current : initialUiForRound(currentRound),
+                    );
+                  }}
                 >
                   Reset
                 </button>

@@ -21,11 +21,17 @@ export function ArcadeTimer({
 }: ArcadeTimerProps) {
   const [left, setLeft] = useState(seconds);
   const leftRef = useRef(seconds);
+  const pausedRef = useRef(paused);
   const ratio = seconds > 0 ? left / seconds : 0;
+
+  useEffect(() => {
+    pausedRef.current = paused;
+  }, [paused]);
 
   useEffect(() => {
     if (paused || seconds <= 0) return;
     const timer = window.setInterval(() => {
+      if (pausedRef.current) return;
       const next = leftRef.current - 1;
       leftRef.current = next;
       setLeft(next);

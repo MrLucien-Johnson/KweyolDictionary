@@ -70,13 +70,15 @@ export function QuizPlayer({ slug, title, questions }: QuizPlayerProps) {
                   name={question.id}
                   value={answer.id}
                   required
+                  disabled={Boolean(result)}
                   checked={choices[question.id] === answer.id}
-                  onChange={() =>
+                  onChange={() => {
+                    if (result) return;
                     setChoices((current) => ({
                       ...current,
                       [question.id]: answer.id,
-                    }))
-                  }
+                    }));
+                  }}
                 />
                 <span>{answer.answerText}</span>
               </label>

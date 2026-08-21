@@ -62,9 +62,13 @@ Synthetic TTS and browser speech remain practice aids, not native authority.
    until the learner taps **Check sentence**.
 6. Child memory is a flip-to-match game (not an open answer key list).
 7. Colour tap activities use distinct swatches (not identical placeholders).
-8. Quit / lobby must cancel pending round-advance timers (no surprise results jump).
+8. Quit / lobby must cancel pending round-advance timers (no surprise results jump)
+   and clear `?difficulty=` so refresh does not auto-start.
 9. URL-boot timed runs initialize `secondsLeft` so early answers still get speed bonus.
-10. Spelling Check must not farm stars on repeat presses after success.
+10. Spelling Check must not farm stars on repeat presses after success; show an English
+    meaning prompt, never the Kwéyòl target before success.
+11. English hints must mask whole-word cognates of the answer (e.g. mango → ______).
+12. Quiz radios lock after submit; match English taps without a Kwéyòl selection do nothing.
 
 ## Continuous fix loop (agent prompt)
 

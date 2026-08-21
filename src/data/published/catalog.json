@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-20T12:15:25.250Z",
+  "generatedAt": "2026-08-21T13:51:39.540Z",
   "language": "Dominican Kwéyòl",
   "entries": [
     {
@@ -22599,7 +22599,7 @@
       "activityType": "spelling-tiles",
       "ageBand": "CONFIDENT_10_12",
       "categoryKey": "numbers",
-      "configJson": "{\"target\":\"yon\",\"tiles\":[\"y\",\"o\",\"n\",\"a\",\"e\"]}",
+      "configJson": "{\"target\":\"yon\",\"meaning\":\"one\",\"tiles\":[\"y\",\"o\",\"n\",\"a\",\"e\"]}",
       "reviewStatus": "APPROVED"
     }
   ]
