@@ -5,6 +5,7 @@ import {
   clozePromptLeaksAnswer,
   collectClozeRounds,
   collectTilesRounds,
+  maskAnswerInEnglishHint,
   tilesStillInCorrectOrder,
 } from "@/lib/practice/anti-spoiler";
 import {
@@ -53,5 +54,14 @@ describe("practice anti-spoiler invariants", () => {
     expect(hard).toBeTruthy();
     // Config gate is the product rule; UI must honour showEnglishHint.
     expect(hard!.difficulty).toBe("hard");
+  });
+
+  it("masks cognate answers inside English hints", () => {
+    expect(maskAnswerInEnglishHint("The mango is sweet.", "mango")).toBe(
+      "The ______ is sweet.",
+    );
+    expect(maskAnswerInEnglishHint("Hello everyone.", "bonjou")).toBe(
+      "Hello everyone.",
+    );
   });
 });

@@ -260,6 +260,7 @@ export const SEED_CHILD_ACTIVITIES = [
     categoryKey: "numbers",
     configJson: JSON.stringify({
       target: "yon",
+      meaning: "one",
       tiles: ["y", "o", "n", "a", "e"],
     }),
   },
