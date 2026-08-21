@@ -61,6 +61,30 @@ export function shuffleInPlace<T>(items: T[], random = Math.random): T[] {
   return items;
 }
 
+/**
+ * Shuffle `items` until their key sequence differs from `referenceKeys`,
+ * or until attempts are exhausted (small lists may still collide).
+ */
+export function shuffleUntilDifferentOrder<T>(
+  items: T[],
+  referenceKeys: string[],
+  keyOf: (item: T) => string,
+  random = Math.random,
+  attempts = 12,
+): T[] {
+  if (items.length < 2) return [...items];
+  let shuffled = shuffleInPlace([...items], random);
+  let tries = 0;
+  while (
+    tries < attempts &&
+    shuffled.every((item, index) => keyOf(item) === referenceKeys[index])
+  ) {
+    shuffled = shuffleInPlace([...items], random);
+    tries += 1;
+  }
+  return shuffled;
+}
+
 export function pickDistractors(
   correct: string,
   pool: string[],

@@ -1,5 +1,6 @@
 import catalogJson from "@/data/published/catalog.json";
 import { normalizeSearchText } from "@/lib/search/normalize";
+import { shuffleInPlace } from "@/lib/practice/sentence";
 import type { PublishedCatalog, PublishedEntry } from "@/lib/content/types";
 
 const catalog = catalogJson as PublishedCatalog;
@@ -196,7 +197,7 @@ export function getQuiz(slug: string) {
   return catalog.quizzes.find((quiz) => quiz.slug === slug);
 }
 
-/** Public play payload omits correctness flags. */
+/** Public play payload omits correctness flags and shuffles answer order. */
 export function getQuizForClient(slug: string) {
   const quiz = getQuiz(slug);
   if (!quiz) return null;
@@ -208,10 +209,12 @@ export function getQuizForClient(slug: string) {
       id: question.id,
       prompt: question.prompt,
       questionType: question.questionType,
-      answers: question.answers.map((answer) => ({
-        id: answer.id,
-        answerText: answer.answerText,
-      })),
+      answers: shuffleInPlace(
+        question.answers.map((answer) => ({
+          id: answer.id,
+          answerText: answer.answerText,
+        })),
+      ),
     })),
   };
 }
